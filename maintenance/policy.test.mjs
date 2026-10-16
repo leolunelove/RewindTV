@@ -6,6 +6,8 @@ test('oldest/unverified sources first; disabled entries and duplicate IDs exclud
 test('widespread runner failure cannot turn into mass source disablement',()=>{
  assert.equal(environmentBlocked(Array.from({length:10},()=>({status:'browser-identity'}))),true);
  assert.equal(environmentBlocked([{status:'timeout'}]),false);
+ assert.equal(environmentBlocked(Array.from({length:10},()=>({status:'unavailable',code:150}))),true);
+ assert.equal(environmentBlocked([{status:'unavailable',code:150},...Array.from({length:9},()=>({status:'playing'}))]),false);
 });
 test('sampled playback status records exact coverage and never mutates catalogue',()=>{
  const old={checked:{a:{consecutiveFailures:2}}};const next=update(old,[{id:'a',status:'playing',start:true,tail:true}],'2026-10-17');

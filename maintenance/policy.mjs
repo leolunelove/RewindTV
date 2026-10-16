@@ -4,7 +4,7 @@ export function plan(videos,state,limit=250){
 }
 export function environmentBlocked(results){
   if(results.length<10)return false;
-  return results.filter(r=>['browser-identity','timeout','network','browser-error'].includes(r.status)).length/results.length>=.3;
+  return results.filter(r=>['browser-identity','timeout','network','browser-error'].includes(r.status)).length/results.length>=.3 || results.filter(r=>r.status==='unavailable'&&[101,150].includes(r.code)).length/results.length>=.8;
 }
 export function update(state,results,at){
   const next=structuredClone(state);next.checked??={};
