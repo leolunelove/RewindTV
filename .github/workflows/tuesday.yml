@@ -1,0 +1,47 @@
+name: Rewind Tuesday checks
+on:
+  workflow_dispatch:
+    inputs:
+      batch_limit:
+        description: Number of sources to sample (maximum 250)
+        default: '10'
+        required: true
+  schedule:
+    - cron: '0 3 * * 2'
+      timezone: Europe/Gibraltar
+permissions:
+  contents: write
+concurrency:
+  group: rewind-maintenance
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+      - name: Probe source playback
+        id: playback
+        continue-on-error: true
+        env:
+          BATCH_LIMIT: ${{ inputs.batch_limit || '250' }}
+        run: npm run check
+      - name: Save coverage checkpoint and report
+        if: always()
+        run: |
+          git config user.name 'Rewind maintenance'
+          git config user.email 'rewind-maintenance@users.noreply.github.com'
+          git add data/state.json reports/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record Tuesday video checks'
+            git push
+          fi
+      - name: Flag findings for notification
+        if: steps.playback.outcome == 'failure'
+        run: exit 1
