@@ -76,3 +76,12 @@ html,body,#rewind-tv,.club-player,.screen,.tv-on .screen{background:#010204}
 @media(max-width:700px){#ambient-spill{filter:blur(45px);mask-image:radial-gradient(ellipse 42% 36% at center,transparent 50%,#000 100%)}}
 @media(prefers-reduced-motion:reduce){#ambient-spill{transition:none}}
 .audio-level{border-top:1px solid #ffffff22;padding:10px 0}.audio-level label{border:0!important;padding:8px 0!important;font-size:12px!important}.audio-level input[type=range]{width:100%;height:24px}.audio-level small{display:block;color:#95a3bd;font:10px/1.5 monospace}.audio-level output{color:#eff661}
+
+/* A remote, not a search form: give the channel list the room. */
+#rewind-tv .listings .listing-head{margin-bottom:12px}
+#rewind-tv .listings .listing-foot{padding-top:10px;font:8px/1.6 monospace;color:#a9bde7}
+#rewind-tv .guide .direct-channels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:calc(82dvh - 140px);overflow:auto;gap:4px 12px;scrollbar-width:thin}
+#rewind-tv .guide .direct-channels button{min-height:56px}
+#rewind-tv .guide #library-count{margin:8px 0 14px}
+@media(max-width:700px){#rewind-tv .guide .direct-channels{grid-template-columns:1fr;max-height:calc(82dvh - 140px)}}
+@media(max-height:450px){#rewind-tv .guide .direct-channels{grid-template-columns:repeat(3,minmax(0,1fr));max-height:calc(84dvh - 100px)}#rewind-tv .guide .direct-channels button{min-height:48px}}
