@@ -269,7 +269,7 @@
     if(e.key==='Escape'){clearNumberEntry();return;}
     if($('.schedule-overlay').open){if(key==='s'){e.preventDefault();$('.schedule-overlay').close();}return;}
     if($('.tv-settings').open)return;
-    if($('.guide').open){if(key==='g'||key==='c'){e.preventDefault();closeGuide();}return;}
+    if($('.guide').open){if(key==='g'||key==='c'){e.preventDefault();closeGuide();return;}if(!/^\d$/.test(e.key)&&!['ArrowLeft','ArrowRight'].includes(e.key))return;closeGuide(false);}
     if(e.repeat&&!['ArrowUp','ArrowDown'].includes(e.key))return;
     if(e.target.closest('button,a')&&(e.key===' '||(e.key==='Enter'&&!numberEntry)))return;
     if(/^\d$/.test(e.key)){
