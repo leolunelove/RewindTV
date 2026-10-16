@@ -1,0 +1,92 @@
+{
+  "at": "2026-10-16T22:47:59.446Z",
+  "runnerRegion": "Not verified; single cloud runner",
+  "catalogueSize": 3472,
+  "planned": 10,
+  "checked": 10,
+  "passed": 0,
+  "environmentBlocked": false,
+  "worldwideVerified": false,
+  "results": [
+    {
+      "id": "1O3jokn0PJg",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "Neighbours From Hell👽 My Parents Are Aliens | Kids Telly"
+    },
+    {
+      "id": "VRdFVV2GKR0",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "The House Swarming Party 🏠 My Parents Are Aliens — full episodes"
+    },
+    {
+      "id": "0Y8OmC2LWkc",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "The Flash Family Battle | My Parents Are Aliens | Kids Telly"
+    },
+    {
+      "id": "glA-d8uAZJ0",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "Round The Twist | S1E13 | Lighthouse Blues"
+    },
+    {
+      "id": "opRlTl62anI",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "Round The Twist | S1E4 | The Cabbage Patch Fib"
+    },
+    {
+      "id": "BCOEJ5yDm2w",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "Round The Twist | S4E3 | Linda Godiva"
+    },
+    {
+      "id": "uIGQzMpWWzY",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "Round The Twist | S4E8 | The Princess And The Pete"
+    },
+    {
+      "id": "Sq1yLiq3mFs",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "Round The Twist | S2E4 | Pink Bow Tie"
+    },
+    {
+      "id": "pejI2CCJa9I",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "The Eternal Quadrangle | The Genie From Down Under - Season 1 Episode 7"
+    },
+    {
+      "id": "1s5z2tHA6yA",
+      "status": "unavailable",
+      "code": 150,
+      "start": false,
+      "tail": false,
+      "title": "Full Episode: The Genie From Down Under - Comedy TV Series"
+    }
+  ]
+}
