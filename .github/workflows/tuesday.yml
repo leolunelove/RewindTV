@@ -30,6 +30,7 @@ jobs:
         id: playback
         continue-on-error: true
         env:
+          PROBE_URL: https://leolunelove.github.io/rewind-tv/health-probe.html
           BATCH_LIMIT: ${{ inputs.batch_limit || '250' }}
         run: npm run check
       - name: Save coverage checkpoint and report

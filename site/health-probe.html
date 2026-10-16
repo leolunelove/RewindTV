@@ -1,0 +1,27 @@
+<!doctype html><meta charset="utf-8"><meta name="referrer" content="strict-origin-when-cross-origin"><title>Rewind cloud playback probe</title><div id="player"></div><video id="native" muted playsinline></video><pre id="result"></pre>
+<script>
+let yt,apiReady,currentState=null,currentError=null;const ready=new Promise(r=>apiReady=r);
+window.onYouTubeIframeAPIReady=()=>{yt=new YT.Player('player',{playerVars:{origin:location.origin,playsinline:1},events:{onReady:()=>{yt.mute();apiReady()},onStateChange:e=>currentState?.(e),onError:e=>currentError?.(e)}})};
+window.probe=async v=>{
+ const native=document.querySelector('video');let timer,phase='start',start=false,settled=false;
+ yt?.stopVideo();native.pause();native.removeAttribute('src');native.load();
+ if(v.provider!=='archive')await Promise.race([ready,new Promise((_,j)=>setTimeout(()=>j(Error('API load timeout')),15000))]);
+ return new Promise(resolve=>{
+  function finish(status,code){if(settled)return;settled=true;clearTimeout(timer);currentState=currentError=null;yt?.stopVideo();native.pause();native.onplaying=native.onerror=null;document.querySelector('#result').textContent=JSON.stringify({id:v.id,status,code,start,tail:phase==='done'});resolve({id:v.id,status,code,start,tail:phase==='done'});}
+  function playing(time,duration,seek){
+   if(phase==='start'){start=true;phase='tail';seek(Math.max(0,duration-25));}
+   else if(time>=duration-35){phase='done';finish('playing');}
+  }
+  timer=setTimeout(()=>finish('timeout'),25000);
+  if(v.provider==='archive'){
+   native.onplaying=()=>playing(native.currentTime,native.duration,t=>native.currentTime=t);
+   native.onerror=()=>finish(native.error?.code===2?'network':'unavailable',native.error?.code);
+   native.src=v.mediaUrl;native.play().catch(()=>finish('browser-error'));
+  }else{
+   currentState=e=>{if(e.data===1&&yt.getVideoData().video_id===v.id)playing(yt.getCurrentTime(),yt.getDuration(),t=>yt.seekTo(t,true))};
+   currentError=e=>finish(e.data===153?'browser-identity':'unavailable',e.data);
+   yt.loadVideoById(v.id);
+  }
+ });
+};
+</script><script src="https://www.youtube.com/iframe_api"></script>

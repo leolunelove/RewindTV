@@ -11,7 +11,7 @@ await new Promise(r=>server.listen(8123,'127.0.0.1',r));
 const browser=await chromium.launch({headless:true});let cursor=0;const results=[];const deadline=Date.now()+16*60*1000;
 try{
  await Promise.all(Array.from({length:3},async()=>{
-  const page=await browser.newPage();await page.goto('http://127.0.0.1:8123/');
+  const page=await browser.newPage();await page.goto(process.env.PROBE_URL||'http://127.0.0.1:8123/');
   while(cursor<queue.length&&Date.now()<deadline){
    const v=queue[cursor++];let result;
    try{result=await page.evaluate(v=>window.probe(v),v)}catch(e){result={id:v.id,status:'browser-error',detail:String(e).slice(0,200)}}
