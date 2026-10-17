@@ -1,4 +1,4 @@
-import {loadLibrary} from './library.mjs?v=deepmusic1';
+import {loadLibrary} from './library.mjs?v=deepcreators1';
 import {buildShowIndex,normalise} from './show-library.mjs';
 const $=s=>document.querySelector(s),embedded=new URLSearchParams(location.search).has('overlay');document.documentElement.classList.toggle('embedded',embedded);
 let shows=[],filtered=[],limit=48,sort='mix',selected=null;
