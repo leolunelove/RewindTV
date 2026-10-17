@@ -14,7 +14,7 @@ export function withGameshowAdditions(base,extra){
 }
 export async function loadLibrary(){
  const response=await fetch('catalogue.json',{cache:'no-cache'});if(!response.ok)throw Error('Catalogue unavailable');let base=await response.json();
- const packs=await Promise.allSettled(['gameshow-additions.json','expansion.json'].map(async path=>{const r=await fetch(path,{cache:'no-cache'});if(!r.ok)throw Error('Unavailable '+path);return r.json();}));
+ const packs=await Promise.allSettled(['gameshow-additions.json','expansion.json','music-creators.json'].map(async path=>{const r=await fetch(path,{cache:'no-cache'});if(!r.ok)throw Error('Unavailable '+path);return r.json();}));
  for(const [i,result]of packs.entries()){if(result.status==='fulfilled'){try{base=i===0?withGameshowAdditions(base,result.value):withExpansion(base,result.value);}catch(error){console.warn('Library supplement unavailable; using verified base.',error);}}else console.warn('Library supplement unavailable; using verified base.',result.reason);}
  return base;
 }
