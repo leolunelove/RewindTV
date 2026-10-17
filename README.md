@@ -6,6 +6,8 @@ A fullscreen nostalgia TV player with a shared schedule, channel surfing, CRT ef
 
 GitHub Pages publishes only `site/`. The Python manager, private inbox, backups and local runtime are deliberately excluded. The manager remains on the owner’s Mac; local manager edits need an explicit catalogue sync to this repository.
 
+Classic quiz additions live in `site/gameshow-additions.json`; `site/library.mjs` merges them into the player, guide and maintenance catalogue without changing the first ten channels. Base entries take precedence, including disabled episodes.
+
 ## Tuesday maintenance
 
 GitHub Actions runs Tuesdays at 03:00 Europe/Gibraltar, independently of the owner’s computer. Each run samples up to 250 uploads, rotating by oldest check, with a 20-minute job limit. Manual runs default to 10 uploads. Reports and coverage are committed to `reports/latest.json` and `data/state.json`.

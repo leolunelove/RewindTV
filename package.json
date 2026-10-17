@@ -2,6 +2,11 @@
   "name": "rewind-cloud-maintenance",
   "private": true,
   "type": "module",
-  "scripts": {"check": "node maintenance/check.mjs", "test": "node --test maintenance/policy.test.mjs"},
-  "dependencies": {"playwright": "1.56.1"}
+  "scripts": {
+    "check": "node maintenance/check.mjs",
+    "test": "node --test maintenance/*.test.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.56.1"
+  }
 }
