@@ -1,0 +1,7 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {buildShowIndex,findProgramme,isBrowsable} from '../site/show-library.mjs';
+const ep=(id,title,extra={})=>({id,title,series:'Mission Hill',kind:'full episode',duration:1200,enabled:true,...extra});
+const a=ep('a','Mission Hill Episode 7'),b=ep('b','Mission Hill Episode 2'),blocked=ep('blocked','Blocked',{regionRestriction:{blocked:['GB']}}),disabled=ep('disabled','Disabled',{enabled:false});
+const cat={channels:[{key:'one',name:'One',number:1,videos:[a,b,blocked,disabled]},{key:'two',name:'Two',number:2,videos:[a,ep('film','A film',{kind:'film',series:'Classic Cinema'})]}]};
+test('one show across two channels has unique episodes in episode order and both channel credits',()=>{const show=buildShowIndex(cat).find(s=>s.title==='Mission Hill');assert.deepEqual(show.episodes.map(v=>v.id),['b','a']);assert.equal(show.channels.length,2);assert.equal(show.hours,2/3);assert.equal(buildShowIndex(cat).filter(s=>s.kind==='film').length,1);});
+test('play requests must belong to a real playable channel and cannot resurrect disabled or region blocked uploads',()=>{assert.equal(findProgramme(cat,'one','disabled'),null);assert.equal(findProgramme(cat,'one','blocked'),null);assert.equal(findProgramme(cat,'one','film'),null);assert.equal(findProgramme(cat,'invented','a'),null);assert.deepEqual(findProgramme(cat,'one','a').queue.map(v=>v.id),['b','a']);assert.equal(isBrowsable(ep('ad','Ad',{kind:'advert'})),false);});

@@ -19,3 +19,9 @@ No downloaded TV or film files are hosted here; playback uses third-party embeds
 ## Validation
 
 `npm install --ignore-scripts` then `npm test`. Cloud playback also needs `npx playwright install --with-deps chromium`.
+
+## Browse and After Dark
+
+The player now has 18 channels. Browse Shows (keyboard B) opens over the playing TV, groups shows across channels and lets viewers choose an episode from the beginning. On-demand playback continues through the available show collection; Join Live returns to channel surfing.
+
+`site/expansion.json` supplies the After Dark channel and broader library additions through `withExpansion` in `site/library.mjs`. Shared programme IDs are assigned to channels without counting crossover as new content; recorded region exclusions remain off-air. The Tuesday checker reads both supplements. New episodes and films were sampled at the beginning and near the end locally; this does not certify complete viewing or worldwide future playback.
