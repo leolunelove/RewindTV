@@ -222,7 +222,7 @@
   function initPlayer(){
     if(player)return;
     player=new YT.Player('video-player',{width:'100%',height:'100%',videoId:video().id,playerVars:{playsinline:1,controls:0,fs:0,rel:0,origin:location.origin},events:{
-      onReady:()=>{ready=true;clearTimeout(apiTimer);const f=currentPlayer().getIframe();f.title='Rewind TV video player';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(power){if(!active)selectLive();loadActive();}},
+      onReady:e=>{if(e.target!==player)return;ready=true;clearTimeout(apiTimer);const f=currentPlayer().getIframe();f.title='Rewind TV video player';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(power){if(!active)selectLive();loadActive();}},
       onStateChange:e=>{
         if(!power||!active||e.target.getVideoData?.()?.video_id!==active.video.id)return;
         if(e.data===1){stopWatch();paused=false;applyAudio(true);setStatus(active.mode==='live'?(channels[channel].mode==='shuffle'?'SHUFFLE · Continuous playback, no fixed timetable.':'LIVE · Channels keep broadcasting while you’re away.'):active.mode==='fallback'?'ALT SIGNAL · This upload replaces an unavailable broadcast.':active.mode==='ondemand'?'ON DEMAND · This show continues in episode order. JOIN LIVE to return to the channel.':'REPLAY · Join live whenever you like.');}
@@ -272,7 +272,14 @@
   $('#skip-video').onclick=()=>{if(!power)power=true;advance(true);if(!ready&&active.video.provider!=='archive')ensurePlayer();};
   $('#restart-show').onclick=()=>{if(active){active={...active,offset:0,mode:active.mode==='ondemand'?'ondemand':'replay'};loadActive();}};
   $('#join-live').onclick=joinLive;
-  $('#retry-video').onclick=()=>{failed.clear();try{localStorage.removeItem('rewind-unavailable')}catch{}if(!power)power=true;selectLive();if(!ready&&!window.YT?.Player){apiLoading=false;$('#youtube-api')?.remove();}ensurePlayer();};
+  $('#retry-video').onclick=()=>{
+    failed.clear();try{localStorage.removeItem('rewind-unavailable')}catch{}power=true;
+    if(active?.mode==='ondemand')active={...active,offset:0};else selectLive();
+    if(!ready&&player){try{player.destroy();}catch{}player=null;let placeholder=$('#video-player');if(!placeholder){placeholder=document.createElement('div');placeholder.id='video-player';$('.screen').prepend(placeholder);}}
+    if(!ready&&!window.YT?.Player){apiLoading=false;$('#youtube-api')?.remove();}
+    clearTimeout(apiTimer);apiTimer=setTimeout(()=>{if(!ready)setStatus('YouTube is taking a while to load. Check your connection or retry.',true);},18000);
+    setStatus('RETRYING · '+active.video.title);ensurePlayer();
+  };
   let numberEntry='',numberTimer,lastAudibleVolume=volume||40;
   function clearNumberEntry(){clearTimeout(numberTimer);numberEntry='';$('#number-entry').hidden=true;}
   function commitNumber(){const value=Number(numberEntry);clearNumberEntry();if(Number.isInteger(value)&&value>=1&&value<=channels.length)tune(value-1);else setStatus('Choose a channel from 1 to '+channels.length+'.');}
