@@ -1,6 +1,8 @@
 export const KIDS_PACKS=["kids-cbbc.json", "kids-disney.json", "kids-nick.json", "kids-toons.json"];
 export const CREATOR_PACKS=["classic-gmm.json", "classic-rhett.json", "afterdark-frank.json", "afterdark-idubbbz.json", "more-tv-films.json"];
 export const MUSIC_PACKS=["music-surf.json", "music-proximity.json", "music-sheep.json", "music-ncs.json"];
+export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS];
+export const SOURCE_FILES=['catalogue.json','gameshow-additions.json',...EXPANSION_PACKS];
 const QUIZ_SERIES=new Set(['Catchphrase','Family Fortunes','The Weakest Link','Who Wants to Be a Millionaire']);
 export function withGameshowAdditions(base,extra){
  if(extra?.channelKey!=='rewind-gameshows'||!Array.isArray(extra.videos))throw Error('Invalid gameshow additions');
@@ -15,11 +17,18 @@ export function withGameshowAdditions(base,extra){
  const unique=[...new Map(channels.flatMap(c=>c.videos).filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
  return {...base,channels,libraryRevision:base.libraryRevision+'+'+extra.revision,libraryStats:{...base.libraryStats,channels:channels.length,uploads:unique.length,hours:Math.round(unique.reduce((n,v)=>n+v.duration,0)/360)/10,fullLengthUploads:unique.filter(v=>v.duration>=600).length}};
 }
+let libraryPromise;
+async function fetchJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!r.ok)throw Error('Unavailable '+path);return r.json();}
 export async function loadLibrary(){
- const response=await fetch('catalogue.json',{cache:'no-cache'});if(!response.ok)throw Error('Catalogue unavailable');let base=await response.json();
- const packs=await Promise.allSettled(['gameshow-additions.json','expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS].map(async path=>{const r=await fetch(path,{cache:'no-cache'});if(!r.ok)throw Error('Unavailable '+path);return r.json();}));
- for(const [i,result]of packs.entries()){if(result.status==='fulfilled'){try{base=i===0?withGameshowAdditions(base,result.value):withExpansion(base,result.value);}catch(error){console.warn('Library supplement unavailable; using verified base.',error);}}else console.warn('Library supplement unavailable; using verified base.',result.reason);}
- return base;
+ if(typeof window!=='undefined'&&window.parent!==window){try{const shared=await window.parent.RewindLibrary?.();if(shared)return {...shared,channels:shared.channels.map(c=>({...c}))};}catch{}}
+ return libraryPromise??=(async()=>{
+  try{const {hydrateLibrary}=await import('./runtime-library.mjs');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
+  catch(error){console.warn('Using source catalogue fallback.',error);}
+  const paths=SOURCE_FILES;
+  const results=await Promise.allSettled(paths.map(fetchJSON));if(results[0].status!=='fulfilled')throw results[0].reason;let base=results[0].value;
+  for(let i=1;i<results.length;i++){const result=results[i];if(result.status==='fulfilled'){try{base=i===1?withGameshowAdditions(base,result.value):withExpansion(base,result.value);}catch(error){console.warn('Library supplement unavailable; using verified base.',error);}}else console.warn('Library supplement unavailable; using verified base.',result.reason);}
+  return base;
+ })();
 }
 
 export function withExpansion(base,pack){
