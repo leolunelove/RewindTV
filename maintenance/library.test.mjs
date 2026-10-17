@@ -4,7 +4,7 @@ const base=JSON.parse(fs.readFileSync(new URL('../site/catalogue.json',import.me
 test('verified quiz additions reach channel 15 without changing scheduled flagships or enabling kids gameshows',()=>{
  const merged=withGameshowAdditions(base,extra),channel=merged.channels.find(c=>c.key==='rewind-gameshows');
  assert.deepEqual(merged.channels.slice(0,10),base.channels.slice(0,10));assert.equal(merged.channels.length,17);
- const live=channel.videos.filter(v=>v.enabled!==false);assert.equal(live.length,122);assert.equal(new Set(live.map(v=>v.series)).size,7);
+ const live=channel.videos.filter(v=>v.enabled!==false);assert.equal(live.length,147);assert.equal(new Set(live.map(v=>v.series)).size,7);
  assert(!live.some(v=>['Jungle Run','Fun House','Get Your Own Back','Techno Games'].includes(v.series)));
  assert.equal(withGameshowAdditions(merged,extra).channels[14].videos.length,channel.videos.length);
 });
