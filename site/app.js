@@ -98,9 +98,11 @@
       const next=active.mode==='ondemand'?requestedQueue[requestedIndex+1]:plan.schedules[channel][active.index+1]?.video;
       $('#info-next').hidden=!next;$('#info-next-title').textContent=next?programmeTitle(next):'';
     }
-    const p=programmeProgress(currentPlayer()?.getCurrentTime?.()??active.offset,Math.max(1,v.duration));$('#info-progress').value=p.value;$('#info-elapsed').textContent=p.label;$('#info-remaining').textContent=p.remaining;
+    const current=currentPlayer(),elapsed=current?.getVideoData?.()?.video_id===v.id?current.getCurrentTime?.():active.offset;
+    const p=programmeProgress(elapsed,Math.max(1,v.duration));$('#info-progress').value=p.value;$('#info-elapsed').textContent=p.label;$('#info-remaining').textContent=p.remaining;
   }
   function openInfo(){if(!power||!active)return;infoKey='';infoPanel.showModal();root.classList.add('info-open');renderInfo();revealControls();}
+  $('#info-prev-channel').onclick=()=>tune(channel-1);$('#info-next-channel').onclick=()=>tune(channel+1);
   $('#info-button').onclick=openInfo;$('#close-info').onclick=()=>infoPanel.close();
   $('#info-schedule').onclick=()=>{infoPanel.close();openSchedule();};infoPanel.addEventListener('close',()=>{root.classList.remove('info-open');revealControls();});
   let chromeTimer;
@@ -325,7 +327,7 @@
     if(e.key==='Escape'){clearNumberEntry();return;}
     if($('.schedule-overlay').open){if(key==='s'){e.preventDefault();$('.schedule-overlay').close();}return;}
     if($('.browse-overlay').open){if(key==='b'){e.preventDefault();$('.browse-overlay').close();}return;}
-    if(infoPanel.open){if(key==='i'){e.preventDefault();infoPanel.close();}return;}
+    if(infoPanel.open){if(key==='i'){e.preventDefault();infoPanel.close();return;}if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter','Backspace'].includes(e.key)&&!/^\d$/.test(e.key))return;}
     if($('.tv-settings').open)return;
     if($('.guide').open){if(key==='g'||key==='c'){e.preventDefault();closeGuide();return;}if(!/^\d$/.test(e.key)&&!['ArrowLeft','ArrowRight'].includes(e.key))return;closeGuide(false);}
     if(e.repeat&&!['ArrowUp','ArrowDown'].includes(e.key))return;
