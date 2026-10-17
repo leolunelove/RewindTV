@@ -1,9 +1,10 @@
 import fs from 'node:fs/promises';import http from 'node:http';import {fileURLToPath} from 'node:url';
-import {withGameshowAdditions,withExpansion} from '../site/library.mjs';
+import {withGameshowAdditions,withExpansion,MUSIC_PACKS} from '../site/library.mjs';
 import {chromium} from 'playwright';import {plan,update,environmentBlocked} from './policy.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const existing=withExpansion(withGameshowAdditions(JSON.parse(await fs.readFile(root+'site/catalogue.json','utf8')),JSON.parse(await fs.readFile(root+'site/gameshow-additions.json','utf8'))),JSON.parse(await fs.readFile(root+'site/expansion.json','utf8')));
-const catalogue=withExpansion(existing,JSON.parse(await fs.readFile(root+'site/music-creators.json','utf8')));
+let catalogue=withExpansion(existing,JSON.parse(await fs.readFile(root+'site/music-creators.json','utf8')));
+for(const path of MUSIC_PACKS)catalogue=withExpansion(catalogue,JSON.parse(await fs.readFile(root+'site/'+path,'utf8')));
 const videos=[...new Map([...catalogue.channels.flatMap(c=>c.videos||[]),...(catalogue.adverts||[])].map(v=>[v.id,v])).values()];
 const state=JSON.parse(await fs.readFile(root+'data/state.json','utf8'));
 const queue=plan(videos,state,Math.min(250,Number(process.env.BATCH_LIMIT)||250));
