@@ -79888,13 +79888,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "checkedAt": "2026-10-16",
           "provider": "youtube",
           "country": "UK",
           "source": "https://www.youtube.com/watch?v=n7gh5_vUakE",
-          "yearPrecision": "series range"
+          "yearPrecision": "series range",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "FGcTcCB33z0",
@@ -79909,13 +79910,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "checkedAt": "2026-10-16",
           "provider": "youtube",
           "country": "UK",
           "source": "https://www.youtube.com/watch?v=FGcTcCB33z0",
-          "yearPrecision": "series range"
+          "yearPrecision": "series range",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "3YgLsUjIrCA",
@@ -79930,13 +79932,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "checkedAt": "2026-10-16",
           "provider": "youtube",
           "country": "UK",
           "source": "https://www.youtube.com/watch?v=3YgLsUjIrCA",
-          "yearPrecision": "series range"
+          "yearPrecision": "series range",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "KAT0uxKslQg",
@@ -79951,13 +79954,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "checkedAt": "2026-10-16",
           "provider": "youtube",
           "country": "UK",
           "source": "https://www.youtube.com/watch?v=KAT0uxKslQg",
-          "yearPrecision": "series range"
+          "yearPrecision": "series range",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "w7gw5RpZK54",
@@ -79972,13 +79976,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "checkedAt": "2026-10-16",
           "provider": "youtube",
           "country": "UK",
           "source": "https://www.youtube.com/watch?v=w7gw5RpZK54",
-          "yearPrecision": "series range"
+          "yearPrecision": "series range",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "VeQMc-5QzjI",
@@ -82058,7 +82063,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82073,7 +82078,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=RV07r_mCcs8",
           "episodeKey": "Get Your Own Back:S7E4",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 13 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 13 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "aMp6spkCfuw",
@@ -82097,7 +82103,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82112,7 +82118,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=aMp6spkCfuw",
           "episodeKey": "Fun House:S5E1",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 12 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 12 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "46eUeQnIC7E",
@@ -82136,7 +82143,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82151,7 +82158,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=46eUeQnIC7E",
           "episodeKey": "Fun House:S7E1",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 12 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 12 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "b3aMb9ow6Bs",
@@ -82173,7 +82181,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82188,7 +82196,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=b3aMb9ow6Bs",
           "episodeKey": "Get Your Own Back:getyourownbackwednesday10thnovember2004",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 12 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 12 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "qcrIqhTzyzM",
@@ -82212,7 +82221,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82227,7 +82236,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=qcrIqhTzyzM",
           "episodeKey": "Fun House:S9E14",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 10 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 10 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Vx4P4y0tRjg",
@@ -82251,7 +82261,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82266,7 +82276,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Vx4P4y0tRjg",
           "episodeKey": "Fun House:S9E6",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Jv0h9rg5iLw",
@@ -82290,7 +82301,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82305,7 +82316,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Jv0h9rg5iLw",
           "episodeKey": "Fun House:S9E2",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "j-Qppez9szk",
@@ -82329,7 +82341,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82344,7 +82356,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=j-Qppez9szk",
           "episodeKey": "Fun House:S9E10",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "tXVv3gm46Cc",
@@ -82368,7 +82381,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82383,7 +82396,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=tXVv3gm46Cc",
           "episodeKey": "Fun House:S9E9",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "WRuZLdQft_g",
@@ -82407,7 +82421,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -82422,7 +82436,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=WRuZLdQft_g",
           "episodeKey": "Fun House:S9E1",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 8 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "9Qie7gVFEcY",
@@ -82444,7 +82459,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82458,7 +82473,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=9Qie7gVFEcY",
           "episodeKey": "Jungle Run:citvjunglerun01",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "HycQpOtqGjM",
@@ -82480,7 +82496,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82494,7 +82510,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=HycQpOtqGjM",
           "episodeKey": "Jungle Run:citvjunglerun02",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "WsSRbaKhJCU",
@@ -82516,7 +82533,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82530,7 +82547,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=WsSRbaKhJCU",
           "episodeKey": "Jungle Run:citvjunglerun03",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "CjMNHqL3ZFA",
@@ -82552,7 +82570,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82566,7 +82584,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=CjMNHqL3ZFA",
           "episodeKey": "Jungle Run:citvjunglerun04",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "F6krcVaZ9fo",
@@ -82588,7 +82607,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82602,7 +82621,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=F6krcVaZ9fo",
           "episodeKey": "Jungle Run:citvjunglerun05",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Gy56mvG0-qM",
@@ -82624,7 +82644,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82638,7 +82658,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Gy56mvG0-qM",
           "episodeKey": "Jungle Run:citvjunglerun06",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "rpIaYnl8mQ0",
@@ -82660,7 +82681,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82674,7 +82695,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=rpIaYnl8mQ0",
           "episodeKey": "Jungle Run:citvjunglerun07",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "xEMXQSz6-Ao",
@@ -82696,7 +82718,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82710,7 +82732,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=xEMXQSz6-Ao",
           "episodeKey": "Jungle Run:jungleruncitvspecial",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "KVcN9CGALbU",
@@ -82732,7 +82755,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82746,7 +82769,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=KVcN9CGALbU",
           "episodeKey": "Jungle Run:jungleruncoronationstreetspecial",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "7d2_1u1Pqtk",
@@ -82768,7 +82792,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82782,7 +82806,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=7d2_1u1Pqtk",
           "episodeKey": "Jungle Run:citvjunglerun08",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "aUPN8lxJYgs",
@@ -82804,7 +82829,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82818,7 +82843,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=aUPN8lxJYgs",
           "episodeKey": "Jungle Run:citvjunglerun09",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "r8Ba5Yh5hzI",
@@ -82840,7 +82866,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82854,7 +82880,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=r8Ba5Yh5hzI",
           "episodeKey": "Jungle Run:citvjunglerun10",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "GLYUpebvfz0",
@@ -82876,7 +82903,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82890,7 +82917,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=GLYUpebvfz0",
           "episodeKey": "Jungle Run:citvjunglerun11",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "kjBJ1U4VifM",
@@ -82912,7 +82940,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82926,7 +82954,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=kjBJ1U4VifM",
           "episodeKey": "Jungle Run:citvjunglerun12",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "ul07veHhNwc",
@@ -82948,7 +82977,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82962,7 +82991,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=ul07veHhNwc",
           "episodeKey": "Jungle Run:citvjunglerun13",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "3BhkB2zF3K0",
@@ -82984,7 +83014,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -82998,7 +83028,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=3BhkB2zF3K0",
           "episodeKey": "Jungle Run:citvjunglerun14",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "B6C3YsIDsdU",
@@ -83020,7 +83051,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83034,7 +83065,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=B6C3YsIDsdU",
           "episodeKey": "Jungle Run:citvjunglerun15",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "eZXXCWGpgFo",
@@ -83056,7 +83088,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83070,7 +83102,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=eZXXCWGpgFo",
           "episodeKey": "Jungle Run:citvjunglerun16",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "nQa3FoEgAes",
@@ -83092,7 +83125,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83106,7 +83139,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=nQa3FoEgAes",
           "episodeKey": "Jungle Run:junglerunolympiansspecial",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "x2mfZeJi73A",
@@ -83128,7 +83162,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83142,7 +83176,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=x2mfZeJi73A",
           "episodeKey": "Jungle Run:junglerunemmerdalespecial",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "qk71UEffjSA",
@@ -83164,7 +83199,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83178,7 +83213,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=qk71UEffjSA",
           "episodeKey": "Jungle Run:citvjunglerun17",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "sC0YZ0r1Msg",
@@ -83200,7 +83236,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83214,7 +83250,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=sC0YZ0r1Msg",
           "episodeKey": "Jungle Run:citvjunglerun19",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "_kSTo1xd5To",
@@ -83236,7 +83273,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83250,7 +83287,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=_kSTo1xd5To",
           "episodeKey": "Jungle Run:citvjunglerun18",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Z7Tp58GrdYk",
@@ -83272,7 +83310,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83286,7 +83324,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Z7Tp58GrdYk",
           "episodeKey": "Jungle Run:citvjunglerun20",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "B7vofEqRSpQ",
@@ -83308,7 +83347,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83322,7 +83361,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=B7vofEqRSpQ",
           "episodeKey": "Jungle Run:citvjunglerun21",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Y5fZThEdtVQ",
@@ -83343,7 +83383,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83357,7 +83397,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Y5fZThEdtVQ",
           "episodeKey": "Get Your Own Back:getyourownback1999",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "TuyjA5AvlCc",
@@ -83379,7 +83420,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -83394,7 +83435,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=TuyjA5AvlCc",
           "episodeKey": "Get Your Own Back:getyourownback1997",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 7 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 7 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "tE8OlDQjebk",
@@ -83416,7 +83458,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -83431,7 +83473,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=tE8OlDQjebk",
           "episodeKey": "Get Your Own Back:getyourownback2003",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 7 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 7 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Tox-Fe1CzPE",
@@ -83453,7 +83496,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83467,7 +83510,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Tox-Fe1CzPE",
           "episodeKey": "Jungle Run:citvjunglerun27",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Jzqsthje7eA",
@@ -83489,7 +83533,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83503,7 +83547,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Jzqsthje7eA",
           "episodeKey": "Jungle Run:citvjunglerun28",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "B4hGk6Zh0mE",
@@ -83525,7 +83570,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83539,7 +83584,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=B4hGk6Zh0mE",
           "episodeKey": "Jungle Run:citvjunglerun29",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "5W-dHXM7K8Q",
@@ -83561,7 +83607,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83575,7 +83621,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=5W-dHXM7K8Q",
           "episodeKey": "Jungle Run:citvjunglerun26",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "y5mQnZ45280",
@@ -83597,7 +83644,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83611,7 +83658,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=y5mQnZ45280",
           "episodeKey": "Jungle Run:citvjunglerun31",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "JRVws0E7t4w",
@@ -83633,7 +83681,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83647,7 +83695,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=JRVws0E7t4w",
           "episodeKey": "Jungle Run:citvjunglerun33",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Q0Jahc2iKSk",
@@ -83671,7 +83720,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -83686,7 +83735,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Q0Jahc2iKSk",
           "episodeKey": "Fun House:S11E1",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 6 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 6 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "GfHXBvb0zq8",
@@ -83710,7 +83760,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -83725,7 +83775,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=GfHXBvb0zq8",
           "episodeKey": "Fun House:S11E2",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 6 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 6 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "xM307oo2UKY",
@@ -83749,7 +83800,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83763,7 +83814,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=xM307oo2UKY",
           "episodeKey": "Fun House:S1E3",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "PQrnilw9FZs",
@@ -83787,7 +83839,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83801,7 +83853,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=PQrnilw9FZs",
           "episodeKey": "Fun House:S1E5",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "jvOtl7eSzSo",
@@ -83825,7 +83878,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83839,7 +83892,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=jvOtl7eSzSo",
           "episodeKey": "Fun House:S1E6",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "CuB1BNouGzI",
@@ -83863,7 +83917,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83877,7 +83931,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=CuB1BNouGzI",
           "episodeKey": "Fun House:S1E11",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "kDqIRPZY1p4",
@@ -83901,7 +83956,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "publication date verified from YouTube watch page",
           "checkedAt": "2026-10-16",
@@ -83915,7 +83970,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=kDqIRPZY1p4",
           "episodeKey": "Fun House:S1E12",
-          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload has been publicly listed for at least3years; this is evidence of longevity, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "Y8qGwKp-kqI",
@@ -83939,7 +83995,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -83954,7 +84010,8 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=Y8qGwKp-kqI",
           "episodeKey": "Fun House:S1E1",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 3 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 3 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         },
         {
           "id": "iuaxpt3wMoc",
@@ -83978,7 +84035,7 @@
           "sourceProvenance": "Fan/archive upload — not an official publisher",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "YouTube search publication age verified; exact watch date unavailable",
           "checkedAt": "2026-10-16",
@@ -83993,19 +84050,16 @@
           "provider": "youtube",
           "source": "https://www.youtube.com/watch?v=iuaxpt3wMoc",
           "episodeKey": "Fun House:S1E2",
-          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 3 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed."
+          "notes": "Fan/archive upload — not an official publisher. Upload was listed as 3 years old on2026-10-16; this is longevity evidence, not a guarantee of future availability. Playback start checked locally; full viewing and future availability are not guaranteed.",
+          "curationNote": "Off air: Gameshows is curated for adult-focused British classics."
         }
       ],
       "shows": [
         "The Crystal Maze",
-        "Robot Wars",
-        "Techno Games",
         "Gladiators UK",
-        "Get Your Own Back",
-        "Fun House",
-        "Jungle Run"
+        "Robot Wars"
       ],
-      "tagline": "British gameshows: Jungle Run, Fun House, Get Your Own Back, original UK Gladiators, Crystal Maze and more. Includes labelled older archive uploads.",
+      "tagline": "British prime-time competition classics: The Crystal Maze, original UK Gladiators and Robot Wars. No children’s gameshows.",
       "logo": "logos/rewind-gameshows.svg",
       "brandColour": "#78e9cf"
     },
@@ -100047,12 +100101,12 @@
     }
   ],
   "scheduledCount": 10,
-  "libraryRevision": "halloween-channels-v17-2026-10-17",
+  "libraryRevision": "adult-gameshows-v20-2026-10-17",
   "libraryStats": {
     "channels": 17,
-    "uploads": 3466,
-    "hours": 1533.4,
-    "fullLengthUploads": 2804,
+    "uploads": 3406,
+    "hours": 1508.1,
+    "fullLengthUploads": 2777,
     "playbackChecksPassedThisUpdate": 173,
     "individuallyPlaybackStartedUploads": 1817
   },
