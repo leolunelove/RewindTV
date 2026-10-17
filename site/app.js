@@ -261,7 +261,7 @@
     $('#guide-title').textContent=channels.length+' CHANNELS';$('#library-count').textContent='IN CHANNEL ORDER / ← → TO SURF';
     $('.standby-code').textContent='P100 / REWIND TELEVISION';$('#start-tv small').textContent=`90s / 2000s / CLASSIC CINEMA. MOVE MOUSE FOR THE REMOTE.`;
     $('.source-note').textContent=`${new Set(channels.flatMap(c=>c.videos.map(v=>v.id))).size} UNIQUE VIDEOS · 90s / 2000s / CLASSICS\nREFRESHES TUESDAY 00:00`;
-  }catch(error){$('#playback-status').textContent='The catalogue could not load. Refresh this page to retry.';console.error(error);return;}
+  }catch(error){$('#playback-status').textContent='The catalogue could not load. Refresh this page to retry.';console.error(error);document.documentElement.dataset.appReady='error';window.dispatchEvent(new Event('rewind:error'));return;}
   $('#tv-play').onclick=()=>{if(!currentPlayer()||!power)return;if(paused)currentPlayer().playVideo?.();else currentPlayer().pauseVideo?.();};
   $('.remote-power').onclick=togglePower;$('#start-tv').onclick=joinLive;
   root.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='next')tune(channel+1);else if(a==='prev')tune(channel-1);else changeVolume(a==='louder'?10:-10);});
@@ -284,6 +284,7 @@
   function clearNumberEntry(){clearTimeout(numberTimer);numberEntry='';$('#number-entry').hidden=true;}
   function commitNumber(){const value=Number(numberEntry);clearNumberEntry();if(Number.isInteger(value)&&value>=1&&value<=channels.length)tune(value-1);else setStatus('Choose a channel from 1 to '+channels.length+'.');}
   document.addEventListener('keydown',e=>{
+    if(document.documentElement.classList.contains('booting'))return;
     if(e.altKey||e.ctrlKey||e.metaKey||e.isComposing)return;
     if(e.target.closest('input,textarea,select,[contenteditable="true"],[role="textbox"]'))return;
     const key=e.key.toLowerCase();
@@ -316,4 +317,5 @@
     render();if($('.schedule-overlay').open)sendScheduleState();
   }
   setStatus('TV OFF · A weekly schedule is already on air.');tick();setInterval(tick,1000);const requested=new URLSearchParams(location.search);if(requested.has('episode'))playRequested(requested.get('channel'),requested.get('episode'));
+  document.documentElement.dataset.appReady='true';window.dispatchEvent(new Event('rewind:ready'));
 })();
