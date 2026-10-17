@@ -2,7 +2,7 @@
 (async () => {
   const root=document.getElementById('rewind-tv'),$=s=>root.querySelector(s),Schedule=window.RewindSchedule;
   let catalogue,onDemandLibrary=null,channels,plan,active=null,channel=2,volume=40,power=false,player=null,ready=false,apiLoading=false,paused=false,watchTimer,apiTimer,resumeAfterGuide=false,osdTimer,tuningTimer;
-  const [{findProgramme},{programmeInfo,programmeProgress,programmeTitle}]=await Promise.all([import('./show-library.mjs'),import('./programme-info.mjs')]);let requestedQueue=[];let requestedIndex=0;
+  const [{findProgramme},{programmeInfo,programmeProgress,programmeTitle}]=await Promise.all([import('./show-library.mjs'),import('./programme-info.mjs?v=2')]);let requestedQueue=[];let requestedIndex=0;
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
   let startupMuted=true,startupPending=true,startupTimer;
   const startupSound=document.createElement('button');startupSound.id='startup-sound';startupSound.type='button';startupSound.textContent='♪ TAP FOR SOUND';startupSound.hidden=true;root.append(startupSound);
