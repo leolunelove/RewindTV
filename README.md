@@ -37,6 +37,8 @@ Preferences and viewing history are saved on this device. There is no account or
 
 Playback comes from third-party YouTube embeds and direct archive streams. Official and fan/archive uploads are labelled. Older upload dates help assess longevity, but availability, region restrictions and removal remain controlled by the source. The player tries another upload when a source fails; YouTube startup can sometimes still need Retry. Public availability does not make a programme public domain.
 
+**Fast channel surfing** is on by default in Settings. It prepares neighbouring YouTube players and retains the channel you just left while it stays next door. Turn it off to use less memory. Preparation pauses in hidden tabs and with Data Saver; first-time video buffering still depends on YouTube.
+
 ## Keyboard controls
 
 | Key | Action |
