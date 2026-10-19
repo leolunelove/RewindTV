@@ -243,22 +243,38 @@
       skipUnavailable('Upload unavailable in this browser or region');
     }else setStatus('Playback failed. Retry or change channel.',true);
   }
-  let initRetries=0;
+  let initRetries=0,pendingFrame=null;
   function resetPlayerFrame(){
-    try{player?.destroy();}catch{}player=null;ready=false;
+    try{player?.destroy();}catch{}player=null;ready=false;if(pendingFrame){pendingFrame.remove();pendingFrame=null;}
     let placeholder=$('#video-player');if(!placeholder){placeholder=document.createElement('div');placeholder.id='video-player';$('.screen').prepend(placeholder);}
   }
   function watchPlayerInit(){
     clearTimeout(apiTimer);apiTimer=setTimeout(()=>{
       if(ready||!power||active?.video.provider==='archive')return;
       if(initRetries<1&&window.YT?.Player){initRetries++;resetPlayerFrame();setStatus('CONNECTING · Reconnecting the TV signal…');initPlayer();}
-      else{finishStartup();setStatus('YouTube is taking a while to load. Check your connection or retry.',true);}
-    },6500);
+      else{document.documentElement.dataset.appReady='error';window.dispatchEvent(new Event('rewind:error'));setStatus('YouTube is taking a while to load. Check your connection or retry.',true);}
+    },15000);
   }
   function initPlayer(){
-    if(player)return;
-    player=new YT.Player('video-player',{width:'100%',height:'100%',videoId:video().id,playerVars:{playsinline:1,controls:0,fs:0,rel:0,autoplay:1,mute:1,origin:location.origin},events:{
-      onReady:e=>{if(e.target!==player)return;ready=true;clearTimeout(apiTimer);const f=player.getIframe();f.title='Rewind TV video player';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(power){if(!active)selectLive();loadActive();}},
+    if(player||pendingFrame)return;
+    // Navigate a fully configured iframe, then attach the API. Permissions must
+    // exist before navigation, rather than being added after onReady.
+    const frame=document.createElement('iframe');frame.id='video-player';frame.title='Rewind TV video player';
+    frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.referrerPolicy='strict-origin-when-cross-origin';
+    frame.setAttribute('loading','eager');frame.setAttribute('allowfullscreen','');
+    const firstId=video().id;
+    const embedURL='https://www.youtube.com/embed/'+encodeURIComponent(firstId)+'?'+new URLSearchParams({enablejsapi:'1',playsinline:'1',controls:'0',fs:'0',rel:'0',autoplay:'1',mute:'1',start:String(Math.floor(active?.offset||0)),origin:location.origin});
+    // Attach only after the embed document loads. Attaching to about:blank
+    // races the iframe's first navigation and can leave it disconnected.
+    pendingFrame=frame;
+    frame.addEventListener('load',()=>{
+    if(pendingFrame!==frame)return;
+    pendingFrame=null;
+    player=new YT.Player(frame,{events:{
+      onReady:e=>{if(e.target!==player)return;ready=true;clearTimeout(apiTimer);const f=player.getIframe();f.title='Rewind TV video player';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(power){if(!active)selectLive();
+        if(active.video.id!==firstId)loadActive();
+        else{playingId=firstId;paused=false;player.mute();player.playVideo();}
+      }},
       onStateChange:e=>{
         if(e.target!==player||!power||!active||e.target.getVideoData?.()?.video_id!==active.video.id)return;
         if(e.data===1){ready=true;clearTimeout(apiTimer);stopWatch();paused=false;applyAudio(true);finishStartup();setStatus(active.mode==='live'?(channels[channel].mode==='shuffle'?'SHUFFLE · Continuous playback, no fixed timetable.':'LIVE · Channels keep broadcasting while you’re away.'):active.mode==='fallback'?'ALT SIGNAL · This upload replaces an unavailable broadcast.':active.mode==='ondemand'?'ON DEMAND · This show continues in episode order. JOIN LIVE to return to the channel.':'REPLAY · Join live whenever you like.');}
@@ -266,13 +282,13 @@
         else if(e.data===2){stopWatch();paused=true;setStatus('PAUSED · Play to continue, or JOIN LIVE.');}
         else if(e.data===3)setStatus('BUFFERING…');
       },onAutoplayBlocked:()=>{ready=true;clearTimeout(apiTimer);stopWatch();if(power){finishStartup();paused=true;setStatus('Your browser paused playback. Press PLAY to start.');}},onError:videoError
-    }});watchPlayerInit();
+    }});},{once:true});frame.src=embedURL;$('#video-player').replaceWith(frame);watchPlayerInit();
   }
   function ensurePlayer(){
     if(active?.video.provider==='archive'){loadActive();return;}
     if(ready){loadActive();return;}if(window.YT?.Player){initPlayer();return;}if(apiLoading)return;
     apiLoading=true;window.onYouTubeIframeAPIReady=initPlayer;
-    const script=document.getElementById('youtube-api')||document.createElement('script');script.src='https://www.youtube.com/iframe_api';script.id='youtube-api';script.onerror=()=>{apiLoading=false;script.remove();clearTimeout(apiTimer);setStatus('The video player could not load. Check your connection and retry.',true);};if(!script.isConnected)document.head.append(script);
+    const existing=document.getElementById('youtube-api');const script=existing||document.createElement('script');if(!existing){script.src='https://www.youtube.com/iframe_api';script.id='youtube-api';}script.onerror=()=>{apiLoading=false;script.remove();clearTimeout(apiTimer);setStatus('The video player could not load. Check your connection and retry.',true);};if(!script.isConnected)document.head.append(script);
     apiTimer=setTimeout(()=>{if(!ready)setStatus('YouTube is taking a while to load. Check your connection or retry.',true);},18000);
   }
   function tune(i){tuningSound();stopWatch();if(currentPlayer())currentPlayer().pauseVideo?.();channel=(i+channels.length)%channels.length;power=true;selectLive();persist();setStatus('TUNING IN…');if(player&&!ready){resetPlayerFrame();initRetries=0;}ensurePlayer();}
@@ -357,7 +373,8 @@
   }
   // Start the saved station silently so browsers can autoplay without a gesture.
   // Reveal on the first picture; a bounded fallback leaves retry/channel controls reachable.
-  startupTimer=setTimeout(finishStartup,9000);
+  // Only a playing picture (or an explicit browser block) releases the ident.
+  startupTimer=setTimeout(()=>{if(startupPending){document.documentElement.dataset.appReady='error';window.dispatchEvent(new Event('rewind:error'));}},45000);
   tick();setInterval(tick,1000);const requested=new URLSearchParams(location.search);
   if(!requested.has('episode')||!playRequested(requested.get('channel'),requested.get('episode'))){selectLive();power=true;setStatus('TUNING IN · '+channels[channel].name);ensurePlayer();}
   persist();render();

@@ -2,9 +2,10 @@
 (()=>{
  const html=document.documentElement,ident=document.getElementById('station-ident'),content=[...document.querySelectorAll('[data-intro-content]')];
  if(!ident)return;
- const release=()=>content.forEach(el=>{el.inert=false;el.removeAttribute('aria-busy');});
+ const release=()=>content.forEach(el=>{el.inert=false;el.querySelectorAll('[inert]').forEach(control=>control.inert=false);el.removeAttribute('aria-busy');});
  if(html.classList.contains('intro-embedded')){release();ident.remove();return;}
- content.forEach(el=>el.inert=true);
+ // Keep the media frame live behind the opaque ident. Block controls only.
+ content.forEach(el=>el.querySelectorAll('button,a,input,select').forEach(control=>control.inert=true));
  const status=document.getElementById('ident-status'),skip=document.getElementById('ident-skip'),retry=document.getElementById('ident-retry');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,start=performance.now();
  let returning=false,ready=false,leaving=false,timer,slow,long;
@@ -41,7 +42,7 @@
  skip.onclick=leave;retry.onclick=()=>location.reload();
  window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!leaving){e.preventDefault();if(ready)leave();}});
  slow=setTimeout(()=>{if(!ready)status.textContent='STILL TUNING. STAY WITH US.';},4500);
- long=setTimeout(()=>{if(!ready){status.textContent='THE SIGNAL IS TAKING A LITTLE LONGER';retry.hidden=false;}},14000);
+ long=setTimeout(()=>{if(!ready){status.textContent='STILL CONNECTING. WE’LL BRING YOU STRAIGHT IN.';}},14000);
  window.addEventListener('rewind:ready',onReady,{once:true});window.addEventListener('rewind:error',onError,{once:true});
  if(html.dataset.appReady==='true')onReady();else if(html.dataset.appReady==='error')onError();
 })();
