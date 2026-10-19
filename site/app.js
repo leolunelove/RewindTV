@@ -195,7 +195,17 @@
     tuningTimer=setTimeout(()=>screen.classList.remove('is-tuning'),320);
     osdTimer=setTimeout(()=>screen.classList.remove('show-osd'),2200);
   }
-  function loadActive(){
+  let channelLoadTimer=0;
+  function cancelChannelLoad(){clearTimeout(channelLoadTimer);channelLoadTimer=0;}
+  function playSelection(p,selection,forceReload=false){
+    // Preserve an already buffered episode when joining live or restarting it.
+    if(!forceReload&&p.getVideoData?.()?.video_id===selection.video.id){
+      if(Math.abs((p.getCurrentTime?.()||0)-selection.offset)>2)p.seekTo(selection.offset,true);
+      p.playVideo();
+    }else p.loadVideoById({videoId:selection.video.id,startSeconds:selection.offset});
+  }
+  function loadActive(forceReload=false){
+    cancelChannelLoad();
     if(!power||!active||(!ready&&active.video.provider!=='archive'))return;
     stopWatch();paused=false;playingId=active.video.id;playedSeconds=0;showTuning();revealControls();movie.hidden=active.video.provider!=='archive';if(player)player.getIframe().hidden=active.video.provider==='archive';
     if(failed.has(active.video.id)||globallyRestricted(active.video)){skipUnavailable('Upload unavailable');return;}
@@ -203,7 +213,7 @@
     if(settings.audio){currentPlayer().setVolume?.(0);if(volume===0||startupMuted)currentPlayer().mute?.();}else applyAudio();
     if(startupMuted)currentPlayer().mute?.();
     currentPlayer().getIframe().hidden=false;
-    currentPlayer().loadVideoById({videoId:active.video.id,startSeconds:active.offset});
+    playSelection(currentPlayer(),active,forceReload);
     const expected=active.video.id;
     watchTimer=setTimeout(()=>{if(power&&active?.video.id===expected&&currentPlayer().getPlayerState?.()!==1)setStatus('Press play in the video, retry, or change channel.',true);},18000);
   }
@@ -272,6 +282,7 @@
     pendingFrame=null;
     player=new YT.Player(frame,{events:{
       onReady:e=>{if(e.target!==player)return;ready=true;clearTimeout(apiTimer);const f=player.getIframe();f.title='Rewind TV video player';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(power){if(!active)selectLive();
+        if(channelLoadTimer)return;
         if(active.video.id!==firstId)loadActive();
         else{playingId=firstId;paused=false;player.mute();player.playVideo();}
       }},
@@ -284,16 +295,27 @@
       },onAutoplayBlocked:()=>{ready=true;clearTimeout(apiTimer);stopWatch();if(power){finishStartup();paused=true;setStatus('Your browser paused playback. Press PLAY to start.');}},onError:videoError
     }});},{once:true});frame.src=embedURL;$('#video-player').replaceWith(frame);watchPlayerInit();
   }
-  function ensurePlayer(){
+  function ensurePlayer(forceReload=false){
+    cancelChannelLoad();
     if(active?.video.provider==='archive'){loadActive();return;}
-    if(ready){loadActive();return;}if(window.YT?.Player){initPlayer();return;}if(apiLoading)return;
+    if(ready){loadActive(forceReload);return;}if(window.YT?.Player){initPlayer();return;}if(apiLoading)return;
     apiLoading=true;window.onYouTubeIframeAPIReady=initPlayer;
     const existing=document.getElementById('youtube-api');const script=existing||document.createElement('script');if(!existing){script.src='https://www.youtube.com/iframe_api';script.id='youtube-api';}script.onerror=()=>{apiLoading=false;script.remove();clearTimeout(apiTimer);setStatus('The video player could not load. Check your connection and retry.',true);};if(!script.isConnected)document.head.append(script);
     apiTimer=setTimeout(()=>{if(!ready)setStatus('YouTube is taking a while to load. Check your connection or retry.',true);},18000);
   }
-  function tune(i){tuningSound();stopWatch();if(currentPlayer())currentPlayer().pauseVideo?.();channel=(i+channels.length)%channels.length;power=true;selectLive();persist();setStatus('TUNING IN…');if(player&&!ready){resetPlayerFrame();initRetries=0;}ensurePlayer();}
+  function tune(i){
+    cancelChannelLoad();tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();
+    channel=(i+channels.length)%channels.length;power=true;selectLive();persist();
+    setStatus('TUNING IN…');showTuning();revealControls();
+    // Keep the remote immediate, but only request the station you settle on.
+    channelLoadTimer=setTimeout(()=>{
+      channelLoadTimer=0;
+      if(player&&!ready){resetPlayerFrame();initRetries=0;}
+      ensurePlayer();
+    },100);
+  }
   function joinLive(){tuningSound();selectLive();power=true;ensurePlayer();}
-  function togglePower(){if(!power){joinLive();return;}power=false;paused=false;stopWatch();if(currentPlayer()){currentPlayer().pauseVideo?.();currentPlayer().getIframe().hidden=true;}setStatus('TV OFF · The schedule keeps rolling.');}
+  function togglePower(){cancelChannelLoad();if(!power){joinLive();return;}power=false;paused=false;stopWatch();if(currentPlayer()){currentPlayer().pauseVideo?.();currentPlayer().getIframe().hidden=true;}setStatus('TV OFF · The schedule keeps rolling.');}
   function changeVolume(delta){startupMuted=false;volume=Math.max(0,Math.min(100,volume+delta));if(currentPlayer()){applyAudio();}persist();render();}
   function closeGuide(resume=true){if(!resume)resumeAfterGuide=false;$('.guide').close();root.classList.remove('guide-open');render();}
   function openGuide(){resumeAfterGuide=!!(currentPlayer()&&power&&currentPlayer().getPlayerState?.()===1);if(resumeAfterGuide)currentPlayer().pauseVideo?.();root.classList.add('guide-open');$('.guide').showModal();render();}
@@ -330,7 +352,7 @@
     initRetries=0;if(!ready&&player)resetPlayerFrame();
     if(!ready&&!window.YT?.Player){apiLoading=false;document.getElementById('youtube-api')?.remove();}
     clearTimeout(apiTimer);apiTimer=setTimeout(()=>{if(!ready)setStatus('YouTube is taking a while to load. Check your connection or retry.',true);},18000);
-    setStatus('RETRYING · '+active.video.title);ensurePlayer();
+    setStatus('RETRYING · '+active.video.title);ensurePlayer(true);
   };
   let numberEntry='',numberTimer,lastAudibleVolume=volume||40;
   function clearNumberEntry(){clearTimeout(numberTimer);numberEntry='';$('#number-entry').hidden=true;}
