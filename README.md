@@ -7,9 +7,9 @@
 <p align="center">Something good is always on.</p>
 
 <p align="center">
-  <a href="https://leolunelove.github.io/RewindTV/">Watch Rewind TV</a> ·
-  <a href="https://leolunelove.github.io/RewindTV/browse.html">Browse shows</a> ·
-  <a href="https://leolunelove.github.io/RewindTV/channels.html">Channel lineup</a>
+  <a href="https://tv.leolune.fun/">Watch Rewind TV</a> ·
+  <a href="https://tv.leolune.fun/browse.html">Browse shows</a> ·
+  <a href="https://tv.leolune.fun/channels.html">Channel lineup</a>
 </p>
 
 ## Switch on. See where you end up.
@@ -24,7 +24,7 @@
 
 ## Get started
 
-1. [Open Rewind TV](https://leolunelove.github.io/RewindTV/). It tunes into your last channel; choose **Tap for sound** when you want audio.
+1. [Open Rewind TV](https://tv.leolune.fun/). It tunes into your last channel; choose **Tap for sound** when you want audio.
 2. Use **← / →**, the channel list or a channel number to find something. Controls appear when you move the mouse or use the keyboard.
 3. Choose **Info** or press **I** to see what you’re watching. Previous and next channel controls work inside the panel too.
 4. Open **Schedule** for the current channel, or **Browse Shows** to choose a particular episode. Both keep the TV playing underneath.
