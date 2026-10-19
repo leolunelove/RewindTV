@@ -285,9 +285,19 @@
     if(startupMuted)currentPlayer().mute?.();
     currentPlayer().getIframe().hidden=false;
     playSelection(currentPlayer(),active,forceReload);
-    const expected=active.video.id;
-    watchTimer=setTimeout(()=>{if(power&&active?.video.id===expected&&currentPlayer().getPlayerState?.()!==1)setStatus('Press play in the video, retry, or change channel.',true);},18000);
+    watchPlayback();
   }
+  let recoveryId='',recoveryAttempts=0;
+  function watchPlayback(){
+    clearTimeout(watchTimer);const expected=active.video.id;
+    if(recoveryId!==expected){recoveryId=expected;recoveryAttempts=0;}
+    watchTimer=setTimeout(()=>{
+      if(!power||paused||active?.video.id!==expected||currentPlayer().getPlayerState?.()===1)return;
+      if(recoveryAttempts++<1){setStatus('CONNECTING · Retrying the TV signal…');playSelection(currentPlayer(),active,true);watchPlayback();}
+      else skipUnavailable('Signal did not start');
+    },12000);
+  }
+
   function advance(manual=false){
     if(!active){selectLive();}
     if(active.mode==='ondemand'){
@@ -349,28 +359,21 @@
   }
   function initPlayer(){
     if(player||pendingFrame)return;
-    // Navigate a fully configured iframe, then attach the API. Permissions must
-    // exist before navigation, rather than being added after onReady.
-    const frame=document.createElement('iframe');frame.id='video-player';frame.title='Rewind TV video player';
-    frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.referrerPolicy='strict-origin-when-cross-origin';
-    frame.setAttribute('loading','eager');frame.setAttribute('allowfullscreen','');
+    // Let the IFrame API own navigation and its readiness handshake. Waiting
+    // for the embed's load event can strand startup before API listeners exist.
     const firstId=video().id;playerChannelKey=channels[channel].key;
-    const embedURL='https://www.youtube.com/embed/'+encodeURIComponent(firstId)+'?'+new URLSearchParams({enablejsapi:'1',playsinline:'1',controls:'0',fs:'0',rel:'0',autoplay:'1',mute:'1',start:String(Math.floor(active?.offset||0)),origin:location.origin});
-    // Attach only after the embed document loads. Attaching to about:blank
-    // races the iframe's first navigation and can leave it disconnected.
-    pendingFrame=frame;
-    frame.addEventListener('load',()=>{
-    if(pendingFrame!==frame)return;
-    pendingFrame=null;
-    player=new YT.Player(frame,{events:{
+    const placeholder=document.createElement('div');placeholder.id='video-player';
+    $('#video-player').replaceWith(placeholder);
+    player=new YT.Player('video-player',{videoId:firstId,playerVars:{enablejsapi:1,playsinline:1,controls:0,fs:0,rel:0,autoplay:1,mute:1,start:Math.floor(active?.offset||0),origin:location.origin},events:{
       onReady:e=>{if(e.target!==player)return;ready=true;clearTimeout(apiTimer);const f=player.getIframe();f.title='Rewind TV video player';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(power){if(!active)selectLive();
         if(channelLoadTimer)return;
         if(active.video.id!==firstId)loadActive();
-        else{playingId=firstId;paused=false;player.mute();player.playVideo();if(player.getPlayerState?.()===1)onPlayerStateChange({target:player,data:1});}
+        else{playingId=firstId;paused=false;player.mute();player.playVideo();if(player.getPlayerState?.()===1)onPlayerStateChange({target:player,data:1});else watchPlayback();}
       }},
       onStateChange:onPlayerStateChange,onAutoplayBlocked:onPlayerAutoplayBlocked,onError:videoError
-    }});},{once:true});frame.src=embedURL;$('#video-player').replaceWith(frame);watchPlayerInit();
+    }});watchPlayerInit();
   }
+
   function ensurePlayer(forceReload=false){
     cancelChannelLoad();
     if(active?.video.provider==='archive'){clearNeighbours();loadActive();return;}
