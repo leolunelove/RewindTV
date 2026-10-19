@@ -276,6 +276,7 @@
   function loadActive(forceReload=false){
     cancelChannelLoad();
     if(!power||!active||(!ready&&active.video.provider!=='archive'))return;
+    if(active.video.provider==='archive')clearNeighbours();
     stopWatch();paused=false;playingId=active.video.id;playedSeconds=0;showTuning();revealControls();movie.hidden=active.video.provider!=='archive';if(player)player.getIframe().hidden=active.video.provider==='archive';
     if(failed.has(active.video.id)||globallyRestricted(active.video)){skipUnavailable('Upload unavailable');return;}
     if(active.video.provider!=='archive')playerChannelKey=channels[channel].key;
