@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-20",
+  "method": "oEmbed availability for every active YouTube source and HTTP HEAD for direct streams; individual watch-page metadata verification for each suspect upload. Not a full playback or worldwide certification.",
+  "sourcesChecked": 4229,
+  "metadataAvailable": 4205,
+  "embeddingDisabled": 24,
+  "duplicateEpisodesRemovedFromRotation": 1,
+  "intentionalSharedSourcesRetained": 147,
+  "exclusions": [
+    {
+      "id": "bNSGbjPM2YM",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "The story of Phoebe The Koala | 64 Zoo Lane | Full episode"
+    },
+    {
+      "id": "J_B2dJV9je8",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "No Body Murder: The Tanya Wallace Case | The New Detectives | S7 E8"
+    },
+    {
+      "id": "Xi0isM5BWe8",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Jamie McMahon & Chris Kaufman: Iowa 1997 Manhunt | The FBI Files | S4 E10"
+    },
+    {
+      "id": "0Akoxbwqt-s",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "How Tool Marks Nailed Danny Rolling | The New Detectives | S3 E6"
+    },
+    {
+      "id": "ZMpeFRFsVII",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Ray and Faye Copeland: The Cattle Murders | The New Detectives | S5 E2"
+    },
+    {
+      "id": "jfSi7gbLEHk",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Boise Arson: Robin Rowe; Nick Howard Insurance Murder | The New Detectives | S8 E4"
+    },
+    {
+      "id": "S7lKp8DfFDE",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "The Chilling Georgetown Coffee Shop Murders: FBI Manhunt | The FBI Files - Season 4 Episode 13"
+    },
+    {
+      "id": "ca4K6hBHqts",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "The Rise and Fall of Harlem's Deadliest Drug Gangs | The FBI Files - Season 3 Episode 18"
+    },
+    {
+      "id": "nOdFhbRtHlw",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Joseph Paul Franklin: Liberty Park Sniper Manhunt | The FBI Files | S2 E15"
+    },
+    {
+      "id": "YoBTVy78O9M",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Lost Jamestown Found: Unearthing Nevis's Hidden History | Time Team - S6 E13"
+    },
+    {
+      "id": "pj61NHPoYJ8",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Uncovering a Lost Medieval Manor - Aston Eyre's Forgotten Secrets Revealed | Time Team - S5 E6"
+    },
+    {
+      "id": "kGhHtp2QpTo",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Unearthing Malton: Secrets of the Medieval Castle and Jacobean Mansion | Time Team - S4 E5"
+    },
+    {
+      "id": "O9yOh-QbBl8",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Secrets of the Knights Templar Unearthed at Templecombe | Time Team - S3 E3"
+    },
+    {
+      "id": "dwd0qPkVKmo",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Uncovering a Lost Roman Farm - Ancient Finds and Archaeology Revealed | Time Team - S3 E6"
+    },
+    {
+      "id": "Ji6qpOXoYew",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Secrets of Roman Ribchester - Uncovering Ancient Forts and Defenses | Time Team - S1 E2"
+    },
+    {
+      "id": "Ekuy0qoPDpU",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Secrets of the Lords of the Isles - Uncovering Scotland\u2019s Lost Kingdom | Time Team - S2 E1"
+    },
+    {
+      "id": "b718YpjEbEA",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Uncovering King Alfred\u2019s Lost Fortress - Secrets of Somerset\u2019s Marshes | Time Team - S1 E1"
+    },
+    {
+      "id": "BR1zqoQjhdg",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Secrets of the Saxon Graveyard - Unearthing 3,000 Years of History | Time Team - S2 E5"
+    },
+    {
+      "id": "qIgZ8s5eoCE",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Unearthing a Lost Roman Villa - The Mystery Beneath an English Church | Time Team - S2 E3"
+    },
+    {
+      "id": "2WJUqxRvAmg",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Discovering Mammoth Bones and Prehistoric Life in Ancient Oxford | Time Team - S3 E2"
+    },
+    {
+      "id": "ffykttqZgHc",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Uncovering the Lost Medieval Secrets of Hilton Castle - Sunderland Archaeology | Time Team - S2 E2"
+    },
+    {
+      "id": "VgDWZkaKHRQ",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "How Much Wenlock Became a Medieval Market Town - Archaeological Secrets Revealed | Time Team - S1 E3"
+    },
+    {
+      "id": "K4L-nKX9yBs",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Supernanny Stops Mary-Anne, 7, Ruling Home | Supernanny UK | Season 2 Episode 8"
+    },
+    {
+      "id": "ijAh4kaiP08",
+      "reason": "YouTube explicitly reports playableInEmbed=false; oEmbed also refused (401). Checked 2026-10-20.",
+      "title": "Brick Thrown at Supernanny in Northampton | Supernanny UK | Season 2 Episode 1"
+    },
+    {
+      "id": "PuKGhZGNMb0",
+      "reason": "Duplicate of the same full episode QVeJNlm5EJA; keep the older official upload in rotation.",
+      "title": "Are You Afraid of the Dark? \u2014 The Tale of the Dollmaker"
+    }
+  ]
+}

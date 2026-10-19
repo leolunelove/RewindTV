@@ -117,9 +117,9 @@
     return v.embedStatus==='restricted'||v.embeddable===false||v.status?.embeddable===false||
       !!(restriction&&(Object.hasOwn(restriction,'allowed')||(restriction.blocked||[]).length));
   }
-  function skipUnavailable(reason){
+  function skipUnavailable(reason,persistFailure=true){
     if(!power||!active)return;
-    stopWatch();rememberFailure(active.video.id);root.classList.remove('ambient-live');
+    stopWatch();if(persistFailure)rememberFailure(active.video.id);else failed.add(active.video.id);root.classList.remove('ambient-live');
     if(active.mode==='ondemand'){
       const next=requestedQueue.findIndex((v,i)=>i>requestedIndex&&!failed.has(v.id)&&!globallyRestricted(v));
       if(next>=0){requestedIndex=next;active=requestedActive(requestedQueue[next]);setStatus(reason+' · Trying the next episode of this show.');ensurePlayer();}
@@ -294,7 +294,7 @@
     watchTimer=setTimeout(()=>{
       if(!power||paused||active?.video.id!==expected||currentPlayer().getPlayerState?.()===1)return;
       if(recoveryAttempts++<1){setStatus('CONNECTING · Retrying the TV signal…');playSelection(currentPlayer(),active,true);watchPlayback();}
-      else skipUnavailable('Signal did not start');
+      else skipUnavailable('Signal did not start',false);
     },12000);
   }
 

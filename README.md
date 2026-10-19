@@ -101,3 +101,5 @@ Checks sample playback at the beginning and near the end. Coverage and reports a
 Plain HTML, CSS and JavaScript, the YouTube IFrame Player API, native video playback and Web Audio. Browser storage remembers the set; GitHub Actions builds the compact catalogue, publishes the static site and runs maintenance.
 
 No downloaded TV, films or music are hosted in this repository. Copyright stays with the respective owners.
+
+Library reliability audit (20 October 2026): all 4,229 active sources received an availability check. Twenty-four uploads explicitly disallowed embedding and one duplicate episode was removed from rotation. Records remain in the source catalogue; `site/library-health.json` applies reversible exclusions after all content packs. See `docs/reliability-audit-2026-10-20.json` for scope and evidence. These metadata checks do not certify full playback or worldwide availability.
