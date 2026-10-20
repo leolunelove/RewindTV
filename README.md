@@ -103,3 +103,5 @@ Plain HTML, CSS and JavaScript, the YouTube IFrame Player API, native video play
 No downloaded TV, films or music are hosted in this repository. Copyright stays with the respective owners.
 
 Library reliability audit (20 October 2026): all 4,229 active sources received an availability check. Twenty-four uploads explicitly disallowed embedding and one duplicate episode was removed from rotation. Records remain in the source catalogue; `site/library-health.json` applies reversible exclusions after all content packs. See `docs/reliability-audit-2026-10-20.json` for scope and evidence. These metadata checks do not certify full playback or worldwide availability.
+
+Movie switching: the native film player retains its buffer when you leave and return. Fast channel surfing also prepares an adjacent Archive film (or one initial movie signal while idle) in the existing video element, without hidden playback. Film preparation respects Data Saver, hidden tabs and the preload switch. Cold film starts request playback immediately alongside metadata loading. Archive response times can still vary.
