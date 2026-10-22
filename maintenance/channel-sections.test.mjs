@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {sectionChannels} from '../site/channel-sections.mjs';
 test('every live channel appears once with its original number',()=>{
- const {channels}=JSON.parse(readFileSync(new URL('../site/runtime-library.json',import.meta.url)));
+ const {channels}=JSON.parse(readFileSync(new URL('../site/catalogue.json',import.meta.url)));
  const rows=sectionChannels(channels).flatMap(section=>section.channels);
  assert.equal(rows.length,channels.length);assert.equal(new Set(rows.map(row=>row.index)).size,channels.length);
  for(const row of rows)assert.equal(row.channel.key,channels[row.index].key);
