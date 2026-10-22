@@ -1,0 +1,44 @@
+/* Rewind Glass. Small, static glass surfaces; motion is transform/opacity only. */
+#rewind-tv.app-shell{--glass-rim:#ffffff21;--glass-base:#202733db;--ease-out:cubic-bezier(.16,1,.3,1);background:radial-gradient(ellipse at 50% -10%,#28303d60,transparent 65%),#0b0e13}
+#rewind-tv.app-shell button{filter:none;transition:transform .22s var(--ease-out),background-color .18s,color .18s,border-color .18s; -webkit-tap-highlight-color:transparent}
+#rewind-tv.app-shell button:active{transform:scale(.96)}
+#rewind-tv.app-shell button:focus-visible{outline:2px solid #e1f58f;outline-offset:4px;box-shadow:0 0 0 6px #d5ed6812}
+#rewind-tv.app-shell .header-actions button{background:linear-gradient(155deg,#ffffff0d,#ffffff02);border-color:#ffffff17;box-shadow:inset 0 1px #ffffff0a;border-radius:15px}
+#rewind-tv.app-shell .logo{letter-spacing:-1.6px;text-shadow:0 1px 12px #f2edcf0c}
+#rewind-tv.app-shell .screen{border-color:#ffffff18;box-shadow:0 18px 65px #0006,inset 0 1px #ffffff0b}
+#rewind-tv.app-shell .club-now{border-bottom:0;padding-left:8px;padding-right:8px;gap:14px}
+#rewind-tv.app-shell #info-button{border:1px solid #ffffff12;border-radius:50%;min-width:42px;width:42px;height:42px;font-size:0;background:linear-gradient(145deg,#ffffff12,#ffffff04);box-shadow:inset 0 1px #ffffff10}
+#rewind-tv.app-shell #info-button:before{content:'i';font:italic 600 18px Georgia,serif;color:#d3d9df}
+#rewind-tv.app-shell .now-label{padding:6px 8px;border-color:#d5ed6820;background:#d5ed6809;letter-spacing:.3px;border-radius:7px}
+#rewind-tv.app-shell .club-controls{width:280px;height:58px;padding:5px;gap:5px;border-radius:22px;border:1px solid var(--glass-rim);background:linear-gradient(150deg,#59657540,#202733b8);box-shadow:inset 0 1px #ffffff18,inset 0 -1px #0004,0 6px 22px #0003;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#rewind-tv.app-shell .club-controls button{border:1px solid #ffffff0b;border-radius:16px;background:#ffffff09;box-shadow:inset 0 1px #ffffff0d;min-height:46px}
+#rewind-tv.app-shell .club-controls #tv-play{background:linear-gradient(155deg,#e4f598,#c6e15c);color:#19200d;border-color:#e3f591;font-size:11px;box-shadow:inset 0 1px #ffffff70,0 2px 10px #d5ed6812}
+#rewind-tv.app-shell .app-tabs{width:min(480px,calc(100% - 16px));height:64px;align-self:center;margin:0 auto 6px;border-radius:24px;border:1px solid var(--glass-rim);background:linear-gradient(145deg,#53617138,#1b222dd9);box-shadow:inset 0 1px #ffffff16,inset 0 -1px #0003,0 6px 25px #0003;padding:5px;gap:4px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#rewind-tv.app-shell .app-tabs button{min-height:52px;border-radius:18px;font-size:9px;gap:6px;color:#9ba7b7;transition:transform .25s var(--ease-out),background-color .2s,color .2s}
+#rewind-tv.app-shell .app-tabs button[aria-current]{background:linear-gradient(145deg,#dce5ee1d,#dce5ee0b);color:#e1edb4;box-shadow:inset 0 1px #ffffff13,0 2px 6px #0002}
+#rewind-tv.app-shell .app-tabs button[aria-current]:after{width:12px;height:2px;bottom:4px;border-radius:2px;background:#d5ed68;box-shadow:0 0 7px #d5ed6826}
+#rewind-tv.app-shell .app-tabs button span{color:inherit;transition:transform .25s var(--ease-out)}
+#rewind-tv.app-shell dialog{background:linear-gradient(145deg,#25303bf5,#111923fa 55%);border:1px solid #ffffff25;box-shadow:inset 0 1px #ffffff12,0 26px 90px #0008;border-radius:28px;overscroll-behavior:contain;scrollbar-width:thin;scroll-padding-top:90px}
+#rewind-tv.app-shell dialog::backdrop{background:#03070c9c;backdrop-filter:none;-webkit-backdrop-filter:none}
+#rewind-tv.app-shell .guide-heading{background:#1b2630f5;border-bottom-color:#ffffff10;border-radius:15px 15px 0 0;padding:10px 6px 17px;top:-24px}
+#rewind-tv.app-shell .guide-heading button,#rewind-tv.app-shell .info-heading button,#rewind-tv.app-shell .schedule-heading>button{border-radius:50%;width:40px;min-height:40px;height:40px;background:#ffffff08;border:1px solid #ffffff14;color:#b9c4d0;font-size:15px;box-shadow:inset 0 1px #ffffff0b;flex-shrink:0}
+#rewind-tv.app-shell .guide .direct-channels{overflow:visible;padding:2px 4px 6px}
+#rewind-tv.app-shell .channel-section{gap:7px 10px;margin-bottom:25px}
+#rewind-tv.app-shell .channel-section h3{border-top-color:#ffffff0c;padding-top:18px;letter-spacing:-.4px}
+#rewind-tv.app-shell .direct-channels button{border-radius:17px;border-color:#ffffff09;background:linear-gradient(145deg,#ffffff07,#ffffff02);box-shadow:inset 0 1px #ffffff04;transform-origin:center;position:relative}
+#rewind-tv.app-shell .direct-channels button[aria-pressed=true]{background:linear-gradient(145deg,#d5ed6819,#d5ed6807);border-color:#d5ed684d;box-shadow:inset 3px 0 #d5ed68,inset 0 1px #e5f4a012}
+#rewind-tv.app-shell .channel-mark{filter:none;opacity:.95}
+#rewind-tv.app-shell .playback-options button,#rewind-tv.app-shell .playback-options a,#rewind-tv.app-shell .info-surf button,#rewind-tv.app-shell #info-schedule{background:linear-gradient(145deg,#ffffff0d,#ffffff04);border:1px solid #ffffff12;border-radius:14px;min-height:44px}
+#rewind-tv.app-shell .info-playhead progress{height:4px;border:0;border-radius:4px;overflow:hidden;background:#ffffff12}
+#rewind-tv.app-shell .info-playhead progress::-webkit-progress-bar{background:#ffffff12;border-radius:4px}#rewind-tv.app-shell .info-playhead progress::-webkit-progress-value{background:#d5ed68;border-radius:4px}
+#rewind-tv.app-shell .tv-settings>label{border-color:#ffffff09}
+#rewind-tv.app-shell .tv-settings input[type=checkbox]{transition:background-color .18s;box-shadow:inset 0 1px 3px #0002}
+#rewind-tv.app-shell .tv-settings input[type=checkbox]:before{box-shadow:0 1px 4px #0004;transition:transform .24s var(--ease-out)}
+#rewind-tv.app-shell #startup-sound{background:linear-gradient(145deg,#e3f298f2,#cce374ed);box-shadow:inset 0 1px #ffffff70,0 4px 20px #0004;border:1px solid #edf5c148;transition:opacity .2s,transform .2s}
+#rewind-tv.app-shell .is-tuning .tuning-flash{animation-duration:.22s}#rewind-tv.app-shell .tuning-snow{background-image:repeating-linear-gradient(0deg,#c6d5d31f 0 1px,transparent 1px 4px);filter:none;inset:0;opacity:.3;animation:none!important}
+#rewind-tv.app-shell:fullscreen .app-tabs{left:50%;bottom:14px;transform:translateX(-50%);margin:0}
+@media(hover:hover) and (pointer:fine){#rewind-tv.app-shell .direct-channels button:hover{transform:translateY(-2px) scale(1.018);background-color:#ffffff0b;border-color:#ffffff2b;z-index:1}#rewind-tv.app-shell .app-tabs button:hover{background-color:#ffffff0d;color:#f0f1e5}#rewind-tv.app-shell .app-tabs button:hover span{transform:translateY(-1px) scale(1.08)}#rewind-tv.app-shell .club-controls button:hover{background-color:#ffffff18;transform:translateY(-1px)}#rewind-tv.app-shell .header-actions button:hover{background-color:#ffffff0b}}
+@media(max-width:600px){#rewind-tv.app-shell dialog{border-radius:28px 28px 0 0}#rewind-tv.app-shell .club-now{gap:9px;padding-left:2px;padding-right:2px}#rewind-tv.app-shell .app-tabs{width:calc(100% - 4px);height:62px;margin-bottom:4px;border-radius:23px}#rewind-tv.app-shell .app-tabs button{min-height:50px}#rewind-tv.app-shell .guide-heading{top:-24px}}
+@media(max-height:500px) and (orientation:landscape){#rewind-tv.app-shell .club-controls{width:220px;height:42px;padding:3px;border-radius:16px}#rewind-tv.app-shell .club-controls button{min-height:34px;border-radius:12px}#rewind-tv.app-shell .app-tabs{height:44px;width:auto;margin:0;right:12px;left:auto;bottom:2px;border-radius:17px}#rewind-tv.app-shell .app-tabs button{min-height:36px;width:62px;border-radius:12px;gap:2px}#rewind-tv.app-shell .app-tabs button span{font-size:15px}}
+@media(prefers-reduced-motion:reduce){#rewind-tv.app-shell button,#rewind-tv.app-shell .app-tabs button span,#rewind-tv.app-shell input:before{transition:none!important}#rewind-tv.app-shell button:hover,#rewind-tv.app-shell button:active{transform:none!important}}
+@media(prefers-reduced-transparency:reduce){#rewind-tv.app-shell .app-tabs,#rewind-tv.app-shell .club-controls{backdrop-filter:none;-webkit-backdrop-filter:none;background:#232c38}#rewind-tv.app-shell dialog{background:#18212c}}
