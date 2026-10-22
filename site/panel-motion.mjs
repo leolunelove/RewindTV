@@ -4,6 +4,8 @@ export function createPanelMotion(root){
  const nav=new Map([['guide','remote-guide'],['schedule-overlay','schedule-button'],['browse-overlay','browse-button']]);
  function sync(){
   const panel=[...root.querySelectorAll('dialog[open]')].at(-1);
+  const page=panel?({'guide':'200','schedule-overlay':'300','browse-overlay':'400','programme-info':'500','tv-settings':'600'})[['guide','schedule-overlay','browse-overlay','programme-info','tv-settings'].find(key=>panel.classList.contains(key))]:'100';
+  const badge=root.querySelector?.('#teletext-page');if(badge)badge.textContent='P'+(page||'100');
   const id=panel&&nav.get([...nav.keys()].find(key=>panel.classList.contains(key)));
   for(const button of root.querySelectorAll('.app-tabs button')){
    const selected=panel ? button.id===id||(id==='remote-guide'&&button.classList.contains('guide-toggle')) : button.id==='live-tab';

@@ -1,0 +1,69 @@
+/* Rewind Teletext Club: broadcast typography, colour keys, modern interaction. */
+#rewind-tv.teletext{--tt-paper:#f0f1d9;--tt-ink:#07132b;--tt-acid:#effb77;--tt-cyan:#83dce3;--tt-blue:#102656;--tt-line:#7897c72a;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+#rewind-tv.teletext .logo{font:900 30px/1 Arial,sans-serif;letter-spacing:-2px;color:var(--tt-paper)}
+#rewind-tv.teletext .logo>span{background:var(--tt-acid);border-radius:1px;color:#122344}
+#rewind-tv.teletext .page-code{display:flex;align-items:center;gap:15px;letter-spacing:1px;font:10px monospace;margin-left:22px;color:#b5c4d5}
+#rewind-tv.teletext #teletext-page{font:700 14px monospace;color:var(--tt-acid);border-left:3px solid var(--tt-acid);padding:7px 10px;background:#07132bb3}
+#rewind-tv.teletext .clock{font:700 13px monospace;letter-spacing:1px;color:var(--tt-acid)}
+#rewind-tv.teletext .header-actions button{border-radius:5px;font:10px monospace;background:#07132bc9;border-color:#9baed52b;box-shadow:none}
+#rewind-tv.teletext .app-tabs{border-radius:8px;height:58px;width:min(560px,calc(100% - 28px));padding:5px;gap:4px;background:#07132be8;border:1px solid #97addb40;box-shadow:0 8px 32px #0006;backdrop-filter:none;-webkit-backdrop-filter:none}
+#rewind-tv.teletext .app-tabs button{--key:#f18c9b;min-height:46px;display:flex;flex-direction:row;gap:9px;border-radius:3px;font:700 10px monospace;letter-spacing:.3px;color:var(--key);border:1px solid color-mix(in srgb,var(--key) 30%,transparent);border-bottom:4px solid var(--key);background:#ffffff03;box-shadow:none}
+#rewind-tv.teletext .app-tabs button:nth-child(2){--key:#9dd9a2}#rewind-tv.teletext .app-tabs button:nth-child(3){--key:#effb77}#rewind-tv.teletext .app-tabs button:nth-child(4){--key:#8cc9ee}
+#rewind-tv.teletext .app-tabs button span{font:700 12px monospace;letter-spacing:0}
+#rewind-tv.teletext .app-tabs button[aria-current]{background:var(--key);color:#09172e;box-shadow:none}
+#rewind-tv.teletext .app-tabs button[aria-current]:after{content:none}
+#rewind-tv.teletext .app-tabs button:hover{background-color:#ffffff14;color:var(--key)}#rewind-tv.teletext .app-tabs button[aria-current]:hover{background:var(--key);color:#09172e}
+#rewind-tv.teletext .club-controls{height:54px;border-radius:8px;background:#07132be8;border:1px solid #97addb40;box-shadow:0 6px 24px #0005;backdrop-filter:none;-webkit-backdrop-filter:none}
+#rewind-tv.teletext .club-controls button{border-radius:4px;font-family:monospace;background:#24365388;border-color:#ffffff0b;box-shadow:none;min-height:42px;color:#b6d8e8}
+#rewind-tv.teletext .club-controls #tv-play{background:var(--tt-acid);border-color:var(--tt-acid);color:#102344;box-shadow:none}
+#rewind-tv.teletext .club-now{background:linear-gradient(110deg,#0c1d3af2,#07132be6);border:1px solid #819bc633;border-left:4px solid var(--tt-acid);border-radius:5px;box-shadow:0 6px 25px #0004}
+#rewind-tv.teletext #now-title{font:700 15px monospace;color:var(--tt-paper);letter-spacing:-.3px}
+#rewind-tv.teletext #now-description{font:11px monospace;color:#b3c5d7}
+#rewind-tv.teletext .now-label{font:8px monospace;letter-spacing:.5px;border:0;border-radius:2px;background:#effb7712;color:var(--tt-acid)}
+#rewind-tv.teletext #info-button{background:#83dce30d;border:1px solid #83dce329;border-radius:4px}
+#rewind-tv.teletext #info-button:before{content:'i';font:700 16px monospace;color:var(--tt-cyan)}
+#rewind-tv.teletext .status-line{font:9px monospace;color:#b5c5d5}
+#rewind-tv.teletext #startup-sound{background:var(--tt-acid);color:#0d2042;border-radius:4px;box-shadow:3px 3px #07132ba8;border:0;min-height:40px}
+#rewind-tv.teletext dialog{background:linear-gradient(120deg,#0d2350,#07132b 75%);border:1px solid #829bc950;border-top:4px solid var(--tt-acid);border-radius:8px;color:var(--tt-paper);box-shadow:0 24px 100px #0009;font-family:monospace}
+#rewind-tv.teletext dialog::backdrop{background:#020716a6}
+#rewind-tv.teletext .guide{width:min(840px,calc(100vw - 32px));padding:22px 26px}
+#rewind-tv.teletext .guide-heading{background:#0c2048;border-radius:0;border-bottom:1px solid #86a2c936;top:-22px;padding:12px 0 18px;gap:20px;margin-bottom:14px}
+#rewind-tv.teletext .guide-heading span,#rewind-tv.teletext .schedule-heading small,#rewind-tv.teletext .info-heading{font:700 10px monospace;letter-spacing:1.2px;color:var(--tt-cyan)}
+#rewind-tv.teletext #guide-title{font:900 clamp(23px,3vw,36px)/1.05 ui-monospace,monospace;letter-spacing:-1.5px;margin:10px 0 0;color:var(--tt-acid)}
+#rewind-tv.teletext #library-count{font:9px monospace;color:#92aac5;letter-spacing:.7px;margin:0 0 12px}
+#rewind-tv.teletext .genre-jumps{display:flex;flex-wrap:wrap;gap:5px;padding:0 0 18px}
+#rewind-tv.teletext .genre-jumps button{min-height:34px;padding:7px 10px;border:1px solid #8ca9ce2d;border-radius:3px;background:#ffffff04;font:10px monospace;color:#b4c9df}
+#rewind-tv.teletext .genre-jumps button:hover,#rewind-tv.teletext .genre-jumps button:focus-visible{color:var(--tt-acid);border-color:#effb7770;background:#effb770a}
+#rewind-tv.teletext .channel-section{gap:5px 8px;margin-bottom:28px;scroll-margin-top:110px}
+#rewind-tv.teletext .channel-section h3{font:700 16px monospace;letter-spacing:-.4px;color:var(--tt-cyan);border-top:2px solid #7e9ec32a;scroll-margin-top:115px;padding-top:14px}
+#rewind-tv.teletext .channel-section:nth-child(3n+2) h3{color:#e99bbd}#rewind-tv.teletext .channel-section:nth-child(3n) h3{color:#cde78b}
+#rewind-tv.teletext .section-note{font:10px monospace;color:#7e9cbd;margin-bottom:9px}
+#rewind-tv.teletext .direct-channels button{border-radius:4px;background:#ffffff03;border:1px solid #8da4c617;box-shadow:none;min-height:76px;padding:12px;grid-template-columns:26px 48px minmax(0,1fr)}
+#rewind-tv.teletext .direct-channels button>span{font:700 12px monospace;color:var(--tt-cyan)}
+#rewind-tv.teletext .direct-channels button strong{font:700 13px/1.3 monospace;color:var(--tt-paper)}
+#rewind-tv.teletext .direct-channels button small{font:10px monospace;color:#8ba6c6}
+#rewind-tv.teletext .direct-channels button[aria-pressed=true]{border-color:#effb7760;background:#effb770c;box-shadow:inset 3px 0 var(--tt-acid)}
+#rewind-tv.teletext .direct-channels button[aria-pressed=true] strong{color:var(--tt-acid)}
+#rewind-tv.teletext .direct-channels button:hover{background:#86c5f00b;border-color:#83dce35c;transform:translateY(-1px)}
+#rewind-tv.teletext .guide-hint{color:#8da7c6;font:9px monospace;border-top:1px solid #89a6c626;padding-top:16px}
+#rewind-tv.teletext .guide-heading button,#rewind-tv.teletext .info-heading button,#rewind-tv.teletext .schedule-heading>button{border-radius:4px;border-color:#91add03d;background:#ffffff05;box-shadow:none;color:#dae5e9;width:42px;height:42px;min-height:42px}
+#rewind-tv.teletext .schedule-heading{border-color:#91add02a;padding-bottom:18px}
+#rewind-tv.teletext .schedule-heading h2,#rewind-tv.teletext #settings-title{font:900 27px monospace;letter-spacing:-1px;color:var(--tt-acid);margin:9px 0 0}
+#rewind-tv.teletext .schedule-overlay iframe,#rewind-tv.teletext .browse-overlay iframe{border-radius:3px}
+#rewind-tv.teletext .programme-info{width:min(560px,calc(100vw - 32px));padding:24px}
+#rewind-tv.teletext #info-show{font:900 30px/1.1 monospace;color:var(--tt-acid);letter-spacing:-1px}
+#rewind-tv.teletext #info-title{font:15px/1.4 monospace;color:var(--tt-paper)}
+#rewind-tv.teletext #info-meta,#rewind-tv.teletext #info-synopsis{font:11px/1.7 monospace;color:#9eb6d0}
+#rewind-tv.teletext .info-signal{font:10px monospace;color:var(--tt-cyan)}
+#rewind-tv.teletext .playback-options button,#rewind-tv.teletext .playback-options a,#rewind-tv.teletext .info-surf button,#rewind-tv.teletext #info-schedule{border-radius:4px;font:10px monospace;background:#90b1d409;border-color:#90b1d42a;color:#c2d6e6}
+#rewind-tv.teletext .tv-settings>label{font:12px monospace;line-height:1.5;border-color:#8aa6cc18}
+#rewind-tv.teletext .tv-settings input[type=checkbox]{border-radius:4px;width:38px;height:22px;background:#314665}
+#rewind-tv.teletext .tv-settings input[type=checkbox]:before{border-radius:2px;width:16px;height:16px}
+#rewind-tv.teletext .tv-settings input[type=checkbox]:checked{background:#afc15c}
+#rewind-tv.teletext #number-entry{position:absolute;top:90px;left:28px;background:#0b2254ee;border:1px solid #83dce34d;border-left:4px solid var(--tt-acid);border-radius:3px;padding:15px 20px;z-index:12}
+#rewind-tv.teletext #number-entry strong{font:700 42px/1 monospace;color:var(--tt-acid)}
+#rewind-tv.teletext #number-entry span{display:block;font:9px monospace;color:var(--tt-cyan);margin-top:8px}
+@media(max-width:600px){#rewind-tv.teletext .page-code{display:none}#rewind-tv.teletext .logo{font-size:27px}#rewind-tv.teletext .app-tabs{height:56px;width:calc(100% - 24px);padding:4px;gap:3px}#rewind-tv.teletext .app-tabs button{flex-direction:column;gap:3px;font-size:8px;min-height:44px;letter-spacing:0}#rewind-tv.teletext .app-tabs button span{font-size:11px}#rewind-tv.teletext .guide{padding:22px 16px}#rewind-tv.teletext dialog{border-radius:12px 12px 0 0}#rewind-tv.teletext .guide-heading{top:-22px}#rewind-tv.teletext #guide-title{font-size:24px}#rewind-tv.teletext .genre-jumps{flex-wrap:nowrap;overflow-x:auto;padding-bottom:14px;scrollbar-width:none}#rewind-tv.teletext .genre-jumps button{white-space:nowrap;flex:none;min-height:40px}#rewind-tv.teletext .direct-channels button strong{font-size:14px}#rewind-tv.teletext #now-title{font-size:13px}#rewind-tv.teletext #now-description{font-size:10px}#rewind-tv.teletext #number-entry{left:16px;top:76px}}
+@media(max-height:500px) and (orientation:landscape){#rewind-tv.teletext .app-tabs{height:46px;width:auto}#rewind-tv.teletext .app-tabs button{min-height:34px;width:85px;flex-direction:row;font-size:8px}#rewind-tv.teletext .app-tabs button span{font-size:10px}#rewind-tv.teletext .club-controls{height:44px}#rewind-tv.teletext .club-controls button{min-height:32px}}
+@media(prefers-reduced-motion:reduce){#rewind-tv.teletext button{transform:none!important}}
+#station-ident{background:#07132b;color:#f0f1d9}#station-ident:before{background:linear-gradient(135deg,#142a5866,transparent 65%);filter:none;animation:none}.ident-corner{color:#83dce3}.ident-tag{color:#a7bdd3}.ident-mark span{background:#effb77;border-radius:1px}.ident-rule{background:#83dce3;box-shadow:none}.ident-actions button{border-color:#83dce33d;border-radius:2px;font:10px monospace}.ident-bottom{color:#8da7c6}

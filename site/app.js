@@ -3,7 +3,7 @@
   const root=document.getElementById('rewind-tv'),$=s=>root.querySelector(s),Schedule=window.RewindSchedule;
   let catalogue,onDemandLibrary=null,channels,plan,active=null,channel=2,volume=40,power=false,player=null,ready=false,apiLoading=false,paused=false,watchTimer,apiTimer,resumeAfterGuide=false,osdTimer,tuningTimer;
   const [{findProgramme},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache}]=await Promise.all([import('./show-library.mjs'),import('./programme-info.mjs?v=2'),import('./neighbour-cache.mjs?v=1')]);let requestedQueue=[];let requestedIndex=0;
-  const {createPanelMotion}=await import('./panel-motion.mjs?v=glass1');
+  const {createPanelMotion}=await import('./panel-motion.mjs?v=text1');
   const panels=createPanelMotion(root);
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
   let startupMuted=true,startupPending=true,startupTimer;
@@ -439,9 +439,11 @@
     root.style.setProperty('--channel-count',channels.length);
     root.querySelectorAll('.direct-channels').forEach(list=>{
       list.replaceChildren();
-      sectionChannels(channels).forEach(section=>{
+      const jumps=$('.genre-jumps');jumps?.replaceChildren();
+      sectionChannels(channels).forEach((section,sectionIndex)=>{
         const group=document.createElement('section');group.className='channel-section';
-        const heading=document.createElement('h3');heading.textContent=section.name;
+        const heading=document.createElement('h3');heading.id='genre-'+sectionIndex;heading.textContent=section.name;group.setAttribute('aria-labelledby',heading.id);
+        if(jumps){const jump=document.createElement('button');jump.type='button';jump.textContent=section.name;jump.onclick=()=>heading.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});jumps.append(jump);}
         const note=document.createElement('p');note.className='section-note';note.textContent=section.note;
         group.append(heading,note);
         section.channels.forEach(({channel:c,index:i})=>{
@@ -463,7 +465,7 @@
     if(Number.isFinite(saved.volume))volume=Math.max(0,Math.min(100,saved.volume));
     plan=Schedule.build(catalogue);createChannelLists();document.documentElement.dataset.catalogueReady='true';
     root.querySelectorAll('button').forEach(b=>{b.disabled=false;b.type='button';});
-    $('#guide-title').textContent=channels.length+' CHANNELS';$('#library-count').textContent='FIND YOUR MOOD / ORIGINAL CHANNEL NUMBERS';
+    $('#guide-title').textContent='FIND YOUR FREQUENCY';$('#library-count').textContent=channels.length+' CHANNELS / PICK A MOOD / KEEP SURFING';
     $('.standby-code').textContent='P100 / REWIND TELEVISION';$('#start-tv small').textContent=`90s / 2000s / CLASSIC CINEMA. GOOD COMPANY.`;
     $('.source-note').textContent=`${new Set(channels.flatMap(c=>c.videos.map(v=>v.id))).size} UNIQUE VIDEOS · 90s / 2000s / CLASSICS\nREFRESHES TUESDAY 00:00`;
   }catch(error){$('#playback-status').textContent='The catalogue could not load. Refresh this page to retry.';console.error(error);document.documentElement.dataset.appReady='error';window.dispatchEvent(new Event('rewind:error'));return;}
@@ -487,13 +489,24 @@
   };
   let numberEntry='',numberTimer,lastAudibleVolume=volume||40;
   function clearNumberEntry(){clearTimeout(numberTimer);numberEntry='';$('#number-entry').hidden=true;}
-  function commitNumber(){const value=Number(numberEntry);clearNumberEntry();if(Number.isInteger(value)&&value>=1&&value<=channels.length)tune(value-1);else setStatus('Choose a channel from 1 to '+channels.length+'.');}
+  function commitNumber(){const value=Number(numberEntry);clearNumberEntry();
+    const pageActions={100:()=>revealControls(),200:openGuide,300:openSchedule,400:openBrowse,500:openInfo,600:()=>panels.open($('.tv-settings'))};
+    if(pageActions[value]||(Number.isInteger(value)&&value>=1&&value<=channels.length)){
+      root.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());
+      if(pageActions[value])pageActions[value]();else tune(value-1);
+    }else setStatus('Channel 1–'+channels.length+' / Pages 100, 200, 300, 400, 500, 600.');
+  }
   document.addEventListener('keydown',e=>{
     if(document.documentElement.classList.contains('booting'))return;
     if(e.altKey||e.ctrlKey||e.metaKey||e.isComposing)return;
     if(e.target.closest('input,textarea,select,[contenteditable="true"],[role="textbox"]'))return;
     const key=e.key.toLowerCase();
     if(e.key==='Escape'){clearNumberEntry();return;}
+    if(/^\d$/.test(e.key)){
+      e.preventDefault();clearTimeout(numberTimer);numberEntry=(numberEntry+e.key).slice(-3);$('#number-entry').hidden=false;$('#number-entry strong').textContent=numberEntry;numberTimer=setTimeout(commitNumber,1200);return;
+    }
+    if(e.key==='Enter'&&numberEntry){e.preventDefault();commitNumber();return;}
+    if(e.key==='Backspace'&&numberEntry){e.preventDefault();numberEntry=numberEntry.slice(0,-1);if(!numberEntry)clearNumberEntry();else $('#number-entry strong').textContent=numberEntry;return;}
     if($('.schedule-overlay').open){if(key==='s'){e.preventDefault();panels.close($('.schedule-overlay'));}return;}
     if($('.browse-overlay').open){if(key==='b'){e.preventDefault();panels.close($('.browse-overlay'));}return;}
     if(infoPanel.open){if(key==='i'){e.preventDefault();panels.close(infoPanel);return;}if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter','Backspace'].includes(e.key)&&!/^\d$/.test(e.key))return;}
@@ -501,11 +514,6 @@
     if($('.guide').open){if(key==='g'||key==='c'){e.preventDefault();closeGuide();return;}if(!/^\d$/.test(e.key)&&!['ArrowLeft','ArrowRight'].includes(e.key))return;closeGuide(false);}
     if(e.repeat&&!['ArrowUp','ArrowDown'].includes(e.key))return;
     if(e.target.closest('button,a')&&(e.key===' '||(e.key==='Enter'&&!numberEntry)))return;
-    if(/^\d$/.test(e.key)){
-      e.preventDefault();clearTimeout(numberTimer);numberEntry=(numberEntry+e.key).slice(-3);$('#number-entry').hidden=false;$('#number-entry strong').textContent=numberEntry;numberTimer=setTimeout(commitNumber,1200);return;
-    }
-    if(e.key==='Enter'&&numberEntry){e.preventDefault();commitNumber();return;}
-    if(e.key==='Backspace'&&numberEntry){e.preventDefault();numberEntry=numberEntry.slice(0,-1);if(!numberEntry)clearNumberEntry();else $('#number-entry strong').textContent=numberEntry;return;}
     const actions={ArrowRight:()=>tune(channel+1),ArrowLeft:()=>tune(channel-1),ArrowUp:()=>changeVolume(10),ArrowDown:()=>changeVolume(-10),
       ' ':()=>power?$('#tv-play').click():joinLive(),k:()=>power?$('#tv-play').click():joinLive(),
       m:()=>{if(startupMuted&&volume){enableSound();return;}if(volume){lastAudibleVolume=volume;changeVolume(-volume);}else changeVolume(lastAudibleVolume||40);},
