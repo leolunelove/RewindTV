@@ -1,0 +1,31 @@
+/* Full teletext page regions. Video remains mounted and playing below them. */
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page{position:absolute;inset:0;z-index:30;display:block;width:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;box-shadow:none;background:#07132bf5;color:#f0f1d9;overflow:hidden;font-family:monospace}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page[hidden]{display:none!important}
+.teletext-page-layout{width:min(1120px,100%);height:100%;margin:0 auto;padding:0 28px;display:grid;grid-template-rows:106px 54px minmax(0,1fr)}
+.teletext-page-header{display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid #91a8c62b;padding-top:env(safe-area-inset-top)}
+.teletext-page-header small{display:block;font:700 10px monospace;letter-spacing:1.2px;color:#8dd8e3}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page-header h2{font:900 32px/1 monospace;letter-spacing:-1px;color:#effb77;margin:10px 0 0}
+#rewind-tv.app-shell.teletext.classic-tv .page-back-tv{min-height:44px;min-width:132px;padding:11px 16px;border:1px solid #effb7755;border-radius:3px;background:#effb7711;color:#effb77;font:700 11px monospace;white-space:nowrap}
+#rewind-tv.app-shell.teletext.classic-tv .page-back-tv:hover{background:#effb7721}
+.teletext-page-nav{display:flex;align-items:stretch;gap:16px;border-bottom:1px solid #91a8c62b;padding:8px 0 0}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button{--page-key:#9dd9a2;min-height:44px;padding:0 14px;border:0;border-bottom:3px solid transparent;border-radius:0;background:none;font:700 11px monospace;color:#91a8c6;display:flex;gap:10px;align-items:center}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button:nth-child(2){--page-key:#effb77}#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button:nth-child(3){--page-key:#8cc9ee}
+.teletext-page-nav button span{font:10px monospace;color:var(--page-key)}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button[aria-current]{border-color:var(--page-key);color:var(--page-key);background:#ffffff03}
+.teletext-page-content{min-height:0;overflow:auto;overscroll-behavior:contain;padding:22px 0 max(22px,env(safe-area-inset-bottom));scrollbar-width:thin;scrollbar-color:#3a5175 transparent;scroll-padding-top:20px}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page #library-count{margin:0 0 14px;font-size:10px}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page .genre-jumps{margin:0 0 10px;padding:0 0 14px}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page .channel-section{margin-bottom:26px}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page .channel-section h3{scroll-margin-top:20px;font-size:16px}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page .direct-channels button{min-height:76px;padding:12px;grid-template-columns:28px 48px minmax(0,1fr)}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page .direct-channels button strong{font-size:14px}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page .channel-mark{width:46px;height:30px}
+#rewind-tv.app-shell.teletext.classic-tv .schedule-overlay .teletext-page-content,#rewind-tv.app-shell.teletext.classic-tv .browse-overlay .teletext-page-content{overflow:hidden;padding:0;display:flex}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page iframe{position:static;display:block;flex:1;width:100%;height:100%;min-height:0;border:0;border-radius:0;background:transparent}
+#rewind-tv.app-shell.teletext.classic-tv.teletext-open>.chrome,#rewind-tv.app-shell.teletext.classic-tv.teletext-open>.tv-dock,#rewind-tv.app-shell.teletext.classic-tv.teletext-open>.status-line{visibility:hidden!important;pointer-events:none!important}
+@media(max-width:650px){.teletext-page-layout{padding:0 16px;grid-template-rows:96px 52px minmax(0,1fr)}.teletext-page-header{gap:12px}#rewind-tv.app-shell.teletext.classic-tv .teletext-page-header h2{font-size:25px}.teletext-page-header small{font-size:8px;letter-spacing:.5px}#rewind-tv.app-shell.teletext.classic-tv .page-back-tv{min-width:112px;padding:10px;font-size:10px}.teletext-page-nav{gap:4px}#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button{flex:1;padding:0 7px;gap:7px;font-size:10px}.teletext-page-content{padding-top:16px}#rewind-tv.app-shell.teletext.classic-tv .teletext-page .channel-section{grid-template-columns:minmax(0,1fr)}}
+@media(max-height:500px) and (orientation:landscape){.teletext-page-layout{grid-template-rows:70px 46px minmax(0,1fr)}#rewind-tv.app-shell.teletext.classic-tv .teletext-page-header h2{font-size:24px;margin-top:5px}.teletext-page-header small{font-size:9px}.teletext-page-content{padding-top:14px}}
+
+#rewind-tv.teletext-open .osd,#rewind-tv.teletext-open .now-playing,#rewind-tv.teletext-open #startup-sound{visibility:hidden!important}
+
+#rewind-tv.teletext-open .club-now,#rewind-tv.teletext-open #channel-osd,#rewind-tv.teletext-open #channel-logo{visibility:hidden!important}

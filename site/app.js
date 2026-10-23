@@ -3,7 +3,7 @@
   const root=document.getElementById('rewind-tv'),$=s=>root.querySelector(s),Schedule=window.RewindSchedule;
   let catalogue,onDemandLibrary=null,channels,plan,active=null,channel=2,volume=40,power=false,player=null,ready=false,apiLoading=false,paused=false,watchTimer,apiTimer,resumeAfterGuide=false,osdTimer,tuningTimer;
   const [{findProgramme},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache}]=await Promise.all([import('./show-library.mjs'),import('./programme-info.mjs?v=2'),import('./neighbour-cache.mjs?v=1')]);let requestedQueue=[];let requestedIndex=0;
-  const {createPanelMotion}=await import('./panel-motion.mjs?v=flow2');
+  const {createPanelMotion}=await import('./panel-motion.mjs?v=pages1');
   const panels=createPanelMotion(root);
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
   let startupMuted=true,startupPending=true,startupTimer;
@@ -107,15 +107,16 @@
     const elapsed=isWatching?(currentPlayer()?.getCurrentTime?.()??active.offset??0):now.offset;
     $('#schedule-frame').contentWindow?.postMessage({type:'rewind-guide-state',key:channels[i].key,mode:channels[i].mode,isWatching,paused:isWatching&&paused,playbackMode:isWatching?active.mode:'live',elapsed,current:{video:isWatching?active.video:slot.video,start:slot.start,end:slot.end},next:isWatching&&active.mode==='ondemand'?requestedQueue.slice(requestedIndex+1,requestedIndex+20).map(video=>({video})):plan.schedules[i].slice(index+1,index+20)},location.origin);
   }
-  function openSchedule(){scheduleChannel=channel;const frame=$('#schedule-frame');frame.src='schedule.html?overlay=1&v=flow2&channel='+encodeURIComponent(channels[channel].key);panels.open($('.schedule-overlay'));revealControls();}
+  function openSchedule(){scheduleChannel=channel;const frame=$('#schedule-frame');frame.src='schedule.html?overlay=1&v=pages1&channel='+encodeURIComponent(channels[channel].key);panels.open($('.schedule-overlay'));revealControls();}
   window.addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==$('#schedule-frame').contentWindow)return;if(e.data?.type==='rewind-guide-close'){panels.close($('.schedule-overlay'));return;}if(e.data?.type==='rewind-guide-ready'||e.data?.type==='rewind-guide-select'){const i=channels?.findIndex(c=>c.key===e.data.key);if(i>=0){scheduleChannel=i;sendScheduleState(i);}}});
-  function openBrowse(){const frame=$('#browse-frame');if(!frame.getAttribute('src'))frame.src='browse.html?overlay=1&v=flow2';panels.open($('.browse-overlay'));revealControls();}
-  $('#live-tab').onclick=()=>{root.querySelectorAll('dialog[open]').forEach(d=>panels.close(d));revealControls();};
+  function openBrowse(){const frame=$('#browse-frame');if(!frame.getAttribute('src'))frame.src='browse.html?overlay=1&v=pages1';panels.open($('.browse-overlay'));revealControls();}
+  root.addEventListener('click',event=>{const link=event.target.closest('[data-open-page]');if(!link)return;const actions={channels:openGuide,guide:openSchedule,shows:openBrowse};actions[link.dataset.openPage]?.();});
+  $('#live-tab').onclick=()=>{root.querySelectorAll('dialog[open], [data-tv-page]:not([hidden])').forEach(d=>panels.close(d));revealControls();};
   $('.browse-overlay').addEventListener('close',()=>$('#browse-frame').contentWindow?.postMessage({type:'rewind-browse-reset'},location.origin));
   $('#browse-button').onclick=openBrowse;$('#close-browse').onclick=()=>{panels.close($('.browse-overlay'));revealControls();};
   function requestedActive(v){const start=Date.now();return {index:0,slot:{video:v,start,end:start+v.duration*1000},video:v,offset:0,mode:'ondemand'};}
-  function playRequested(channelKey,videoId){const found=findProgramme(onDemandLibrary||catalogue,channelKey,videoId);if(!found)return false;tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();channel=channels.findIndex(c=>c.key===channelKey);requestedQueue=found.queue;requestedIndex=requestedQueue.findIndex(v=>v.id===videoId);active=requestedActive(found.video);power=true;paused=false;persist();if($('.browse-overlay').open)panels.close($('.browse-overlay'));setStatus('ON DEMAND · '+found.video.title);ensurePlayer();return true;}
-  window.addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==$('#browse-frame').contentWindow)return;if(e.data?.type==='rewind-browse-play')playRequested(e.data.channelKey,e.data.videoId);if(e.data?.type==='rewind-browse-close'&&$('.browse-overlay').open)panels.close($('.browse-overlay'));});
+  function playRequested(channelKey,videoId){const found=findProgramme(onDemandLibrary||catalogue,channelKey,videoId);if(!found)return false;tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();channel=channels.findIndex(c=>c.key===channelKey);requestedQueue=found.queue;requestedIndex=requestedQueue.findIndex(v=>v.id===videoId);active=requestedActive(found.video);power=true;paused=false;persist();if(panels.isOpen($('.browse-overlay')))panels.close($('.browse-overlay'));setStatus('ON DEMAND · '+found.video.title);ensurePlayer();return true;}
+  window.addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==$('#browse-frame').contentWindow)return;if(e.data?.type==='rewind-browse-play')playRequested(e.data.channelKey,e.data.videoId);if(e.data?.type==='rewind-browse-close'&&panels.isOpen($('.browse-overlay')))panels.close($('.browse-overlay'));});
   $('#schedule-button').onclick=openSchedule;$('#close-schedule').onclick=()=>{panels.close($('.schedule-overlay'));revealControls();};
   $('#settings-channels').onclick=()=>openGuide();
   $('#settings-button').onclick=()=>{panels.open($('.tv-settings'));revealControls()};$('#close-settings').onclick=()=>{panels.close($('.tv-settings'));revealControls()};
@@ -141,7 +142,7 @@
   $('#info-schedule').onclick=()=>{infoPanel.close();openSchedule();};infoPanel.addEventListener('close',()=>{root.classList.remove('info-open');revealControls();});
   let chromeTimer;
   function revealControls(){root.classList.remove('controls-hidden');clearTimeout(chromeTimer);chromeTimer=setTimeout(hideControls,3200);}
-  function hideControls(){if(!power||paused||currentPlayer()?.getPlayerState?.()!==1||!$('#retry-video').hidden||!$('#unavailable').hidden||infoPanel.open||$('.tv-settings').open||$('.guide').open||$('.schedule-overlay').open||$('.browse-overlay').open||root.querySelector('button:focus-visible,a:focus-visible,input:focus,select:focus')){chromeTimer=setTimeout(hideControls,1000);return;}root.classList.add('controls-hidden');}
+  function hideControls(){if(!power||paused||currentPlayer()?.getPlayerState?.()!==1||!$('#retry-video').hidden||!$('#unavailable').hidden||infoPanel.open||$('.tv-settings').open||panels.isOpen($('.guide'))||panels.isOpen($('.schedule-overlay'))||panels.isOpen($('.browse-overlay'))||root.querySelector('button:focus-visible,a:focus-visible,input:focus,select:focus')){chromeTimer=setTimeout(hideControls,1000);return;}root.classList.add('controls-hidden');}
   root.addEventListener('click',e=>{if(e.detail>0&&e.target.closest('button'))e.target.closest('button').blur();});
   root.addEventListener('pointermove',revealControls);root.addEventListener('pointerdown',revealControls);root.addEventListener('focusin',revealControls);root.addEventListener('focusout',revealControls);document.addEventListener('keydown',revealControls);
   let status='LOADING THE WEEK’S LINEUP…';const failed=new Set();try{for(const [id,at] of Object.entries(JSON.parse(localStorage.getItem('rewind-unavailable')||'{}')))if(Date.now()-at<7*86400000)failed.add(id)}catch{}
@@ -197,13 +198,13 @@
     root.classList.toggle('tv-on',power);if(!power||paused)root.classList.remove('controls-hidden');
     $('.off').hidden=power;$('.led').classList.toggle('off-led',!power);
     $('.remote-power').setAttribute('aria-pressed',String(power));
-    $('.guide-toggle').setAttribute('aria-expanded',String($('.guide').open));
+    $('.guide-toggle').setAttribute('aria-expanded',String(panels.isOpen($('.guide'))));
     $('#join-live').hidden=!power||(!paused&&active?.mode==='live');
     $('#restart-show').disabled=!power;$('#info-button').disabled=!power||!active;
     $('#up-next').textContent=up?`NEXT ${active?.mode==='live'&&channels[channel].mode!=='shuffle'?time(up.start):''} · ${shortTitle(up.video)}`:active?.mode==='ondemand'?'END OF THIS COLLECTION':'NEW WEEKLY LINEUP';
     $('#up-next').title=up?up.video.title:'';
     $('#on-air-mode').textContent=!power?'STANDBY':v.embedStatus==='restricted'||failed.has(v.id)?'YT ONLY':paused?'PAUSED':active?.mode==='live'?(channels[channel].mode==='shuffle'?'SHUFFLE':'● LIVE'):active?.mode==='fallback'?'ALT SIGNAL':active?.mode==='ondemand'?'ON DEMAND':'REPLAY';
-    if(!infoPanel.open&&(!root.classList.contains('controls-hidden')||$('.guide').open))root.querySelectorAll('[data-channel]').forEach(b=>{
+    if(!infoPanel.open&&(!root.classList.contains('controls-hidden')||panels.isOpen($('.guide'))))root.querySelectorAll('[data-channel]').forEach(b=>{
       const i=Number(b.dataset.channel),now=onNow(i),next=now.next,key=now.slot.video.id+':'+(i===channel);if(b.dataset.renderKey===key)return;b.dataset.renderKey=key;
       b.setAttribute('aria-pressed',String(i===channel));
       b.querySelector('small').textContent=(channels[i].mode==='shuffle'?'SHUFFLE · ':'')+shortTitle(now.slot.video);
@@ -494,7 +495,7 @@
   function commitNumber(){const value=Number(numberEntry);clearNumberEntry();
     const pageActions={100:()=>revealControls(),200:openGuide,300:openSchedule,400:openBrowse,500:openInfo,600:()=>panels.open($('.tv-settings'))};
     if(pageActions[value]||(Number.isInteger(value)&&value>=1&&value<=channels.length)){
-      root.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());
+      root.querySelectorAll('dialog[open], [data-tv-page]:not([hidden])').forEach(dialog=>panels.dismiss(dialog));
       if(pageActions[value])pageActions[value]();else tune(value-1);
     }else setStatus('Channel 1–'+channels.length+' / Pages 100, 200, 300, 400, 500, 600.');
   }
@@ -510,11 +511,11 @@
     }
     if(e.key==='Enter'&&numberEntry){e.preventDefault();commitNumber();return;}
     if(e.key==='Backspace'&&numberEntry){e.preventDefault();numberEntry=numberEntry.slice(0,-1);if(!numberEntry)clearNumberEntry();else $('#number-entry strong').textContent=numberEntry;return;}
-    if($('.schedule-overlay').open){if(key==='s'){e.preventDefault();panels.close($('.schedule-overlay'));}return;}
-    if($('.browse-overlay').open){if(key==='b'){e.preventDefault();panels.close($('.browse-overlay'));}return;}
+    if(panels.isOpen($('.schedule-overlay'))){if(key==='s'){e.preventDefault();panels.close($('.schedule-overlay'));}return;}
+    if(panels.isOpen($('.browse-overlay'))){if(key==='b'){e.preventDefault();panels.close($('.browse-overlay'));}return;}
     if(infoPanel.open){if(key==='i'){e.preventDefault();panels.close(infoPanel);return;}if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter','Backspace'].includes(e.key)&&!/^\d$/.test(e.key))return;}
     if($('.tv-settings').open)return;
-    if($('.guide').open){if(key==='g'||key==='c'){e.preventDefault();closeGuide();return;}if(!/^\d$/.test(e.key)&&!['ArrowLeft','ArrowRight'].includes(e.key))return;closeGuide(false);}
+    if(panels.isOpen($('.guide'))){if(key==='g'||key==='c'){e.preventDefault();closeGuide();return;}if(!/^\d$/.test(e.key)&&!['ArrowLeft','ArrowRight'].includes(e.key))return;closeGuide(false);}
     if(e.repeat&&!['ArrowUp','ArrowDown'].includes(e.key))return;
     if(e.target.closest('button,a')&&(e.key===' '||(e.key==='Enter'&&!numberEntry)))return;
     const actions={ArrowRight:()=>tune(channel+1),ArrowLeft:()=>tune(channel-1),ArrowUp:()=>changeVolume(10),ArrowDown:()=>changeVolume(-10),
@@ -534,7 +535,7 @@
     $('#weekly-refresh').title='Fresh schedule every Tuesday at 00:00, Europe/Gibraltar. Generated locally from the checked catalogue.';}
     if(power&&active&&active.mode==='live'&&!paused&&(changed||Date.now()>=active.slot.end)){if(channels[channel].mode==='shuffle')advance(false);else{selectLive();loadActive();}}else if(changed&&!power)active=null;
     if(Date.now()-neighbourRefresh>15000&&power&&currentPlayer()?.getPlayerState?.()===1)scheduleNeighbours();
-    render();if($('.schedule-overlay').open)sendScheduleState();
+    render();if(panels.isOpen($('.schedule-overlay')))sendScheduleState();
   }
   // Start the saved station silently so browsers can autoplay without a gesture.
   // Reveal on the first picture; a bounded fallback leaves retry/channel controls reachable.
