@@ -1,0 +1,68 @@
+/* P300/P400: broadcast pages, built from type and rules rather than poster cards. */
+.schedule-embedded,.embedded body{background:transparent;color:#f0f1d9;font:16px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.schedule-embedded .channel-schedule{padding:26px 0;max-width:none}
+.schedule-embedded .schedule-channel-bar{padding-bottom:22px;border-bottom:3px solid #83dce3;gap:24px;align-items:end}
+.schedule-embedded .schedule-identity img{display:none}
+.schedule-embedded .schedule-identity h1{font-size:30px;line-height:1.2;letter-spacing:0}
+.schedule-embedded .schedule-identity small{font-size:13px;line-height:1.6}
+.schedule-embedded .schedule-channel-bar label{font-size:12px;color:#83dce3;gap:8px}
+.schedule-embedded select,.embedded select{border-radius:0;border:1px solid #91a8c670;background:#0a1b39;color:#fff;min-height:48px;font:15px monospace;max-width:310px}
+.schedule-embedded .guide-explanation{font-size:14px;line-height:1.6;margin:20px 0;color:#b8c7d9}
+.schedule-embedded .programme-now{border:0;border-top:1px solid #91a8c650;border-bottom:1px solid #91a8c650;border-radius:0;background:none;padding:22px 0;box-shadow:none}
+.schedule-embedded .now-card-top{font-size:15px;line-height:1.6;flex-wrap:wrap;gap:8px;color:#83dce3}
+.schedule-embedded .programme-now #now-series{font-size:15px;color:#83dce3;margin:20px 0 6px}
+.schedule-embedded .programme-now h2{font:700 26px/1.4 monospace;letter-spacing:0;margin:8px 0 16px;color:#effb77}
+.schedule-embedded .programme-now #now-meta{font-size:14px}
+.schedule-embedded .progress-labels{font-size:14px;line-height:1.5;gap:16px}
+.schedule-embedded #programme-progress{height:8px;border-radius:0;margin:24px 0 12px}
+.schedule-embedded .next-heading{margin:30px 0 12px;gap:16px;align-items:baseline}
+.schedule-embedded .next-heading h2{font:700 19px monospace;letter-spacing:0;color:#83dce3}
+.schedule-embedded .next-heading span{font-size:12px;text-align:right}
+.schedule-embedded .programme-row{padding:20px 0;grid-template-columns:100px minmax(0,1fr);gap:20px}
+.schedule-embedded .programme-time{font:700 18px/1.5 monospace}
+.schedule-embedded .programme-row strong{font:700 18px/1.5 monospace;letter-spacing:0}
+.schedule-embedded .programme-row small{font-size:13px;line-height:1.6}
+.schedule-embedded #weekly-browser summary{font:700 15px/1.5 monospace;color:#effb77;padding:16px 0;min-height:52px}
+.schedule-embedded #rows article{grid-template-columns:100px minmax(0,1fr) 110px}
+.schedule-embedded #rows article strong{font-size:17px}
+.schedule-embedded #rows article small,.schedule-embedded #count,.schedule-embedded #week{font-size:13px}
+.schedule-embedded .guide-footnote{font-size:12px;margin-top:28px}
+.embedded .library{padding-top:26px}
+.embedded .library-heading h2{font:700 22px/1.4 monospace;letter-spacing:0;color:#83dce3}
+.embedded #show-count{font-size:13px;margin-left:16px}
+.embedded .quiet-button,.embedded .sort-buttons button,.embedded .load-more{font:700 14px/1.4 monospace;min-height:48px;border-radius:0;padding:12px 16px}
+.embedded .filters{gap:18px;padding:22px 0;border-bottom:3px solid #83dce3;margin-bottom:0}
+.embedded .filters label{font-size:12px;color:#83dce3;gap:10px}
+.embedded #result-count{font-size:12px}
+.embedded .find-row{border-radius:0;margin-top:20px}
+.embedded .find-row label{font-size:12px}
+.embedded .find-row input{font:18px monospace;min-height:48px}
+.embedded .show-grid{display:block;counter-reset:none}
+.embedded .show-card{width:100%;display:grid;grid-template-columns:56px minmax(0,1fr) auto;column-gap:16px;row-gap:5px;align-items:center;padding:19px 6px;border:0;border-bottom:1px solid #91a8c63d;border-radius:0;content-visibility:auto;contain-intrinsic-size:auto 98px;transition:background-color .12s;transform:none!important}
+.embedded .show-card:hover,.embedded .show-card:focus-visible{background:#83dce30d}
+.embedded .show-card h3{grid-column:2;grid-row:1;font:700 19px/1.4 monospace;letter-spacing:0;margin:0;color:#f0f1d9}
+.embedded .show-card p{grid-column:2;grid-row:2;font:13px/1.5 monospace;color:#91a8c6;margin:0}
+.embedded .show-index{grid-row:1/3;color:#effb77;font:700 18px monospace;align-self:start;padding-top:3px}
+.embedded .show-total{grid-column:3;grid-row:1/3;text-align:right;font:14px/1.5 monospace;color:#83dce3;white-space:pre-line}
+.embedded .show-card:focus-visible{outline-offset:-3px}
+.embedded #show-detail .detail-art{min-height:0;max-height:none;border-bottom:3px solid #83dce3}
+.embedded #show-detail .detail-art:after,.embedded #detail-image{display:none}
+.embedded #show-detail .detail-art>div{padding:24px 0}
+.embedded .detail-art h2{font:700 28px/1.3 monospace;letter-spacing:0;color:#effb77}
+.embedded .detail-art p,.embedded #detail-channels{font:14px/1.6 monospace}
+.embedded .detail-art .eyebrow{font-size:12px;color:#83dce3}
+.embedded .detail-navigation{background:#07132b;min-height:64px;border-bottom:1px solid #91a8c650}
+.embedded #show-detail #close-detail{font-size:14px;min-height:48px;border-radius:0}
+.embedded .detail-navigation>span{font-size:12px}
+.embedded #play-first{font:700 15px monospace;min-height:48px;border-radius:0}
+.embedded .episode-heading h3{font:700 20px monospace;color:#83dce3}
+.embedded .episode-heading>span{font-size:12px}
+.embedded .episode{grid-template-columns:44px minmax(0,1fr) 75px;border:0;border-bottom:1px solid #91a8c63d;border-radius:0;background:none;padding:20px 4px;margin:0;transform:none!important}
+.embedded .episode strong{font:700 17px/1.5 monospace}
+.embedded .episode small{font:13px/1.6 monospace}
+.embedded .episode>span:first-child,.embedded .episode .episode-duration{font-size:15px}
+.embedded footer{font-size:11px;line-height:1.6;margin-top:36px}
+@media(max-width:650px){
+.schedule-embedded .channel-schedule{padding:20px 0}.schedule-embedded .schedule-channel-bar{display:block}.schedule-embedded .schedule-channel-bar label{margin-top:20px}.schedule-embedded .schedule-channel-bar select{max-width:none;width:100%}.schedule-embedded .schedule-identity h1{font-size:25px}.schedule-embedded .programme-now h2{font-size:22px}.schedule-embedded .programme-row{grid-template-columns:72px minmax(0,1fr);gap:12px}.schedule-embedded .programme-row strong,.schedule-embedded .programme-time{font-size:16px}.schedule-embedded #rows article{grid-template-columns:72px minmax(0,1fr)}.schedule-embedded #rows article>div:last-child{grid-column:2}.schedule-embedded .next-heading{align-items:start}.schedule-embedded .next-heading span{max-width:45%}
+.embedded .library-heading{gap:12px;align-items:start}.embedded .library-heading h2{font-size:20px}.embedded #show-count{display:block;margin:6px 0 0}.embedded .quiet-button{padding:10px;font-size:12px}.embedded .library-heading .quiet-button span{display:inline}.embedded .filters{gap:12px}.embedded .filters label{display:grid;width:100%;font-size:12px}.embedded select{max-width:none;width:100%}.embedded .sort-buttons{margin-left:0}.embedded #result-count{width:auto;margin-left:auto}.embedded .show-card{grid-template-columns:36px minmax(0,1fr);gap:5px 10px;padding:18px 2px;contain-intrinsic-size:auto 120px}.embedded .show-card h3{font-size:17px}.embedded .show-card p{font-size:12px}.embedded .show-index{font-size:15px}.embedded .show-total{grid-column:2;grid-row:3;text-align:left;white-space:normal;font-size:12px}.embedded .episode{grid-template-columns:30px minmax(0,1fr);gap:8px}.embedded .episode strong{font-size:16px}.embedded .episode .episode-duration{grid-column:2;text-align:left;font-size:13px}.embedded .episode small{font-size:12px}.embedded .detail-art h2{font-size:25px}.embedded #show-detail .detail-art>div{padding:22px 0}.embedded .detail-navigation>span{display:none}
+}

@@ -107,9 +107,9 @@
     const elapsed=isWatching?(currentPlayer()?.getCurrentTime?.()??active.offset??0):now.offset;
     $('#schedule-frame').contentWindow?.postMessage({type:'rewind-guide-state',key:channels[i].key,mode:channels[i].mode,isWatching,paused:isWatching&&paused,playbackMode:isWatching?active.mode:'live',elapsed,current:{video:isWatching?active.video:slot.video,start:slot.start,end:slot.end},next:isWatching&&active.mode==='ondemand'?requestedQueue.slice(requestedIndex+1,requestedIndex+20).map(video=>({video})):plan.schedules[i].slice(index+1,index+20)},location.origin);
   }
-  function openSchedule(){scheduleChannel=channel;const frame=$('#schedule-frame');frame.src='schedule.html?overlay=1&v=pages1&channel='+encodeURIComponent(channels[channel].key);panels.open($('.schedule-overlay'));revealControls();}
+  function openSchedule(){scheduleChannel=channel;const frame=$('#schedule-frame');frame.src='schedule.html?overlay=1&v=textpages2&channel='+encodeURIComponent(channels[channel].key);panels.open($('.schedule-overlay'));revealControls();}
   window.addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==$('#schedule-frame').contentWindow)return;if(e.data?.type==='rewind-guide-close'){panels.close($('.schedule-overlay'));return;}if(e.data?.type==='rewind-guide-ready'||e.data?.type==='rewind-guide-select'){const i=channels?.findIndex(c=>c.key===e.data.key);if(i>=0){scheduleChannel=i;sendScheduleState(i);}}});
-  function openBrowse(){const frame=$('#browse-frame');if(!frame.getAttribute('src'))frame.src='browse.html?overlay=1&v=pages1';panels.open($('.browse-overlay'));revealControls();}
+  function openBrowse(){const frame=$('#browse-frame');if(!frame.getAttribute('src'))frame.src='browse.html?overlay=1&v=textpages2';panels.open($('.browse-overlay'));revealControls();}
   root.addEventListener('click',event=>{const link=event.target.closest('[data-open-page]');if(!link)return;const actions={channels:openGuide,guide:openSchedule,shows:openBrowse};actions[link.dataset.openPage]?.();});
   $('#live-tab').onclick=()=>{root.querySelectorAll('dialog[open], [data-tv-page]:not([hidden])').forEach(d=>panels.close(d));revealControls();};
   $('.browse-overlay').addEventListener('close',()=>$('#browse-frame').contentWindow?.postMessage({type:'rewind-browse-reset'},location.origin));
