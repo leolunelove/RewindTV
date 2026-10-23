@@ -38,3 +38,6 @@ const guideParams=new URLSearchParams(location.search),embedded=guideParams.has(
   if(embedded)parent.postMessage({type:'rewind-guide-ready',key:currentChannel().key},location.origin);
  }catch(e){$('#station-name').textContent='The guide could not load.';$('#now-title').textContent='Refresh the TV and try again.';console.error(e);}
 })();
+
+// Keyboard events inside an iframe do not reach the TV's dialog.
+window.addEventListener('keydown',event=>{if(event.key==='Escape'&&new URLSearchParams(location.search).has('overlay')){event.preventDefault();parent.postMessage({type:'rewind-guide-close'},location.origin);}});

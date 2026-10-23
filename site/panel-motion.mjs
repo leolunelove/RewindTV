@@ -16,7 +16,9 @@ export function createPanelMotion(root){
    if(target)button.setAttribute('aria-expanded',String(!!root.querySelector(target)?.open));
   }
  }
+ function reset(panel){const pending=states.get(panel);if(pending){pending.cancelled=true;pending.animation?.cancel();states.delete(panel);}if(panel.open)panel.close();}
  function open(panel){
+  for(const other of root.querySelectorAll('dialog[open]'))if(other!==panel)reset(other);
   const old=states.get(panel);if(old){old.cancelled=true;old.animation?.cancel();states.delete(panel);}
   if(panel.open){sync();return;}
   panel.showModal();sync();
