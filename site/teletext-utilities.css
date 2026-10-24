@@ -1,0 +1,58 @@
+/* P500 / P600: full teletext utility pages. Native dialog focus stays contained. */
+#rewind-tv.app-shell.teletext.classic-tv dialog.programme-info,#rewind-tv.app-shell.teletext.classic-tv dialog.tv-settings{position:fixed;inset:0;width:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0 max(28px,calc((100vw - 1064px)/2)) 36px;border:0;border-radius:0;box-shadow:none;overflow-y:auto;overscroll-behavior:contain;background:#07132bf5;color:#f0f1d9;font:16px/1.6 monospace;scroll-padding-top:130px}
+#rewind-tv.app-shell.teletext.classic-tv dialog::backdrop{background:#0004;backdrop-filter:none}
+#rewind-tv.app-shell.teletext.classic-tv .programme-info .info-heading,#rewind-tv.app-shell.teletext.classic-tv .tv-settings .guide-heading{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:106px;margin:0 0 28px;padding:16px 0;border:0;border-bottom:1px solid #91a8c64a;background:#07132b}
+#rewind-tv.app-shell.teletext.classic-tv .utility-heading h2,#rewind-tv.app-shell.teletext.classic-tv #settings-title{font:900 32px/1.1 monospace;letter-spacing:-1px;color:#effb77;margin:10px 0 0}
+#rewind-tv.app-shell.teletext.classic-tv .utility-heading small,#rewind-tv.app-shell.teletext.classic-tv .tv-settings .guide-heading>div>span{font:700 12px/1.4 monospace;letter-spacing:.5px;color:#83dce3}
+#rewind-tv.app-shell.teletext.classic-tv .programme-info #close-info,#rewind-tv.app-shell.teletext.classic-tv .tv-settings #close-settings{width:auto;height:auto;min-height:48px;min-width:142px;margin:0;padding:11px 16px;flex-shrink:0;border:1px solid #effb7755;border-radius:0;background:#effb7711;color:#effb77;font:700 13px/1.4 monospace;box-shadow:none}
+#rewind-tv.app-shell.teletext.classic-tv .info-signal{display:flex;gap:16px;flex-wrap:wrap;font:14px/1.5 monospace;color:#83dce3;margin-bottom:20px}
+#rewind-tv.app-shell.teletext.classic-tv #info-show{font:700 30px/1.3 monospace;letter-spacing:0;margin:20px 0 12px;color:#effb77}
+#rewind-tv.app-shell.teletext.classic-tv #info-title{font:700 22px/1.5 monospace;margin:0 0 16px;color:#f0f1d9}
+#rewind-tv.app-shell.teletext.classic-tv #info-meta,#rewind-tv.app-shell.teletext.classic-tv #info-synopsis{font:15px/1.7 monospace;color:#a9bed6}
+#rewind-tv.app-shell.teletext.classic-tv .playback-options,#rewind-tv.app-shell.teletext.classic-tv .info-surf{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+#rewind-tv.app-shell.teletext.classic-tv .playback-options button,#rewind-tv.app-shell.teletext.classic-tv .playback-options a,#rewind-tv.app-shell.teletext.classic-tv .info-surf button,#rewind-tv.app-shell.teletext.classic-tv #info-schedule,#rewind-tv.app-shell.teletext.classic-tv .tv-settings button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border:1px solid #91a8c65a;border-radius:0;box-shadow:none;background:#ffffff04;color:#d2e0ed;font:700 15px/1.4 monospace;text-decoration:none}
+#rewind-tv.app-shell.teletext.classic-tv .programme-info button:hover,#rewind-tv.app-shell.teletext.classic-tv .tv-settings button:hover{background:#83dce312}
+#rewind-tv.app-shell.teletext.classic-tv .info-playhead{padding:24px 0;border-top:1px solid #91a8c63d;border-bottom:1px solid #91a8c63d}
+#rewind-tv.app-shell.teletext.classic-tv .info-playhead progress{width:100%;height:8px;border-radius:0;accent-color:#effb77}
+#rewind-tv.app-shell.teletext.classic-tv .info-playhead progress::-webkit-progress-bar,#rewind-tv.app-shell.teletext.classic-tv .info-playhead progress::-webkit-progress-value{border-radius:0}
+#rewind-tv.app-shell.teletext.classic-tv .info-playhead>div{display:flex;justify-content:space-between;gap:16px;font:14px/1.5 monospace;margin-top:12px}
+#rewind-tv.app-shell.teletext.classic-tv #info-next{padding:24px 0;border-bottom:1px solid #91a8c63d;background:none;border-radius:0}
+#rewind-tv.app-shell.teletext.classic-tv #info-next>span{font:700 15px/1.5 monospace;color:#83dce3}
+#rewind-tv.app-shell.teletext.classic-tv #info-next-title{display:block;font:700 19px/1.5 monospace;margin-top:10px}
+#rewind-tv.app-shell.teletext.classic-tv .programme-info footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;margin:24px 0;padding:0;border:0}
+#rewind-tv.app-shell.teletext.classic-tv .programme-info footer>div{display:grid;gap:8px;font:13px/1.6 monospace;color:#91a8c6}
+#rewind-tv.app-shell.teletext.classic-tv .programme-info footer a{font:14px/1.6 monospace;color:#83dce3}
+#rewind-tv.app-shell.teletext.classic-tv .settings-remote{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px;padding:0 0 22px;border-bottom:3px solid #83dce3;background:none;border-radius:0}
+#rewind-tv.app-shell.teletext.classic-tv .settings-remote .volume-control{display:flex;align-items:center;gap:18px;font:700 16px monospace}
+#rewind-tv.app-shell.teletext.classic-tv .settings-remote .volume-control button{width:48px;font-size:22px}
+#rewind-tv.app-shell.teletext.classic-tv .settings-section{font:700 20px/1.4 monospace;color:#83dce3;letter-spacing:0;margin:30px 0 8px}
+#rewind-tv.app-shell.teletext.classic-tv .tv-settings>label{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:76px;padding:16px 0;border-bottom:1px solid #91a8c63d;font:700 18px/1.5 monospace}
+#rewind-tv.app-shell.teletext.classic-tv .tv-settings input[type=checkbox]{appearance:none;position:relative;flex:0 0 72px;width:72px;height:44px;margin:0;border:1px solid #91a8c670;border-radius:0;background:#ffffff05;cursor:pointer;box-shadow:none}
+#rewind-tv.app-shell.teletext.classic-tv .tv-settings input[type=checkbox]:before{content:'OFF';position:absolute;inset:0;display:grid;place-items:center;width:auto;height:auto;border-radius:0;background:none;color:#a9bed6;font:700 14px monospace;transform:none;box-shadow:none;transition:none}
+#rewind-tv.app-shell.teletext.classic-tv .tv-settings input[type=checkbox]:checked{background:#effb7710;border-color:#effb77}
+#rewind-tv.app-shell.teletext.classic-tv .tv-settings input[type=checkbox]:checked:before{content:'ON';color:#effb77;transform:none}
+#rewind-tv.app-shell.teletext.classic-tv .tv-settings p,#rewind-tv.app-shell.teletext.classic-tv .tv-settings small{font:14px/1.7 monospace;color:#91a8c6}
+#rewind-tv.app-shell.teletext.classic-tv .audio-level{padding:22px 0;border:0;border-bottom:1px solid #91a8c63d;background:none;border-radius:0}
+#rewind-tv.app-shell.teletext.classic-tv .audio-level label{display:flex;justify-content:space-between;gap:20px;font:700 17px/1.5 monospace}
+#rewind-tv.app-shell.teletext.classic-tv #programme-trim{width:100%;height:44px;accent-color:#effb77}
+#rewind-tv.app-shell.teletext.classic-tv #keyboard-help{border:0;border-top:3px solid #83dce3;border-bottom:1px solid #91a8c63d;border-radius:0;margin:30px 0;padding:8px 0;background:none}
+#rewind-tv.app-shell.teletext.classic-tv #keyboard-help summary{font:700 17px/1.5 monospace;color:#effb77;min-height:52px;padding:14px 0;cursor:pointer}
+#rewind-tv.app-shell.teletext.classic-tv #keyboard-help dl{display:grid;grid-template-columns:130px minmax(0,1fr);gap:14px 24px;font:15px/1.6 monospace}
+#rewind-tv.app-shell.teletext.classic-tv #keyboard-help dt{color:#83dce3}#rewind-tv.app-shell.teletext.classic-tv #keyboard-help dd{margin:0}
+@media(max-width:650px){
+#rewind-tv.app-shell.teletext.classic-tv dialog.programme-info,#rewind-tv.app-shell.teletext.classic-tv dialog.tv-settings{padding:0 16px 28px}
+#rewind-tv.app-shell.teletext.classic-tv .programme-info .info-heading,#rewind-tv.app-shell.teletext.classic-tv .tv-settings .guide-heading{min-height:96px;gap:12px;margin-bottom:22px}
+#rewind-tv.app-shell.teletext.classic-tv .utility-heading h2,#rewind-tv.app-shell.teletext.classic-tv #settings-title{font-size:25px}
+#rewind-tv.app-shell.teletext.classic-tv .utility-heading small,#rewind-tv.app-shell.teletext.classic-tv .tv-settings .guide-heading>div>span{font-size:9px}
+#rewind-tv.app-shell.teletext.classic-tv .programme-info #close-info,#rewind-tv.app-shell.teletext.classic-tv .tv-settings #close-settings{min-width:112px;padding:10px;font-size:11px}
+#rewind-tv.app-shell.teletext.classic-tv #info-show{font-size:26px}#rewind-tv.app-shell.teletext.classic-tv #info-title{font-size:20px}
+#rewind-tv.app-shell.teletext.classic-tv .playback-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#rewind-tv.app-shell.teletext.classic-tv .playback-options button,#rewind-tv.app-shell.teletext.classic-tv .playback-options a,#rewind-tv.app-shell.teletext.classic-tv .info-surf button{font-size:13px;padding:12px}
+#rewind-tv.app-shell.teletext.classic-tv .info-surf{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#rewind-tv.app-shell.teletext.classic-tv .settings-remote{gap:12px}#rewind-tv.app-shell.teletext.classic-tv .settings-remote .volume-control{gap:10px;font-size:14px}
+#rewind-tv.app-shell.teletext.classic-tv .tv-settings>label{font-size:17px;gap:16px}
+#rewind-tv.app-shell.teletext.classic-tv #keyboard-help dl{grid-template-columns:90px minmax(0,1fr);gap:12px 14px;font-size:14px}
+}
+#rewind-tv.app-shell.teletext.classic-tv .settings-remote .remote-power{gap:10px}
+#rewind-tv.app-shell.teletext.classic-tv .settings-remote #volume{font:700 15px/1.4 monospace;min-width:64px;text-align:center}
+#rewind-tv.app-shell.teletext.classic-tv:has(dialog[open])>.chrome,#rewind-tv.app-shell.teletext.classic-tv:has(dialog[open])>.tv-dock,#rewind-tv.app-shell.teletext.classic-tv:has(dialog[open])>.status-line,#rewind-tv.app-shell.teletext.classic-tv:has(dialog[open]) .club-now,#rewind-tv.app-shell.teletext.classic-tv:has(dialog[open]) #channel-osd,#rewind-tv.app-shell.teletext.classic-tv:has(dialog[open]) #channel-logo,#rewind-tv.app-shell.teletext.classic-tv:has(dialog[open]) #startup-sound{visibility:hidden!important}
