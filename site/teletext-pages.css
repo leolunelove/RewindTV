@@ -29,3 +29,38 @@
 #rewind-tv.teletext-open .osd,#rewind-tv.teletext-open .now-playing,#rewind-tv.teletext-open #startup-sound{visibility:hidden!important}
 
 #rewind-tv.teletext-open .club-now,#rewind-tv.teletext-open #channel-osd,#rewind-tv.teletext-open #channel-logo{visibility:hidden!important}
+/* P200 shares the type-and-rule index used by P300 and P400. */
+#rewind-tv.app-shell.teletext.classic-tv #channels-page #library-count{font:13px/1.5 monospace;color:#91a8c6;margin:0 0 20px}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .genre-jumps{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0 0 22px;border-bottom:3px solid #83dce3;overflow:visible}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .genre-jumps button{font:700 13px/1.4 monospace;min-height:44px;padding:10px 13px;border-radius:0;border:1px solid #91a8c64a;background:none;color:#b9ccdf}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .genre-jumps button:hover{background:#83dce310;color:#effb77}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels{display:block}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .channel-section{display:block;margin:0 0 30px;border:0;padding:0}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .channel-section h3{font:700 20px/1.4 monospace;letter-spacing:0;color:#83dce3;padding:0 0 14px;margin:0;border-bottom:1px solid #91a8c63d;scroll-margin-top:20px}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button{display:grid;width:100%;grid-template-columns:56px minmax(0,1fr) 105px;column-gap:16px;row-gap:6px;min-height:98px;padding:19px 6px;border:0;border-bottom:1px solid #91a8c63d;border-radius:0;box-shadow:none;background:none;text-align:left;transform:none;transition:background-color .12s}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels .channel-mark{display:none}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button>span{grid-column:1;grid-row:1/3;align-self:start;padding-top:3px;font:700 19px/1.4 monospace;color:#effb77}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button strong{grid-column:2;grid-row:1;font:700 19px/1.4 monospace;letter-spacing:0;color:#f0f1d9;white-space:normal;overflow:visible}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button small{grid-column:2;grid-row:2;font:14px/1.6 monospace;color:#91a8c6;white-space:normal;overflow:visible;text-overflow:clip}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button:after{content:'WATCH →';grid-column:3;grid-row:1/3;align-self:center;text-align:right;font:700 13px/1.5 monospace;color:#83dce3}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button[aria-pressed=true]{background:#effb7708;box-shadow:inset 3px 0 #effb77}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button[aria-pressed=true]:after{content:'WATCHING';color:#effb77}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button[aria-pressed=true] strong{color:#effb77}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button:hover,#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button:focus-visible{background:#83dce30d}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button:focus-visible{outline-offset:-3px}
+@media(max-width:650px){
+#rewind-tv.app-shell.teletext.classic-tv #channels-page #library-count{font-size:12px;margin-bottom:16px}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .genre-jumps{flex-wrap:nowrap;overflow-x:auto;gap:8px;padding-bottom:18px;margin-bottom:22px;scrollbar-width:thin}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .genre-jumps button{font-size:13px;min-height:48px;flex-shrink:0}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .channel-section h3{font-size:19px}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button{grid-template-columns:36px minmax(0,1fr);gap:6px 10px;padding:18px 6px;min-height:110px}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button>span{font-size:17px}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button strong{font-size:18px}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button small{font-size:13px}
+#rewind-tv.app-shell.teletext.classic-tv #channels-page .direct-channels button:after{grid-column:2;grid-row:3;text-align:left;font-size:12px}
+}
+/* Shared, readable page navigation across all three indexes. */
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button{font-size:13px}
+#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button span{font-size:12px}
+#rewind-tv.app-shell.teletext.classic-tv .page-back-tv{font-size:13px}
+@media(max-width:650px){#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button{font-size:11px}#rewind-tv.app-shell.teletext.classic-tv .teletext-page-nav button span{font-size:11px}#rewind-tv.app-shell.teletext.classic-tv .page-back-tv{font-size:11px}}
