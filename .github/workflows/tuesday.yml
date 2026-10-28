@@ -34,6 +34,15 @@ jobs:
           BATCH_LIMIT: ${{ inputs.batch_limit || '250' }}
           HEADLESS: 'false'
         run: xvfb-run --auto-servernum npm run check
+      - name: Preserve diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rewind-check-${{ github.run_id }}
+          path: |
+            data/state.json
+            reports/
+          retention-days: 30
       - name: Save coverage checkpoint and report
         if: always()
         run: |
@@ -42,7 +51,8 @@ jobs:
           git add data/state.json reports/
           if ! git diff --cached --quiet; then
             git commit -m 'Record Tuesday video checks'
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
       - name: Flag findings for notification
         if: steps.playback.outcome == 'failure'
