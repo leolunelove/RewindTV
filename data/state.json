@@ -3787,6 +3787,50 @@
       },
       "metadataFailureCount": 0,
       "consecutiveFailures": 0
+    },
+    "uiBRTX0BYt0": {
+      "lastAttemptAt": "2026-10-28T20:45:18.032Z",
+      "lastAttemptStatus": "runner-blocked",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Sabrina the Animated Series 127 - Stone Broke | HD | Full Episode",
+        "author": "Sabrina The Teenage Witch - WildBrain",
+        "verdict": "available-metadata"
+      },
+      "metadataFailureCount": 0,
+      "consecutiveFailures": 0
+    },
+    "j2edwe7JKDs": {
+      "lastAttemptAt": "2026-10-28T20:45:18.032Z",
+      "lastAttemptStatus": "runner-blocked",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Gossip! Gossip! Gossip! | Sabrina's Secret Life - WildBrain | Full HD Episodes",
+        "author": "Sabrina The Teenage Witch - WildBrain",
+        "verdict": "available-metadata"
+      },
+      "metadataFailureCount": 0,
+      "consecutiveFailures": 0
+    },
+    "his_girl_friday": {
+      "lastAttemptAt": "2026-10-28T20:45:18.032Z",
+      "lastAttemptStatus": "playing",
+      "metadata": {
+        "status": 200,
+        "method": "media-head",
+        "available": true,
+        "verdict": "available-metadata"
+      },
+      "at": "2026-10-28T20:45:18.032Z",
+      "status": "playing",
+      "start": true,
+      "tail": true,
+      "metadataFailureCount": 0,
+      "consecutiveFailures": 0
     }
   },
   "cursor": 0

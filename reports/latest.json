@@ -1,56 +1,159 @@
 {
-  "at": "2026-10-28T20:41:54.938Z",
+  "at": "2026-10-28T20:45:18.032Z",
   "browserChannel": "chrome",
   "runnerRegion": "GitHub-hosted runner; network country unverified",
   "catalogueSize": 4204,
   "planned": 3,
   "checked": 3,
-  "playbackAttempted": 0,
-  "passed": 0,
+  "playbackAttempted": 1,
+  "passed": 1,
   "environmentBlocked": true,
   "blockedProviders": [
     "youtube"
   ],
   "calibration": {
     "youtube": {
-      "id": "L2UCRNldC3s",
-      "metadata": {
-        "status": 200,
-        "method": "youtube-oembed",
-        "available": true,
-        "title": "Merry Christmas Mr Bean | Full Episode | Mr. Bean Official",
-        "author": "Mr Bean",
-        "verdict": "available-metadata"
-      },
       "healthy": false,
-      "attempts": [
+      "controls": [
         {
           "id": "L2UCRNldC3s",
-          "status": "source-error",
-          "code": 150,
-          "start": false,
-          "tail": false,
-          "duration": 1522
+          "metadata": {
+            "status": 200,
+            "method": "youtube-oembed",
+            "available": true,
+            "title": "Merry Christmas Mr Bean | Full Episode | Mr. Bean Official",
+            "author": "Mr Bean",
+            "verdict": "available-metadata"
+          },
+          "healthy": false,
+          "attempts": [
+            {
+              "id": "L2UCRNldC3s",
+              "status": "source-error",
+              "code": 150,
+              "start": false,
+              "tail": false,
+              "duration": 1522
+            },
+            {
+              "id": "L2UCRNldC3s",
+              "status": "source-error",
+              "code": 150,
+              "start": false,
+              "tail": false,
+              "duration": 1522
+            }
+          ]
         },
         {
-          "id": "L2UCRNldC3s",
-          "status": "source-error",
-          "code": 150,
-          "start": false,
-          "tail": false,
-          "duration": 1522
+          "id": "0ewGL1NpD84",
+          "metadata": {
+            "status": 200,
+            "method": "youtube-oembed",
+            "available": true,
+            "title": "SirensCeol - Coming Home | Dubstep | NCS - Copyright Free Music",
+            "author": "NoCopyrightSounds",
+            "verdict": "available-metadata"
+          },
+          "healthy": false,
+          "attempts": [
+            {
+              "id": "0ewGL1NpD84",
+              "status": "source-error",
+              "code": 150,
+              "start": false,
+              "tail": false,
+              "duration": 284
+            },
+            {
+              "id": "0ewGL1NpD84",
+              "status": "source-error",
+              "code": 150,
+              "start": false,
+              "tail": false,
+              "duration": 284
+            }
+          ]
         }
       ]
     },
     "archive": {
+      "healthy": true,
+      "controls": [
+        {
+          "id": "his_girl_friday",
+          "metadata": {
+            "status": 200,
+            "method": "media-head",
+            "available": true,
+            "verdict": "available-metadata"
+          },
+          "healthy": true,
+          "attempts": [
+            {
+              "id": "his_girl_friday",
+              "status": "playing",
+              "start": true,
+              "tail": true,
+              "duration": 5504.521188
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "worldwideVerified": false,
+  "results": [
+    {
+      "id": "uiBRTX0BYt0",
+      "status": "not-probed",
+      "start": false,
+      "tail": false,
+      "provider": "youtube",
+      "title": "Sabrina the Animated Series 127 - Stone Broke | HD | Full Episode",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Sabrina the Animated Series 127 - Stone Broke | HD | Full Episode",
+        "author": "Sabrina The Teenage Witch - WildBrain",
+        "verdict": "available-metadata"
+      },
+      "attempts": [],
+      "verdict": "runner-blocked"
+    },
+    {
+      "id": "j2edwe7JKDs",
+      "status": "not-probed",
+      "start": false,
+      "tail": false,
+      "provider": "youtube",
+      "title": "Gossip! Gossip! Gossip! | Sabrina's Secret Life - WildBrain | Full HD Episodes",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Gossip! Gossip! Gossip! | Sabrina's Secret Life - WildBrain | Full HD Episodes",
+        "author": "Sabrina The Teenage Witch - WildBrain",
+        "verdict": "available-metadata"
+      },
+      "attempts": [],
+      "verdict": "runner-blocked"
+    },
+    {
       "id": "his_girl_friday",
+      "status": "playing",
+      "start": true,
+      "tail": true,
+      "duration": 5504.521188,
+      "provider": "archive",
+      "title": "His Girl Friday",
       "metadata": {
         "status": 200,
         "method": "media-head",
         "available": true,
         "verdict": "available-metadata"
       },
-      "healthy": true,
       "attempts": [
         {
           "id": "his_girl_friday",
@@ -59,64 +162,8 @@
           "tail": true,
           "duration": 5504.521188
         }
-      ]
-    }
-  },
-  "worldwideVerified": false,
-  "results": [
-    {
-      "id": "IaECYYvuwso",
-      "status": "not-probed",
-      "start": false,
-      "tail": false,
-      "provider": "youtube",
-      "title": "Space Goofs - Toy Trouble (S01E17) Full Episode",
-      "metadata": {
-        "status": 200,
-        "method": "youtube-oembed",
-        "available": true,
-        "title": "Space Goofs - Toy Trouble (S01E17) Full Episode",
-        "author": "Space Goofs",
-        "verdict": "available-metadata"
-      },
-      "attempts": [],
-      "verdict": "runner-blocked"
-    },
-    {
-      "id": "2o8tgRGriag",
-      "status": "not-probed",
-      "start": false,
-      "tail": false,
-      "provider": "youtube",
-      "title": "Space Goofs - Bats in the belfry (S1E04) Full Episode",
-      "metadata": {
-        "status": 200,
-        "method": "youtube-oembed",
-        "available": true,
-        "title": "Space Goofs - Bats in the belfry (S1E04) Full Episode",
-        "author": "Space Goofs",
-        "verdict": "available-metadata"
-      },
-      "attempts": [],
-      "verdict": "runner-blocked"
-    },
-    {
-      "id": "ZtEzrcmFAtY",
-      "status": "not-probed",
-      "start": false,
-      "tail": false,
-      "provider": "youtube",
-      "title": "Space Goofs - Dead funny (S01E44) Full Episode",
-      "metadata": {
-        "status": 200,
-        "method": "youtube-oembed",
-        "available": true,
-        "title": "Space Goofs - Dead funny (S01E44) Full Episode",
-        "author": "Space Goofs",
-        "verdict": "available-metadata"
-      },
-      "attempts": [],
-      "verdict": "runner-blocked"
+      ],
+      "verdict": "playing"
     }
   ]
 }
