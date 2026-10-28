@@ -1,5 +1,6 @@
 {
-  "at": "2026-10-28T20:36:06.522Z",
+  "at": "2026-10-28T20:41:54.938Z",
+  "browserChannel": "chrome",
   "runnerRegion": "GitHub-hosted runner; network country unverified",
   "catalogueSize": 4204,
   "planned": 3,
@@ -8,12 +9,19 @@
   "passed": 0,
   "environmentBlocked": true,
   "blockedProviders": [
-    "youtube",
-    "archive"
+    "youtube"
   ],
   "calibration": {
     "youtube": {
       "id": "L2UCRNldC3s",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Merry Christmas Mr Bean | Full Episode | Mr. Bean Official",
+        "author": "Mr Bean",
+        "verdict": "available-metadata"
+      },
       "healthy": false,
       "attempts": [
         {
@@ -36,23 +44,20 @@
     },
     "archive": {
       "id": "his_girl_friday",
-      "healthy": false,
+      "metadata": {
+        "status": 200,
+        "method": "media-head",
+        "available": true,
+        "verdict": "available-metadata"
+      },
+      "healthy": true,
       "attempts": [
         {
           "id": "his_girl_friday",
-          "status": "media-error",
-          "code": 4,
-          "start": false,
-          "tail": false,
-          "duration": null
-        },
-        {
-          "id": "his_girl_friday",
-          "status": "media-error",
-          "code": 4,
-          "start": false,
-          "tail": false,
-          "duration": null
+          "status": "playing",
+          "start": true,
+          "tail": true,
+          "duration": 5504.521188
         }
       ]
     }
@@ -60,52 +65,55 @@
   "worldwideVerified": false,
   "results": [
     {
-      "id": "nMDy_QRLesM",
+      "id": "IaECYYvuwso",
       "status": "not-probed",
       "start": false,
       "tail": false,
       "provider": "youtube",
-      "title": "Space Goofs - Mother from another planet (S01E30) Full Episode",
+      "title": "Space Goofs - Toy Trouble (S01E17) Full Episode",
       "metadata": {
         "status": 200,
         "method": "youtube-oembed",
         "available": true,
-        "title": "Space Goofs - Mother from another planet (S01E30) Full Episode",
-        "author": "Space Goofs"
+        "title": "Space Goofs - Toy Trouble (S01E17) Full Episode",
+        "author": "Space Goofs",
+        "verdict": "available-metadata"
       },
       "attempts": [],
       "verdict": "runner-blocked"
     },
     {
-      "id": "lfw85TT0NFY",
+      "id": "2o8tgRGriag",
       "status": "not-probed",
       "start": false,
       "tail": false,
       "provider": "youtube",
-      "title": "Space Goofs - Back to school Blues (S2E37) Full Episode in HD",
+      "title": "Space Goofs - Bats in the belfry (S1E04) Full Episode",
       "metadata": {
         "status": 200,
         "method": "youtube-oembed",
         "available": true,
-        "title": "Space Goofs - Back to school Blues (S2E37) Full Episode in HD",
-        "author": "Space Goofs"
+        "title": "Space Goofs - Bats in the belfry (S1E04) Full Episode",
+        "author": "Space Goofs",
+        "verdict": "available-metadata"
       },
       "attempts": [],
       "verdict": "runner-blocked"
     },
     {
-      "id": "dr-3pr6kEZM",
+      "id": "ZtEzrcmFAtY",
       "status": "not-probed",
       "start": false,
       "tail": false,
       "provider": "youtube",
-      "title": "Space Goofs - Scout's night out (S01E01) Full Episode",
+      "title": "Space Goofs - Dead funny (S01E44) Full Episode",
       "metadata": {
         "status": 200,
         "method": "youtube-oembed",
         "available": true,
-        "title": "Space Goofs - Scout's night out (S01E01) Full Episode",
-        "author": "Space Goofs"
+        "title": "Space Goofs - Dead funny (S01E44) Full Episode",
+        "author": "Space Goofs",
+        "verdict": "available-metadata"
       },
       "attempts": [],
       "verdict": "runner-blocked"

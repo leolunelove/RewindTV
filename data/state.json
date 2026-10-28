@@ -3745,6 +3745,48 @@
         "author": "Space Goofs"
       },
       "consecutiveFailures": 0
+    },
+    "IaECYYvuwso": {
+      "lastAttemptAt": "2026-10-28T20:41:54.938Z",
+      "lastAttemptStatus": "runner-blocked",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Space Goofs - Toy Trouble (S01E17) Full Episode",
+        "author": "Space Goofs",
+        "verdict": "available-metadata"
+      },
+      "metadataFailureCount": 0,
+      "consecutiveFailures": 0
+    },
+    "2o8tgRGriag": {
+      "lastAttemptAt": "2026-10-28T20:41:54.938Z",
+      "lastAttemptStatus": "runner-blocked",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Space Goofs - Bats in the belfry (S1E04) Full Episode",
+        "author": "Space Goofs",
+        "verdict": "available-metadata"
+      },
+      "metadataFailureCount": 0,
+      "consecutiveFailures": 0
+    },
+    "ZtEzrcmFAtY": {
+      "lastAttemptAt": "2026-10-28T20:41:54.938Z",
+      "lastAttemptStatus": "runner-blocked",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Space Goofs - Dead funny (S01E44) Full Episode",
+        "author": "Space Goofs",
+        "verdict": "available-metadata"
+      },
+      "metadataFailureCount": 0,
+      "consecutiveFailures": 0
     }
   },
   "cursor": 0
