@@ -372,9 +372,9 @@
   function videoError(e){
     if(e.target&&e.target!==player)return;
     console.warn('Rewind playback error',e.data,active?.video.id);
-    if(!power||!active||active.video.provider==='archive'||channelLoadTimer)return;stopWatch();
+    if(!power||!active||active.video.provider==='archive'||channelLoadTimer)return;
     const reported=e.target.getVideoData?.()?.video_id;
-    if(reported&&reported!==active.video.id)return;
+    if(reported&&reported!==active.video.id)return;stopWatch();
     if(e.data===153){skipUnavailable('This source cannot identify the player',false);return;}
     if(e.data===2||e.data===100||e.data===101||e.data===150){
       skipUnavailable('Upload unavailable in this browser or region');

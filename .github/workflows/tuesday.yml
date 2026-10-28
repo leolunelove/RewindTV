@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: '22'
       - run: npm install --ignore-scripts
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chrome
       - run: npm test
       - name: Probe source playback
         id: playback

@@ -22,6 +22,7 @@ export function update(state,results,at,{blockedProviders=[]}={}){
   const passed=status==='playing';const sourceFailure=status==='source-review';
   next.checked[result.id]={...old,lastAttemptAt:at,lastAttemptStatus:status,metadata:result.metadata,
    ...(passed||sourceFailure?{at,status,start:result.start===true,tail:result.tail===true}:{}),
+   metadataFailureCount:result.metadata?.repeated?(old.metadataFailureCount||0)+1:result.metadata?.available?0:(old.metadataFailureCount||0),
    consecutiveFailures:passed?0:sourceFailure?(old.consecutiveFailures||0)+1:(old.consecutiveFailures||0)};
  }
  return next;
