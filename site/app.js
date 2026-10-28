@@ -166,7 +166,8 @@
       if(next>=0){requestedIndex=next;active=requestedActive(requestedQueue[next]);setStatus(reason+' · Trying the next episode of this show.');ensurePlayer();return;}
       requestedQueue=[];requestedIndex=0;
     }
-    const candidates=channels[channel].videos.filter(v=>!failed.has(v.id)&&!globallyRestricted(v));
+    let candidates=channels[channel].videos.filter(v=>!failed.has(v.id)&&!globallyRestricted(v));
+    if(!persistFailure&&active.video.provider!=='archive'){const direct=candidates.filter(v=>v.provider==='archive');if(direct.length){const buffered=direct.find(v=>v.id===movieSourceId&&movie.readyState>=3);candidates=buffered?[buffered]:direct;}}
     if(!candidates.length){setStatus('NO SIGNAL · Moving to the next channel.');const generation=loadGeneration;clearTimeout(recoveryBackoffTimer);recoveryBackoffTimer=setTimeout(()=>{if(power&&playbackIntent&&generation===loadGeneration)tune(channel+1);},600);return;}
     const rows=RewindShuffle.rows(candidates,recent,Date.now(),Math.random);
     const slot=rows[0];
