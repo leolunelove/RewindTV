@@ -1,27 +1,34 @@
-<!doctype html><meta charset="utf-8"><meta name="referrer" content="strict-origin-when-cross-origin"><title>Rewind cloud playback probe</title><div id="player"></div><video id="native" muted playsinline></video><pre id="result"></pre>
+<!doctype html><meta charset="utf-8"><meta name="referrer" content="strict-origin-when-cross-origin"><title>Rewind playback check</title><form id="manual"><label>Provider <select id="provider"><option value="youtube">YouTube</option><option value="archive">Archive</option></select></label> <label>Video ID <input id="video-id" value="L2UCRNldC3s" required></label> <label>Direct media URL (Archive only) <input id="media-url" type="url"></label> <button>CHECK PLAYBACK</button></form><div id="host"></div><pre id="result"></pre>
 <script>
-let yt,apiReady,currentState=null,currentError=null;const ready=new Promise(r=>apiReady=r);
-window.onYouTubeIframeAPIReady=()=>{yt=new YT.Player('player',{playerVars:{origin:location.origin,playsinline:1},events:{onReady:()=>{yt.mute();apiReady()},onStateChange:e=>currentState?.(e),onError:e=>currentError?.(e)}})};
-window.probe=async v=>{
- const native=document.querySelector('video');let timer,phase='start',start=false,settled=false;
- yt?.stopVideo();native.pause();native.removeAttribute('src');native.load();
- if(v.provider!=='archive')await Promise.race([ready,new Promise((_,j)=>setTimeout(()=>j(Error('API load timeout')),15000))]);
+let apiResolve;const api=new Promise(resolve=>apiResolve=resolve);window.onYouTubeIframeAPIReady=()=>apiResolve();let cleanup=()=>{};
+window.probe=async video=>{
+ cleanup();let player,native,timer,poll,start=false,tail=false,phase='start',firstTime=null,tailTime=null,finished=false;
+ const host=document.querySelector('#host');host.replaceChildren();
+ if(video.provider!=='archive'){try{await Promise.race([api,new Promise((_,reject)=>setTimeout(()=>reject(Error('API timeout')),15000))]);}catch{return {id:video.id,status:'api-timeout',start:false,tail:false};}}
  return new Promise(resolve=>{
-  function finish(status,code){if(settled)return;settled=true;clearTimeout(timer);currentState=currentError=null;yt?.stopVideo();native.pause();native.onplaying=native.onerror=null;document.querySelector('#result').textContent=JSON.stringify({id:v.id,status,code,start,tail:phase==='done'});resolve({id:v.id,status,code,start,tail:phase==='done'});}
-  function playing(time,duration,seek){
-   if(phase==='start'){start=true;phase='tail';seek(Math.max(0,duration-25));}
-   else if(time>=duration-35){phase='done';finish('playing');}
+  function finish(status,code){if(finished)return;finished=true;clearTimeout(timer);clearInterval(poll);const result={id:video.id,status,code,start,tail,duration:readDuration()};document.querySelector('#result').textContent=JSON.stringify(result);cleanup();resolve(result);}
+  function readDuration(){try{return native?native.duration:player?.getDuration?.();}catch{return null;}}
+  cleanup=()=>{clearTimeout(timer);clearInterval(poll);if(native){native.onplaying=native.onerror=null;native.pause();native.removeAttribute('src');native.load();}try{player?.destroy();}catch{}};
+  function inspect(){
+   try{const duration=readDuration(),time=native?native.currentTime:player?.getCurrentTime?.(),playing=native?!native.paused&&native.readyState>=3:player?.getPlayerState?.()===1;
+    if(!playing||!Number.isFinite(duration)||duration<=0||!Number.isFinite(time))return;
+    if(phase==='start'){firstTime??=time;if(time-firstTime<1)return;start=true;phase='tail';const target=Math.max(0,duration-12);if(native)native.currentTime=target;else player.seekTo(target,true);}
+    else if(time>=duration-16){tailTime??=time;if(time-tailTime>=1){tail=true;finish('playing');}}
+   }catch{}
   }
-  timer=setTimeout(()=>finish('timeout'),25000);
-  if(v.provider==='archive'){
-   native.onplaying=()=>playing(native.currentTime,native.duration,t=>native.currentTime=t);
-   native.onerror=()=>finish(native.error?.code===2?'network':'unavailable',native.error?.code);
-   native.src=v.mediaUrl;native.play().catch(()=>finish('browser-error'));
+  timer=setTimeout(()=>finish('timeout'),40000);poll=setInterval(inspect,250);
+  if(video.provider==='archive'){
+   native=document.createElement('video');native.muted=true;native.playsInline=true;host.append(native);
+   native.onerror=()=>finish(native.error?.code===2?'network':'media-error',native.error?.code);native.src=video.mediaUrl;native.play().catch(error=>finish(error.name==='NotAllowedError'?'autoplay-blocked':'network'));
   }else{
-   currentState=e=>{if(e.data===1&&yt.getVideoData().video_id===v.id)playing(yt.getCurrentTime(),yt.getDuration(),t=>yt.seekTo(t,true))};
-   currentError=e=>finish(e.data===153?'browser-identity':'unavailable',e.data);
-   yt.loadVideoById(v.id);
+   const target=document.createElement('div');host.append(target);
+   player=new YT.Player(target,{videoId:video.id,playerVars:{origin:location.origin,playsinline:1,autoplay:1,mute:1,controls:0},events:{
+    onReady:event=>{if(finished)return;event.target.mute();event.target.playVideo();},
+    onError:event=>{if(!finished)finish(event.data===153?'browser-identity':[100,101,150].includes(event.data)?'source-error':'player-error',event.data);},
+    onAutoplayBlocked:()=>finish('autoplay-blocked')
+   }});
   }
  });
 };
+document.querySelector('#manual').onsubmit=async event=>{event.preventDefault();const button=event.target.querySelector('button');button.disabled=true;document.querySelector('#result').textContent='Checking start and near-end playback…';try{await window.probe({id:document.querySelector('#video-id').value,provider:document.querySelector('#provider').value,mediaUrl:document.querySelector('#media-url').value});}finally{button.disabled=false;}};
 </script><script src="https://www.youtube.com/iframe_api"></script>

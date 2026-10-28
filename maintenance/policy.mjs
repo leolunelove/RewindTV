@@ -1,17 +1,28 @@
 export function plan(videos,state,limit=250){
-  const unique=[...new Map(videos.filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
-  return unique.sort((a,b)=>(state.checked[a.id]?.at||'').localeCompare(state.checked[b.id]?.at||'')).slice(0,limit);
+ const unique=[...new Map(videos.filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
+ const attempted=v=>state.checked?.[v.id]?.lastAttemptAt||state.checked?.[v.id]?.at||'';
+ return unique.sort((a,b)=>attempted(a).localeCompare(attempted(b))).slice(0,limit);
 }
 export function environmentBlocked(results){
-  if(results.length<10)return false;
-  return results.filter(r=>['browser-identity','timeout','network','browser-error'].includes(r.status)).length/results.length>=.3 || results.filter(r=>r.status==='unavailable'&&[101,150].includes(r.code)).length/results.length>=.8;
+ if(results.length<10)return false;
+ return results.filter(r=>['browser-identity','api-timeout','autoplay-blocked','timeout','network','browser-error'].includes(r.status)).length/results.length>=.3||results.filter(r=>['source-error','unavailable'].includes(r.status)&&[101,150].includes(r.code)).length/results.length>=.8;
 }
-export function update(state,results,at){
-  const next=structuredClone(state);next.checked??={};
-  for(const r of results){
-    const old=next.checked[r.id]||{};
-    next.checked[r.id]={at,status:r.status,start:r.start===true,tail:r.tail===true,
-      consecutiveFailures:r.status==='playing'?0:(old.consecutiveFailures||0)+1};
-  }
-  return next;
+export function classify(result,providerHealthy){
+ if(!providerHealthy)return 'runner-blocked';
+ if(result.status==='playing'&&result.start&&result.tail)return 'playing';
+ const attempts=result.attempts||[];
+ if(attempts.length>=2&&attempts.every(r=>r.status==='source-error'&&[100,101,150].includes(r.code)))return 'source-review';
+ return 'transient';
+}
+export function update(state,results,at,{blockedProviders=[]}={}){
+ const next=structuredClone(state);next.checked??={};
+ for(const result of results){
+  const old=next.checked[result.id]||{},blocked=blockedProviders.includes(result.provider||'youtube');
+  const status=blocked?'runner-blocked':(result.verdict||result.status);
+  const passed=status==='playing';const sourceFailure=status==='source-review';
+  next.checked[result.id]={...old,lastAttemptAt:at,lastAttemptStatus:status,metadata:result.metadata,
+   ...(passed||sourceFailure?{at,status,start:result.start===true,tail:result.tail===true}:{}),
+   consecutiveFailures:passed?0:sourceFailure?(old.consecutiveFailures||0)+1:(old.consecutiveFailures||0)};
+ }
+ return next;
 }
