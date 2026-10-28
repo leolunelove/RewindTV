@@ -32,7 +32,8 @@ jobs:
         env:
           PROBE_URL: https://tv.leolune.fun/health-probe.html?v=recovery1
           BATCH_LIMIT: ${{ inputs.batch_limit || '250' }}
-        run: npm run check
+          HEADLESS: 'false'
+        run: xvfb-run --auto-servernum npm run check
       - name: Save coverage checkpoint and report
         if: always()
         run: |

@@ -13,7 +13,7 @@ const queue=plan(videos,state,Math.min(250,Math.max(1,Number(process.env.BATCH_L
 const html=await fs.readFile(root+'maintenance/probe.html');
 const server=http.createServer((req,res)=>{res.writeHead(200,{'Content-Type':'text/html','Referrer-Policy':'strict-origin-when-cross-origin'});res.end(html)});
 await new Promise(resolve=>server.listen(8123,'127.0.0.1',resolve));
-const browser=await chromium.launch({headless:true,channel:'chrome'});const deadline=Date.now()+15*60*1000;
+const browser=await chromium.launch({headless:process.env.HEADLESS!=='false',channel:'chrome'});const deadline=Date.now()+15*60*1000;
 const provider=v=>v.provider==='archive'?'archive':'youtube';
 async function metadata(video){
  try{const url=provider(video)==='archive'?video.mediaUrl:'https://www.youtube.com/oembed?url='+encodeURIComponent('https://www.youtube.com/watch?v='+video.id)+'&format=json';
@@ -27,9 +27,14 @@ async function probe(page,video){try{return await page.evaluate(v=>window.probe(
 try{
  const page=await browser.newPage();await page.goto(process.env.PROBE_URL||'http://127.0.0.1:8123/');
  for(const kind of ['youtube','archive']){
-  const control=videos.find(v=>v.id===(kind==='youtube'?'L2UCRNldC3s':'his_girl_friday'));
-  const attempts=[];if(control)for(let i=0;i<2;i++){const result=await probe(page,control);attempts.push(result);if(result.status==='playing')break;}
-  calibration[kind]={id:control?.id,metadata:control?await metadata(control):null,healthy:attempts.some(r=>r.status==='playing'&&r.start&&r.tail),attempts};
+  calibration[kind]={healthy:false,controls:[]};
+  for(const id of kind==='youtube'?['L2UCRNldC3s','0ewGL1NpD84']:['his_girl_friday']){
+   const control=videos.find(v=>v.id===id);if(!control)continue;const attempts=[];
+   for(let i=0;i<2;i++){const result=await probe(page,control);attempts.push(result);if(result.status==='playing')break;}
+   const healthy=attempts.some(r=>r.status==='playing'&&r.start&&r.tail);
+   calibration[kind].controls.push({id,metadata:await metadata(control),healthy,attempts});
+   if(healthy){calibration[kind].healthy=true;break;}
+  }
  }
  // Serial fresh players avoid stale callbacks and reduce cloud throttling.
  for(const video of queue){

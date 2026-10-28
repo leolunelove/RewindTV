@@ -1,7 +1,9 @@
 export function plan(videos,state,limit=250){
  const unique=[...new Map(videos.filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
  const attempted=v=>state.checked?.[v.id]?.lastAttemptAt||state.checked?.[v.id]?.at||'';
- return unique.sort((a,b)=>attempted(a).localeCompare(attempted(b))).slice(0,limit);
+ const sorted=unique.sort((a,b)=>attempted(a).localeCompare(attempted(b))),queue=sorted.slice(0,limit);
+ if(limit>=2)for(const provider of ['archive','youtube']){const matches=v=>(v.provider==='archive'?'archive':'youtube')===provider;if(!queue.some(matches)){const candidate=sorted.find(matches);if(candidate){queue.pop();queue.push(candidate);}}}
+ return queue;
 }
 export function environmentBlocked(results){
  if(results.length<10)return false;

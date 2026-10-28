@@ -155,7 +155,7 @@
       !!(restriction&&(Object.hasOwn(restriction,'allowed')||(restriction.blocked||[]).length));
   }
   function skipUnavailable(reason,persistFailure=true){
-    if(!power||!active)return;
+    if(!power||!active||!playbackIntent)return;
     stopWatch();loadGeneration++;if(persistFailure)rememberFailure(active.video.id);else failed.add(active.video.id);root.classList.remove('ambient-live');
     if(++recoveryChain>6){
       paused=false;currentPlayer()?.stopVideo?.();setStatus('SIGNAL RESTING · Checking again shortly…');
