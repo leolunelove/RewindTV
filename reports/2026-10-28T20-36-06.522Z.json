@@ -1,0 +1,114 @@
+{
+  "at": "2026-10-28T20:36:06.522Z",
+  "runnerRegion": "GitHub-hosted runner; network country unverified",
+  "catalogueSize": 4204,
+  "planned": 3,
+  "checked": 3,
+  "playbackAttempted": 0,
+  "passed": 0,
+  "environmentBlocked": true,
+  "blockedProviders": [
+    "youtube",
+    "archive"
+  ],
+  "calibration": {
+    "youtube": {
+      "id": "L2UCRNldC3s",
+      "healthy": false,
+      "attempts": [
+        {
+          "id": "L2UCRNldC3s",
+          "status": "source-error",
+          "code": 150,
+          "start": false,
+          "tail": false,
+          "duration": 1522
+        },
+        {
+          "id": "L2UCRNldC3s",
+          "status": "source-error",
+          "code": 150,
+          "start": false,
+          "tail": false,
+          "duration": 1522
+        }
+      ]
+    },
+    "archive": {
+      "id": "his_girl_friday",
+      "healthy": false,
+      "attempts": [
+        {
+          "id": "his_girl_friday",
+          "status": "media-error",
+          "code": 4,
+          "start": false,
+          "tail": false,
+          "duration": null
+        },
+        {
+          "id": "his_girl_friday",
+          "status": "media-error",
+          "code": 4,
+          "start": false,
+          "tail": false,
+          "duration": null
+        }
+      ]
+    }
+  },
+  "worldwideVerified": false,
+  "results": [
+    {
+      "id": "nMDy_QRLesM",
+      "status": "not-probed",
+      "start": false,
+      "tail": false,
+      "provider": "youtube",
+      "title": "Space Goofs - Mother from another planet (S01E30) Full Episode",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Space Goofs - Mother from another planet (S01E30) Full Episode",
+        "author": "Space Goofs"
+      },
+      "attempts": [],
+      "verdict": "runner-blocked"
+    },
+    {
+      "id": "lfw85TT0NFY",
+      "status": "not-probed",
+      "start": false,
+      "tail": false,
+      "provider": "youtube",
+      "title": "Space Goofs - Back to school Blues (S2E37) Full Episode in HD",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Space Goofs - Back to school Blues (S2E37) Full Episode in HD",
+        "author": "Space Goofs"
+      },
+      "attempts": [],
+      "verdict": "runner-blocked"
+    },
+    {
+      "id": "dr-3pr6kEZM",
+      "status": "not-probed",
+      "start": false,
+      "tail": false,
+      "provider": "youtube",
+      "title": "Space Goofs - Scout's night out (S01E01) Full Episode",
+      "metadata": {
+        "status": 200,
+        "method": "youtube-oembed",
+        "available": true,
+        "title": "Space Goofs - Scout's night out (S01E01) Full Episode",
+        "author": "Space Goofs"
+      },
+      "attempts": [],
+      "verdict": "runner-blocked"
+    }
+  ]
+}
