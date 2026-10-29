@@ -438,7 +438,7 @@
         else{playingId=firstId;paused=false;player.mute();player.playVideo();if(player.getPlayerState?.()===1)onPlayerStateChange({target:player,data:1});else watchPlayback();}
       }},
       onStateChange:onPlayerStateChange,onAutoplayBlocked:onPlayerAutoplayBlocked,onError:videoError
-    }});player.getIframe().addEventListener('load',()=>tracePlayer('frame-load'));tracePlayer('constructed');watchPlayerInit();
+    }});player.getIframe().addEventListener('load',()=>tracePlayer('frame-load'));tracePlayer('constructed',{firstId,visibility:document.visibilityState});watchPlayerInit();
   }
 
   let apiRecoveryTimer=0,apiRecoveryAttempts=0;
