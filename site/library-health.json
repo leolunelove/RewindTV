@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "reliability-2026-10-29",
+  "revision": "reliability-main-channels-2026-10-29",
   "videos": [],
   "channels": [],
   "assignments": {},
@@ -144,6 +144,61 @@
       "id": "Pvs1AGw1E_I",
       "title": "Big Kids, Episode 1: The Party",
       "reason": "Wrong series, not CBBC Big Kids (2000). Publisher description explicitly identifies a new webseries about two seniors at a liberal arts school, starring Sarah Traisman and Frank Driscoll. 582-second upload from 2015. Start/near-end playback works but the programme identity is incorrect. Quarantined 2026-10-29; source retained for review."
+    },
+    {
+      "id": "rO-nNiFtDhA",
+      "title": "Brum Chases Cook Crooks in the Pizzeria! \ud83c\udf55\ud83d\ude97\ud83d\udca8 | Brum & Friends - WildBrain | Full HD Episodes",
+      "reason": "Repeated compilation: the official publisher chapter list contains the same five Brum stories (Naughty Dog, King of Thieves, Pizzeria, Gymnast, Airport Adventure) as 1H5V9AwLEXU, reordered. Keep one complete five-story compilation in rotation. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "JOEhj5bMUFM",
+      "title": "Brum Races to Save the Runaway Gym Hoop! \ud83e\udd38\u200d\u2640\ufe0f\ud83d\ude97 | Brum & Friends - WildBrain | Full HD Episodes",
+      "reason": "Repeated compilation: the official publisher chapter list contains the same five Brum stories (Naughty Dog, King of Thieves, Pizzeria, Gymnast, Airport Adventure) as 1H5V9AwLEXU, reordered. Keep one complete five-story compilation in rotation. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "PaNWJK3ma_Q",
+      "title": "Brum the hero Stops Jewel Thieves at the Airport! | Brum & Friends - WildBrain | Full HD Episodes",
+      "reason": "Repeated compilation: the official publisher chapter list contains the same five Brum stories (Naughty Dog, King of Thieves, Pizzeria, Gymnast, Airport Adventure) as 1H5V9AwLEXU, reordered. Keep one complete five-story compilation in rotation. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "GajRwV8fuFE",
+      "title": "Trick or Trap | Gadget And The Gadgetinis | Full HD Episodes",
+      "reason": "Overlapping compilation quarantined: official title and synopsis identify Trick or Trap, already carried as the complete 1283-second dQpJoKq67Rk. This 4893-second upload contains extra unmapped material; it is not being called an entirely duplicate video. Keep the standalone episode and hold the compilation until its other episodes are mapped. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "uix3-_FSjuQ",
+      "title": "#TBT: Episode 06 - Dog City |FULL EPISODE| RETRO RERUN",
+      "reason": "Duplicate Dog City episode 6: both uploads are credited to Retro Rerun and explicitly carry the same episode number. Retain the longer official upload PIg2Wm6yw3U; quarantine the shorter #TBT copy. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "Uz_nU2vcoXE",
+      "title": "#TBT: Episode 11 - Dog City |FULL EPISODE| RETRO RERUN",
+      "reason": "Duplicate Dog City episode 11: both uploads are credited to Retro Rerun and explicitly carry the same episode number. Retain the longer official upload vksBpNS9mmk; quarantine the shorter #TBT copy. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "2CX39hF_OnQ",
+      "title": "#TBT: Episode 09 - Dog City |FULL EPISODE| RETRO RERUN",
+      "reason": "Duplicate Dog City episode 9: both uploads are credited to Retro Rerun and explicitly carry the same episode number. Retain the longer official upload DEpOqvkjeB8; quarantine the shorter #TBT copy. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "nweyz9iUgH4",
+      "title": "Kerching! S04E09 Making a Difference",
+      "reason": "Duplicate Kerching series 4 episode 9, Making a Difference: both archive labels agree on series, episode number and title. Retain the established 2019 Tanya Vital upload sTw2Qffoulk; quarantine the duplicate CBBC Archive copy. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "USRQT9_UDXQ",
+      "title": "Kerching! S04E08 Making a Good Impression",
+      "reason": "Duplicate Kerching series 4 episode 8, Making a Good Impression: both archive labels agree on series, episode number and title. Retain the established 2019 Tanya Vital upload rSGBr16N3R4; quarantine the duplicate CBBC Archive copy. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "c3HwZaSLHz4",
+      "title": "Timothy: The School Play/Full of Beans - Ep.20",
+      "reason": "Duplicate Timothy Goes to School episode 20: both official Treehouse uploads explicitly identify The School Play / Full of Beans, at 1564 and 1566 seconds. Keep VwB7XPiPeMw, retain the UK copy as a disabled backup. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
+    },
+    {
+      "id": "n5TO8bfcLMs",
+      "title": "The Sarah Jane Adventures S01E02 1/2",
+      "reason": "Incomplete-upload quarantine: title explicitly labels The Sarah Jane Adventures S01E02 as 1/2; actual embedded runtime is 812.221 seconds. This is a split upload of a regular roughly 25-minute episode, not merely the Part 1 title of a complete two-part story. No matching second upload exists in this catalogue. Endpoint playback works, but that does not make it a full episode. Checked 2026-10-29; disabled source retained for review, no permanent deletion."
     }
   ]
 }
