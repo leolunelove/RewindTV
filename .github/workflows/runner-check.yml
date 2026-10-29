@@ -1,0 +1,36 @@
+name: Test free playback runners
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts
+      - run: npm test
+      - name: Test real playback controls and two catalogue sources
+        continue-on-error: true
+        env:
+          PROBE_URL: https://tv.leolune.fun/health-probe.html?v=recovery1
+          BATCH_LIMIT: '2'
+          HEADLESS: 'true'
+          RUNNER_DIAGNOSTIC: 'true'
+          RUNNER_REGION: ${{ matrix.os }}; network country unverified
+        run: npm run check
+      - name: Retain evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playback-${{ matrix.os }}
+          path: reports/
+          retention-days: 14
