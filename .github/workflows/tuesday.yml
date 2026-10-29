@@ -33,6 +33,8 @@ jobs:
           PROBE_URL: https://tv.leolune.fun/health-probe.html?v=recovery1
           BATCH_LIMIT: ${{ inputs.batch_limit || '250' }}
           HEADLESS: 'false'
+          BROWSERLESS_ENABLED: ${{ vars.REWIND_REMOTE_CHECKS || 'false' }}
+          BROWSERLESS_TOKEN: ${{ secrets.BROWSERLESS_TOKEN }}
         run: xvfb-run --auto-servernum npm run check
       - name: Preserve diagnostic evidence
         if: always()

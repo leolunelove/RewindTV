@@ -1,0 +1,38 @@
+name: Verify free remote Chrome
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts
+      - run: npx playwright install --with-deps chrome
+      - run: npm test
+      - name: Verify configured free browser
+        env:
+          BROWSERLESS_TOKEN: ${{ secrets.BROWSERLESS_TOKEN }}
+          BROWSERLESS_ENABLED: 'true'
+          PROBE_URL: https://tv.leolune.fun/health-probe.html?v=recovery1
+          BATCH_LIMIT: '2'
+          HEADLESS: 'true'
+          RUNNER_DIAGNOSTIC: 'true'
+          RUNNER_REGION: Browserless SFO for YouTube; network country unverified
+        run: |
+          if [ -z "$BROWSERLESS_TOKEN" ]; then
+            echo 'Configure BROWSERLESS_TOKEN as a repository Actions secret first.'
+            exit 1
+          fi
+          npm run check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: free-remote-chrome-evidence
+          path: reports/
+          retention-days: 14
