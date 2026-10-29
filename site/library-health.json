@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "reliability-2026-10-20",
+  "revision": "reliability-2026-10-29",
   "videos": [],
   "channels": [],
   "assignments": {},
@@ -129,6 +129,21 @@
       "id": "PuKGhZGNMb0",
       "reason": "Duplicate of the same full episode QVeJNlm5EJA; keep the older official upload in rotation.",
       "title": "Are You Afraid of the Dark? \u2014 The Tale of the Dollmaker"
+    },
+    {
+      "id": "xH2Y42azhis",
+      "title": "Zoboomafoo 108 - Snowday (Full Episode)",
+      "reason": "Duplicate episode: official publisher identifies both this and V3d2FOkLCEk as episode 108 Snowday, with identical synopsis and 1595-second runtime. Keep V3d2FOkLCEk in rotation; this upload retained as a disabled backup. Metadata and both embedded endpoints checked 2026-10-29."
+    },
+    {
+      "id": "7DrLvKAqjKw",
+      "title": "Men in Black: The Series \u2014 The Long Goodbye Syndrome S1E1",
+      "reason": "Duplicate episode: both official Throwback Toons descriptions identify Season 1 Episode 1, The Long Goodbye Syndrome. Keep the longer NSThqZYNEcs (1311 seconds); both uploads passed embedded start and near-end playback on 2026-10-29. Retained as a disabled backup."
+    },
+    {
+      "id": "Pvs1AGw1E_I",
+      "title": "Big Kids, Episode 1: The Party",
+      "reason": "Wrong series, not CBBC Big Kids (2000). Publisher description explicitly identifies a new webseries about two seniors at a liberal arts school, starring Sarah Traisman and Frank Driscoll. 582-second upload from 2015. Start/near-end playback works but the programme identity is incorrect. Quarantined 2026-10-29; source retained for review."
     }
   ]
 }
