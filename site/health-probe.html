@@ -22,7 +22,11 @@ window.probe=async video=>{
    native.onerror=()=>finish(native.error?.code===2?'network':'media-error',native.error?.code);native.src=video.mediaUrl;native.play().catch(error=>finish(error.name==='NotAllowedError'?'autoplay-blocked':'network'));
   }else{
    const target=document.createElement('div');host.append(target);
-   player=new YT.Player(target,{videoId:video.id,playerVars:{origin:location.origin,playsinline:1,autoplay:1,mute:1,controls:0},events:{
+   const setup=new URLSearchParams(location.search).get('setup');
+   if(setup==='id'||setup==='both')target.id='video-player';
+   const vars={origin:location.origin,playsinline:1,autoplay:1,mute:1,controls:0};
+   if(setup==='vars'||setup==='both')Object.assign(vars,{enablejsapi:1,fs:0,rel:0,start:0});
+   player=new YT.Player(setup==='id'||setup==='both'?'video-player':target,{videoId:video.id,playerVars:vars,events:{
     onReady:event=>{if(finished)return;event.target.mute();event.target.playVideo();},
     onError:event=>{if(!finished)finish(event.data===153?'browser-identity':[100,101,150].includes(event.data)?'source-error':'player-error',event.data);},
     onAutoplayBlocked:()=>finish('autoplay-blocked')

@@ -184,6 +184,10 @@
   function onNow(i=channel){if(channels[i].mode==='shuffle'){let rows=plan.schedules[i];if(!rows.length||rows.at(-1).end<=Date.now())plan.schedules[i]=rows=freshRows(i);if(!rows.length)throw Error('No playable episodes');}return Schedule.current(plan,i);}
 
   const video=()=>active?.video||onNow().slot.video;
+  const debugPlayer=new URLSearchParams(location.search).has('playerDebug');
+  function tracePlayer(event,detail={}){if(debugPlayer)console.info('REWIND-PLAYER',JSON.stringify({at:Math.round(performance.now()),event,...detail}));}
+  window.addEventListener('message',e=>{if(!debugPlayer||e.source!==player?.getIframe?.()?.contentWindow)return;try{const m=typeof e.data==='string'?JSON.parse(e.data):e.data;if(m?.event!=='infoDelivery')tracePlayer('message',{eventName:m?.event});}catch{}});
+
   function persist(){try{localStorage.setItem('rewind-tv-v2',JSON.stringify({key:channels[channel].key,volume}));}catch{}}
   function weekPlan(){if(!plan||Schedule.weekAt().key!==plan.week.key){if(plan){location.reload();return false;}plan=Schedule.build(catalogue);return true;}return false;}
   function render(){
@@ -396,7 +400,7 @@
       skipUnavailable('Upload unavailable in this browser or region');
     }else{setStatus('CONNECTING · Recovering the TV signal…');watchPlayback();}
   }
-  function onPlayerStateChange(e){
+  function onPlayerStateChange(e){tracePlayer('state',{state:e.data,matches:e.target===player});
         if(e.target!==player){if(e.data===1){e.target.mute?.();e.target.pauseVideo?.();}return;}
         if(!power||!active||active.video.provider==='archive'||channelLoadTimer||e.target.getVideoData?.()?.video_id!==active.video.id)return;
         if(e.data===1){if(!playbackIntent){e.target.pauseVideo?.();return;}recoveryChain=0;recoveryAttempts=0;clearTimeout(tuningTimer);$('.screen').classList.remove('is-tuning');ready=true;clearTimeout(apiTimer);stopWatch();paused=false;applyAudio(true);finishStartup();scheduleNeighbours();setStatus(active.mode==='live'?(channels[channel].mode==='shuffle'?'SHUFFLE · Continuous playback, no fixed timetable.':'LIVE · Channels keep broadcasting while you’re away.'):active.mode==='fallback'?'ALT SIGNAL · This upload replaces an unavailable broadcast.':active.mode==='ondemand'?'ON DEMAND · This show continues in episode order. JOIN LIVE to return to the channel.':'REPLAY · Join live whenever you like.');}
@@ -420,6 +424,7 @@
     },15000);
   }
   function initPlayer(){
+    tracePlayer('init',{hasPlayer:!!player,ready,id:active?.video.id,apiLoaded:window.YT?.loaded,apiLoading:window.YT?.loading});
     if(player||pendingFrame)return;
     // Let the IFrame API own navigation and its readiness handshake. Waiting
     // for the embed's load event can strand startup before API listeners exist.
@@ -427,13 +432,13 @@
     const placeholder=document.createElement('div');placeholder.id='video-player';
     $('#video-player').replaceWith(placeholder);
     player=new YT.Player('video-player',{videoId:firstId,playerVars:{enablejsapi:1,playsinline:1,controls:0,fs:0,rel:0,autoplay:1,mute:1,start:Math.floor(active?.offset||0),origin:location.origin},events:{
-      onReady:e=>{if(e.target!==player)return;ready=true;clearTimeout(apiTimer);const f=player.getIframe();f.title='Rewind TV video player';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(power){if(!active)selectLive();
+      onReady:e=>{tracePlayer('ready',{matches:e.target===player});if(e.target!==player)return;ready=true;clearTimeout(apiTimer);const f=player.getIframe();f.title='Rewind TV video player';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(power){if(!active)selectLive();
         if(channelLoadTimer)return;
         if(active.video.id!==firstId)loadActive();
         else{playingId=firstId;paused=false;player.mute();player.playVideo();if(player.getPlayerState?.()===1)onPlayerStateChange({target:player,data:1});else watchPlayback();}
       }},
       onStateChange:onPlayerStateChange,onAutoplayBlocked:onPlayerAutoplayBlocked,onError:videoError
-    }});watchPlayerInit();
+    }});player.getIframe().addEventListener('load',()=>tracePlayer('frame-load'));tracePlayer('constructed');watchPlayerInit();
   }
 
   let apiRecoveryTimer=0,apiRecoveryAttempts=0;
