@@ -1,60 +1,20 @@
-// Page navigation shares one controller with the two small utility dialogs.
+/* One page and, at most, one small utility dialog. Navigation never stacks pages. */
 export function createPanelMotion(root){
- const states=new WeakMap(),reduce=matchMedia('(prefers-reduced-motion: reduce)');
- const visible='dialog[open], [data-tv-page]:not([hidden])';
- const isPage=panel=>panel.hasAttribute?.('data-tv-page')===true;
- const isOpen=panel=>isPage(panel)?!panel.hidden:panel.open;
- const nav=new Map([['guide','remote-guide'],['schedule-overlay','schedule-button'],['browse-overlay','browse-button']]);
- function sync(){
-  const panel=[...root.querySelectorAll(visible)].at(-1),pageOpen=!!panel&&isPage(panel);
-  const page=panel?({'guide':'200','schedule-overlay':'300','browse-overlay':'400','programme-info':'500','tv-settings':'600'})[['guide','schedule-overlay','browse-overlay','programme-info','tv-settings'].find(key=>panel.classList.contains(key))]:'100';
-  const badge=root.querySelector?.('#teletext-page');if(badge)badge.textContent='P'+(page||'100');
-  root.classList?.toggle('teletext-open',pageOpen);
-  for(const region of root.querySelectorAll('.club-layout, .tv-dock, .chrome, .status-line'))region.inert=pageOpen;
-  const id=panel&&nav.get([...nav.keys()].find(key=>panel.classList.contains(key)));
-  for(const button of root.querySelectorAll('.app-tabs button')){
-   const selected=panel?button.id===id||(id==='remote-guide'&&button.classList.contains('guide-toggle')):button.id==='live-tab';
-   if(selected)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');
-  }
-  for(const button of root.querySelectorAll('[aria-haspopup=dialog], .app-tabs [aria-controls]')){
-   const target=button.classList.contains('guide-toggle')?'.guide':({'schedule-button':'.schedule-overlay','browse-button':'.browse-overlay','info-button':'.programme-info','settings-button':'.tv-settings'})[button.id];
-   if(target)button.setAttribute('aria-expanded',String(!!root.querySelector(target)&&isOpen(root.querySelector(target))));
-  }
+ const win=root.ownerDocument?.defaultView,reduce=win?.matchMedia?.('(prefers-reduced-motion: reduce)')||matchMedia('(prefers-reduced-motion: reduce)');
+ const visible='dialog[open], [data-tv-page]:not([hidden])',isPage=p=>p.hasAttribute?.('data-tv-page')===true,isOpen=p=>isPage(p)?!p.hidden:p.open;
+ const pageKey=p=>p?.classList.contains('browse-overlay')?'library':p?'guide':'watch';let switching=false,restoring=false;
+ function sync(){const opened=[...root.querySelectorAll(visible)],page=opened.find(isPage),key=pageKey(page);root.classList?.toggle('teletext-open',!!page);
+ for(const region of root.querySelectorAll('.club-layout, .watch-controls'))region.inert=!!page;
+ for(const b of root.querySelectorAll('.app-tabs button')){const selected=key==='watch'?b.id==='live-tab':key==='library'?b.id==='browse-button':b.id==='remote-guide';if(selected)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');}
+ for(const b of root.querySelectorAll('[aria-haspopup=dialog]')){const selector=b.id==='settings-button'?'.tv-settings':b.id==='info-button'?'.programme-info':null;if(selector)b.setAttribute('aria-expanded',String(!!root.querySelector(selector)?.open));}
  }
- function finishClose(panel,restoreFocus=false){
-  if(isPage(panel)){panel.hidden=true;panel.dispatchEvent(new Event('close'));}
-  else panel.close();
-  sync();
-  if(restoreFocus&&isPage(panel))root.querySelector?.('#live-tab')?.focus({preventScroll:true});
- }
- function reset(panel){const pending=states.get(panel);if(pending){pending.cancelled=true;pending.animation?.cancel();states.delete(panel);}if(isOpen(panel))finishClose(panel);}
- function open(panel){
-  for(const other of root.querySelectorAll(visible))if(other!==panel)reset(other);
-  const old=states.get(panel);if(old){old.cancelled=true;old.animation?.cancel();states.delete(panel);}
-  if(isOpen(panel)){sync();return;}
-  if(isPage(panel))panel.hidden=false;else panel.showModal();
-  sync();
-  if(isPage(panel))panel.querySelector('.page-back-tv')?.focus({preventScroll:true});
-  if(!reduce.matches)panel.animate(isPage(panel)?[{opacity:0},{opacity:1}]:[{opacity:0,transform:'translateY(18px) scale(.985)'},{opacity:1,transform:'translateY(0) scale(1)'}],{duration:isPage(panel)?160:280,easing:'cubic-bezier(.16,1,.3,1)'});
- }
- function close(panel){
-  if(!isOpen(panel)||states.has(panel))return;
-  if(reduce.matches){finishClose(panel,true);return;}
-  const state={cancelled:false};states.set(panel,state);
-  state.animation=panel.animate(isPage(panel)?[{opacity:1},{opacity:0}]:[{opacity:1,transform:'translateY(0) scale(1)'},{opacity:0,transform:'translateY(10px) scale(.99)'}],{duration:150,easing:'cubic-bezier(.4,0,1,1)',fill:'forwards'});
-  state.animation.finished.then(()=>{if(state.cancelled)return;finishClose(panel,true);state.animation.cancel();states.delete(panel);}).catch(()=>{});
- }
- for(const panel of root.querySelectorAll('dialog, [data-tv-page]')){
-  panel.addEventListener('cancel',event=>{event.preventDefault();close(panel);});
-  panel.addEventListener('close',sync);
-  if(isPage(panel)){
-   panel.addEventListener('keydown',event=>{if(event.key==='Escape'&&!event.defaultPrevented){event.preventDefault();close(panel);}});
-   continue;
-  }
-  let outside=false;
-  const isOutside=e=>{const r=panel.getBoundingClientRect();return e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom;};
-  panel.addEventListener('pointerdown',e=>outside=e.target===panel&&isOutside(e));
-  panel.addEventListener('pointerup',e=>{if(outside&&e.target===panel&&isOutside(e))close(panel);outside=false;});
- }
- return {open,close,isOpen,dismiss:reset};
+ function remember(key){if(win&&!restoring&&win.location.hash!=='#'+key)win.history.pushState({rewind:true},'','#'+key);}
+ function finishClose(panel,focus=false){if(!isOpen(panel))return;if(isPage(panel)){panel.hidden=true;panel.dispatchEvent(new Event('close'));}else panel.close();sync();if(!switching&&isPage(panel))remember('watch');if(focus&&isPage(panel))root.querySelector?.('#live-tab')?.focus({preventScroll:true});}
+ function open(panel){switching=true;for(const other of root.querySelectorAll(visible))if(other!==panel&&(isPage(panel)||!isPage(other)))finishClose(other);switching=false;
+ if(!isOpen(panel)){if(isPage(panel))panel.hidden=false;else panel.showModal();if(!reduce.matches)panel.animate([{opacity:0},{opacity:1}],{duration:140,easing:'ease-out'});}
+ sync();if(isPage(panel)){remember(pageKey(panel));panel.querySelector('.page-back-tv')?.focus({preventScroll:true});}else if(win&&!restoring){const utility=panel.classList.contains('programme-info')?'info':'settings';if(win.history.state?.utility!==utility)win.history.pushState({...win.history.state,rewind:true,utility},'',win.location.hash||'#watch');}}
+ function close(panel){const unwind=!isPage(panel)&&win?.history.state?.utility&&!restoring;finishClose(panel,true);if(unwind)win.history.back();}
+ for(const panel of root.querySelectorAll('dialog, [data-tv-page]')){panel.addEventListener('cancel',e=>{e.preventDefault();close(panel);});panel.addEventListener('close',sync);if(!isPage(panel)){let outside=false;const beyond=e=>{const r=panel.getBoundingClientRect();return e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom;};panel.addEventListener('pointerdown',e=>outside=e.target===panel&&beyond(e));panel.addEventListener('pointerup',e=>{if(outside&&e.target===panel&&beyond(e))close(panel);outside=false;});}if(isPage(panel))panel.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.defaultPrevented){e.preventDefault();close(panel);}});}
+ win?.addEventListener('popstate',()=>{restoring=true;const key=win.location.hash.slice(1),target=key==='library'?root.querySelector('.browse-overlay'):key==='guide'?root.querySelector(win.history.state?.guideChannel?'.schedule-overlay':'.guide'):null;if(target)open(target);else{switching=true;for(const p of root.querySelectorAll(visible))finishClose(p);switching=false;}const utility=win.history.state?.utility;if(utility){const dialog=root.querySelector(utility==='info'?'.programme-info':'.tv-settings');if(dialog)open(dialog);}restoring=false;sync();});
+ return {open,close,isOpen,dismiss:p=>finishClose(p)};
 }

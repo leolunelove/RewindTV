@@ -29,7 +29,7 @@
  }
  function unlockSound(e){if(e&&e.type==='keydown'&&(e.ctrlKey||e.metaKey||e.altKey))return;if(!soundContext||soundClosed||leaving)return;soundContext.resume().then(playSound).catch(()=>{});}
  soundButton.onclick=()=>{clearTimeout(timer);unlockSound();if(ready)timer=setTimeout(leave,1400);};
- if(soundEnabled&&soundVolume>0){try{const Audio=window.AudioContext||window.webkitAudioContext;if(Audio){soundContext=new Audio();if(soundContext.state==='running')playSound();else{soundButton.hidden=false;window.addEventListener('pointerdown',unlockSound);window.addEventListener('keydown',unlockSound);soundContext.resume().then(playSound).catch(()=>{});}}}catch{soundButton.hidden=true;}}
+ if(soundEnabled&&soundVolume>0){try{const Audio=window.AudioContext||window.webkitAudioContext;if(Audio){soundContext=new Audio();if(soundContext.state==='running')playSound();else{soundButton.hidden=true;window.addEventListener('pointerdown',unlockSound);window.addEventListener('keydown',unlockSound);soundContext.resume().then(playSound).catch(()=>{});}}}catch{soundButton.hidden=true;}}
 
  function leave(allowConnecting=false){
   if((!ready&&!allowConnecting)||leaving)return;leaving=true;closeSound();clearTimeout(timer);clearTimeout(slow);clearTimeout(long);
@@ -42,7 +42,7 @@
  skip.onclick=leave;retry.onclick=()=>location.reload();
  window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!leaving){e.preventDefault();if(ready)leave();}});
  slow=setTimeout(()=>{if(!ready)status.textContent='STILL TUNING. STAY WITH US.';},4500);
- long=setTimeout(()=>{if(!ready&&html.dataset.catalogueReady==='true')leave(true);},6500);
+ long=setTimeout(()=>{if(!ready&&html.dataset.catalogueReady==='true')leave(true);},3000);
  window.addEventListener('rewind:ready',onReady,{once:true});window.addEventListener('rewind:error',onError,{once:true});
  if(html.dataset.appReady==='true')onReady();else if(html.dataset.appReady==='error')onError();
 })();

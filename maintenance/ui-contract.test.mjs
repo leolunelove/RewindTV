@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+const read=n=>fs.readFileSync(new URL('../site/'+n,import.meta.url),'utf8');
+test('every fixed app control is present exactly once in the main document',()=>{const html=read('index.html'),ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size,'duplicate IDs');const references=[...read('app.js').matchAll(/\$\('#([\w-]+)'\)/g)].map(m=>m[1]);for(const id of references)assert.ok(ids.includes(id),'missing '+id);});
+test('Guide and Library share the main page rather than creating competing embedded apps',()=>{const html=read('index.html');assert.ok(!/id="(?:browse|schedule)-frame"/.test(html));const styles=[...html.matchAll(/<link rel="stylesheet"[^>]*href="([^"]+)"/g)].map(m=>m[1]);assert.deepEqual(styles,['app-ui.css?v=1']);});

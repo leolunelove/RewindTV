@@ -8,15 +8,15 @@
 
 <p align="center">
   <a href="https://tv.leolune.fun/">Watch Rewind TV</a> ·
-  <a href="https://tv.leolune.fun/browse.html">Browse shows</a> ·
-  <a href="https://tv.leolune.fun/channels.html">Channel lineup</a>
+  <a href="https://tv.leolune.fun/#library">Library</a> ·
+  <a href="https://tv.leolune.fun/#guide">TV guide</a>
 </p>
 
 ## Switch on. See where you end up.
 
 - **Find your channel.** Surf 19 channels of 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music.
 - **Drop into something.** The first ten channels follow a shared weekly timetable. The other nine shuffle their collections, giving unheard programmes priority.
-- **Pick an episode.** Browse Shows groups episodes into collections. Start from the beginning, keep watching in episode order, then choose Join Live to return to the channel.
+- **Pick an episode.** The Library groups shows, films and videos into collections. Start from the beginning, keep watching in episode order, then choose Join Live to return to the channel.
 - **See what’s on.** Open Info for the show, episode, runtime, progress, upload source and what comes next. Keep surfing with the panel open, or jump into the channel’s schedule.
 - **Make it feel like TV.** Watch fullscreen with CRT scanlines, colour bleed, curvature and channel-switching sound. Move the mouse to bring back the controls; adjust the effects in Settings.
 - **Make a night of it.** Try After Dark, Classic YouTube, Rewind Music, Halloween 24/7 or Christmas TV. There is a dedicated film channel and a separate Midnight Movies collection.
@@ -24,10 +24,10 @@
 
 ## Get started
 
-1. [Open Rewind TV](https://tv.leolune.fun/). It tunes into your last channel; choose **Tap for sound** when you want audio.
+1. [Open Rewind TV](https://tv.leolune.fun/). It tunes into your last channel; choose **Unmute** when you want audio.
 2. Use **← / →**, the channel list or a channel number to find something. Controls appear when you move the mouse or use the keyboard.
 3. Choose **Info** or press **I** to see what you’re watching. Previous and next channel controls work inside the panel too.
-4. Open **Schedule** for the current channel, or **Browse Shows** to choose a particular episode. Both keep the TV playing underneath.
+4. Open **Guide** to watch a channel or inspect its schedule. Open **Library** to choose a particular episode or film. Both keep the current video playing underneath.
 
 ## Your TV
 
@@ -35,9 +35,9 @@ The first ten channels get a new timetable every Tuesday at **00:00 Europe/Gibra
 
 Preferences and viewing history are saved on this device. There is no account or cross-device sync; clearing the browser’s site data resets your set.
 
-Playback comes from third-party YouTube embeds and direct archive streams. Official and fan/archive uploads are labelled. Older upload dates help assess longevity, but availability, region restrictions and removal remain controlled by the source. The player tries another upload when a source fails; YouTube startup can sometimes still need Retry. Public availability does not make a programme public domain.
+Playback comes from third-party YouTube embeds and direct archive streams. Official and fan/archive uploads are labelled. Older upload dates help assess longevity, but availability, region restrictions and removal remain controlled by the source. The player reconnects automatically after initialization failures and tries another upload when a source cannot play. A browser autoplay restriction may still require pressing Play. Public availability does not make a programme public domain.
 
-**Fast channel surfing** is on by default in Settings. It prepares neighbouring YouTube players and retains the channel you just left while it stays next door. Turn it off to use less memory. Preparation pauses in hidden tabs and with Data Saver; first-time video buffering still depends on YouTube.
+One foreground player is the default for reliability and lower memory use. **Prepare nearby channels** is optional in Settings; if background preparation does not become ready, the tab returns to light mode rather than repeatedly recreating hidden players.
 
 ## Keyboard controls
 
@@ -49,8 +49,9 @@ Playback comes from third-party YouTube embeds and direct archive streams. Offic
 | M | Mute / restore sound |
 | I | Open / close programme info |
 | S | Open / close the channel schedule |
-| B | Browse shows |
-| G / C | Open / close the channel list |
+| B | Open / close Library |
+| / | Open Library search |
+| G / C | Open / close Guide |
 | F | Toggle fullscreen |
 | P | Power on / off |
 | 1–19, then Enter | Tune to a channel; a short pause also confirms the number |
