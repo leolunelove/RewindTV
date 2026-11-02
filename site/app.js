@@ -113,7 +113,7 @@
     if(stamp===scheduleStamp)return;scheduleStamp=stamp;
     const host=$('#channel-schedule');host.replaceChildren();const station=element('div','','schedule-station'),logo=element('img');logo.src=c.logo;logo.alt='';const name=element('div');name.append(element('h3',String(i+1).padStart(2,'0')+' / '+c.name),element('p',c.mode==='shuffle'?'Continuous mix · No fixed timetable':'Live channel · Weekly timetable'));station.append(logo,name);host.append(station);
     const guideFormat=new Intl.DateTimeFormat('en-GB',{timeZone:Schedule.ZONE,weekday:'short',hour:'2-digit',minute:'2-digit'});const guideTime=ms=>guideFormat.format(ms);
-    const card=element('section','','schedule-now');card.append(element('p','ON NOW','eyebrow'),element('h3',v.series||programmeTitle(v)),element('p',programmeTitle(v)),element('p',c.mode==='shuffle'?Math.round(v.duration/60)+' min':guideTime(slot.start)+' – '+guideTime(slot.end)));
+    const card=element('section','','schedule-now');card.append(element('p','ON NOW','eyebrow'),element('h3',v.kind==='film'?programmeTitle(v):v.series||programmeTitle(v)),element('p',v.kind==='film'?['Full film',v.yearLabel||v.year].filter(Boolean).join(' · '):programmeTitle(v)),element('p',c.mode==='shuffle'?Math.round(v.duration/60)+' min':guideTime(slot.start)+' – '+guideTime(slot.end)));
     const actions=element('div','','action-row');actions.append(scheduleAction(i===channel&&power?'Return to live channel':'Watch this channel',()=>{backToTV();tune(i);},true));if(v.kind!=='advert')actions.append(scheduleAction('Watch from the beginning',()=>{backToTV();playRequested(c.key,v.id);}));card.append(actions);host.append(card,element('h3','Up next'));
     const list=element('div','','schedule-upcoming');for(const [n,row] of plan.schedules[i].slice(state.index+1).filter(row=>row.video.kind!=='advert').slice(0,8).entries()){const article=element('article'),text=element('div');text.append(element('strong',programmeTitle(row.video)),element('p',(row.video.series||'')+' · '+Math.round(row.video.duration/60)+' min'));article.append(element('time',c.mode==='shuffle'?(n===0?'Next':'Then'):guideTime(row.start)),text);list.append(article);}host.append(list,element('p',c.mode==='shuffle'?'This is the current mix. Its order can change as you watch.':'Times shown in Gibraltar time. Short advert breaks play between programmes.','schedule-note'));
     if(c.mode!=='shuffle'){
@@ -161,7 +161,7 @@
   $('#info-button').onclick=openInfo;$('#close-info').onclick=()=>panels.close(infoPanel);
   $('#info-schedule').onclick=()=>{panels.dismiss(infoPanel);openSchedule();};infoPanel.addEventListener('close',()=>{root.classList.remove('info-open');revealControls();});
   let chromeTimer;
-  function revealControls(){root.classList.remove('controls-hidden');clearTimeout(chromeTimer);chromeTimer=setTimeout(hideControls,3200);}
+  function revealControls(){root.classList.remove('controls-hidden');clearTimeout(chromeTimer);chromeTimer=setTimeout(hideControls,matchMedia('(pointer:coarse), (max-width:700px)').matches?5500:3200);}
   function hideControls(){if(!power||paused||currentPlayer()?.getPlayerState?.()!==1||!$('#retry-video').hidden||!$('#unavailable').hidden||infoPanel.open||$('.tv-settings').open||panels.isOpen($('.guide'))||panels.isOpen($('.schedule-overlay'))||panels.isOpen($('.browse-overlay'))||root.querySelector('button:focus-visible,a:focus-visible,input:focus,select:focus')){chromeTimer=setTimeout(hideControls,1000);return;}root.classList.add('controls-hidden');}
   root.addEventListener('click',e=>{if(e.detail>0&&e.target.closest('button'))e.target.closest('button').blur();});
   root.addEventListener('pointermove',revealControls);root.addEventListener('pointerdown',revealControls);root.addEventListener('focusin',revealControls);root.addEventListener('focusout',revealControls);document.addEventListener('keydown',revealControls);
@@ -513,9 +513,10 @@
     root.querySelectorAll('.direct-channels').forEach(list=>{
       list.replaceChildren();
       const jumps=$('.genre-jumps');jumps?.replaceChildren();
+      const genreSelect=document.createElement('select');genreSelect.className='genre-select';genreSelect.setAttribute('aria-label','Jump to channel category');const prompt=document.createElement('option');prompt.textContent='Jump to a section';prompt.value='';genreSelect.append(prompt);genreSelect.onchange=()=>{if(genreSelect.value)document.getElementById(genreSelect.value)?.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});};jumps?.append(genreSelect);
       sectionChannels(channels).forEach((section,sectionIndex)=>{
         const group=document.createElement('section');group.className='channel-section';
-        const heading=document.createElement('h3');heading.id='genre-'+sectionIndex;heading.textContent=section.name;group.setAttribute('aria-labelledby',heading.id);
+        const heading=document.createElement('h3');heading.id='genre-'+sectionIndex;heading.textContent=section.name;const option=document.createElement('option');option.value=heading.id;option.textContent=section.name;genreSelect.append(option);group.setAttribute('aria-labelledby',heading.id);
         if(jumps){const jump=document.createElement('button');jump.type='button';jump.textContent=section.name;jump.onclick=()=>heading.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});jumps.append(jump);}
         const note=document.createElement('p');note.className='section-note';note.textContent=section.note;
         group.append(heading);
