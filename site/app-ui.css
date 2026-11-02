@@ -39,3 +39,11 @@ dialog .info-heading,dialog .guide-heading{position:sticky;top:0;background:var(
 
 @media(max-width:700px){.club-layout{inset:calc(66px + env(safe-area-inset-top)) 0 calc(170px + env(safe-area-inset-bottom))}.club-player{width:min(calc(100vw - 24px),calc((100dvh - 236px - env(safe-area-inset-top) - env(safe-area-inset-bottom))*4/3))}.club-now{bottom:calc(104px + env(safe-area-inset-bottom))}}
 @media(max-height:520px) and (orientation:landscape){.club-layout{inset:0}.club-player{width:min(100vw,calc(100dvh*4/3))}.chrome{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}.watch-controls{left:max(24px,env(safe-area-inset-left));right:max(24px,env(safe-area-inset-right));bottom:max(8px,env(safe-area-inset-bottom))}.club-now{bottom:calc(76px + env(safe-area-inset-bottom))}.page-heading,.page-content{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}}
+
+/* A phone is a TV first: use its full width and keep the remote close to the picture. */
+@media(max-width:700px) and (orientation:portrait){
+ #rewind-tv{--phone-remote-bottom:max(12px,env(safe-area-inset-bottom),calc((100dvh - min(75vw,100dvh))/2 - 174px))}
+ .club-layout{inset:0;padding:0}.club-player{width:min(100vw,calc(100dvh*4/3));margin:0}
+ .screen{border-radius:0;box-shadow:none}.crt-curve{border-radius:18px / 15px}
+ .watch-controls{bottom:var(--phone-remote-bottom)}.club-now{bottom:calc(var(--phone-remote-bottom) + 92px)}
+}
