@@ -36,3 +36,6 @@ dialog .info-heading,dialog .guide-heading{position:sticky;top:0;background:var(
 .genre-jumps:before,.library-tools:before,.library-back:before{content:'';position:absolute;left:0;right:0;top:-24px;height:24px;background:var(--bg);pointer-events:none}
 .channel-section h3{scroll-margin-top:108px}
 @media(max-width:700px){.channel-section h3{scroll-margin-top:82px}}
+
+@media(max-width:700px){.club-layout{inset:calc(66px + env(safe-area-inset-top)) 0 calc(170px + env(safe-area-inset-bottom))}.club-player{width:min(calc(100vw - 24px),calc((100dvh - 236px - env(safe-area-inset-top) - env(safe-area-inset-bottom))*4/3))}.club-now{bottom:calc(104px + env(safe-area-inset-bottom))}}
+@media(max-height:520px) and (orientation:landscape){.club-layout{inset:0}.club-player{width:min(100vw,calc(100dvh*4/3))}.chrome{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}.watch-controls{left:max(24px,env(safe-area-inset-left));right:max(24px,env(safe-area-inset-right));bottom:max(8px,env(safe-area-inset-bottom))}.club-now{bottom:calc(76px + env(safe-area-inset-bottom))}.page-heading,.page-content{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}}
