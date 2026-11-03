@@ -82,3 +82,6 @@ dialog{background:#171a13;border-color:#c7cfaa26;border-radius:12px;box-shadow:0
 }
 @media(max-width:360px){.chrome{padding-left:14px;padding-right:14px}.header-actions #menu-toggle span{display:none}.tv-page,.app-tabs{width:calc(100vw - 24px)}.programme p{font-size:10px}}
 @media(max-height:520px) and (orientation:landscape){.chrome{height:52px;padding-top:5px;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}.club-layout{inset:0}.club-player{width:min(100vw,calc(100dvh * 4/3))}.club-now{bottom:calc(70px + env(safe-area-inset-bottom));left:24px;max-width:330px}.watch-controls{bottom:max(10px,env(safe-area-inset-bottom));left:auto;right:max(20px,env(safe-area-inset-right));width:300px}.tv-page{top:52px}.page-heading{padding:12px 16px;min-height:70px}.page-heading h2{font-size:20px}.app-tabs{height:54px;bottom:max(8px,env(safe-area-inset-bottom))}.tv-page{bottom:calc(62px + env(safe-area-inset-bottom))}}
+
+.menu-channel-number{margin-left:auto;font:400 25px ui-monospace,monospace;color:#9fae7b;letter-spacing:.02em}
+@media(max-width:959px){.menu-channel-number{display:none}}

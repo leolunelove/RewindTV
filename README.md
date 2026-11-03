@@ -27,7 +27,7 @@
 1. [Open Rewind TV](https://tv.leolune.fun/). It tunes into your last channel; choose **Unmute** when you want audio.
 2. Use **← / →**, the channel list or a channel number to find something. Controls appear when you move the mouse or use the keyboard.
 3. Choose **Info** or press **I** to see what you’re watching. Previous and next channel controls work inside the panel too.
-4. Open **Guide** to watch a channel or inspect its schedule. Open **Library** to choose a particular episode or film. Both keep the current video playing underneath.
+4. Use **Channels**, **Guide** and **Library** in the side menu. Channels switches the station; Guide follows the current channel; Library lets you pick an episode or film. The menu stays beside the TV on desktop and opens as a dismissible drawer on phones. Video keeps playing while you browse.
 
 ## Your TV
 
@@ -51,7 +51,7 @@ One foreground player is the default for reliability and lower memory use. **Pre
 | S | Open / close the channel schedule |
 | B | Open / close Library |
 | / | Open Library search |
-| G / C | Open / close Guide |
+| G / C | Open Channels |
 | F | Toggle fullscreen |
 | P | Power on / off |
 | 1–19, then Enter | Tune to a channel; a short pause also confirms the number |
