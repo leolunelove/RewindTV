@@ -2,7 +2,7 @@
 (async () => {
   const root=document.getElementById('rewind-tv'),$=s=>root.querySelector(s),Schedule=window.RewindSchedule;
   let catalogue,onDemandLibrary=null,channels,plan,active=null,channel=2,volume=40,power=false,player=null,ready=false,apiLoading=false,paused=false,watchTimer,apiTimer,resumeAfterGuide=false,osdTimer,tuningTimer;
-  const [{findProgramme},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache}]=await Promise.all([import('./show-library.mjs'),import('./programme-info.mjs?v=4'),import('./neighbour-cache.mjs?v=1')]);let requestedQueue=[];let requestedIndex=0;
+  const [{findProgramme},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache}]=await Promise.all([import('./show-library.mjs?v=lineup1'),import('./programme-info.mjs?v=4'),import('./neighbour-cache.mjs?v=1')]);let requestedQueue=[];let requestedIndex=0;
   const {createPanelMotion}=await import('./panel-motion.mjs?v=polish1');
   const panels=createPanelMotion(root),wideMenu=matchMedia('(min-width:960px)');
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
@@ -130,7 +130,7 @@
   let libraryLoading=null;
   async function openBrowse(){panels.open($('.browse-overlay'));revealControls();if(libraryView)return;
     $('#library-view').textContent='Opening the collection…';
-    try{libraryLoading??=import('./library-view.mjs?v=2');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:onDemandLibrary||catalogue,onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
+    try{libraryLoading??=import('./library-view.mjs?v=lineup1');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:onDemandLibrary||catalogue,onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
   }
   function openLibrarySearch(){openBrowse().then(()=>libraryView?.focusSearch());}
   function backToTV(){root.querySelectorAll('dialog[open], [data-tv-page]:not([hidden])').forEach(panel=>panels.dismiss(panel));if(wideMenu.matches)openGuide();persist();revealControls();}
@@ -532,7 +532,7 @@
   }
   root.querySelectorAll('button').forEach(b=>b.disabled=true);
   try{
-    const {loadLibrary}=await import('./library.mjs?v=light1');catalogue=await loadLibrary();window.RewindLibrary=()=>onDemandLibrary||catalogue;catalogue.channels=catalogue.channels.map(c=>({...c,videos:c.videos.filter(v=>v.enabled!==false)})).filter(c=>c.videos.length);channels=catalogue.channels;
+    const {loadLibrary}=await import('./library.mjs?v=lineup1');catalogue=await loadLibrary();window.RewindLibrary=()=>onDemandLibrary||catalogue;catalogue.channels=catalogue.channels.map(c=>({...c,videos:c.videos.filter(v=>v.enabled!==false)})).filter(c=>c.videos.length);channels=catalogue.channels;
     const saved=readSavedObject('rewind-tv-v2');
     const requestedChannel=new URLSearchParams(location.search).get('channel')||saved.key;const selected=channels.findIndex(c=>c.key===requestedChannel);if(selected>=0)channel=selected;
     if(Number.isFinite(saved.volume))volume=Math.max(0,Math.min(100,saved.volume));

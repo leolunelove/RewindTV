@@ -1310,7 +1310,7 @@
   "channels": [
     {
       "key": "rewind-music",
-      "name": "Rewind Music",
+      "name": "Music",
       "mode": "shuffle",
       "logo": "logos/rewind-music.svg",
       "brandColour": "#65e7de",

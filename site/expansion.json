@@ -2993,7 +2993,7 @@
   "channels": [
     {
       "key": "rewind-after-dark",
-      "name": "Rewind After Dark",
+      "name": "After Dark",
       "number": 18,
       "mode": "shuffle",
       "flagship": false,
