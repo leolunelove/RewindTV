@@ -2,6 +2,21 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-04 — Unfiltered
+
+- Added channel 24, Unfiltered: 2010s Filthy Frank, iDubbbz, Maxmoefoe, Anything4Views guest material and older Ice Poseidon trip highlights. 141 uploads / 18.9 hours, including 133 existing sources and eight additions.
+- Clearly labelled RV trip highlights and the full SuperMega guest podcast; no highlights are presented as full streams.
+- Ten new candidates received start-and-near-end playback checks: nine passed and one returned embed error 150. Held back that failure, an eight-hour surveillance recording unsuited to the live rotation, and two sign-in-restricted watch pages. Remaining untested catalogue coverage is unchanged.
+- New channel is a continuous shuffle with no inserted adverts, marked for mature comedy and strong language. Original publisher/archive labels retained. Tests are from one browser network, not a worldwide guarantee or full watch.
+
+## 2026-11-04 — Guide and Library indexes
+
+- Guide opens on a short, paged Now & Next overview across all channels, with remaining time, programme progress, Scheduled/Mixes filters, a current-channel jump, and separate Watch and schedule actions.
+- Channel schedules return to the overview; browser Back restores the overview or chosen channel.
+- Library adds A–Z, channel and audio-language filters, compact numbered rows and bounded results/episode pages. Returning from a title keeps the search, filters and results page.
+- Guide and Library use a wider teletext reading area on desktop. Short phone layouts show fewer rows, with reachable page controls and a clear return to TV. Playback continues behind both pages.
+- Browser reviewed at desktop, 390×844 and 320×568. Existing and new browse regression tests pass; physical touch/Safari remains unverified.
+
 ## 2026-11-04 — Shorter names, decades and world TV
 
 - Removed Rewind from channel display names; retained stable keys, numbers 1–19 and the first ten weekly timelines.

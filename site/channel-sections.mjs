@@ -6,7 +6,7 @@ export const CHANNEL_SECTIONS = [
   {name:'Sci-fi & forgotten TV',note:'Somewhere a little stranger',keys:['kids-telly','lost-and-found']},
   {name:'At the movies',note:'Make a night of it',keys:['andromeda','midnight-movies']},
   {name:'Real life & competition',note:'Answers on the back of a postcard',keys:['rewind-gameshows','bean','adverts','aliens']},
-  {name:'Internet & music',note:'Before the algorithm',keys:['cinema','rewind-music']},
+  {name:'Internet & music',note:'Before the algorithm',keys:['cinema','rewind-music','unfiltered']},
   {name:'Seasonal specials',note:'Every day can be the occasion',keys:['rewind-specials','halloween-horror','christmas-tv']},
   {name:'Through the decades',note:'Turn back the clock',keys:['eighties','nineties']},
   {name:'World TV',note:'Another way to rewind',keys:['rewind-espanol','rewind-mandarin','rewind-francais']}
