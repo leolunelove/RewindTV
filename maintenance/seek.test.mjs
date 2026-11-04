@@ -1,0 +1,6 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+const src=fs.readFileSync(new URL('../site/app.js',import.meta.url),'utf8');const start=src.indexOf('  function seekProgramme('),end=src.indexOf("  $('#info-seek').oninput",start);
+function run(provider,mode,seconds){const movie={currentTime:40},positions=[];const active={video:{provider,duration:1000},mode,offset:40};vm.runInNewContext(src.slice(start,end)+'seekProgramme(value)',{power:true,active,movie,movieTarget:0,value:seconds,currentPlayer:()=>({getDuration:()=>600,seekTo:t=>positions.push(t)}),renderInfo(){},revealControls(){}});return {movie,positions,active};}
+test('YouTube seeks use actual runtime and clamp before the end',()=>{assert.deepEqual(run('youtube','ondemand',900).positions,[599]);assert.deepEqual(run('youtube','replay',-1).positions,[0]);});
+test('native films seek without restarting playback',()=>assert.equal(run('archive','ondemand',125).movie.currentTime,125));
+test('live broadcasts and invalid values cannot be scrubbed accidentally',()=>{assert.deepEqual(run('youtube','live',100).positions,[]);assert.deepEqual(run('youtube','ondemand',NaN).positions,[]);});
