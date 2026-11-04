@@ -2,6 +2,15 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-04 — Everyday controls review
+
+- Added a small Live TV return beside the programme title whenever watching an episode, replay or paused broadcast.
+- Added episode seeking inside Info for on-demand playback and replays. Live broadcast progress stays read-only; restart first to scrub.
+- Restored the fullscreen button on phones, with a native film fallback on browsers that support it.
+- Mute, play/pause and fullscreen keyboard shortcuts work while Info is open.
+- Corrected Settings’ “Open channels” label to match its destination.
+- Browser playthrough covered startup, pause/resume, rapid channel steps, Guide restart/dismissal, Library search/play, power off/on, picture toggles, seek, Live TV return and fullscreen entry/exit controls. Desktop and 320/390px phone layouts reviewed. Physical-device Safari remains untested.
+
 ## 2026-11-04 — Volume on the remote
 
 - Added an always-available volume slider, numeric level and mute/unmute button to the main fading TV controls.
