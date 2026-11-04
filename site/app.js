@@ -9,10 +9,9 @@
   const {createPictureFrame}=await import('./picture-frame.mjs?v=2');const pictureFrame=createPictureFrame(root,{getVideo:()=>active?.video,native:movie});
   let playbackIntent=true,loadGeneration=0,recoveryChain=0,recoveryBackoffTimer=0;
   let startupMuted=true,startupPending=true,startupTimer;
-  const startupSound=document.createElement('button');startupSound.id='startup-sound';startupSound.type='button';startupSound.textContent='♪ Unmute';startupSound.setAttribute('aria-label','Unmute television');startupSound.hidden=true;$('.club-controls').append(startupSound);
+  const startupSound=$('#startup-sound');
   function finishStartup(){if(!startupPending)return;startupPending=false;clearTimeout(startupTimer);document.documentElement.dataset.appReady='true';window.dispatchEvent(new Event('rewind:ready'));}
-  function enableSound(){startupMuted=false;startupSound.hidden=true;applyAudio(true);render();}
-  startupSound.onclick=enableSound;
+  function enableSound(){startupMuted=false;applyAudio(true);render();}
 
   function readSavedObject(key){try{const value=JSON.parse(localStorage.getItem(key)||'{}');return value&&typeof value==='object'&&!Array.isArray(value)?value:{};}catch{return {};}}
   let settings={crt:true,curve:true,sfx:true,ambient:true,audio:true,preload:false,...readSavedObject('rewind-effects')};
@@ -164,7 +163,7 @@
   $('#info-schedule').onclick=()=>{panels.dismiss(infoPanel);openSchedule();};infoPanel.addEventListener('close',()=>{root.classList.remove('info-open');revealControls();});
   let chromeTimer;
   function revealControls(){root.classList.remove('controls-hidden');clearTimeout(chromeTimer);chromeTimer=setTimeout(hideControls,matchMedia('(pointer:coarse), (max-width:700px)').matches?5500:3200);}
-  function hideControls(){if(!power||paused||currentPlayer()?.getPlayerState?.()!==1||!$('#retry-video').hidden||!$('#unavailable').hidden||infoPanel.open||$('.tv-settings').open||(!wideMenu.matches&&(panels.isOpen($('.guide'))||panels.isOpen($('.schedule-overlay'))||panels.isOpen($('.browse-overlay'))))||root.querySelector('button:focus-visible,a:focus-visible,input:focus,select:focus')){chromeTimer=setTimeout(hideControls,1000);return;}root.classList.add('controls-hidden');}
+  function hideControls(){if(!power||paused||currentPlayer()?.getPlayerState?.()!==1||!$('#retry-video').hidden||!$('#unavailable').hidden||infoPanel.open||$('.tv-settings').open||(!wideMenu.matches&&(panels.isOpen($('.guide'))||panels.isOpen($('.schedule-overlay'))||panels.isOpen($('.browse-overlay'))))||root.querySelector('button:focus-visible,a:focus-visible,input:not(#tv-volume):focus,#tv-volume:focus-visible,select:focus')){chromeTimer=setTimeout(hideControls,1000);return;}root.classList.add('controls-hidden');}
   root.addEventListener('click',e=>{if(e.detail>0&&e.target.closest('button'))e.target.closest('button').blur();});
   root.addEventListener('pointermove',revealControls);root.addEventListener('pointerdown',revealControls);root.addEventListener('focusin',revealControls);root.addEventListener('focusout',revealControls);document.addEventListener('keydown',revealControls);
   let status='LOADING THE WEEK’S LINEUP…';const failed=new Set();try{for(const [id,at] of Object.entries(JSON.parse(localStorage.getItem('rewind-unavailable')||'{}')))if(Date.now()-at<7*86400000)failed.add(id)}catch{}
@@ -222,7 +221,12 @@
     $('#now-description').title=$('#now-description').textContent;
     if($('#playback-status').textContent!==status)$('#playback-status').textContent=status;
     $('#tv-play').textContent=paused?'▶ Play':'Ⅱ Pause';$('#tv-play').setAttribute('aria-label',paused?'Play television':'Pause television');$('#tv-play').disabled=!power;
-    $('#volume').textContent=volume===0||startupMuted?'MUTED':`VOL ${volume}`;startupSound.hidden=!power||!startupMuted||volume===0;
+    const muted=volume===0||startupMuted;
+    $('#volume').textContent=muted?'MUTED':`VOL ${volume}`;
+    $('#tv-volume').value=volume;$('#tv-volume').setAttribute('aria-valuetext',muted?`${volume}% — muted`:`${volume}%`);
+    $('#tv-volume-value').textContent=String(volume);$('.remote-volume').classList.toggle('is-muted',muted);
+    startupSound.textContent=muted?'Unmute':'Mute';startupSound.setAttribute('aria-label',muted?'Unmute television':'Mute television');
+    startupSound.setAttribute('aria-pressed',String(muted));
     const levelKey=v.series||v.id,level=Math.max(-12,Math.min(6,Number(showLevels[levelKey])||0));
     $('#programme-trim').value=String(level);$('#programme-trim').disabled=!power||v.kind==='advert';
     $('#trim-value').textContent=(level>0?'+':'')+level+' dB';$('#trim-programme').textContent=v.kind==='advert'?'Advert level is reduced automatically.':(power?'Saved for '+(v.series||v.title):'Start a programme to adjust it.');
@@ -507,7 +511,8 @@
   }
   function joinLive(){playbackIntent=true;paused=false;clearTimeout(recoveryBackoffTimer);tuningSound();selectLive();power=true;ensurePlayer();persist();}
   function togglePower(){clearTimeout(playerInitTimer);playerInitTimer=0;loadGeneration++;clearTimeout(recoveryBackoffTimer);cancelChannelLoad();clearNeighbours();if(!power){joinLive();return;}power=false;playbackIntent=false;paused=false;stopWatch();if(currentPlayer()){currentPlayer().pauseVideo?.();currentPlayer().getIframe().hidden=true;}setStatus('TV OFF · The schedule keeps rolling.');}
-  function changeVolume(delta){startupMuted=false;volume=Math.max(0,Math.min(100,volume+delta));if(currentPlayer()){applyAudio();}persist();render();}
+  function changeVolume(delta){if(!Number.isFinite(delta))return;if(volume>0)lastAudibleVolume=volume;startupMuted=false;volume=Math.max(0,Math.min(100,Math.round(volume+delta)));if(volume>0)lastAudibleVolume=volume;if(currentPlayer()){applyAudio();}persist();render();revealControls();}
+  function toggleMute(){if(startupMuted&&volume){enableSound();revealControls();return;}if(volume)changeVolume(-volume);else changeVolume(lastAudibleVolume||40);}
   function closeGuide(resume=true){if(wideMenu.matches){render();return;}if(!resume)resumeAfterGuide=false;panels.close($('.guide'));root.classList.remove('guide-open');render();}
   function openGuide(){if(location.hash==='#guide'&&history.state?.guideChannel)history.pushState({rewind:true},'','#guide');resumeAfterGuide=false;root.classList.add('guide-open');panels.open($('.guide'));render();root.querySelector('[data-channel="'+channel+'"]')?.scrollIntoView({block:'nearest',inline:'nearest'});}
   function createChannelLists(){
@@ -551,6 +556,8 @@
     setStatus('RETRYING · '+active.video.title);ensurePlayer(true);
   };
   let numberEntry='',numberTimer,lastAudibleVolume=volume||40;
+  startupSound.onclick=toggleMute;
+  $('#tv-volume').disabled=false;$('#tv-volume').oninput=e=>changeVolume(Number(e.target.value)-volume);
   function clearNumberEntry(){clearTimeout(numberTimer);numberEntry='';$('#number-entry').hidden=true;}
   function commitNumber(){const value=Number(numberEntry);clearNumberEntry();
     const pageActions={100:()=>revealControls(),200:openGuide,300:openSchedule,400:openBrowse,500:openInfo,600:()=>panels.open($('.tv-settings'))};
@@ -586,7 +593,7 @@
     if(e.target.closest('button,a')&&(e.key===' '||(e.key==='Enter'&&!numberEntry)))return;
     const actions={ArrowRight:()=>tune(channel+1),ArrowLeft:()=>tune(channel-1),ArrowUp:()=>changeVolume(10),ArrowDown:()=>changeVolume(-10),
       ' ':()=>power?$('#tv-play').click():joinLive(),k:()=>power?$('#tv-play').click():joinLive(),
-      m:()=>{if(startupMuted&&volume){enableSound();return;}if(volume){lastAudibleVolume=volume;changeVolume(-volume);}else changeVolume(lastAudibleVolume||40);},
+      m:toggleMute,
       i:openInfo,b:openBrowse,'/':openLibrarySearch,f:()=>$('#fullscreen').click(),s:openSchedule,g:openGuide,c:openGuide,p:togglePower,
       '?':()=>{panels.open($('.tv-settings'));$('#keyboard-help').open=true;}};
     const action=actions[e.key]||actions[key];if(action){e.preventDefault();clearNumberEntry();action();}

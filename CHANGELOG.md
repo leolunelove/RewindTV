@@ -2,6 +2,14 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-04 — Volume on the remote
+
+- Added an always-available volume slider, numeric level and mute/unmute button to the main fading TV controls.
+- The same button releases muted autoplay; changing volume also enables sound. Mute restores the previous audible level, including after dragging the slider to zero.
+- Volume follows channel changes and is saved on this device; audio comfort and quieter adverts still apply.
+- Reserved room for the sound row and programme details on narrow portrait screens.
+- Verified YouTube and native film mute/unmute in the browser, slider/keyboard input, and 320px/390px phone layouts. Physical iPhone/Safari volume behaviour remains unverified.
+
 ## 2026-11-04 — Reliability review and release tracking
 
 ### Fixed

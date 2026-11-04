@@ -130,3 +130,19 @@ dialog{background:#171a13;border-color:#c7cfaa26;border-radius:12px;box-shadow:0
 @media(prefers-reduced-motion:reduce){.channel-row [data-channel]{transition:none}}
 
 .release-notes summary:after{content:'+';margin-left:auto;color:var(--muted)}.release-notes[open] summary:after{content:'−'}
+
+/* Sound belongs on the remote, within reach while watching. */
+.tv-dock{flex-direction:column;gap:2px}
+.remote-volume{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:0 4px;color:#acb597}
+.remote-volume #startup-sound{display:block;min-width:64px;min-height:44px;padding:8px 4px;border:0;background:none;font-size:11px;color:#c0c9a8;text-align:left;white-space:nowrap}
+.remote-volume #startup-sound[aria-pressed=true]{color:#dbc99e}
+#tv-volume{flex:1;min-width:0;width:100px;height:44px;margin:0;accent-color:#a7b778;cursor:pointer}
+#tv-volume-value{width:3ch;text-align:right;font:11px ui-monospace,monospace;font-variant-numeric:tabular-nums;color:#a3ad91}
+.remote-volume.is-muted #tv-volume{opacity:.6}
+@media(min-width:960px){.club-layout{bottom:150px}.club-layout:after{height:115px}.club-now{bottom:63px}.watch-controls{bottom:40px;min-width:210px}}
+@media(max-width:959px){.club-now{bottom:calc(var(--room-remote-bottom) + 132px)}.remote-volume{padding:0 12px}.watch-controls{max-width:400px}.tv-dock{gap:2px}}
+@media(max-width:959px) and (orientation:portrait){
+ .club-layout{inset:70px 0 236px;padding:0}
+ .club-now{top:calc((100dvh - 166px + var(--picture-height,75vw))/2 + 16px);bottom:auto}
+ .watch-controls{top:calc((100dvh - 166px + var(--picture-height,75vw))/2 + 72px);bottom:auto}
+}
