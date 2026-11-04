@@ -1,7 +1,7 @@
 export const KIDS_PACKS=["kids-cbbc.json", "kids-disney.json", "kids-nick.json", "kids-toons.json"];
 export const CREATOR_PACKS=["classic-gmm.json", "classic-rhett.json", "afterdark-frank.json", "afterdark-idubbbz.json", "more-tv-films.json"];
 export const MUSIC_PACKS=["music-surf.json", "music-proximity.json", "music-sheep.json", "music-ncs.json"];
-export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','library-health.json'];
+export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','library-health.json'];
 export const SOURCE_FILES=['catalogue.json','gameshow-additions.json',...EXPANSION_PACKS];
 const QUIZ_SERIES=new Set(['Catchphrase','Family Fortunes','The Weakest Link','Who Wants to Be a Millionaire']);
 export function withGameshowAdditions(base,extra){
@@ -22,7 +22,7 @@ async function fetchJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!
 export async function loadLibrary(){
  if(typeof window!=='undefined'&&window.parent!==window){try{const shared=await window.parent.RewindLibrary?.();if(shared)return {...shared,channels:shared.channels.map(c=>({...c}))};}catch{}}
  return libraryPromise??=(async()=>{
-  try{const {hydrateLibrary}=await import('./runtime-library.mjs');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
+  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=november1');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
   catch(error){console.warn('Using source catalogue fallback.',error);}
   const paths=SOURCE_FILES;
   const results=await Promise.allSettled(paths.map(fetchJSON));if(results[0].status!=='fulfilled')throw results[0].reason;let base=results[0].value;

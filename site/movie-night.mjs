@@ -10,7 +10,7 @@ const themes={
 const genreByTitle=new Map(Object.entries(themes).flatMap(([genre,titles])=>titles.map(t=>[normalise(t),genre])));
 export function filmIdentity(v){return `${normalise(v.title)}:${v.year||''}:${v.audioLanguage||'en'}`;}
 export function buildMovieLibrary(catalogue){
- const unique=new Map();for(const c of catalogue.channels)for(const v of c.videos){if(v.kind!=='film'||!isBrowsable(v))continue;const key=filmIdentity(v);if(!unique.has(key))unique.set(key,{...v,channelKey:c.key,genre:genreByTitle.get(normalise(v.title))||'World cinema'});}
+ const unique=new Map();for(const c of catalogue.channels)for(const v of c.videos){if(v.kind!=='film'||!isBrowsable(v))continue;const key=filmIdentity(v);if(!unique.has(key))unique.set(key,{...v,channelKey:c.key,genre:v.genre||genreByTitle.get(normalise(v.title))||'World cinema'});}
  return [...unique.values()].sort((a,b)=>a.title.localeCompare(b.title,'en',{numeric:true,sensitivity:'base'}));
 }
 export function filterMovies(films,{query='',genre='all'}={}){const q=normalise(query);return films.filter(v=>(genre==='all'||v.genre===genre)&&(!q||normalise([v.title,v.year,v.genre,v.audioLanguageLabel].join(' ')).includes(q)));}

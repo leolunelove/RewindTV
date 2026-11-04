@@ -2,6 +2,17 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-04 — Bigger reel, deeper rotations
+
+- Movie Night now has a full-width crate-style reel, a longer ease-out, a precise centre marker and a dedicated winner reveal. Skip, reroll, Watch and Back to collection stay explicit. The film only starts when Watch is chosen.
+- Soft synthesized ticks follow actual card crossings, with a gentle landing accent. Effects obey the TV volume, mute and the renamed “TV & reel sound effects” setting. No sound downloads or animation library; one transform per frame while spinning, with cancellation on close/hide, resize handling and reduced-motion support.
+- Added 169 source-verified uploads / 39.52 hours: 102 classic web episodes, 58 TV episodes/pilots and nine films. Movie Night grows from 87 to 96 films.
+- Web runs: Chad Vader (37), The Guild (22), Pure Pwnage (17), Red vs. Blue (16), Freeman's Mind (10). These are complete visual web episodes; no podcasts were added. All join After Dark immediately and Classic YouTube's fixed schedule from 10 November.
+- TV additions include Bodger and Badger (10), Oakie Doke (12), Stoppit and Tidyup (12), Budgie (10), The Dreamstone (7), The Shoe People (4), Bimble's Bucket, The Queen's Nose and the Clarissa Now! pilot. Films include Remote, Magic Island, Interstate 60, The Big Empty, The Princess and the Goblin, Dollman, Moontrap, Arena and Jack Frost (1997).
+- Existing shuffle channels draw fresh mixes from the larger pools, still prioritising unseen programmes and rotating shows. Viewing history is preserved. The current first-ten timetable is unchanged; new fixed-schedule items become eligible next Tuesday. Library and Movie Night expose additions immediately.
+- Tested 174 candidate uploads in embedded players at the start and near the end: 169 passed. Five failed with error 150 twice while a control played, and remain unpublished (Arcade also explicitly requires age verification). Jackass sources found were region-limited or sign-in restricted. All retained uploads have been online at least three years.
+- 177 automated checks pass. Desktop, 390px and 320px browser review covered landing alignment, skip, reroll, page navigation, sound controls and responsive scrolling. Embedded tests used one browser network with unverified egress region; they do not certify full uninterrupted episodes or worldwide playback. Further candidates remain unchecked after YouTube returned HTTP 429. Synthesized sound envelopes were tested programmatically; physical speaker balance is not certified.
+
 ## 2026-11-04 — Movie Night
 
 - Added a dedicated Movie Night page: an artwork-led film shelf with genre filters, search, year/runtime details and start-from-the-beginning playback. Uses the existing eligible film catalogue rather than a second source list.

@@ -24,15 +24,26 @@
       for(const key of keys){const pool=groups.get(key);for(let n=0;n<blockSize&&pool.length;n++)result.push(pool.shift());last=key;if(!pool.length)groups.delete(key);}}
     return result;
   }
+  // A catalogue addition can be browsed immediately without moving the live
+  // timetable. Its first fixed-schedule week is a Gibraltar Tuesday date.
+  function availableThisWeek(video,key){
+    if(video.enabled===false)return false;
+    const from=video.scheduleFromWeek;
+    if(from===undefined)return true;
+    if(typeof from!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(from))return false;
+    const date=new Date(from+'T12:00:00Z');
+    return Number.isFinite(date.getTime())&&date.toISOString().slice(0,10)===from&&date.getUTCDay()===2&&from<=key;
+  }
   function build(catalogue,now=Date.now()) {
     const week=weekAt(now),ads=(catalogue.adverts||catalogue.channels.find(c=>c.key==='adverts')?.videos||[]).filter(v=>v.enabled!==false);
     const schedules=catalogue.channels.map(ch=>{
       if(ch.mode==='shuffle')return [];
       const random=rng(hash(catalogue.version+week.key+ch.key)),rows=[];
+      const available=ch.videos.filter(v=>availableThisWeek(v,week.key));
       let at=week.start,last='',count=0,lastAd='',lastSeries='',adDeck=[],sinceBreak=0;
       const append=(video,advert=false)=>{const duration=Math.max(1,Math.round(video.duration));rows.push({video,start:at,end:at+duration*1000,advert});at+=duration*1000;};
       while(at<week.end){
-        const deck=mixedDeck(ch.videos.filter(v=>v.enabled!==false),random,lastSeries,ch.number===10?1:2);
+        const deck=mixedDeck(available,random,lastSeries,ch.number===10?1:2);
         if(!deck.length)break;
         if(deck.length>1&&deck[0].id===last)[deck[0],deck[1]]=[deck[1],deck[0]];
         for(const video of deck){
