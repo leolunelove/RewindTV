@@ -1,0 +1,5 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+const src=fs.readFileSync(new URL('../site/app.js',import.meta.url),'utf8');const a=src.indexOf("  document.addEventListener('keydown',e=>{"),b=src.indexOf('  const clockFormatter=',a);
+function run(key){let handler,closed=0,typed=0;const dialog={};const ctx={document:{documentElement:{classList:{contains:()=>false}},addEventListener:(event,fn)=>handler=fn},numberEntry:'',clearNumberEntry(){},root:{querySelector:()=>dialog},panels:{close:()=>closed++},backToTV(){},console};vm.runInNewContext(src.slice(a,b),ctx);handler({key,target:{closest:()=>true},preventDefault(){},get altKey(){return false},get ctrlKey(){return false},get metaKey(){return false}});return closed;}
+test('Escape closes a utility dialog even when its search/range input has focus',()=>assert.equal(run('Escape'),1));
+test('typing into fields remains outside global TV shortcuts',()=>assert.equal(run('m'),0));

@@ -1,5 +1,5 @@
 import {buildShowIndex,normalise} from './show-library.mjs';
-import {programmeTitle} from './programme-info.mjs?v=3';
+import {programmeTitle} from './programme-info.mjs?v=4';
 export function filterTitles(shows,query='',kind='all'){const q=normalise(query);return shows.filter(s=>(kind==='all'||s.kind===kind)&&(!q||normalise(s.title).includes(q)));}
 export function pageItems(items,limit=30){return items.slice(0,Math.max(0,limit));}
 export function createLibraryView(root,{catalogue,onPlay}){

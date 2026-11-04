@@ -2,10 +2,11 @@
 (()=>{
  const html=document.documentElement,ident=document.getElementById('station-ident'),content=[...document.querySelectorAll('[data-intro-content]')];
  if(!ident)return;
- const release=()=>content.forEach(el=>{el.inert=false;el.querySelectorAll('[inert]').forEach(control=>control.inert=false);el.removeAttribute('aria-busy');});
+ const blockedControls=[];
+ const release=()=>{blockedControls.forEach(control=>control.inert=false);content.forEach(el=>el.removeAttribute('aria-busy'));};
  if(html.classList.contains('intro-embedded')){release();ident.remove();return;}
  // Keep the media frame live behind the opaque ident. Block controls only.
- content.forEach(el=>el.querySelectorAll('button,a,input,select').forEach(control=>control.inert=true));
+ content.forEach(el=>el.querySelectorAll('button,a,input,select').forEach(control=>{blockedControls.push(control);control.inert=true;}));
  const status=document.getElementById('ident-status'),skip=document.getElementById('ident-skip'),retry=document.getElementById('ident-retry');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,start=performance.now();
  let returning=false,ready=false,leaving=false,timer,slow,long;

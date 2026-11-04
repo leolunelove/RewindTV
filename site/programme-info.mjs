@@ -5,7 +5,7 @@ export function programmeTitle(v){
  let title=parts.join(' · ')||original;
  title=title.replace(/\((?:HD )?Full Episodes?\)/ig,'');
  if(series&&title.toLowerCase().startsWith(series.toLowerCase()))title=title.slice(series.length).replace(/^\s*[—:|–-]?\s*/,'');
- title=title.replace(/\bFull(?: HD)? Episodes?\b.*$/i,'').replace(/^S\s*\d+\s*E\s*\d+\s*/i,'').replace(/^\d+x\d+\s*/i,'').replace(/\s*[—–-]\s*$/,'').replace(/^[\s·—–:|-]+/,'').trim();
+ title=title.replace(/^['’]s\s+/i,'').replace(/\bFull(?: HD)? Episodes?\b.*$/i,'').replace(/^S\s*\d+\s*E\s*\d+\s*/i,'').replace(/^\d+x\d+\s*/i,'').replace(/\s*[—–-]\s*$/,'').replace(/^[\s·—–:|-]+/,'').trim();
  const code=original.match(/\bS(\d{1,2})E(\d{1,3})\b/i);if(code&&(!title||/^\(?\d{4}\)?$/.test(title)||title===series))return `Series ${Number(code[1])}, episode ${Number(code[2])}`;
  return title||series||original;
 }

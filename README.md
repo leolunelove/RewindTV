@@ -9,6 +9,7 @@
 <p align="center">
   <a href="https://tv.leolune.fun/">Watch Rewind TV</a> ·
   <a href="https://tv.leolune.fun/#library">Library</a> ·
+  <a href="CHANGELOG.md">Changelog</a> ·
   <a href="https://tv.leolune.fun/#guide">TV guide</a>
 </p>
 
