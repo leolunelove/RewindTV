@@ -1,4 +1,4 @@
-import {buildShowIndex,normalise} from './show-library.mjs?v=lineup1';
+import {buildShowIndex,normalise} from './show-library.mjs?v=browse5';
 import {programmeTitle} from './programme-info.mjs?v=4';
 import {browseTitles,pageSlice} from './browse-tools.mjs?v=browse3';
 export function filterTitles(shows,query='',kind='all'){return browseTitles(shows,{query,kind});}
