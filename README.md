@@ -9,14 +9,16 @@
 <p align="center">
   <a href="https://tv.leolune.fun/">Watch Rewind TV</a> ·
   <a href="https://tv.leolune.fun/#library">Library</a> ·
+  <a href="https://tv.leolune.fun/#movies">Movie Night</a> ·
   <a href="CHANGELOG.md">Changelog</a> ·
   <a href="https://tv.leolune.fun/#guide">TV guide</a>
 </p>
 
 ## Switch on. See where you end up.
 
-- **Find your channel.** Surf 25 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music, plus dedicated Spanish and Mandarin channels, plus Discovery Club for classic factual television.
-- **Drop into something.** The first ten channels follow a shared weekly timetable. The other nine shuffle their collections, giving unheard programmes priority.
+- **Find your channel.** Surf 26 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music, plus dedicated Spanish and Mandarin channels, Discovery Club for classic factual television and Kitchen TV for classic cooking.
+- **Drop into something.** The first ten channels follow a shared weekly timetable. The remaining channels shuffle their collections, giving unheard programmes priority.
+- **Make it a movie night.** Browse film artwork by genre, search the collection, or use **Pick for me** for a spinning film reel. It avoids recent picks; choose **Watch from start** when you are ready.
 - **Pick an episode.** The Library groups shows, films and videos into collections. Start from the beginning, keep watching in episode order, then choose Join Live to return to the channel.
 - **See what’s on.** Open Info for the show, episode, runtime, progress, upload source and what comes next. Keep surfing with the panel open, or jump into the channel’s schedule.
 - **Make it feel like TV.** Watch fullscreen with CRT scanlines, colour bleed, curvature and channel-switching sound. Move the mouse to bring back the controls; adjust the effects in Settings.
@@ -51,11 +53,12 @@ One foreground player is the default for reliability and lower memory use. **Pre
 | I | Open / close programme info |
 | S | Open / close the channel schedule |
 | B | Open / close Library |
+| N | Open / close Movie Night |
 | / | Open Library search |
 | G / C | Open Channels |
 | F | Toggle fullscreen |
 | P | Power on / off |
-| 1–25, then Enter | Tune to a channel; a short pause also confirms the number |
+| 1–26, then Enter | Tune to a channel; a short pause also confirms the number |
 | Esc | Close a panel or cancel a channel number |
 | ? | Show keyboard help |
 

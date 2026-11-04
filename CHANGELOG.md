@@ -2,6 +2,23 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-04 — Movie Night
+
+- Added a dedicated Movie Night page: an artwork-led film shelf with genre filters, search, year/runtime details and start-from-the-beginning playback. Uses the existing eligible film catalogue rather than a second source list.
+- “Pick for me” spins a horizontal film reel, slows to a centre marker and reveals the chosen film. It draws from the current filter and avoids recent picks while alternatives exist. Playback starts only when Watch is pressed.
+- Skip animation, reduced-motion handling and clean cancellation when leaving the page prevent an animation from blocking navigation. One transform animates the reel; no extra video players, canvas or animation library.
+- Movie Night joins the existing navigation and browser history, with N and teletext page 700 shortcuts. TV audio continues while browsing, with a clear Back to TV action.
+- 152 automated checks pass, including film eligibility, duplicate channel memberships, filtered picks, exhausted/empty selections, artwork providers and teletext navigation. Desktop and phone-size browser playthroughs cover search, selection, spinning and in-app playback. The existing film catalogue was not re-certified in full.
+
+## 2026-11-04 — Kitchen TV
+
+- Added channel 26, Kitchen TV: 68 full episodes / 30.8 hours across eight classic cooking shows, with adverts between episodes and a varied shuffle.
+- Rotation: Today's Gourmet (20), Julia & Jacques Cooking at Home (16), Forever Summer with Nigella (8), Baking with Julia (8), Nigella Bites (7), original UK Ramsay's Kitchen Nightmares (4), The F Word series one (4), Ready Steady Cook (1).
+- Checked 170 candidate watch pages and 72 embedded players. All 68 retained uploads advanced at the start and near the end. Four Ready Steady Cook candidates returned embed error 150 twice while a known working control played, and were not added.
+- Retained uploads are at least three years old, with original programme dates in the 90s or 2000–2006. Official/archive credits and upload dates stay attached. Duplicate Julia & Jacques editions, recent archives, uncertain original dates, long compilations and Floyd uploads missing Finland in their country metadata were held back.
+- Existing channel numbers and the first ten weekly schedules are preserved. Guide and Library include the new channel. Early Ramsay editions are labelled for strong language.
+- 147 automated checks passed. Embedded checks sampled start/end progress on one browser network, whose egress region was not independently verified; these are not full watches or worldwide playback certification.
+
 ## 2026-11-04 — Discovery Club
 
 - Added channel 25, Discovery Club: 83 full episodes / 49.8 hours across eight shows. Includes 58 new older uploads and 25 reused Time Team/Survivorman sources.

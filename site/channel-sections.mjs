@@ -8,6 +8,7 @@ export const CHANNEL_SECTIONS = [
   {name:'Real life & competition',note:'Answers on the back of a postcard',keys:['rewind-gameshows','bean','adverts','aliens']},
   {name:'Internet & music',note:'Before the algorithm',keys:['cinema','rewind-music','unfiltered']},
   {name:'Seasonal specials',note:'Every day can be the occasion',keys:['rewind-specials','halloween-horror','christmas-tv']},
+  {name:'Food & home',note:'Something good on the stove',keys:['kitchen-tv']},
   {name:'Discovery & learning',note:'Stay curious',keys:['discovery-club']},
   {name:'Through the decades',note:'Turn back the clock',keys:['eighties','nineties']},
   {name:'World TV',note:'Another way to rewind',keys:['rewind-espanol','rewind-mandarin','rewind-francais']}
