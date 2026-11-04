@@ -2,6 +2,15 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-04 — Shorter names, decades and world TV
+
+- Removed Rewind from channel display names; retained stable keys, numbers 1–19 and the first ten weekly timelines.
+- Added 20 / 80s TV (25 uploads, 18.8 hours), 21 / 90s TV (1,148 uploads, 541 hours), 22 / Español (14 uploads, 8 hours) and 23 / 中文 · Mandarin (10 uploads, 5 hours).
+- Decades reuse existing library sources with dates inside the decade; open-ended and cross-decade year labels are excluded. Episode-level dating remains limited by existing metadata.
+- Language channels use older uploads and have English adverts disabled. Library distinguishes language editions.
+- Tested 33 language candidates at the start and near the end: 31 passed, two returned embed error 150. Seven additional candidates were deferred for duplicates, remakes, compilations or uncertain audio. Only 24 passed and retained candidates were added. Both new language channels also played inside the app. Browser egress region was not independently verified; this does not establish global availability or a full-episode watch.
+- All 140 automated checks passed, and the first ten weekly video/time schedules were compared before and after and are identical.
+
 ## 2026-11-04 — Everyday controls review
 
 - Added a small Live TV return beside the programme title whenever watching an episode, replay or paused broadcast.

@@ -2,8 +2,8 @@ export function isBrowsable(v){
  const r=v.regionRestriction||v.contentDetails?.regionRestriction;
  return v.enabled!==false&&v.kind!=='advert'&&v.embedStatus!=='restricted'&&v.embeddable!==false&&v.status?.embeddable!==false&&!(r&&(Object.hasOwn(r,'allowed')||(r.blocked||[]).length));
 }
-export const normalise=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-export function showIdentity(v){return v.kind==='film'?'film:'+v.id:'show:'+normalise(v.series||v.title);}
+export const normalise=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+export function showIdentity(v){return v.kind==='film'?'film:'+v.id:'show:'+normalise(v.series||v.title)+(v.audioLanguage&&v.audioLanguage!=='en'?'@'+v.audioLanguage:'');}
 export function episodeOrder(v){
  if(Number.isFinite(v.episodeNumber))return (Number(v.seasonNumber)||1)*10000+v.episodeNumber;
  const title=v.title||'';let m=title.match(/\bS(\d+)\s*E(\d+)\b/i)||title.match(/\b(?:season|series)\s*(\d+).*?\b(?:episode|ep)\.?\s*(\d+)/i);
@@ -16,7 +16,7 @@ const compareEpisodes=(a,b)=>{const x=episodeOrder(a),y=episodeOrder(b);return x
 export function buildShowIndex(catalogue){
  const groups=new Map();
  for(const c of catalogue.channels){for(const v of c.videos){if(!isBrowsable(v))continue;const key=showIdentity(v);let s=groups.get(key);
- if(!s){s={key,title:v.kind==='film'?v.title:(v.series||v.title),kind:v.kind==='film'?'film':['full episode','full pilot'].includes(v.kind)?'show':'collection',episodes:[],channels:[],years:new Set(),ids:new Set()};groups.set(key,s);}
+ if(!s){s={key,language:v.audioLanguageLabel||'',title:v.kind==='film'?v.title:(v.series||v.title),kind:v.kind==='film'?'film':['full episode','full pilot'].includes(v.kind)?'show':'collection',episodes:[],channels:[],years:new Set(),ids:new Set()};groups.set(key,s);}
  if(!s.channels.some(x=>x.key===c.key))s.channels.push({key:c.key,name:c.name,number:c.number,colour:c.brandColour});
  if(!s.ids.has(v.id)){s.ids.add(v.id);s.episodes.push({...v,channelKey:c.key});if(Number.isFinite(v.year))s.years.add(v.year);}
  }}

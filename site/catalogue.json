@@ -5,7 +5,7 @@
   "channels": [
     {
       "key": "music",
-      "name": "Rewind One",
+      "name": "Channel One",
       "tagline": "After-school favourites, British kids TV and early-2000s family adventures.",
       "videos": [
         {
@@ -11142,7 +11142,7 @@
     },
     {
       "key": "trailers",
-      "name": "Rewind Cartoons",
+      "name": "Cartoons",
       "tagline": "Cartoon comedy, school-day chaos and familiar animated favourites.",
       "videos": [
         {
@@ -17231,7 +17231,7 @@
     },
     {
       "key": "kids",
-      "name": "Rewind Junior",
+      "name": "Junior",
       "tagline": "Gentler stories and playful favourites for the smallest viewers.",
       "videos": [
         {
@@ -20403,7 +20403,7 @@
     },
     {
       "key": "sitcom",
-      "name": "Rewind Comedy",
+      "name": "Comedy",
       "tagline": "Sitcoms, oddballs and late-night laughs. Mixed audience.",
       "videos": [
         {
@@ -37229,7 +37229,7 @@
     },
     {
       "key": "kids-telly",
-      "name": "Rewind Sci-Fi",
+      "name": "Sci-Fi",
       "tagline": "Live-action worlds, strange futures and time-travelling adventures.",
       "videos": [
         {
@@ -69138,7 +69138,7 @@
     },
     {
       "key": "andromeda",
-      "name": "Rewind Movies",
+      "name": "Movies",
       "mode": "shuffle",
       "tagline": "Full-length classic films. Settle in; no added advert breaks.",
       "videos": [
@@ -71329,7 +71329,7 @@
     },
     {
       "key": "rewind-specials",
-      "name": "Rewind Specials",
+      "name": "Specials",
       "yearLabel": "1999–2003",
       "sourceEvidence": [
         "https://www.youtube.com/results?search_query=64%20Zoo%20Lane%20full%20episodes%20official",
@@ -79443,7 +79443,7 @@
     },
     {
       "key": "rewind-gameshows",
-      "name": "Rewind Gameshows",
+      "name": "Gameshows",
       "number": 15,
       "mode": "shuffle",
       "flagship": false,
