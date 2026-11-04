@@ -131,7 +131,7 @@
   let libraryLoading=null;
   async function openBrowse(){panels.open($('.browse-overlay'));revealControls();if(libraryView)return;
     $('#library-view').textContent='Opening the collection…';
-    try{libraryLoading??=import('./library-view.mjs?v=browse3');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:onDemandLibrary||catalogue,onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
+    try{libraryLoading??=import('./library-view.mjs?v=browse4');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:onDemandLibrary||catalogue,onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
   }
   function openLibrarySearch(){openBrowse().then(()=>libraryView?.focusSearch());}
   function backToTV(){root.querySelectorAll('dialog[open], [data-tv-page]:not([hidden])').forEach(panel=>panels.dismiss(panel));if(wideMenu.matches)openGuide();persist();revealControls();}
