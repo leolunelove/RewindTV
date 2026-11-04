@@ -15,7 +15,7 @@
 
 ## Switch on. See where you end up.
 
-- **Find your channel.** Surf 23 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music, plus dedicated Spanish and Mandarin channels.
+- **Find your channel.** Surf 24 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music, plus dedicated Spanish and Mandarin channels.
 - **Drop into something.** The first ten channels follow a shared weekly timetable. The other nine shuffle their collections, giving unheard programmes priority.
 - **Pick an episode.** The Library groups shows, films and videos into collections. Start from the beginning, keep watching in episode order, then choose Join Live to return to the channel.
 - **See what’s on.** Open Info for the show, episode, runtime, progress, upload source and what comes next. Keep surfing with the panel open, or jump into the channel’s schedule.
