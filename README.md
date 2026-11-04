@@ -15,7 +15,7 @@
 
 ## Switch on. See where you end up.
 
-- **Find your channel.** Surf 24 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music, plus dedicated Spanish and Mandarin channels.
+- **Find your channel.** Surf 25 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music, plus dedicated Spanish and Mandarin channels, plus Discovery Club for classic factual television.
 - **Drop into something.** The first ten channels follow a shared weekly timetable. The other nine shuffle their collections, giving unheard programmes priority.
 - **Pick an episode.** The Library groups shows, films and videos into collections. Start from the beginning, keep watching in episode order, then choose Join Live to return to the channel.
 - **See what’s on.** Open Info for the show, episode, runtime, progress, upload source and what comes next. Keep surfing with the panel open, or jump into the channel’s schedule.
@@ -28,7 +28,7 @@
 1. [Open Rewind TV](https://tv.leolune.fun/). It tunes into your last channel; choose **Unmute** when you want audio.
 2. Use **← / →**, the channel list or a channel number to find something. Controls appear when you move the mouse or use the keyboard.
 3. Choose **Info** or press **I** to see what you’re watching. Previous and next channel controls work inside the panel too.
-4. Use **Channels**, **Guide** and **Library** in the side menu. Channels switches the station; Guide follows the current channel; Library lets you pick an episode or film. The menu stays beside the TV on desktop and opens as a dismissible drawer on phones. Video keeps playing while you browse.
+4. Use **Channels**, **Guide** and **Library** in the side menu. Channels switches the station; Guide shows Now & Next across channels; Library lets you pick an episode or film. The menu stays beside the TV on desktop and opens as a dismissible drawer on phones. Video keeps playing while you browse.
 
 ## Your TV
 
@@ -55,7 +55,7 @@ One foreground player is the default for reliability and lower memory use. **Pre
 | G / C | Open Channels |
 | F | Toggle fullscreen |
 | P | Power on / off |
-| 1–19, then Enter | Tune to a channel; a short pause also confirms the number |
+| 1–25, then Enter | Tune to a channel; a short pause also confirms the number |
 | Esc | Close a panel or cancel a channel number |
 | ? | Show keyboard help |
 

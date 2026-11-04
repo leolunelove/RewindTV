@@ -2,6 +2,16 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-04 — Discovery Club
+
+- Added channel 25, Discovery Club: 83 full episodes / 49.8 hours across eight shows. Includes 58 new older uploads and 25 reused Time Team/Survivorman sources.
+- Rotation: Wild America (29), Time Team (22), The Secret Life of Machines (16), Survivorman (7), Rough Science (4), Connections (2), Bill Nye the Science Guy (2), Beakman's World (1).
+- All 83 retained uploads advanced at the start and near the end in embedded checks. One further Connections candidate returned error 150 on two attempts while the control played, and stays unpublished.
+- Held back the reused Survivorman “Food” upload because its original episode identity was not established and it may be a thematic compilation. Existing channel data was retained.
+- New archive uploads are at least three years old. Re-titled wildlife editions, duplicates, clips, newer archives and candidates with incomplete/restricted country metadata were held back. Further science metadata requests hit HTTP 429 and remain unverified, rather than being treated as source failures.
+- Existing weekly schedules stay unchanged. Discovery Club shuffles between shows and inserts adverts between episodes. Selecting a show through a channel filter retains that channel when the episode belongs to it.
+- 145 automated checks passed. Embedded checks sample start/end progress on one browser network; they are not full watches or worldwide certification.
+
 ## 2026-11-04 — Unfiltered
 
 - Added channel 24, Unfiltered: 2010s Filthy Frank, iDubbbz, Maxmoefoe, Anything4Views guest material and older Ice Poseidon trip highlights. 141 uploads / 18.9 hours, including 133 existing sources and eight additions.
