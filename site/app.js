@@ -136,7 +136,7 @@
   let movieNight=null,movieNightLoading=null;
   async function openMovieNight(){panels.open($('.movie-night-page'));revealControls();if(movieNight)return;
     $('#movie-night-view').textContent='Opening the cinema…';
-    try{movieNightLoading??=import('./movie-night-view.mjs?v=movies1');const {createMovieNight}=await movieNightLoading;if(!movieNight)movieNight=createMovieNight($('#movie-night-view'),{catalogue:onDemandLibrary||catalogue,onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){movieNightLoading=null;$('#movie-night-view').textContent='The cinema could not load. Open Movie Night to try again.';console.warn(error);}
+    try{movieNightLoading??=import('./movie-night-view.mjs?v=movies2');const {createMovieNight}=await movieNightLoading;if(!movieNight)movieNight=createMovieNight($('#movie-night-view'),{catalogue:onDemandLibrary||catalogue,onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){movieNightLoading=null;$('#movie-night-view').textContent='The cinema could not load. Open Movie Night to try again.';console.warn(error);}
   }
   $('#movie-night-button').onclick=openMovieNight;$('#close-movie-night').onclick=backToTV;
   function openLibrarySearch(){openBrowse().then(()=>libraryView?.focusSearch());}
