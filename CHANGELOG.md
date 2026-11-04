@@ -12,6 +12,7 @@ Dated changes to the player and catalogue. Each release records its validation s
 ## 2026-11-04 — Guide and Library indexes
 
 - Guide opens on a short, paged Now & Next overview across all channels, with remaining time, programme progress, Scheduled/Mixes filters, a current-channel jump, and separate Watch and schedule actions.
+- Public compact builds retain audio-language metadata so language filters work after deployment.
 - Large collections also have episode search and a direct page selector.
 - Channel schedules return to the overview; browser Back restores the overview or chosen channel.
 - Library adds A–Z, channel and audio-language filters, compact numbered rows and bounded results/episode pages. Returning from a title keeps the search, filters and results page.
