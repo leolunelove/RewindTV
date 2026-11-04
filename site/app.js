@@ -598,7 +598,7 @@
       if(key==='n'){e.preventDefault();if(panels.isOpen($('.movie-night-page')))backToTV();else openMovieNight();return;}
       if(key==='s'){e.preventDefault();if(panels.isOpen($('.schedule-overlay')))backToTV();else openSchedule();return;}
     }
-    if(panels.isOpen($('.movie-night-page')))return;
+    if(panels.isOpen($('.movie-night-page'))&&key!=='m'&&!['ArrowUp','ArrowDown'].includes(e.key))return;
     if(!wideMenu.matches&&(panels.isOpen($('.schedule-overlay'))||panels.isOpen($('.browse-overlay'))))return;
     if(infoPanel.open){if(key==='i'){e.preventDefault();panels.close(infoPanel);return;}if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter','Backspace',' ','m','M','k','K','f','F'].includes(e.key)&&!/^\d$/.test(e.key))return;}
     if($('.tv-settings').open)return;
