@@ -27,6 +27,8 @@ Dated changes to the player and catalogue. Each release records its validation s
 - 130 automated checks passed; source/asset checks are recorded in the 4 November review report.
 - Browser control initially timed out, then recovered. Local phone checks confirmed drawer locking after intro, Settings release notes and search dismissal. Playback and final-release coverage are recorded in the review report. No new catalogue availability claims.
 
+- App release: [`4146614`](https://github.com/leolunelove/RewindTV/commit/414661473261d3bd3b593cbb72122f0f1273ae0f).
+
 ## 2026-11-03 — Adaptive picture frame
 
 - Added an eased transition between picture shapes and saved per-video Auto / 4:3 / 16:9 choices.
