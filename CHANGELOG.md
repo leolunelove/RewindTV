@@ -2,6 +2,13 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-06 — More Discovery Club episodes
+
+- Added 81 full episodes (18.93 hours). Backyard Science gets all 52 separately numbered Season 2 episodes from ZeeKay’s 13-minute edition. How 2 gets eight more episodes and The Big Bang gets 16, including five from Series 1.
+- Science Court joins with four broadcasts. The Complete Cosmos joins with its 10-minute Moon episode.
+- All 81 passed the embedded player’s start and near-end checks. Six selections across the five shows also played through the local RewindTV app. These checks used one browser network with an unverified region.
+- A separate set of 26 3-2-1 Contact uploads passed playback. The metadata service rate-limited their checks, so they remain in the research checkpoint.
+
 ## 2026-11-06 — Discovery Club, Shuffle previews and CRT glass
 
 - Added all 26 episodes of Backyard Science season one, six How 2 episodes and 15 episodes of CITV’s The Big Bang to Discovery Club. Adds 16.08 hours across three shows. The fixed-channel timetable stays as scheduled.
