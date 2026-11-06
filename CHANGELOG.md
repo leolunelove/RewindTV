@@ -2,6 +2,14 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-06 — Late Night Broadcast
+
+- RewindTV has a dedicated CRT wordmark and favicon, a fluid cabinet and a landscape side remote. The picture aperture and portrait controls move together on aspect changes, while the video stays contained.
+- The remote offers Shuffle (R) for this channel or all channels. Picks start on demand and can return to the broadcast with Live TV.
+- Movie Night keeps spinning through a resize and lands on the new centre.
+- Added 41 episodes and two films (17.70 hours), including Code Lyoko season one and Chad Vader’s missing first-season episode. Fixed broadcasts admit their additions on 10 November; on-demand and continuous shuffle pools can play them immediately.
+- See the [release notes](docs/2026-11-06-late-night.md) for programme placements and the playback-check scope.
+
 ## 2026-11-04 — Bigger reel, deeper rotations
 
 - Movie Night now has a full-width crate-style reel, a longer ease-out, a precise centre marker and a dedicated winner reveal. Skip, reroll, Watch and Back to collection stay explicit. The film only starts when Watch is chosen.

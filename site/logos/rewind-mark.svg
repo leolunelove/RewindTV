@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+ <title>RewindTV</title>
+ <rect x="1" y="2" width="30" height="28" rx="7" fill="#191E13" stroke="#C1B48E" stroke-width="1.5"/>
+ <path d="M13.6 8.3c.5-.33 1.15.02 1.15.62v12.16c0 .6-.65.95-1.15.62l-8.4-6.08a.76.76 0 0 1 0-1.24l8.4-6.08Zm10 0c.5-.33 1.15.02 1.15.62v12.16c0 .6-.65.95-1.15.62l-8.4-6.08a.76.76 0 0 1 0-1.24l8.4-6.08Z" fill="#E9DEC0"/>
+ <circle cx="25" cy="25.5" r="1.5" fill="#B7C785"/>
+</svg>

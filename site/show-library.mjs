@@ -27,3 +27,32 @@ export function findProgramme(catalogue,channelKey,videoId){
  if(!video)return null;
  return {channel,video,queue:channel.videos.filter(v=>isBrowsable(v)&&showIdentity(v)===showIdentity(video)).sort(compareEpisodes)};
 }
+
+// Draw a station first, then a show, then an episode. Longer runs have no extra weight.
+export function pickProgramme(channels,{channelKey=null,current=null,failed=new Set(),recentPicks=[],seen={},random=Math.random}={}){
+ const draw=items=>items[Math.min(items.length-1,Math.floor(random()*items.length))];
+ const pools=[];
+ for(const channel of channels){
+  if(channelKey&&channel.key!==channelKey)continue;
+  const eligible=[...new Map(channel.videos.filter(v=>isBrowsable(v)&&!failed.has(v.id)).map(v=>[v.id,v])).values()];
+  const episodes=eligible.filter(v=>v.kind==='full episode'||v.kind==='full pilot');
+  const singles=episodes.filter(v=>!/(?:\bcompilation\b|\bmarathon\b|\ball episodes\b|\bcomplete season\b)/i.test(v.title));
+  const videos=singles.length?singles:episodes.length?episodes:eligible;
+  if(videos.length)pools.push({channel,videos});
+ }
+ if(!pools.length)return null;
+ const alternatives=pools.filter(p=>p.videos.some(v=>v.id!==current?.id));
+ const {channel,videos}=draw(alternatives.length?alternatives:pools);
+ const others=videos.filter(v=>v.id!==current?.id),groups=new Map();
+ for(const v of others.length?others:videos){
+  const key=showIdentity(v);
+  if(!groups.has(key))groups.set(key,[]);
+  groups.get(key).push(v);
+ }
+ const keys=[...groups.keys()],currentShow=current&&showIdentity(current);
+ const recentShows=new Set(recentPicks.map(showIdentity)),recentIds=new Set(recentPicks.map(v=>v.id));
+ const different=keys.filter(key=>key!==currentShow),fresh=different.filter(key=>!recentShows.has(key));
+ const group=groups.get(draw(fresh.length?fresh:different.length?different:keys));
+ const freshEpisodes=group.filter(v=>!recentIds.has(v.id)&&!seen?.[v.id]),unpicked=group.filter(v=>!recentIds.has(v.id));
+ return {channel,video:draw(freshEpisodes.length?freshEpisodes:unpicked.length?unpicked:group)};
+}
