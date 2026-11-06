@@ -22,7 +22,7 @@ async function fetchJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!
 export async function loadLibrary(){
  if(typeof window!=='undefined'&&window.parent!==window){try{const shared=await window.parent.RewindLibrary?.();if(shared)return {...shared,channels:shared.channels.map(c=>({...c}))};}catch{}}
  return libraryPromise??=(async()=>{
-  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=november1');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
+  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=signal1');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
   catch(error){console.warn('Using source catalogue fallback.',error);}
   const paths=SOURCE_FILES;
   const results=await Promise.allSettled(paths.map(fetchJSON));if(results[0].status!=='fulfilled')throw results[0].reason;let base=results[0].value;

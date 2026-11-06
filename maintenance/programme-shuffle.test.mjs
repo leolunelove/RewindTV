@@ -39,3 +39,14 @@ test('standalone episodes take precedence over compilation uploads when both are
  assert.equal(pickProgramme([channel('a',[compilation,single])],{random:()=>0}).video.id,'single');
  assert.equal(pickProgramme([channel('a',[compilation])],{random:()=>0}).video.id,'batch');
 });
+
+test('fresh picks beat repeats across stations, including on a reroll',()=>{
+ const now=episode('now','Current'),previous=episode('previous','Another'),fresh=episode('fresh','Elsewhere');
+ const pool=[channel('a',[now,previous]),channel('b',[fresh])];
+ assert.equal(pickProgramme(pool,{current:now,previousId:'previous',recentPicks:[{id:'previous',showKey:'show:another'}],random:()=>0}).video.id,'fresh');
+});
+
+test('reroll can use a different playable title when the preferred episode is the current preview',()=>{
+ const previous=episode('previous','A'),film=episode('film','Cinema',{kind:'film'});
+ assert.equal(pickProgramme([channel('a',[previous,film])],{previousId:previous.id,random:()=>0}).video.id,'film');
+});

@@ -445,3 +445,56 @@ html #station-ident:before{background:radial-gradient(ellipse at 47% 50%,#788455
 .channel-row [aria-pressed=true]{box-shadow:inset 2px 0 var(--lime),inset 0 1px #d3d9b414}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
 .ident-corner,.ident-tag,.ident-bottom{font-family:var(--type-mono)}
+
+/* Shape the glass around the full raster. The inset keeps picture corners visible. */
+#rewind-tv{--glass-inset:2.5%;--glass-radius:clamp(1.25rem,calc(var(--room-unit) * 3.6),3.75rem)}
+.screen{
+ background:#090b07;
+ border-radius:min(var(--glass-radius),8%) / min(calc(var(--glass-radius) * .78),8%);
+ box-shadow:0 0 0 1px #8f927653,0 0 0 5px #12150e,0 0 0 6px #696b543d,0 14px 35px #0009;
+}
+.screen>iframe,.screen>video,.screen>#video-player{
+ inset:var(--glass-inset);
+ width:calc(100% - var(--glass-inset) * 2);
+ height:calc(100% - var(--glass-inset) * 2);
+}
+#rewind-tv.no-curve{--glass-inset:0%}
+.crt-curve{
+ border-radius:inherit;
+ background:radial-gradient(ellipse at 50% 46%,transparent 50%,#06090348 84%,#030501d9 100%);
+ box-shadow:inset 0 0 0 1px #dad7af38,inset 0 1px 7px #d5d7b54d,inset 0 0 26px 3px #02040170;
+}
+.crt-curve:before{border-radius:inherit;border-top-color:#d5d7b529;border-bottom-color:#0a0d08b0}
+.crt-surface{
+ border-radius:inherit;
+ animation:none;
+ opacity:.66;
+ background:
+  repeating-linear-gradient(0deg,#03060170 0 1px,#02040025 1px 2px,transparent 2px 5px),
+  repeating-linear-gradient(90deg,#ff725312 0 1px,#b8ff8b10 1px 2px,#729aff12 2px 3px);
+}
+.crt-surface:after{
+ background:linear-gradient(transparent,#dce9be20 72%,#dce9be2b 78%,transparent 88%);
+ animation-duration:7s;
+}
+.ambient-live:not(.no-ambient) #ambient-spill{opacity:.3}
+@media(prefers-reduced-motion:reduce){.crt-surface:after{animation:none;display:none}}
+
+.shuffle-preview{
+ padding:var(--room-pad);
+ background:#171d13;
+ border:1px solid var(--line);
+ border-left:2px solid var(--lime);
+ border-radius:.55rem;
+}
+.shuffle-preview p,.shuffle-preview h3{margin:0}
+#shuffle-pick-meta{font:400 var(--room-small)/1.5 var(--type-mono);color:var(--lime)}
+#shuffle-pick-title{margin-top:.45rem;font-size:var(--room-title);color:var(--paper)}
+#shuffle-pick-title:focus-visible{outline:2px solid var(--lime);outline-offset:.2rem}
+#shuffle-pick-episode{color:var(--muted);font-size:var(--room-body);margin-top:.2rem}
+#shuffle-pick-episode:empty{display:none}
+.shuffle-actions{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:var(--room-pad)}
+.shuffle-actions button{min-height:var(--hit);padding:.4rem .65rem;font-size:var(--room-body)}
+#shuffle-watch{background:var(--lime);color:var(--bg);font-weight:600}
+#shuffle-watch:hover{background:var(--paper)}
+#shuffle-scopes{background:transparent;border-color:transparent;color:var(--muted)}

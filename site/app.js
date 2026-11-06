@@ -2,11 +2,11 @@
 (async () => {
   const root=document.getElementById('rewind-tv'),$=s=>root.querySelector(s),Schedule=window.RewindSchedule;
   let catalogue,onDemandLibrary=null,channels,plan,active=null,channel=2,volume=40,power=false,player=null,ready=false,apiLoading=false,paused=false,watchTimer,apiTimer,resumeAfterGuide=false,osdTimer,tuningTimer;
-  const [{findProgramme,pickProgramme},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache}]=await Promise.all([import('./show-library.mjs?v=fluid1'),import('./programme-info.mjs?v=4'),import('./neighbour-cache.mjs?v=1')]);let requestedQueue=[];let requestedIndex=0;
+  const [{findProgramme,pickProgramme,showIdentity},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache}]=await Promise.all([import('./show-library.mjs?v=signal1'),import('./programme-info.mjs?v=4'),import('./neighbour-cache.mjs?v=1')]);let requestedQueue=[];let requestedIndex=0;
   const {createPanelMotion}=await import('./panel-motion.mjs?v=fluid1');
   const panels=createPanelMotion(root),wideMenu=matchMedia('(min-width:960px)');
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
-  const {createPictureFrame}=await import('./picture-frame.mjs?v=fluid1');const pictureFrame=createPictureFrame(root,{getVideo:()=>active?.video,native:movie});
+  const {createPictureFrame}=await import('./picture-frame.mjs?v=signal1');const pictureFrame=createPictureFrame(root,{getVideo:()=>active?.video,native:movie});
   let playbackIntent=true,loadGeneration=0,recoveryChain=0,recoveryBackoffTimer=0;
   let startupMuted=true,startupPending=true,startupTimer;
   const startupSound=$('#startup-sound');
@@ -147,21 +147,56 @@
   $('#schedule-button').onclick=()=>openSchedule();$('#close-schedule').onclick=backToTV;$('#schedule-all').onclick=()=>openSchedule();
   function requestedActive(v){const start=Date.now();return {index:0,slot:{video:v,start,end:start+v.duration*1000},video:v,offset:0,mode:'ondemand'};}
   const shuffleDialog=$('#shuffle-dialog'),shuffleButton=$('#shuffle-button'),shuffleResult=$('#shuffle-result');
-  let recentPicks=[],shuffleResultTimer;
+  const shuffleHistoryKey='rewind-shuffle-picks',shuffleHistoryLimit=24;
+  let recentPicks=[],shuffleResultTimer,shufflePick=null,shuffleScope=null;
+  try{
+    const saved=JSON.parse(localStorage.getItem(shuffleHistoryKey)||'[]');
+    if(Array.isArray(saved))recentPicks=saved.filter(v=>typeof v?.id==='string'&&typeof v.showKey==='string').slice(0,shuffleHistoryLimit);
+  }catch{}
   function clearShuffleResult(){clearTimeout(shuffleResultTimer);shuffleResult.classList.remove('is-visible');}
+  function resetShuffle(){
+    shufflePick=null;shuffleScope=null;
+    shuffleDialog.querySelector('.shuffle-options').hidden=false;
+    shuffleDialog.querySelector('.shuffle-intro').hidden=false;
+    $('#shuffle-preview').hidden=true;$('#shuffle-message').hidden=true;
+  }
   function openShuffle(){
     if(!channels?.[channel])return;
+    resetShuffle();
     $('#shuffle-channel-name').textContent=channels[channel].name;
-    $('#shuffle-message').hidden=true;panels.open(shuffleDialog);revealControls();
+    panels.open(shuffleDialog);revealControls();
   }
   function shuffleProgramme(scope){
-    const pick=pickProgramme(channels,{channelKey:scope==='channel'?channels[channel].key:null,current:active?.video,failed,recentPicks,seen:recent});
-    if(!pick){const message=$('#shuffle-message');message.textContent=scope==='channel'?'No playable programmes on this channel right now. Try All channels.':'No playable programmes are available right now.';message.hidden=false;return;}
+    const previousId=shufflePick?.video.id;
+    const pick=pickProgramme((onDemandLibrary||catalogue).channels,{channelKey:scope==='channel'?channels[channel].key:null,current:active?.video,previousId,failed,recentPicks,seen:recent});
+    const message=$('#shuffle-message');
+    if(!pick||pick.video.id===previousId||pick.video.id===active?.video.id){
+      message.textContent=scope==='channel'?'No other playable picks here. Try All channels.':'No other playable picks are available right now.';
+      message.hidden=false;return;
+    }
+    shufflePick=pick;shuffleScope=scope;
+    const v=pick.video,title=v.kind==='film'?programmeTitle(v):v.series||programmeTitle(v);
+    const episode=programmeTitle(v);
+    recentPicks=[{id:v.id,showKey:showIdentity(v)},...recentPicks.filter(item=>item.id!==v.id)].slice(0,shuffleHistoryLimit);
+    try{localStorage.setItem(shuffleHistoryKey,JSON.stringify(recentPicks));}catch{}
+    $('#shuffle-pick-meta').textContent=[pick.channel.name,v.yearLabel||v.year,Math.max(1,Math.round(v.duration/60))+' min'].filter(Boolean).join(' · ');
+    $('#shuffle-pick-title').textContent=title;
+    $('#shuffle-pick-episode').textContent=episode===title?'':episode;
+    shuffleDialog.querySelector('.shuffle-options').hidden=true;
+    shuffleDialog.querySelector('.shuffle-intro').hidden=true;
+    $('#shuffle-preview').hidden=false;message.hidden=true;
+    $('#shuffle-pick-title').focus({preventScroll:true});
+  }
+  function watchShufflePick(){
+    const pick=shufflePick;
+    if(!pick)return;
+    if(failed.has(pick.video.id)||!playRequested(pick.channel.key,pick.video.id)){
+      const message=$('#shuffle-message');
+      message.textContent='That pick is unavailable. Pick another to keep going.';message.hidden=false;return;
+    }
     panels.dismiss(shuffleDialog);backToTV();
-    if(!playRequested(pick.channel.key,pick.video.id))return;
     if(wideMenu.matches)root.querySelector('[data-channel="'+channel+'"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
-    recentPicks=[pick.video,...recentPicks].slice(0,6);
-    shuffleResult.textContent='Shuffle pick · '+pick.channel.name+' · '+(pick.video.kind==='film'?programmeTitle(pick.video):pick.video.series||programmeTitle(pick.video));
+    shuffleResult.textContent='Shuffle pick · '+pick.channel.name+' · '+$('#shuffle-pick-title').textContent;
     shuffleResult.classList.add('is-visible');shuffleResultTimer=setTimeout(clearShuffleResult,4200);
     shuffleButton.focus({preventScroll:true});
   }
@@ -169,6 +204,9 @@
   $('#close-shuffle').onclick=()=>panels.close(shuffleDialog);
   $('#shuffle-channel').onclick=()=>shuffleProgramme('channel');
   $('#shuffle-all').onclick=()=>shuffleProgramme('all');
+  $('#shuffle-again').onclick=()=>shuffleProgramme(shuffleScope);
+  $('#shuffle-watch').onclick=watchShufflePick;
+  $('#shuffle-scopes').onclick=()=>{resetShuffle();$('#shuffle-channel').focus({preventScroll:true});};
   shuffleDialog.addEventListener('close',()=>{if(!root.querySelector('dialog[open]'))shuffleButton.focus({preventScroll:true});revealControls();});
   function playRequested(channelKey,videoId){const found=findProgramme(onDemandLibrary||catalogue,channelKey,videoId);if(!found||!channels.some(c=>c.key===channelKey))return false;clearShuffleResult();loadGeneration++;clearTimeout(recoveryBackoffTimer);playbackIntent=true;tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();channel=channels.findIndex(c=>c.key===channelKey);requestedQueue=found.queue;requestedIndex=requestedQueue.findIndex(v=>v.id===videoId);active=requestedActive(found.video);power=true;paused=false;persist();if(panels.isOpen($('.browse-overlay')))panels.close($('.browse-overlay'));setStatus('ON DEMAND · '+found.video.title);ensurePlayer();return true;}
   $('#settings-channels').onclick=()=>openGuide();
@@ -267,7 +305,7 @@
     const levelKey=v.series||v.id,level=Math.max(-12,Math.min(6,Number(showLevels[levelKey])||0));
     $('#programme-trim').value=String(level);$('#programme-trim').disabled=!power||v.kind==='advert';
     $('#trim-value').textContent=(level>0?'+':'')+level+' dB';$('#trim-programme').textContent=v.kind==='advert'?'Advert level is reduced automatically.':(power?'Saved for '+(v.series||v.title):'Start a programme to adjust it.');
-    $('#source-link').textContent=v.sourceProvenance?'FAN/ARCHIVE ↗':v.provider==='archive'?'ARCHIVE ↗':'YOUTUBE ↗';$('#source-link').href=v.watchUrl;$('#unavailable-link').href=v.watchUrl;$('#unavailable-link').textContent=v.provider==='archive'?'WATCH ON ARCHIVE ↗':'WATCH ON YOUTUBE ↗';$('#unavailable').hidden=!(power&&(v.embedStatus==='restricted'||failed.has(v.id))); 
+    $('#source-link').textContent=v.sourceProvenance?'FAN/ARCHIVE ↗':v.provider==='archive'?'ARCHIVE ↗':'YOUTUBE ↗';$('#source-link').href=v.watchUrl;$('#unavailable-link').href=v.watchUrl;$('#unavailable-link').textContent=v.provider==='archive'?'WATCH ON ARCHIVE ↗':'WATCH ON YOUTUBE ↗';$('#unavailable').hidden=!(power&&(v.embedStatus==='restricted'||failed.has(v.id)));
     root.classList.toggle('is-playing',!!(power&&!paused&&currentPlayer()?.getPlayerState?.()===1&&currentPlayer()?.getVideoData?.()?.video_id===active?.video.id));
     root.classList.toggle('is-ondemand',active?.mode==='ondemand');root.classList.toggle('tv-on',power);if(!power||paused)root.classList.remove('controls-hidden');
     $('.off').hidden=power;$('.led').classList.toggle('off-led',!power);
@@ -564,7 +602,7 @@
   }
   root.querySelectorAll('button').forEach(b=>b.disabled=true);
   try{
-    const {loadLibrary}=await import('./library.mjs?v=late-night1');catalogue=await loadLibrary();window.RewindLibrary=()=>onDemandLibrary||catalogue;catalogue.channels=catalogue.channels.map(c=>({...c,videos:c.videos.filter(v=>v.enabled!==false)})).filter(c=>c.videos.length);channels=catalogue.channels;
+    const {loadLibrary}=await import('./library.mjs?v=signal1');catalogue=await loadLibrary();window.RewindLibrary=()=>onDemandLibrary||catalogue;catalogue.channels=catalogue.channels.map(c=>({...c,videos:c.videos.filter(v=>v.enabled!==false)})).filter(c=>c.videos.length);channels=catalogue.channels;
     const saved=readSavedObject('rewind-tv-v2');
     const requestedChannel=new URLSearchParams(location.search).get('channel')||saved.key;const selected=channels.findIndex(c=>c.key===requestedChannel);if(selected>=0)channel=selected;
     if(Number.isFinite(saved.volume))volume=Math.max(0,Math.min(100,saved.volume));

@@ -16,7 +16,10 @@ export function createPictureFrame(root,{getVideo,native}){
   if(ratio!==lastRatio){lastRatio=ratio;root.style.setProperty('--picture-ratio',String(ratio));}
   buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.pictureMode===m)));
   label.textContent=m==='auto'?'Auto':m==='wide'?'16:9':'4:3';label.setAttribute('aria-label','Picture shape: '+label.textContent+'. Change picture shape');
-  note.textContent=m!=='auto'?'Saved for this video. The complete picture stays visible.':v.provider==='archive'?'Auto follows this stream’s dimensions. Baked-in black bars may remain.':'YouTube hides its picture dimensions. Choose 4:3 or 16:9 here if needed; we’ll remember this video.';
+  const format=m==='classic'?'4:3':m==='wide'?'16:9':Math.abs(ratio-4/3)<.025?'4:3':Math.abs(ratio-16/9)<.025?'16:9':ratio.toFixed(2)+':1';
+  const frame=m==='auto'?'Auto frame · '+format:'Saved frame · '+format;
+  const help=m==='auto'&&v.provider==='youtube'&&!v.sourceAspectRatio?'Try 16:9 for widescreen or 4:3 for classic TV.':'The frame fits the complete picture.';
+  note.textContent=frame+'. '+help+' Bars encoded into the video stay visible.';
  }
  function choose(m){const id=getVideo()?.id;if(!id)return;if(m==='auto')delete saved[id];else saved[id]=m;try{win.localStorage.setItem('rewind-picture-formats',JSON.stringify(saved))}catch{}last='';update();}
  buttons.forEach(b=>b.onclick=()=>choose(b.dataset.pictureMode));label.onclick=()=>choose(mode()==='auto'?'wide':mode()==='wide'?'classic':'auto');

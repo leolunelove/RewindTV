@@ -1,4 +1,20 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';import {buildShowIndex} from '../site/show-library.mjs';import {withExpansion,withGameshowAdditions,EXPANSION_PACKS} from '../site/library.mjs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../site/'+n,import.meta.url)));
-test('Discovery Club is a substantial, varied full-episode channel with stable numbering',()=>{let source=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)source=withExpansion(source,read(n));const all=hydrateLibrary(compactLibrary(source)),c=all.channels.find(c=>c.key==='discovery-club');assert(all.channels.length>=25);assert.deepEqual(c.videos.map(v=>v.id),read('discovery-club.json').assignments['discovery-club']);assert.equal(c.number,25);assert.equal(c.mode,'shuffle');assert(c.videos.length>=60);assert(new Set(c.videos.map(v=>v.series)).size>=7);assert.equal(new Set(c.videos.map(v=>v.id)).size,c.videos.length);assert(c.videos.reduce((n,v)=>n+v.duration,0)>35*3600);for(const v of c.videos){assert.equal(v.kind,'full episode');assert(v.duration>=1080);}assert(buildShowIndex(all).some(s=>s.channels.some(c=>c.key==='discovery-club')));});
+test('Discovery Club is a substantial, varied full-episode channel with stable numbering',()=>{let source=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)source=withExpansion(source,read(n));const all=hydrateLibrary(compactLibrary(source)),c=all.channels.find(c=>c.key==='discovery-club');assert(all.channels.length>=25);assert.deepEqual(c.videos.map(v=>v.id),read('discovery-club.json').assignments['discovery-club']);assert.equal(c.number,25);assert.equal(c.mode,'shuffle');assert(c.videos.length>=60);assert(new Set(c.videos.map(v=>v.series)).size>=7);assert.equal(new Set(c.videos.map(v=>v.id)).size,c.videos.length);assert(c.videos.reduce((n,v)=>n+v.duration,0)>35*3600);for(const v of c.videos){assert.equal(v.kind,'full episode');assert(v.duration>=(['How 2','The Big Bang'].includes(v.series)?840:1080));}assert(buildShowIndex(all).some(s=>s.channels.some(c=>c.key==='discovery-club')));});
 test('new uploads retain publication age, source labels and bounded playback evidence',()=>{const pack=read('discovery-club.json');for(const v of pack.videos){assert(v.uploadDate<='2023-11-04');assert.equal(v.embedStatus,'playing');assert.equal(v.embeddable,true);assert.equal(v.availabilityEvidence.availableCountryCount,249);assert(v.playbackCheck.start&&v.playbackCheck.nearEnd);assert(v.playbackCheck.region);assert(v.uploader&&v.credit);if(v.sourceType==='archive')assert(v.sourceProvenance);}});
+
+test('new science runs preserve episode identity and verified frame ratios in the player library',()=>{
+ const pack=read('discovery-club.json');
+ let source=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));
+ for(const name of EXPANSION_PACKS)source=withExpansion(source,read(name));
+ const runtime=hydrateLibrary(compactLibrary(source));
+ const channel=runtime.channels.find(c=>c.key==='discovery-club');
+ for(const [series,count] of [['Backyard Science',26],['How 2',6],['The Big Bang',15]]){
+  const expected=pack.videos.filter(v=>v.series===series);
+  assert.equal(expected.length,count);
+  for(const v of expected){
+   assert.ok(v.sourceAspectRatio>=1.3&&v.sourceAspectRatio<=1.85);
+   assert.equal(channel.videos.find(item=>item.id===v.id)?.sourceAspectRatio,v.sourceAspectRatio);
+  }
+ }
+});

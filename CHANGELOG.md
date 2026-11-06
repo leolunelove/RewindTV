@@ -2,6 +2,13 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-06 — Discovery Club, Shuffle previews and CRT glass
+
+- Added all 26 episodes of Backyard Science season one, six How 2 episodes and 15 episodes of CITV’s The Big Bang to Discovery Club. Adds 16.08 hours across three shows. The fixed-channel timetable stays as scheduled.
+- All 47 uploads advanced near the start and end in the embedded player. Public watch metadata supplied publication dates, runtimes and encoded aspect ratios. One browser timeout passed on retry. The browser’s network region was unverified.
+- Shuffle previews the pick and keeps TV playing. Pick another, change the scope or watch from the beginning. Recent picks are stored on this device and help the selector avoid repeats across channels.
+- Rounded glass, darker edges, stronger scanlines and a moving phosphor sweep frame the full picture. Auto matches the encoded frame when the ratio is known. Settings still offers 4:3, 16:9 and the CRT toggles.
+
 ## 2026-11-06 — Late Night Broadcast
 
 - RewindTV has a dedicated CRT wordmark and favicon, a fluid cabinet and a landscape side remote. The picture aperture and portrait controls move together on aspect changes, while the video stays contained.

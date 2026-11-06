@@ -28,31 +28,47 @@ export function findProgramme(catalogue,channelKey,videoId){
  return {channel,video,queue:channel.videos.filter(v=>isBrowsable(v)&&showIdentity(v)===showIdentity(video)).sort(compareEpisodes)};
 }
 
-// Draw a station first, then a show, then an episode. Longer runs have no extra weight.
-export function pickProgramme(channels,{channelKey=null,current=null,failed=new Set(),recentPicks=[],seen={},random=Math.random}={}){
+// Rank eligible programmes before drawing a station, show and episode.
+export function pickProgramme(channels,{channelKey=null,current=null,previousId=null,failed=new Set(),recentPicks=[],seen={},random=Math.random}={}){
  const draw=items=>items[Math.min(items.length-1,Math.floor(random()*items.length))];
- const pools=[];
+ const currentShow=current&&showIdentity(current);
+ const recentShows=new Set(recentPicks.map(v=>v.showKey||showIdentity(v)));
+ const recentIds=new Set(recentPicks.map(v=>v.id));
+ const rank=v=>{
+  if(v.id===current?.id)return 6;
+  if(v.id===previousId)return 5;
+  if(recentIds.has(v.id))return 4;
+  const show=showIdentity(v);
+  if(show===currentShow)return 3;
+  if(recentShows.has(show))return 2;
+  return seen?.[v.id]?1:0;
+ };
+ let best=Infinity,pools=[];
  for(const channel of channels){
   if(channelKey&&channel.key!==channelKey)continue;
   const eligible=[...new Map(channel.videos.filter(v=>isBrowsable(v)&&!failed.has(v.id)).map(v=>[v.id,v])).values()];
   const episodes=eligible.filter(v=>v.kind==='full episode'||v.kind==='full pilot');
   const singles=episodes.filter(v=>!/(?:\bcompilation\b|\bmarathon\b|\ball episodes\b|\bcomplete season\b)/i.test(v.title));
-  const videos=singles.length?singles:episodes.length?episodes:eligible;
-  if(videos.length)pools.push({channel,videos});
+  const preferred=singles.length?singles:episodes.length?episodes:eligible;
+  // If the preferred list has no alternative, let the rest of the station take part.
+  const videos=preferred.some(v=>v.id!==current?.id&&v.id!==previousId)?preferred:eligible;
+  const groups=new Map();
+  for(const v of videos){
+   const score=rank(v);
+   if(score>best)continue;
+   if(score<best){best=score;pools=[];groups.clear();}
+   const key=showIdentity(v);
+   if(!groups.has(key))groups.set(key,[]);
+   groups.get(key).push(v);
+  }
+  if(groups.size)pools.push({channel,groups});
  }
  if(!pools.length)return null;
- const alternatives=pools.filter(p=>p.videos.some(v=>v.id!==current?.id));
- const {channel,videos}=draw(alternatives.length?alternatives:pools);
- const others=videos.filter(v=>v.id!==current?.id),groups=new Map();
- for(const v of others.length?others:videos){
-  const key=showIdentity(v);
-  if(!groups.has(key))groups.set(key,[]);
-  groups.get(key).push(v);
+ const {channel,groups}=draw(pools);
+ const group=draw([...groups.values()]);
+ if(best===4){
+  const order=new Map(recentPicks.map((v,i)=>[v.id,i]));
+  return {channel,video:group.reduce((oldest,v)=>order.get(v.id)>order.get(oldest.id)?v:oldest)};
  }
- const keys=[...groups.keys()],currentShow=current&&showIdentity(current);
- const recentShows=new Set(recentPicks.map(showIdentity)),recentIds=new Set(recentPicks.map(v=>v.id));
- const different=keys.filter(key=>key!==currentShow),fresh=different.filter(key=>!recentShows.has(key));
- const group=groups.get(draw(fresh.length?fresh:different.length?different:keys));
- const freshEpisodes=group.filter(v=>!recentIds.has(v.id)&&!seen?.[v.id]),unpicked=group.filter(v=>!recentIds.has(v.id));
- return {channel,video:draw(freshEpisodes.length?freshEpisodes:unpicked.length?unpicked:group)};
+ return {channel,video:draw(group)};
 }
