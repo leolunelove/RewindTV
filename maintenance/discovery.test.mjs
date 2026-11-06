@@ -9,7 +9,7 @@ test('new science runs preserve episode identity and verified frame ratios in th
  for(const name of EXPANSION_PACKS)source=withExpansion(source,read(name));
  const runtime=hydrateLibrary(compactLibrary(source));
  const channel=runtime.channels.find(c=>c.key==='discovery-club');
- for(const [series,count] of [['Backyard Science',78],['How 2',14],['The Big Bang',31],['Science Court',4],['The Complete Cosmos',1]]){
+ for(const [series,count] of [['Backyard Science',78],['How 2',14],['The Big Bang',31],['Science Court',4],['The Complete Cosmos',1],['3-2-1 Contact',25],['Scientific Eye',10],['Science Shack',4],['The Experimenter',1],['Science in Action',2],['Local Heroes',2]]){
   const expected=pack.videos.filter(v=>v.series===series);
   assert.equal(expected.length,count);
   for(const v of expected){

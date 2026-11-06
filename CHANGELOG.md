@@ -2,6 +2,11 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-06 — Six more Discovery Club shows
+
+- Added 44 episodes across six shows new to the catalogue. 3-2-1 Contact has 25 episodes, Scientific Eye has ten, Science Shack has four, Science in Action and Local Heroes have two each, and The Experimenter has one.
+- All retained uploads passed start and near-end checks in RewindTV’s embedded checker. Public metadata supplied the upload dates and country lists. Browser network region was unverified.
+
 ## 2026-11-06 — More Discovery Club episodes
 
 - Added 81 full episodes (18.93 hours). Backyard Science gets all 52 separately numbered Season 2 episodes from ZeeKay’s 13-minute edition. How 2 gets eight more episodes and The Big Bang gets 16, including five from Series 1.
