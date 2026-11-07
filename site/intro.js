@@ -35,7 +35,7 @@
  function leave(allowConnecting=false){
   if((!ready&&!allowConnecting)||leaving)return;leaving=true;closeSound();clearTimeout(timer);clearTimeout(slow);clearTimeout(long);
   try{sessionStorage.setItem('rewind-ident-seen','1');}catch{}
-  html.classList.remove('booting');html.classList.add('ident-leaving');release();
+  html.classList.remove('booting');html.classList.add('ident-leaving');release();window.dispatchEvent(new Event('rewind:intro-finished'));
   setTimeout(()=>{ident.remove();html.classList.remove('ident-leaving');},reduced?250:1100);
  }
  function onReady(){if(ready||leaving)return;ready=true;status.textContent='YOU’RE RIGHT ON TIME';skip.hidden=false;retry.hidden=true;timer=setTimeout(leave,Math.max(0,minimum-(performance.now()-start)));}

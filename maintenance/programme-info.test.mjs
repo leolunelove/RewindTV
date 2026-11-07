@@ -8,3 +8,9 @@ test('an episode code remains readable when no descriptive story title is presen
 test('upload marketing in the first segment does not erase a story name in a later segment',()=>{assert.equal(programmeTitle({series:'Farscape',title:'Farscape S2E10 FULL Episode | My Three Crichtons'}),'My Three Crichtons');});
 
 test('possessive series names do not leave a dangling apostrophe in display titles',()=>assert.equal(programmeTitle({series:'Rupert',title:"Rupert's Christmas Adventure - Ep. 52"}),'Christmas Adventure - Ep. 52'));
+
+test('source credits survive the compact catalogue in programme Info',()=>{
+ const info=programmeInfo({id:'film',title:'A Film',kind:'film',duration:5400,credit:'Publisher archive',sourceType:'official',watchUrl:'https://www.youtube.com/watch?v=film'},{number:11,name:'Movies',mode:'shuffle'},'ondemand');
+ assert.equal(info.source,'Publisher archive');
+ assert.equal(info.provenance,'Publisher upload');
+});

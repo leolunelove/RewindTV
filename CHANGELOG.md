@@ -2,6 +2,19 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-07 — Liquid Broadcast room
+
+- Rebuilt the public room around Watch, Guide and Library, with a smoke-blue desktop rail, phone tabs, dotted RewindTV wordmark and compact glass remote.
+- The mounted picture moves between Watch and the browsing mini-player. Picture framing retains Auto, 4:3 and 16:9 options with contained video and saved per-upload choices.
+- Guide uses numbered rows, genre and programme search, bounded paging and inline Now/Next. Each expanded row offers Watch live, From start and Full schedule using the existing broadcast plan.
+- Library uses real upload thumbnail covers, Shows/Films controls, season selection and paged episodes. Returning restores title searches, season, episode page, results position and focus. Listed titles, source collections and original upload links remain reachable through Filters.
+- Movie Night sits under Library Films, retaining the complete film collection and Pick for me. Info, Settings and Shuffle share one foreground utility with predictable Back and Escape behavior.
+- Provider handoffs pause the outgoing YouTube or direct Archive source. Main and mini-player pause, mute and return-to-Watch controls share playback state.
+- Carried the full catalogue, channel numbers, saved settings, fixed schedules, advert placement and private manager into the new room.
+- Verified 242 automated checks, unchanged catalogue and current/next-week fixed schedules, plus desktop and responsive phone playthroughs. Sampled YouTube and Archive playback, rapid channel changes, both shuffle scopes, the film reel, volume, picture shape and browser navigation. Physical iPhone/Safari and the full catalogue were not retested.
+- Fixed Guide returning from Full schedule, paused outgoing sources during provider changes, and allowed a progressing Archive metadata transfer to finish before recovery. Failed on-demand choices now announce the fallback and try an existing matching film first.
+- Bundled the small Doto font locally; the interface no longer waits for a remote font stylesheet.
+
 ## 2026-11-07 — Clearer everyday browsing
 
 - A cold Archive stream with no metadata gets an eight-second retry window, then the player moves on automatically. Streams already loading keep their longer allowance.

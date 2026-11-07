@@ -9,3 +9,25 @@ test('rapid channel presses update the remote immediately and load only the fina
 test('explicit retry can reload a stalled copy of the same programme',()=>{let calls=[];playback()({getVideoData:()=>({video_id:'same'}),loadVideoById:v=>calls.push(v)},{video:{id:'same'},offset:0},true);assert.equal(calls.length,1);assert.equal(calls[0].videoId,'same');});
 
 test('native streams still receive a load even when their adapter reports the selected ID',()=>{let calls=[];playback()({getVideoData:()=>({video_id:'native'}),loadVideoById:v=>calls.push(v),playVideo:()=>assert.fail('native stream was never loaded')},{video:{id:'native'},offset:120});assert.equal(calls.length,1);assert.equal(calls[0].startSeconds,120);});
+
+for(const [outgoingProvider,liveProvider]of [['youtube','archive'],['archive','youtube']]){
+ test(`returning from ${outgoingProvider} to live ${liveProvider} pauses outgoing media before changing source`,()=>{
+  const transitions=[],outgoing={playing:true,hidden:false,pauseVideo(){this.playing=false;transitions.push('pause outgoing');}},incoming={playing:false,hidden:true,pauseVideo(){this.playing=false;transitions.push('pause incoming');}};
+  const context={
+   active:{mode:'ondemand',video:{id:'requested',provider:outgoingProvider}},playbackIntent:true,paused:false,power:true,recoveryBackoffTimer:0,loadGeneration:0,
+   clearShuffleResult(){},clearTimeout(){},tuningSound(){},stopWatch(){},persist(){},
+   currentPlayer(){return context.active.video.provider===outgoingProvider?outgoing:incoming;},
+   selectLive(){transitions.push('select live');context.active={mode:'live',video:{id:'broadcast',provider:liveProvider}};},
+   ensurePlayer(){outgoing.hidden=true;incoming.hidden=false;incoming.playing=true;transitions.push('play incoming');}
+  };
+  vm.createContext(context);
+  vm.runInContext(app.slice(app.indexOf('  function joinLive(){'),app.indexOf('  function togglePower(){')),context);
+  context.joinLive();
+  assert.equal(outgoing.playing,false,'Hiding a provider does not stop its audio');
+  assert.equal(incoming.playing,true);
+  assert.deepEqual(transitions,['pause outgoing','select live','play incoming']);
+  assert.equal(context.active.mode,'live');
+  assert.equal(context.playbackIntent,true);
+  assert.equal(context.paused,false);
+ });
+}

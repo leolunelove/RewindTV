@@ -1,4 +1,4 @@
-import {buildMovieLibrary,filterMovies,pickMovie,createMovieReel,filmIdentity,movieArtwork} from './movie-night.mjs?v=november1';
+import {buildMovieLibrary,filterMovies,pickMovie,createMovieReel,filmIdentity,movieArtwork} from './movie-night.mjs?v=liquid1';
 import {createReelMotion} from './movie-reel-motion.mjs?v=reel1';
 import {createReelSound} from './movie-reel-sound.mjs?v=reel1';
 export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enabled:false}),onToggleSound=()=>{},onSoundSettings=()=>{}}){

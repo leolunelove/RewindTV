@@ -7,30 +7,30 @@
 <p align="center">Something good is always on.</p>
 
 <p align="center">
-  <a href="https://tv.leolune.fun/">Watch Rewind TV</a> ·
+  <a href="https://tv.leolune.fun/#watch">Watch</a> ·
+  <a href="https://tv.leolune.fun/#guide">Guide</a> ·
   <a href="https://tv.leolune.fun/#library">Library</a> ·
-  <a href="https://tv.leolune.fun/#movies">Movie Night</a> ·
-  <a href="CHANGELOG.md">Changelog</a> ·
-  <a href="https://tv.leolune.fun/#guide">TV guide</a>
+  <a href="CHANGELOG.md">Changelog</a>
 </p>
 
 ## Switch on. See where you end up.
 
-- **Find your channel.** Surf 30 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music, plus dedicated Spanish and Mandarin channels, Discovery Club for classic factual television and Kitchen TV for classic cooking.
+- **Find your channel.** Surf 30 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music. Spanish and Mandarin channels, Discovery Club and Kitchen TV broaden the mix. The channel catalogue contains 5,219 source records, including retained exclusions.
 - **Drop into something.** The first ten channels follow a shared weekly timetable. The remaining channels shuffle their collections, giving unseen programmes priority.
-- **Make it a movie night.** Browse film artwork by genre, search the collection, or use **Pick for me** for a spinning film reel. It avoids recent picks; choose **Watch from start** when you are ready.
-- **Pick an episode.** The Library groups shows, films and videos into collections. Start from the beginning, keep watching in episode order, then choose Join Live to return to the channel. Use **Listed only** for source collections such as Biochao’s Vault.
-- **See what’s on.** Open Info for the show, episode, runtime, progress, upload source and what comes next. Keep surfing with the panel open, or jump into the channel’s schedule.
-- **Make it feel like TV.** Watch fullscreen with CRT scanlines, colour bleed, curvature and channel-switching sound. Move the mouse to bring back the controls; adjust the effects in Settings.
-- **Make a night of it.** Try After Dark, Classic YouTube, Music, Halloween 24/7 or Christmas TV. There is a dedicated film channel and a separate Horror Movies channel.
-- **Come back to your set.** Your last channel, volume, effects and viewing history stay in this browser. The TV starts muted so you can choose when to bring in the sound.
+- **Browse without leaving the picture.** Watch, Guide and Library live in a desktop rail and phone tabs. The same picture moves into a mini-player while you browse, with pause, mute and a route back to Watch.
+- **Find a show or creator.** Library Shows includes TV episodes, creator videos, classic web collections and music. Search, filter and jump pages from above the covers. Show details remember the selected season, episode search and page. Filters also reach listed titles and source collections such as Biochao’s Vault.
+- **Make it a movie night.** Open Films under Library to browse artwork by genre or search. **Pick for me** spins the film reel, avoids recent picks and reveals a film before you choose **Watch from start**.
+- **Surprise yourself.** **Surprise me** previews a random programme from **This channel** or **Everywhere**. Keep watching while you pick again. **Watch from start** begins the selection, and **Return to live TV** rejoins the broadcast.
+- **See what’s on.** Guide has numbered rows, genre filters and search across channel names and current programmes. Expand a row for Now, Next, **Watch live**, **From start** and **Full schedule**. Info shows the episode, runtime, progress and upload source.
+- **Make it feel like TV.** The picture keeps its shape while the controls fade during watching. CRT scanlines, colour bleed, curvature and switching sounds are adjustable in Settings. Your last channel, volume, effects and viewing history stay in this browser.
 
 ## Get started
 
-1. [Open Rewind TV](https://tv.leolune.fun/). It tunes into your last channel; choose **Unmute** when you want audio.
-2. Use **← / →**, the channel list or a channel number to find something. Controls appear when you move the mouse or use the keyboard.
-3. Choose **Info** or press **I** to see what you’re watching. Previous and next channel controls work inside the panel too.
-4. Use **Channels**, **Guide** and **Library** in the side menu. Channels switches the station; Guide shows Now & Next across channels; Library lets you pick an episode or film. The menu stays beside the TV on desktop and opens as a dismissible drawer on phones. Video keeps playing while you browse.
+1. [Open Watch](https://tv.leolune.fun/#watch). The TV tunes into your last channel and starts muted. Choose **Unmute** for sound, or **Play** if the browser asks for a playback gesture.
+2. While watching, use **← / →**, the channel buttons or a channel number to tune. Pointer, touch and keyboard interaction bring the controls back. **I** opens programme Info, where channel stepping also works.
+3. Open **Guide** from the rail or bottom tabs, or press **C** or **G**. Search the full lineup, expand a numbered row and choose live playback or its full schedule.
+4. Open **Library** for Shows and Films. Shows includes creator and music collections alongside TV. Use the top **Page** control for large result sets, then choose a title and episode. Films opens Movie Night and its selection reel.
+5. Use the mini-player to pause, mute or return to Watch while browsing. After starting an episode or film, choose **Return to live TV** to rejoin the channel.
 
 ## Your TV
 
@@ -46,21 +46,24 @@ One foreground player is the default for reliability and lower memory use. **Pre
 
 | Key | Action |
 | --- | --- |
-| ← / → | Previous / next channel, including while Info is open |
-| ↑ / ↓ | Volume up / down |
+| ← / → | Previous / next channel on Watch and inside Info |
+| ↑ / ↓ | Volume up / down on Watch and inside Info |
 | Space / K | Play / pause |
-| M | Mute / restore sound |
-| I | Open / close programme info |
-| S | Open / close the channel schedule |
+| M | Mute / restore sound, including while browsing |
+| I | Open / close programme Info while watching |
+| C / G | Open Guide |
+| S | Open / close Guide |
 | B | Open / close Library |
-| N | Open / close Movie Night |
+| N | Open / close Movie Night under Library Films |
+| R | Open Surprise me |
 | / | Open Library search |
-| G / C | Open Channels |
 | F | Toggle fullscreen |
 | P | Power on / off |
 | Channel number, then Enter | Tune to a channel; a short pause also confirms the number |
-| Esc | Close a panel or cancel a channel number |
+| Esc | Close a utility, return to the previous browsing level or cancel a channel number |
 | ? | Show keyboard help |
+
+Playback shortcuts apply on Watch and inside Info. Guide and Library leave arrow keys, Space and Enter to scrolling and focused controls. Typing into a search field or choosing a filter keeps the keyboard within that control.
 
 ## Run locally
 
@@ -75,7 +78,7 @@ python3 -m http.server 8767 --bind 127.0.0.1 --directory site
 
 Open [localhost:8767](http://127.0.0.1:8767/). Run `node --test maintenance/*.test.mjs` to check the catalogue, scheduling, playback data and programme info.
 
-For cloud playback probes, install the additional tools with `npm install --ignore-scripts` and `npx playwright install --with-deps chromium`, then use `npm run check`.
+For local playback probes, install the additional tools with `npm install --ignore-scripts` and `npx playwright install --with-deps chrome`, then use `npm run check`. Provider control results determine whether playback samples are meaningful on that network.
 
 ## Repository guide
 
@@ -97,9 +100,13 @@ The owner’s Python manager, private inbox and backups are separate from this p
 
 ## Tuesday maintenance
 
-**Rewind Tuesday checks** runs at **03:00 Europe/Gibraltar** every Tuesday, independently of the owner’s computer. It samples up to 250 uploads per run, prioritising the oldest checks, within a 20-minute job limit. Manual runs default to ten uploads.
+The included **Rewind Tuesday checks** workflow is configured for **03:00 Europe/Gibraltar** every Tuesday and can run without the owner’s Mac. Scheduled runs plan a bounded sample of up to 250 uploads within a 20-minute job limit. Manual runs default to ten uploads. Actual coverage depends on provider access and the time available.
 
-Checks sample playback at the beginning and near the end. Coverage and reports are saved to `data/state.json` and `reports/latest.json` when available. A single runner cannot certify worldwide access or complete viewing, and a blocked runner does not trigger mass removal. Findings fail the workflow so GitHub can notify the owner through their Actions notification settings.
+The checker samples advancing playback near the start and end and checks source metadata separately. Reports distinguish a playback pass, a source needing review, a transient failure and a blocked runner. Previous GitHub-hosted YouTube control checks have been blocked while Archive controls played, so a hosted run may produce metadata-only or runner-blocked YouTube results. Inspect each report’s provider controls and sampled IDs before treating it as playback evidence.
+
+Coverage checkpoints and reports use `data/state.json` and `reports/latest.json`; the workflow also retains diagnostic artifacts. A blocked provider keeps source failures inconclusive, and the checker leaves catalogue edits for review. Source-review findings and runner failures can fail the job and surface through GitHub Actions notifications. Remote probing is opt-in and off by default.
+
+A bounded sample covers its recorded uploads and runner network. It does not establish an uninterrupted watch, current playback across the whole catalogue or worldwide access. The separate private manager and inbox stay local.
 
 ## Built with
 
@@ -107,6 +114,6 @@ Plain HTML, CSS and JavaScript, the YouTube IFrame Player API, native video play
 
 No downloaded TV, films or music are hosted in this repository. Copyright stays with the respective owners.
 
-Library reliability audit (20 October 2026): all 4,229 active sources received an availability check. Twenty-four uploads explicitly disallowed embedding and one duplicate episode was removed from rotation. Records remain in the source catalogue; `site/library-health.json` applies reversible exclusions after all content packs. See `docs/reliability-audit-2026-10-20.json` for scope and evidence. These metadata checks do not certify full playback or worldwide availability.
+The 20 October 2026 reliability audit records metadata availability checks for 4,229 source IDs. Twenty-four uploads explicitly disallowed embedding and one duplicate episode was removed from rotation. Records remain in the source catalogue; `site/library-health.json` applies reversible exclusions after all content packs. See `docs/reliability-audit-2026-10-20.json` for scope and evidence. These metadata checks do not certify full playback or worldwide availability.
 
 Movie switching: the native film player retains its buffer when you leave and return. Fast channel surfing also prepares an adjacent Archive film (or one initial movie signal while idle) in the existing video element, without hidden playback. Film preparation respects Data Saver, hidden tabs and the preload switch. Cold film starts request playback immediately alongside metadata loading. Archive response times can still vary.
