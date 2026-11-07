@@ -5,9 +5,56 @@ test('late pause from a reused YouTube player cannot cancel the selected channel
 test('user pause remains a deliberate pause rather than an automatic retry',()=>{const f=stateFixture();f.c.playbackIntent=false;f.c.onPlayerStateChange({target:f.player,data:2});assert.equal(f.c.paused,true);assert.equal(f.calls[0],'stop');});
 test('buffering after playback arms recovery again',()=>{const f=stateFixture();f.c.onPlayerStateChange({target:f.player,data:3});assert.equal(f.calls.at(-1),'watch');});
 test('callbacks from a superseded provider or queued channel are ignored',()=>{const f=stateFixture();f.c.active.video.provider='archive';f.c.onPlayerStateChange({target:f.player,data:0});f.c.active.video.provider='youtube';f.c.channelLoadTimer=1;f.c.onPlayerStateChange({target:f.player,data:2});assert.deepEqual(f.calls,[]);});
-function watchdog(){const timers=new Map(),calls=[];let n=0;const c={ready:true,active:{video:{id:'x',provider:'youtube'}},loadGeneration:1,playbackIntent:true,power:true,paused:false,document:{hidden:false},watchTimer:0,clearTimeout:id=>timers.delete(id),setTimeout:fn=>{timers.set(++n,fn);return n;},currentPlayer:()=>({getPlayerState:()=>3}),playSelection:()=>calls.push('retry'),skipUnavailable:()=>calls.push('skip'),setStatus(){}};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  let recoveryId='),app.indexOf('  function advance(')),c);return {c,calls,timers};}
+function watchdog(provider='youtube',readyState=0){
+ const timers=new Map(),deadlines=new Map(),calls=[];let n=0,now=0;
+ const c={ready:true,movie:{readyState},active:{video:{id:'x',provider}},loadGeneration:1,playbackIntent:true,power:true,paused:false,document:{hidden:false},watchTimer:0,
+  clearTimeout(id){timers.delete(id);deadlines.delete(id);},
+  setTimeout(fn,delay){timers.set(++n,fn);deadlines.set(n,now+delay);return n;},
+  currentPlayer:()=>({getPlayerState:()=>3}),playSelection:()=>calls.push('retry'),skipUnavailable:()=>calls.push('skip'),setStatus(){}
+ };
+ function advanceTime(milliseconds){
+  const end=now+milliseconds;
+  while(deadlines.size){
+   const [id,at]=[...deadlines].sort((a,b)=>a[1]-b[1])[0];
+   if(at>end)break;
+   now=at;const callback=timers.get(id);timers.delete(id);deadlines.delete(id);callback();
+  }
+  now=end;
+ }
+ vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  let recoveryId='),app.indexOf('  function advance(')),c);
+ return {c,calls,timers,advanceTime};
+}
 test('repeated buffering notifications cannot postpone the recovery deadline',()=>{const f=watchdog();f.c.watchPlayback();const timer=f.c.watchTimer;f.c.watchPlayback();assert.equal(f.c.watchTimer,timer);assert.equal(f.timers.size,1);});
 test('a watchdog from a channel already left cannot reload the new station',()=>{const f=watchdog();f.c.watchPlayback();f.c.loadGeneration++;[...f.timers.values()][0]();assert.deepEqual(f.calls,[]);});
+test('a cold Archive start retries after eight seconds and then skips automatically',()=>{
+ const f=watchdog('archive',0);f.c.watchPlayback();
+ f.advanceTime(7999);assert.deepEqual(f.calls,[]);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry']);
+ f.advanceTime(7999);assert.deepEqual(f.calls,['retry']);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry','skip']);
+ assert.equal(f.timers.size,0);
+});
+test('an Archive stream with metadata keeps both sixteen-second recovery windows',()=>{
+ const f=watchdog('archive',1);f.c.watchPlayback();
+ f.advanceTime(15999);assert.deepEqual(f.calls,[]);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry']);
+ f.advanceTime(15999);assert.deepEqual(f.calls,['retry']);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry','skip']);
+ assert.equal(f.timers.size,0);
+});
+test('a metadata arrival gives the next Archive retry the longer buffering window',()=>{
+ const f=watchdog('archive',0);f.c.watchPlayback();
+ f.advanceTime(7000);f.c.movie.readyState=1;
+ f.advanceTime(1000);assert.deepEqual(f.calls,['retry']);
+ f.advanceTime(15999);assert.deepEqual(f.calls,['retry']);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry','skip']);
+});
+test('a cold Archive watchdog expires harmlessly after a newer tune generation',()=>{
+ const f=watchdog('archive',0);f.c.watchPlayback();
+ f.advanceTime(4000);f.c.loadGeneration++;
+ f.advanceTime(12000);assert.deepEqual(f.calls,[]);
+ assert.equal(f.timers.size,0);
+});
 test('exhausted requested episodes fall back to another programme without Retry',()=>{let ensured=0;const c={power:true,active:{mode:'ondemand',video:{id:'bad'}},loadGeneration:0,recoveryChain:0,playbackIntent:true,failed:new Set(),root:{classList:{remove(){}}},stopWatch(){},rememberFailure(id){c.failed.add(id);},requestedQueue:[{id:'bad'}],requestedIndex:0,globallyRestricted:()=>false,channels:[{mode:'scheduled',videos:[{id:'bad'},{id:'good'}]}],channel:0,RewindShuffle:{rows:videos=>videos.map(video=>({video,start:0,end:100}))},recent:{},onNow:()=>({index:0}),setStatus(){},ensurePlayer(){ensured++;}};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function skipUnavailable'),app.indexOf('  const timeFormat=')),c);c.skipUnavailable('Unavailable',false);assert.equal(c.active.video.id,'good');assert.equal(c.active.mode,'fallback');assert.equal(ensured,1);});
 test('unidentified late errors cannot blacklist the newly selected video',()=>{const calls=[],player={getVideoData:()=>({})};const c={ready:true,console:{warn(){}},player,power:true,active:{video:{id:'current',provider:'youtube'}},channelLoadTimer:0,setStatus(){},watchPlayback:()=>calls.push('watch'),stopWatch:()=>calls.push('stop'),skipUnavailable:()=>calls.push('blacklist')};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function videoError('),app.indexOf('  function onPlayerStateChange')),c);c.videoError({target:player,data:150});assert.deepEqual(calls,['watch']);});
 test('a stalled YouTube movie prefers a direct film when the channel has one',()=>{const c={movieSourceId:'',movie:{readyState:0},power:true,playbackIntent:true,active:{mode:'live',video:{id:'bad',provider:'youtube'}},loadGeneration:0,recoveryChain:0,failed:new Set(),root:{classList:{remove(){}}},stopWatch(){},rememberFailure(){},globallyRestricted:()=>false,channels:[{mode:'scheduled',videos:[{id:'bad'},{id:'other-youtube'},{id:'direct',provider:'archive'}]}],channel:0,RewindShuffle:{rows:videos=>{assert.deepEqual(videos.map(v=>v.id),['direct']);return [{video:videos[0],start:0,end:100}];}},recent:{},onNow:()=>({index:0}),setStatus(){},ensurePlayer(){}};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function skipUnavailable'),app.indexOf('  const timeFormat=')),c);c.skipUnavailable('Signal did not start',false);assert.equal(c.active.video.id,'direct');});

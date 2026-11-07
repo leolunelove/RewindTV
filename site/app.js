@@ -455,7 +455,7 @@
       if(document.hidden){watchPlayback(requireProgress);return;}
       if(recoveryAttempts++<1){setStatus('CONNECTING · Retrying the TV signal…');playSelection(currentPlayer(),active,true);watchPlayback(requireProgress);}
       else skipUnavailable('Signal did not start',false);
-    },active.video.provider==='archive'?16000:8000);
+    },active.video.provider==='archive'&&movie.readyState>=1?16000:8000);
   }
 
   let progressGeneration=-1,progressTime=null,progressAt=0;

@@ -4,6 +4,7 @@ Dated changes to the player and catalogue. Each release records its validation s
 
 ## 2026-11-07 — Clearer everyday browsing
 
+- A cold Archive stream with no metadata gets an eight-second retry window, then the player moves on automatically. Streams already loading keep their longer allowance.
 - Library keeps search and All / Shows / Films upfront. Alphabet, channel, language and source collections sit under Filters, with a clear reset.
 - More numbered results fit each browse page. Episode and search positions are retained when returning to the collection.
 - Channels and Guide have distinct routes, consistent keyboard shortcuts and predictable browser Back behavior.
