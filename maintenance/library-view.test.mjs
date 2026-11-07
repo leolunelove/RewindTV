@@ -32,12 +32,12 @@ function libraryFixture(catalogue,onMovies=()=>{}) {
     }
   }
   const win=new EventTarget();win.innerHeight=800;win.location={hash:'#library'};
-  const entries=[{rewind:true,panel:'browse-overlay'}];
+  const entries=[{state:{rewind:true,panel:'browse-overlay'},hash:'#library'}];
   win.history={
-    get state(){return entries.at(-1);},
-    pushState(state){entries.push(state);},
-    replaceState(state){entries[entries.length-1]=state;},
-    back(){entries.pop();win.dispatchEvent(new Event('popstate'));},
+    get state(){return entries.at(-1)?.state;},
+    pushState(state,unused,hash=win.location.hash){entries.push({state,hash});win.location.hash=hash;},
+    replaceState(state,unused,hash=win.location.hash){entries[entries.length-1]={state,hash};win.location.hash=hash;},
+    back(){entries.pop();win.location.hash=entries.at(-1)?.hash||'';win.dispatchEvent(new Event('popstate'));},
   };
   const doc={defaultView:win,createElement:tag=>new Element(tag,doc)};
   const root=doc.createElement('div');
@@ -114,7 +114,7 @@ test('Films hands off to Movie Night and returning to Shows retains the selected
   const filmRadio=descendants(root).find(node=>node.tagName==='input'&&node.value==='film');
   filmRadio.checked=true;filmRadio.onchange();
   assert.equal(moviesOpened,1);
-  assert.equal(view.kind,'film');
+  assert.equal(view.kind,'programmes','leaving for Films preserves the Shows browsing context');
   view.setKind('programmes');
   view.openDetail('show:science club');
   change(byLabel(root,'Browse season'),'2');
@@ -143,10 +143,8 @@ test('season filters preserve episodes without season metadata and source links 
 test('reopening a retained detail from another tab inserts a results history entry once',async()=>{
   const {root,win,view}=await libraryFixture(libraryCatalogue);
   view.openDetail('show:science club');
-  win.history.pushState({rewind:true,panel:'schedule-overlay'});
-  win.location.hash='#guide';
-  win.history.pushState({rewind:true,panel:'browse-overlay'});
-  win.location.hash='#library';
+  win.history.pushState({rewind:true,panel:'schedule-overlay'},'','#guide');
+  win.history.pushState({rewind:true,panel:'browse-overlay'},'','#library');
   view.resume();
   assert.equal(win.history.state.detail,'show:science club');
   view.resume();
@@ -158,6 +156,22 @@ test('reopening a retained detail from another tab inserts a results history ent
   view.resume({record:false});
   assert.equal(win.history.state.detail,undefined,'history-driven restoration can suppress pushes');
   assert.equal(view.selected.key,'show:science club');
+});
+
+test('browser Back from Films restores the Shows search and detail instead of a hidden film filter',async()=>{
+  let f;
+  f=await libraryFixture(libraryCatalogue,()=>f.win.history.pushState({rewind:true,panel:'movie-night-page'},'','#movies'));
+  input(byLabel(f.root,'Find a show or film'),'Science');
+  f.root.scrollTop=170;f.root.dispatchEvent(new Event('scroll'));
+  const films=descendants(f.root).find(node=>node.tagName==='input'&&node.value==='film');films.checked=true;films.onchange();
+  assert.equal(f.win.location.hash,'#movies');f.win.history.back();
+  assert.equal(f.view.kind,'programmes');assert.equal(byLabel(f.root,'Find a show or film').value,'Science');
+  assert.deepEqual(byClass(f.root,'library-title').map(card=>card.dataset.showKey),['show:science club']);
+  const shows=descendants(f.root).find(node=>node.tagName==='input'&&node.value==='programmes');assert.equal(shows.checked,true);assert.equal(f.root.scrollTop,170);
+  f.view.openDetail('show:science club');change(byLabel(f.root,'Browse season'),'2');
+  f.view.setKind('film',{notify:true});f.win.history.back();
+  assert.equal(f.view.kind,'programmes');assert.equal(f.view.selected.key,'show:science club');assert.equal(byLabel(f.root,'Browse season').value,'2');
+  f.view.openIndex();assert.equal(f.view.selected,null);assert.deepEqual(byClass(f.root,'library-title').map(card=>card.dataset.showKey),['show:science club']);
 });
 
 test('default Shows search finds creator collections and the Films filter uses the same Movie Night handoff',async()=>{

@@ -333,12 +333,13 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
   function setKind(kind,{notify=false}={}) {
     if(!['programmes','show','film','all','collection','listed'].includes(kind))return;
     saveScroll();
-    if(filters.kind!==kind)page=0;
-    filters.kind=kind;
     if(notify&&kind==='film'&&onMovies) {
+      if(!selected)renderIndex(true);
       onMovies();
       return;
     }
+    if(filters.kind!==kind)page=0;
+    filters.kind=kind;
     if(selected&&((kind==='programmes'&&selected.kind!=='film')||(kind==='show'&&selected.kind==='show')))drawDetail();
     else renderIndex();
   }

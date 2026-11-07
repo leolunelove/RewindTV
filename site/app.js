@@ -7,8 +7,9 @@
   const panels=createPanelMotion(root),wideMenu=matchMedia('(min-width:960px)');
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
   const {createPictureFrame}=await import('./picture-frame.mjs?v=signal1');const pictureFrame=createPictureFrame(root,{getVideo:()=>active?.video,native:movie});
-  const {createLiquidShell}=await import('./liquid-shell.mjs?v=liquid1');createLiquidShell(root);
+  const {createLiquidShell}=await import('./liquid-shell.mjs?v=safari1');createLiquidShell(root);
   let playbackIntent=true,loadGeneration=0,recoveryChain=0,recoveryBackoffTimer=0;
+  let playerLoadGeneration=-1;
   let startupMuted=true,startupPending=true,startupTimer;
   const startupSound=$('#startup-sound');
   function finishStartup(){if(!startupPending)return;startupPending=false;clearTimeout(startupTimer);document.documentElement.dataset.appReady='true';window.dispatchEvent(new Event('rewind:ready'));}
@@ -53,7 +54,7 @@
     if(available&&!glowTimer){paintLiveGlow();glowTimer=setInterval(paintLiveGlow,250);}
     else if(!available){clearInterval(glowTimer);glowTimer=0;root.classList.remove('ambient-live');}
   }
-  document.addEventListener('visibilitychange',()=>{root.classList.toggle('page-hidden',document.hidden);applyRasterMotion();updateGlow();if(document.hidden)clearNeighbours();else{render();scheduleNeighbours();}});
+  document.addEventListener('visibilitychange',()=>{root.classList.toggle('page-hidden',document.hidden);applyRasterMotion();updateGlow();if(document.hidden)clearNeighbours();else{reconcileMoviePause();render();scheduleNeighbours();}});
   async function tuningSound(){
     if(!settings.sfx||volume===0||startupMuted)return;
     try{
@@ -71,8 +72,15 @@
       click.connect(clickGain).connect(ctx.destination);click.start(at);click.stop(at+.045);
     }catch{}
   }
-  let movieSourceId='',movieSourceUrl='',moviePreparedKey='',movieTarget=0;
+  let movieSourceId='',movieSourceUrl='',moviePreparedKey='',movieTarget=0,moviePlaybackGeneration=-1;
   function movieMatches(){return active?.video.provider==='archive'&&movieSourceId===active.video.id;}
+  function reconcileMoviePause(){
+    if(!power||channelLoadTimer||movieLoading||movie.hidden||!movieMatches()||!movie.paused||movie.ended||
+      movie.currentSrc!==movieSourceUrl||moviePlaybackGeneration!==loadGeneration)return;
+    // A browser interruption changes the visible state without cancelling playback intent.
+    // Native fullscreen controls can resume the same programme as well as our Play button.
+    paused=true;stopWatch();setStatus('PAUSED · Press PLAY to continue.');render();
+  }
   function prepareMovie(selection){
     if(!selection||!movie.hidden||!settings.preload||document.hidden||navigator.connection?.saveData)return;
     moviePreparedKey=selection.key;
@@ -99,10 +107,35 @@
     if(play)archiveAdapter.playVideo();
     else{movie.muted=true;movie.volume=0;}
   }
-  const archiveAdapter={getIframe:()=>movie,getCurrentTime:()=>movie.currentTime,getPlayerState:()=>movie.ended?0:movie.paused?2:movie.readyState<3||movie.seeking?3:1,getVideoData:()=>({video_id:movieSourceId}),getDuration:()=>movie.duration,setVolume:v=>movie.volume=v/100,mute:()=>movie.muted=true,unMute:()=>movie.muted=false,pauseVideo:()=>movie.pause(),stopVideo:()=>movie.pause(),playVideo:()=>{const expected=movieSourceId;movie.play().catch(error=>{if(error.name==='AbortError'||!movieMatches()||expected!==movieSourceId||!power)return;if(error.name==='NotAllowedError'){playbackIntent=false;paused=true;stopWatch();finishStartup();setStatus('Press PLAY on the remote to start the programme.',true);}else watchPlayback();});},loadVideoById:({startSeconds})=>setMovieSource(active.video,startSeconds,true),reloadVideo:selection=>{movieSourceUrl='';setMovieSource(selection.video,selection.offset,true)}};
+  const archiveAdapter={
+    getIframe:()=>movie,
+    getCurrentTime:()=>movie.currentTime,
+    getPlayerState:()=>movie.ended?0:movie.paused?2:movie.readyState<3||movie.seeking?3:1,
+    getVideoData:()=>({video_id:movieSourceId}),
+    getDuration:()=>movie.duration,
+    setVolume:value=>movie.volume=value/100,
+    mute:()=>movie.muted=true,
+    unMute:()=>movie.muted=false,
+    pauseVideo:()=>movie.pause(),
+    stopVideo:()=>movie.pause(),
+    playVideo:()=>{
+      const expected=movieSourceId,generation=loadGeneration;
+      movie.play().then(()=>{
+        if(movieMatches()&&expected===movieSourceId&&generation===loadGeneration&&
+          movie.currentSrc===movieSourceUrl&&!movie.paused)moviePlaybackGeneration=generation;
+      }).catch(error=>{
+        if(error.name==='AbortError'||!movieMatches()||expected!==movieSourceId||generation!==loadGeneration||!power)return;
+        if(error.name==='NotAllowedError'){
+          playbackIntent=false;paused=true;stopWatch();finishStartup();setStatus('Press PLAY on the remote to start the programme.',true);
+        }else watchPlayback();
+      });
+    },
+    loadVideoById:({startSeconds})=>setMovieSource(active.video,startSeconds,true),
+    reloadVideo:selection=>{movieSourceUrl='';setMovieSource(selection.video,selection.offset,true);},
+  };
   const currentPlayer=()=>active?.video.provider==='archive'?archiveAdapter:player;
-  movie.addEventListener('playing',()=>{if(!movieMatches()||!power||!playbackIntent){movie.pause();return;}clearTimeout(apiTimer);clearTimeout(playerInitTimer);playerInitTimer=0;recoveryChain=0;recoveryAttempts=0;updateGlow();if(movieMatches()){stopWatch();clearTimeout(tuningTimer);$('.screen').classList.remove('is-tuning');paused=false;applyAudio(true);finishStartup();setStatus((active.mode==='ondemand'?'FROM START':channels[channel].mode==='shuffle'?'MIX':'LIVE')+' · '+programmeTitle(active.video))}});
-  movie.addEventListener('pause',()=>{queueMicrotask(updateGlow);if(power&&!movieLoading&&active?.video.provider==='archive'&&!playbackIntent){paused=true;setStatus('PAUSED · Press PLAY to continue.')}});
+  movie.addEventListener('playing',()=>{if(!movieMatches()||!power||!playbackIntent){movie.pause();return;}if(movie.currentSrc===movieSourceUrl)moviePlaybackGeneration=loadGeneration;clearTimeout(apiTimer);clearTimeout(playerInitTimer);playerInitTimer=0;recoveryChain=0;recoveryAttempts=0;updateGlow();if(movieMatches()){stopWatch();clearTimeout(tuningTimer);$('.screen').classList.remove('is-tuning');paused=false;applyAudio(true);finishStartup();setStatus((active.mode==='ondemand'?'FROM START':channels[channel].mode==='shuffle'?'MIX':'LIVE')+' · '+programmeTitle(active.video))}});
+  movie.addEventListener('pause',()=>{queueMicrotask(updateGlow);reconcileMoviePause();});
   for(const event of ['waiting','stalled'])movie.addEventListener(event,()=>{if(power&&movieMatches()&&playbackIntent){setStatus('BUFFERING · Checking the TV signal…');watchPlayback();}});
   movie.addEventListener('ended',()=>{if(power&&active?.video.provider==='archive')advance(false)});
   movie.addEventListener('error',()=>{if(power&&movieMatches()){tracePlayer('archive-error',{id:movieSourceId,code:movie.error?.code,message:movie.error?.message});skipUnavailable('Archive stream unavailable',false);}});
@@ -144,12 +177,12 @@
   let libraryLoading=null,libraryDestination='shows';
   async function openBrowse(restore=false){libraryDestination='shows';const alreadyOpen=panels.isOpen($('.browse-overlay'));if(!alreadyOpen)panels.open($('.browse-overlay'));revealControls();if(libraryView){if(!alreadyOpen)libraryView.resume({record:!restore});return;}
     $('#library-view').textContent='Opening the collection…';
-    try{libraryLoading??=import('./library-view.mjs?v=liquid1');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:catalogue,onMovies:openMovieNight,onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
+    try{libraryLoading??=import('./library-view.mjs?v=safari1');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:catalogue,onMovies:openMovieNight,onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
   }
   let movieNight=null,movieNightLoading=null;
   async function openMovieNight(){libraryDestination='films';if(!panels.isOpen($('.movie-night-page')))panels.open($('.movie-night-page'));revealControls();if(movieNight)return;
     $('#movie-night-view').textContent='Opening the cinema…';
-    try{movieNightLoading??=import('./movie-night-view.mjs?v=liquid1');const {createMovieNight}=await movieNightLoading;if(!movieNight)movieNight=createMovieNight($('#movie-night-view'),{catalogue:catalogue,getAudioState:()=>({enabled:settings.sfx,muted:startupMuted||volume===0,volume}),onToggleSound:toggleMute,onSoundSettings:()=>$('#settings-button').click(),onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){movieNightLoading=null;$('#movie-night-view').textContent='The cinema could not load. Open Movie Night to try again.';console.warn(error);}
+    try{movieNightLoading??=import('./movie-night-view.mjs?v=safari1');const {createMovieNight}=await movieNightLoading;if(!movieNight)movieNight=createMovieNight($('#movie-night-view'),{catalogue:catalogue,getAudioState:()=>({enabled:settings.sfx,muted:startupMuted||volume===0,volume}),onToggleSound:toggleMute,onSoundSettings:()=>$('#settings-button').click(),onPlay:v=>{backToTV();playRequested(v.channelKey,v.id);}});}catch(error){movieNightLoading=null;$('#movie-night-view').textContent='The cinema could not load. Open Movie Night to try again.';console.warn(error);}
   }
   $('#movie-night-button').onclick=openMovieNight;$('#close-movie-night').onclick=backToTV;
   $('#movie-shows-tab').onclick=()=>{libraryView?.setKind('programmes');openBrowse();};
@@ -461,7 +494,7 @@
     if(active.video.provider==='archive')clearNeighbours();
     stopWatch();playbackIntent=true;paused=false;playingId=active.video.id;playedSeconds=0;showTuning();revealControls();movie.hidden=active.video.provider!=='archive';if(player)player.getIframe().hidden=active.video.provider==='archive';
     if(failed.has(active.video.id)||globallyRestricted(active.video)){skipUnavailable('Upload unavailable');return;}
-    if(active.video.provider!=='archive')playerChannelKey=channels[channel].key;
+    if(active.video.provider!=='archive'){playerChannelKey=channels[channel].key;playerLoadGeneration=loadGeneration;}
     setStatus(`${active.video.kind==='advert'?'AD BREAK':'TUNING IN'} · ${channels[channel].name}`);
     if(settings.audio){currentPlayer().setVolume?.(0);if(volume===0||startupMuted)currentPlayer().mute?.();}else applyAudio();
     if(startupMuted)currentPlayer().mute?.();
@@ -477,11 +510,12 @@
       watchTimer=0;
       if(!power||paused||!playbackIntent||generation!==loadGeneration||active?.video.id!==expected||(!requireProgress&&currentPlayer()?.getPlayerState?.()===1&&currentPlayer()?.getVideoData?.()?.video_id===expected))return;
       if(document.hidden){watchPlayback(requireProgress);return;}
-      // Large Archive metadata can arrive before the first decoded frame. Keep a
-      // genuine transfer alive; do not mistake incoming bytes for a stalled load.
-      if(active.video.provider==='archive'&&movie.readyState<1){
+      // Safari may still be fetching Archive metadata before it emits progress.
+      // Keep the first request alive, but bound it to 40s plus one 8s retry.
+      if(active.video.provider==='archive'&&movie.readyState<1&&recoveryAttempts===0){
         const started=Number(movie.dataset?.loadStartedAt),progress=Number(movie.dataset?.progressAt),now=Date.now();
-        if(movie.dataset?.progressAt!==''&&Number.isFinite(started)&&Number.isFinite(progress)&&now-progress<4000&&now-started<30000){
+        const elapsed=now-started,transferring=movie.dataset?.progressAt!==''&&Number.isFinite(progress)&&now-progress<4000&&elapsed<30000;
+        if(Number.isFinite(started)&&elapsed>=0&&(transferring||(movie.networkState===2&&elapsed<40000))){
           setStatus('LOADING · '+programmeTitle(active.video));watchPlayback(requireProgress);return;
         }
       }
@@ -551,7 +585,14 @@
         else if(e.data===3){setStatus('BUFFERING · Checking the TV signal…');watchPlayback();}
 
   }
-  function onPlayerAutoplayBlocked(e){if((e.target&&e.target!==player)||active?.video.provider==='archive'||channelLoadTimer)return;ready=true;clearTimeout(apiTimer);stopWatch();if(power){finishStartup();playbackIntent=false;paused=true;setStatus('Your browser paused playback. Press PLAY to start.');}
+  function onPlayerAutoplayBlocked(e){
+    if(!power||!active||!playbackIntent||(e.target&&e.target!==player)||
+      active.video.provider==='archive'||channelLoadTimer||playerLoadGeneration!==loadGeneration)return;
+    const reported=e.target?.getVideoData?.()?.video_id;
+    if(reported&&reported!==active.video.id)return;
+    ready=true;clearTimeout(apiTimer);clearTimeout(playerInitTimer);playerInitTimer=0;stopWatch();
+    finishStartup();playbackIntent=false;paused=true;
+    setStatus('Your browser paused playback. Press PLAY to start.');render();
   }
   let initRetries=0,pendingFrame=null,playerInitTimer=0;
   function resetPlayerFrame(){
@@ -580,14 +621,14 @@
     if(player||pendingFrame)return;
     // Let the IFrame API own navigation and its readiness handshake. Waiting
     // for the embed's load event can strand startup before API listeners exist.
-    const firstId=video().id;playerChannelKey=channels[channel].key;
+    const firstId=video().id;playerChannelKey=channels[channel].key;playerLoadGeneration=loadGeneration;
     const placeholder=document.createElement('div');placeholder.id='video-player';
     $('#video-player').replaceWith(placeholder);
     player=new YT.Player(placeholder,{videoId:firstId,playerVars:{origin:location.origin,playsinline:1,autoplay:1,mute:1,controls:0,start:Math.floor(active?.offset||0)},events:{
       onReady:e=>{tracePlayer('ready',{matches:e.target===player});if(e.target!==player)return;ready=true;initRetries=0;clearTimeout(playerInitTimer);playerInitTimer=0;clearTimeout(apiTimer);const f=player.getIframe();f.title='Rewind TV video player';f.tabIndex=-1;f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');if(!power||!playbackIntent||active?.video.provider==='archive'){e.target.mute();e.target.pauseVideo?.();return;}if(power){if(!active)selectLive();
         if(channelLoadTimer)return;
         if(active.video.id!==firstId)loadActive();
-        else{playingId=firstId;paused=false;player.mute();player.playVideo();if(player.getPlayerState?.()===1)onPlayerStateChange({target:player,data:1});else watchPlayback();}
+        else{playingId=firstId;paused=false;playerLoadGeneration=loadGeneration;player.mute();player.playVideo();if(player.getPlayerState?.()===1)onPlayerStateChange({target:player,data:1});else watchPlayback();}
       }},
       onStateChange:onPlayerStateChange,onAutoplayBlocked:onPlayerAutoplayBlocked,onError:videoError
     }});player.getIframe().addEventListener('load',()=>tracePlayer('frame-load'));tracePlayer('constructed',{firstId,visibility:document.visibilityState});watchPlayerInit();

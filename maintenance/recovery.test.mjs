@@ -62,6 +62,40 @@ test('continuous Archive transfer progress cannot defer recovery beyond the thir
  f.advanceTime(999);assert.deepEqual(f.calls,[]);
  f.advanceTime(1);assert.deepEqual(f.calls,['retry']);
 });
+test('Safari Archive metadata fetch can finish before forty seconds without progress events or a reload',()=>{
+ const f=watchdog('archive',0);f.c.movie.networkState=2;f.c.watchPlayback();
+ f.advanceTime(32000);assert.deepEqual(f.calls,[]);assert.equal(f.timers.size,1);
+ f.advanceTime(7000);f.c.movie.readyState=3;
+ f.c.currentPlayer=()=>({getPlayerState:()=>1,getVideoData:()=>({video_id:'x'})});
+ f.advanceTime(1000);assert.deepEqual(f.calls,[]);assert.equal(f.timers.size,0);
+});
+test('permanent Archive NETWORK_LOADING is bounded to forty seconds and one eight-second retry',()=>{
+ const f=watchdog('archive',0);f.c.movie.networkState=2;
+ const retry=f.c.playSelection;
+ f.c.playSelection=(...args)=>{retry(...args);f.c.movie.dataset.loadStartedAt=String(f.c.Date.now());};
+ f.c.watchPlayback();f.advanceTime(32000);
+ assert.deepEqual(f.calls,[]);f.c.watchPlayback();
+ f.advanceTime(7999);assert.deepEqual(f.calls,[]);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry']);
+ // A new request timestamp and incoming bytes cannot restart grace after retry.
+ f.advanceTime(7000);f.c.movie.dataset.progressAt='47000';f.c.watchPlayback();
+ f.advanceTime(999);assert.deepEqual(f.calls,['retry']);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry','skip']);assert.equal(f.timers.size,0);
+});
+test('idle or unavailable Archive network states retain the eight-second retry deadline',()=>{
+ for(const networkState of [0,1,3]){
+  const f=watchdog('archive',0);f.c.movie.networkState=networkState;f.c.watchPlayback();
+  f.advanceTime(8000);assert.deepEqual(f.calls,['retry'],String(networkState));
+  f.advanceTime(8000);assert.deepEqual(f.calls,['retry','skip'],String(networkState));
+ }
+});
+test('Archive loading grace cannot outlive a new tune, power off or user pause',()=>{
+ for(const change of [c=>c.loadGeneration++,c=>c.power=false,c=>c.paused=true,c=>c.playbackIntent=false]){
+  const f=watchdog('archive',0);f.c.movie.networkState=2;f.c.watchPlayback();
+  f.advanceTime(16000);change(f.c);f.advanceTime(64000);
+  assert.deepEqual(f.calls,[]);assert.equal(f.timers.size,0);
+ }
+});
 test('an Archive stream with metadata keeps both sixteen-second recovery windows',()=>{
  const f=watchdog('archive',1);f.c.watchPlayback();
  f.advanceTime(15999);assert.deepEqual(f.calls,[]);
@@ -173,3 +207,35 @@ test('advancing playback, deliberate pause, and a new tune reset freeze detectio
 function apiFixture(){const timers=[],calls=[];const c={apiTimer:0,apiLoading:true,ready:false,power:true,playbackIntent:true,active:{video:{provider:'youtube'}},document:{getElementById:()=>({remove:()=>calls.push('remove')})},clearTimeout(){},setTimeout(fn,delay){timers.push({fn,delay});return timers.length;},setStatus(){},ensurePlayer:()=>calls.push('ensure')};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  let apiRecoveryTimer='),app.indexOf('  function ensurePlayer(')),c);return {c,timers,calls};}
 test('API network failure reconnects automatically with a capped backoff',()=>{const f=apiFixture();f.c.recoverPlayerApi();assert.equal(f.c.apiLoading,false);assert.equal(f.timers[0].delay,1500);f.timers[0].fn();assert.equal(f.calls.at(-1),'ensure');f.c.recoverPlayerApi();assert.equal(f.timers.at(-1).delay,15000);});
 test('API retry cannot interrupt Archive, deliberate pause, or a ready player',()=>{for(const mode of ['archive','pause','ready']){const f=apiFixture();if(mode==='archive')f.c.active.video.provider='archive';if(mode==='pause')f.c.playbackIntent=false;if(mode==='ready')f.c.ready=true;f.c.recoverPlayerApi();assert.equal(f.timers.length,0);}});
+
+function autoplayFixture(){
+ const calls=[],player={getVideoData:()=>({video_id:'current'})};
+ const c={player,power:true,active:{video:{id:'current',provider:'youtube'}},playbackIntent:true,paused:false,channelLoadTimer:0,loadGeneration:4,playerLoadGeneration:4,ready:false,apiTimer:1,playerInitTimer:2,clearTimeout:id=>calls.push(['clear',id]),stopWatch:()=>calls.push('stop'),finishStartup:()=>calls.push('intro'),setStatus:message=>calls.push(message),render:()=>calls.push('render')};
+ vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function onPlayerAutoplayBlocked'),app.indexOf('  let initRetries=')),c);
+ return {c,player,calls};
+}
+test('late autoplay blocks from an older reported video cannot pause the newest channel',()=>{
+ const f=autoplayFixture();f.player.getVideoData=()=>({video_id:'previous'});
+ f.c.onPlayerAutoplayBlocked({target:f.player});
+ assert.equal(f.c.paused,false);assert.equal(f.c.playbackIntent,true);assert.deepEqual(f.calls,[]);
+});
+test('an autoplay block before the latest load command cannot cross its generation or pending tune',()=>{
+ for(const mode of ['older generation','pending tune','other player','other provider','user pause']){
+  const f=autoplayFixture();let target=f.player;
+  if(mode==='older generation')f.c.playerLoadGeneration--;
+  if(mode==='pending tune')f.c.channelLoadTimer=1;
+  if(mode==='other player')target={getVideoData:()=>({video_id:'current'})};
+  if(mode==='other provider')f.c.active.video.provider='archive';
+  if(mode==='user pause')f.c.playbackIntent=false;
+  f.c.onPlayerAutoplayBlocked({target});
+  assert.equal(f.c.paused,false,mode);assert.deepEqual(f.calls,[],mode);
+ }
+});
+test('current autoplay blocks, including missing video data, release startup to a reachable Play control',()=>{
+ for(const report of [{video_id:'current'},{}]){
+  const f=autoplayFixture();f.player.getVideoData=()=>report;
+  f.c.onPlayerAutoplayBlocked({target:f.player});
+  assert.equal(f.c.paused,true);assert.equal(f.c.playbackIntent,false);assert.equal(f.c.ready,true);
+  assert.equal(f.c.playerInitTimer,0);assert(f.calls.includes('intro'));assert(f.calls.includes('render'));
+ }
+});

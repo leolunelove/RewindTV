@@ -4,8 +4,8 @@ function fixture(){
  const calls=[],listeners=new Map();let now=1000;
  const movie={hidden:true,paused:true,readyState:0,currentTime:0,duration:3600,seeking:false,dataset:{},currentSrc:'',
   addEventListener(type,callback){if(!listeners.has(type))listeners.set(type,[]);listeners.get(type).push(callback);},
-  load(){calls.push('load')},play(){calls.push('play');return Promise.resolve()},pause(){calls.push('pause')},removeAttribute(n){calls.push('remove '+n)}};
- const c={Date:{now:()=>now},movie,movieLoading:false,settings:{preload:true},document:{hidden:false},navigator:{connection:{saveData:false}},active:{video:{id:'film',provider:'archive',mediaUrl:'https://archive.org/film.mp4'}},power:true,finishStartup(){},setStatus(){}};
+  load(){calls.push('load')},play(){calls.push('play');this.paused=false;return Promise.resolve()},pause(){calls.push('pause');this.paused=true},removeAttribute(n){calls.push('remove '+n)}};
+ const c={Date:{now:()=>now},movie,movieLoading:false,settings:{preload:true},document:{hidden:false},navigator:{connection:{saveData:false}},active:{video:{id:'film',provider:'archive',mediaUrl:'https://archive.org/film.mp4'}},power:true,finishStartup(){},setStatus(){},loadGeneration:0,channelLoadTimer:0,playbackIntent:true,paused:false,stopWatch(){},render(){},queueMicrotask(){},updateGlow(){},watchPlayback(){},clearTimeout(){},apiTimer:0,playerInitTimer:0,recoveryChain:0,recoveryAttempts:0,tuningTimer:0,channels:[{mode:'shuffle'}],channel:0,applyAudio(){},programmeTitle:video=>video.title||video.id,$:()=>({classList:{remove(){}}})};
  vm.createContext(c);vm.runInContext(app.slice(app.indexOf("  let movieSourceId="),app.indexOf('  const currentPlayer='))+'\nthis.adapter=archiveAdapter;',c);
  vm.runInContext(app.slice(app.indexOf("  movie.addEventListener('playing'"),app.indexOf('  const {createGuideOverview}')),c);
  return {c,movie,calls,setNow:value=>now=value,emit:type=>{for(const callback of listeners.get(type)||[])callback({target:movie});}};
@@ -41,4 +41,64 @@ test('only progress from the currently loaded Archive URL extends its transfer d
  f.setNow(2100);f.emit('progress');assert.equal(f.movie.dataset.progressAt,'');
  f.movie.currentSrc=next.mediaUrl;f.setNow(2200);f.emit('progress');
  assert.equal(f.movie.dataset.progressAt,'2200');
+});
+
+function playingFilm(){
+ const f=fixture();
+ f.movie.hidden=false;
+ f.c.setMovieSource(f.c.active.video,0,true);
+ f.movie.currentSrc=f.c.active.video.mediaUrl;f.movie.readyState=3;f.movie.onloadedmetadata();f.emit('playing');
+ f.calls.length=0;
+ return f;
+}
+test('a native browser interruption updates Pause to Play and the first remote tap resumes',()=>{
+ const f=playingFilm();f.movie.paused=true;f.emit('pause');
+ assert.equal(f.c.paused,true);
+ assert.equal(f.c.playbackIntent,true,'an external pause still permits native fullscreen controls to resume');
+ const button={};f.c.$=()=>button;f.c.recoveryBackoffTimer=0;f.c.currentPlayer=()=>f.c.adapter;
+ vm.runInContext(app.slice(app.indexOf("  $('#tv-play').onclick="),app.indexOf("  $('.remote-power').onclick=")),f.c);
+ button.onclick();
+ assert.equal(f.c.paused,false);assert.deepEqual(f.calls,['play']);
+});
+test('native fullscreen Play resumes an interrupted programme without being paused again',()=>{
+ const f=playingFilm();f.movie.paused=true;f.emit('pause');
+ f.movie.paused=false;f.emit('playing');
+ assert.equal(f.c.paused,false);assert.equal(f.c.playbackIntent,true);
+ assert.deepEqual(f.calls,[]);
+});
+test('native pause notifications from a handoff, new load, old source or preparation cannot cancel the current selection',()=>{
+ for(const mode of ['pending tune','new generation','loading','old source','other provider','hidden preparation','ended']){
+  const f=playingFilm();
+  if(mode==='pending tune')f.c.channelLoadTimer=1;
+  if(mode==='new generation')f.c.loadGeneration++;
+  if(mode==='loading')f.c.movieLoading=true;
+  if(mode==='old source')f.movie.currentSrc='https://archive.org/previous.mp4';
+  if(mode==='other provider')f.c.active={video:{provider:'youtube'}};
+  if(mode==='hidden preparation')f.movie.hidden=true;
+  if(mode==='ended')f.movie.ended=true;
+  f.movie.paused=true;f.emit('pause');
+  assert.equal(f.c.paused,false,mode);assert.equal(f.c.playbackIntent,true,mode);
+ }
+});
+test('foreground return reconciles a browser pause even if the native pause event was missed',()=>{
+ const f=playingFilm();let visibility;
+ f.c.document.addEventListener=(name,handler)=>{if(name==='visibilitychange')visibility=handler;};
+ f.c.root={classList:{toggle(){}}};f.c.applyRasterMotion=()=>{};f.c.clearNeighbours=()=>{};f.c.scheduleNeighbours=()=>{};
+ vm.runInContext(app.slice(app.indexOf("  document.addEventListener('visibilitychange'"),app.indexOf('  async function tuningSound')),f.c);
+ f.movie.paused=true;visibility();
+ assert.equal(f.c.paused,true);assert.equal(f.c.playbackIntent,true);
+});
+test('a rejected native play promise from an older generation cannot pause a later attempt at the same source',async()=>{
+ const f=fixture();let reject;
+ f.movie.play=()=>new Promise((resolve,fail)=>{reject=fail;});
+ f.c.setMovieSource(f.c.active.video,0,true);f.c.loadGeneration++;
+ reject(Object.assign(Error('Previous autoplay attempt'),{name:'NotAllowedError'}));
+ await Promise.resolve();await Promise.resolve();
+ assert.equal(f.c.paused,false);assert.equal(f.c.playbackIntent,true);
+});
+test('a current native autoplay rejection still exposes a deliberate Play action',async()=>{
+ const f=fixture();f.movie.play=()=>Promise.reject(Object.assign(Error('Gesture needed'),{name:'NotAllowedError'}));
+ f.c.setMovieSource(f.c.active.video,0,true);
+ await Promise.resolve();await Promise.resolve();
+ assert.equal(f.c.paused,true);assert.equal(f.c.playbackIntent,false);
 });

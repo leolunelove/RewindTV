@@ -36,7 +36,7 @@ dialog{position:fixed;inset:0;margin:auto;width:min(470px,calc(100vw - 40px));ma
 @media(max-width:380px){.club-controls>button{padding-inline:7px;font-size:10px}#tv-volume{width:35px}#startup-sound{font-size:9px;padding-inline:4px}.watch-controls{left:13px;right:13px}.programme h1{font-size:23px}.library-title{padding:14px 10px;gap:7px}.library-title strong{font-size:12px}.overview-tools button{font-size:10px;padding-inline:9px}.page-heading{padding-inline:19px}.mini-player{padding-left:80px;gap:3px}}
 @media(max-width:959px) and (orientation:landscape) and (max-height:560px){
  #rewind-tv{--stage-left:12px;--stage-right:43vw;--stage-top:calc(12px + env(safe-area-inset-top));--stage-bottom:20px;--stage-h:calc(100dvh - var(--stage-top) - var(--stage-bottom));--stage-w:calc(57vw - 24px)}
- .chrome{left:59vw;right:12px;top:5px;height:48px;padding:0}.brand-lockup{width:110px}.brand-wordmark{font-size:20px}.header-actions #fullscreen{display:none}.app-tabs{left:60vw;right:12px;bottom:max(8px,env(safe-area-inset-bottom));height:48px;padding:3px}.app-tabs button{font-size:10px;padding:6px}.app-tabs button svg{width:14px;height:14px}.club-layout{inset:var(--stage-top) var(--stage-right) var(--stage-bottom) var(--stage-left);height:auto}.club-now{left:60vw;right:15px;top:65px;bottom:auto;gap:7px}.programme h1{font-size:21px}.programme p{font-size:11px}#up-next{font-size:10px;margin-top:7px}.watch-controls{left:60vw;right:12px;top:auto;bottom:70px;max-width:38vw;width:auto}.tv-dock{border-radius:18px;flex-wrap:wrap;justify-content:center}.club-controls{width:100%;justify-content:space-between}.club-controls>button{padding-inline:7px;font-size:10px;min-height:36px}.remote-volume{width:100%;border-left:0;border-top:1px solid var(--line);justify-content:center;min-height:30px}#startup-sound{min-height:30px}#tv-volume{width:90px;height:27px}.status-line{display:none}.tv-page{top:0;bottom:65px;padding-left:0}.is-browsing .chrome{display:none}.page-heading{padding:15px 22px}.page-content{padding-bottom:85px}.is-browsing .app-tabs{left:auto;right:12px;width:270px}.mini-player{left:12px;right:auto;bottom:9px;width:min(44vw,340px);min-height:49px;padding:5px 7px 5px 72px}.is-browsing .screen{left:20px;bottom:16px;width:53px;height:35px}.is-browsing .mini-player button{min-height:32px}.library-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.library-tools{flex-direction:row}.library-tools>input{flex:1}.library-title{min-height:96px}.page-content .browse-jumps{grid-template-columns:repeat(4,minmax(0,1fr))}dialog{max-height:calc(100dvh - 24px);inset:12px;margin:auto}
+ .chrome{left:59vw;right:12px;top:5px;height:48px;padding:0}.brand-lockup{width:110px}.brand-wordmark{font-size:20px}.header-actions #fullscreen{display:none}.app-tabs{left:60vw;right:12px;bottom:max(8px,env(safe-area-inset-bottom));height:48px;padding:3px}.app-tabs button{font-size:10px;padding:6px}.app-tabs button svg{width:14px;height:14px}.club-layout{inset:var(--stage-top) var(--stage-right) var(--stage-bottom) var(--stage-left);height:auto}.club-now{left:60vw;right:15px;top:65px;bottom:auto;gap:7px}.programme h1{font-size:21px}.programme p{font-size:11px}#up-next{font-size:10px;margin-top:7px}.watch-controls{left:60vw;right:12px;top:auto;bottom:70px;max-width:38vw;width:auto}.tv-dock{border-radius:18px;flex-wrap:wrap;justify-content:center}.club-controls{width:100%;justify-content:space-between}.club-controls>button{padding-inline:7px;font-size:10px;min-height:36px}.remote-volume{width:100%;border-left:0;border-top:1px solid var(--line);justify-content:center;min-height:30px}#startup-sound{min-height:30px}#tv-volume{width:90px;height:27px}.status-line{display:none}.tv-page{top:0;bottom:65px;padding-left:0}.page-heading{padding:15px 22px}.page-content{padding-bottom:85px}.is-browsing .app-tabs{left:auto;right:12px;width:270px}.mini-player{left:12px;right:auto;bottom:9px;width:min(44vw,340px);min-height:49px;padding:5px 7px 5px 72px}.is-browsing .screen{left:20px;bottom:16px;width:53px;height:35px}.is-browsing .mini-player button{min-height:32px}.library-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.library-tools{flex-direction:row}.library-tools>input{flex:1}.library-title{min-height:96px}.page-content .browse-jumps{grid-template-columns:repeat(4,minmax(0,1fr))}dialog{max-height:calc(100dvh - 24px);inset:12px;margin:auto}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.crt-surface:after{display:none}}
 /* Anchors own layout; the same fixed raster interpolates between their measured rects. */
@@ -105,3 +105,51 @@ dialog:focus{outline:none}
 
 .ui-notice{position:fixed;z-index:80;left:50%;bottom:100px;transform:translateX(-50%);max-width:calc(100vw - 36px);padding:12px 18px;border:1px solid #d5e6ef26;border-radius:99px;background:#203448ed;box-shadow:0 8px 28px #0004;color:#e2edf0;font-size:13px;text-align:center;pointer-events:none}
 .library-detail-head{padding:0;background:none;border:0;border-radius:0}.browse-overlay:has(.library-back) .page-heading{padding-block:14px}.browse-overlay:has(.library-back) .page-heading .eyebrow{display:none}.browse-overlay:has(.library-back) .page-heading h2{font-size:22px;margin:0}
+/* Safari touch polish: preserve the layout while the visual viewport changes. */
+#rewind-tv{--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px);--safe-right:env(safe-area-inset-right,0px);--visual-bottom-inset:0px}
+#exit-focus{flex:none;min-height:36px;border:0;border-left:1px solid var(--line);border-radius:0 99px 99px 0;background:none;padding:6px 11px;font-size:11px;color:#d2e4ed}
+@media(max-width:959px){
+ input[type=search],select,.overview-tools select,.browse-jumps select,.library-page-jump select,.browse-pager select{font-size:16px}
+ .app-tabs{bottom:calc(max(12px,env(safe-area-inset-bottom)) + var(--visual-bottom-inset))}
+ .mini-player{bottom:calc(max(12px,env(safe-area-inset-bottom)) + 65px + var(--visual-bottom-inset))}
+ .tv-page{bottom:var(--visual-bottom-inset)}
+ dialog{bottom:calc(max(10px,env(safe-area-inset-bottom)) + var(--visual-bottom-inset));max-height:calc(100dvh - 80px - env(safe-area-inset-top) - var(--visual-bottom-inset))}
+ #exit-focus{font-size:10px;padding-inline:8px}
+ .focus-mode .tv-dock{flex-wrap:wrap;justify-content:center;max-width:calc(100% - 16px)}
+}
+@media(max-width:959px) and (orientation:landscape) and (max-height:560px){
+ #rewind-tv{--stage-left:max(12px,env(safe-area-inset-left));--stage-w:calc(57vw - var(--stage-left) - 12px);--stage-top:max(12px,env(safe-area-inset-top))}
+ .chrome{right:max(12px,env(safe-area-inset-right))}
+ .app-tabs,.is-browsing .app-tabs{right:max(12px,env(safe-area-inset-right));bottom:calc(max(8px,env(safe-area-inset-bottom)) + var(--visual-bottom-inset))}
+ .mini-player{left:max(12px,env(safe-area-inset-left));bottom:calc(max(9px,env(safe-area-inset-bottom)) + var(--visual-bottom-inset));width:min(44vw,340px)}
+ .tv-page{bottom:calc(65px + var(--visual-bottom-inset))}
+ .page-heading,.page-content{padding-left:max(22px,env(safe-area-inset-left));padding-right:max(22px,env(safe-area-inset-right))}
+ dialog{left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));top:max(12px,env(safe-area-inset-top));bottom:calc(max(12px,env(safe-area-inset-bottom)) + var(--visual-bottom-inset));width:auto;max-width:520px;max-height:calc(100dvh - max(12px,env(safe-area-inset-top)) - max(12px,env(safe-area-inset-bottom)) - var(--visual-bottom-inset))}
+ .club-now{right:max(15px,env(safe-area-inset-right))}
+}
+/* Narrow pictures and browser text zoom: remote content wraps inside its material. */
+@media(max-width:959px){
+ .watch-controls{container-type:inline-size}
+ .tv-dock{flex-wrap:wrap;justify-content:center;column-gap:3px;row-gap:2px;min-width:0;max-width:calc(100% - 12px)}
+ .club-controls{flex:0 1 auto;min-width:0;justify-content:center}
+ .remote-volume{flex:1 1 115px;min-width:0;max-width:100%;justify-content:center}
+ #tv-volume{flex:1 1 35px;min-width:25px;max-width:75px;width:50px}
+ #startup-sound{flex:none}
+ .programme-heading{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px;min-width:0}
+ .programme-heading h1{flex:1 1 100%;min-width:0;max-width:100%;overflow-wrap:break-word}
+ .programme-heading #return-live{flex:none;align-self:flex-start;min-height:32px;margin:0;font-size:11px}
+}
+@container(max-width:320px){
+ .tv-dock{border-radius:23px;padding:3px 7px}
+ .remote-volume{flex-basis:100%;border-left:0;border-top:1px solid var(--line);padding:0 3px;min-height:32px}
+ #startup-sound{min-height:32px}
+ #tv-volume{max-width:110px}
+ #exit-focus{border-left:0;border-top:1px solid var(--line);flex-basis:100%;border-radius:0 0 20px 20px;min-height:30px}
+}
+
+/* Browsing must keep the three destination controls reachable in short landscape. */
+@media(max-width:959px) and (orientation:landscape) and (max-height:560px){
+ .is-browsing .chrome{display:contents;opacity:1;visibility:visible}
+ .is-browsing .chrome>.logo,.is-browsing .chrome>.header-actions{display:none}
+ .is-browsing .chrome>.app-tabs{display:grid;opacity:1;visibility:visible;pointer-events:auto;z-index:45}
+}

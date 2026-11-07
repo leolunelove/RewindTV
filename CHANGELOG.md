@@ -2,6 +2,15 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-08 — Safari and small-screen refinement
+
+- Mobile search and select controls use 16px text to avoid iPhone focus zoom. Landscape layouts account for both notch edges, while browsing controls respond to the visible keyboard viewport.
+- Focus has a visible Exit focus control on the TV remote. Picture bounds use the current header, navigation and visible viewport.
+- Narrow remotes keep the volume controls inside their surface. Programme titles and Return to live wrap onto separate rows when space is tight.
+- Film search and genres update the featured film as well as the results. No matches hides the unrelated feature. Returning from Films restores the previous Shows context.
+- Playback rejects stale YouTube autoplay-blocked events and reconciles native-video interruptions, so the first Play tap resumes the current source. Cold Archive requests remain alive while Safari is loading metadata, with a bounded recovery deadline.
+- Validation scope: real Mac Safari plus responsive browser checks; physical iPhone, touch keyboard, notch and lock-screen interruptions are not certified. Exact playback samples and automated checks are recorded in the local QA report.
+
 ## 2026-11-07 — Liquid Broadcast room
 
 - Rebuilt the public room around Watch, Guide and Library, with a smoke-blue desktop rail, phone tabs, dotted RewindTV wordmark and compact glass remote.
