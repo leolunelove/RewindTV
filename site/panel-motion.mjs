@@ -2,7 +2,7 @@
 export function createPanelMotion(root){
  const win=root.ownerDocument?.defaultView,reduce=win?.matchMedia?.('(prefers-reduced-motion: reduce)')||matchMedia('(prefers-reduced-motion: reduce)');
  const visible='dialog[open], [data-tv-page]:not([hidden])',isPage=p=>p.hasAttribute?.('data-tv-page')===true,isOpen=p=>isPage(p)?!p.hidden:p.open;
- const pageKey=p=>p?.classList.contains('movie-night-page')?'movies':p?.classList.contains('browse-overlay')?'library':p?'guide':'watch';let switching=false,restoring=false;
+ const pageKey=p=>p?.classList.contains('movie-night-page')?'movies':p?.classList.contains('browse-overlay')?'library':p?.classList.contains('schedule-overlay')?'guide':p?'channels':'watch';let switching=false,restoring=false;
  const entries=new WeakMap(),utilityKey=p=>p?.classList.contains('programme-info')?'info':p?.classList.contains('tv-settings')?'settings':null;
  function animateOpen(panel){
   if(reduce.matches||win?.CSS?.supports?.('transition-behavior','allow-discrete')||typeof panel.animate!=='function')return;
@@ -16,13 +16,24 @@ export function createPanelMotion(root){
  for(const b of root.querySelectorAll('.app-tabs button')){const selected=!!page&&(page.classList.contains('movie-night-page')?b.id==='movie-night-button':page.classList.contains('browse-overlay')?b.id==='browse-button':page.classList.contains('schedule-overlay')?b.id==='remote-guide':b.id==='live-tab');if(selected)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');}
  for(const b of root.querySelectorAll('[aria-haspopup=dialog]')){const selector=b.id==='settings-button'?'.tv-settings':b.id==='info-button'?'.programme-info':b.id==='shuffle-button'?'#shuffle-dialog':null;if(selector)b.setAttribute('aria-expanded',String(!!root.querySelector(selector)?.open));}
  }
- function remember(key){if(win&&!restoring&&win.location.hash!=='#'+key)win.history.pushState({rewind:true},'','#'+key);}
- function finishClose(panel,focus=false){if(!isOpen(panel))return;entries.get(panel)?.cancel();entries.delete(panel);panel.toggleAttribute?.('data-no-exit',switching||restoring);panel.inert=true;if(isPage(panel)){panel.hidden=true;panel.dispatchEvent(new Event('close'));}else panel.close();sync();if(!switching&&isPage(panel))remember('watch');if(focus&&isPage(panel))root.querySelector?.(win?.matchMedia?.('(min-width:960px)').matches?'#live-tab':'#menu-toggle')?.focus({preventScroll:true});}
- function open(panel){switching=true;for(const other of root.querySelectorAll(visible))if(other!==panel&&(isPage(panel)||!isPage(other)))finishClose(other);switching=false;
+ function remember(key,state=null,replace=false){
+  if(!win||restoring)return;
+  const sameRoute=win.location.hash==='#'+key,sameState=!state||Object.entries(state).every(([name,value])=>win.history.state?.[name]===value);
+  if(sameRoute&&sameState&&!win.history.state?.utility)return;
+  win.history[replace?'replaceState':'pushState']({rewind:true,...state},'','#'+key);
+ }
+ function finishClose(panel,focus=false){if(!isOpen(panel))return;entries.get(panel)?.cancel();entries.delete(panel);panel.toggleAttribute?.('data-no-exit',switching||restoring);panel.inert=true;if(isPage(panel)){panel.hidden=true;panel.dispatchEvent(new Event('close'));}else panel.close();sync();if(focus&&isPage(panel))root.querySelector?.(win?.matchMedia?.('(min-width:960px)').matches?'#live-tab':'#menu-toggle')?.focus({preventScroll:true});}
+ function open(panel,{remember:record=true,state=null,replace=false}={}){switching=true;for(const other of root.querySelectorAll(visible))if(other!==panel&&(isPage(panel)||!isPage(other)))finishClose(other);switching=false;
  if(!isOpen(panel)){panel.removeAttribute?.('data-no-exit');panel.inert=false;if(isPage(panel))panel.hidden=false;else panel.showModal();animateOpen(panel);}
- sync();if(isPage(panel)){remember(pageKey(panel));panel.querySelector('.page-back-tv')?.focus({preventScroll:true});}else if(win&&!restoring){const utility=utilityKey(panel);if(utility&&win.history.state?.utility!==utility)win.history.pushState({...win.history.state,rewind:true,utility},'',win.location.hash||'#watch');}}
- function close(panel){if(isPage(panel)&&win?.matchMedia?.('(min-width:960px)').matches){const home=root.querySelector?.('.guide');if(home){if(home!==panel)open(home);win.history.replaceState?.({rewind:true},'','#guide');root.querySelector?.('#live-tab')?.focus({preventScroll:true});return;}}const key=utilityKey(panel),unwind=key&&win?.history.state?.utility===key&&!restoring;finishClose(panel,true);if(unwind)win.history.back();}
+ sync();if(isPage(panel)){if(record)remember(pageKey(panel),state,replace||!!win?.history.state?.utility);panel.querySelector('.page-back-tv')?.focus({preventScroll:true});}else if(win&&!restoring&&record){const utility=utilityKey(panel);if(utility&&win.history.state?.utility!==utility)win.history[win.history.state?.utility?'replaceState':'pushState']({...win.history.state,rewind:true,utility},'',win.location.hash||'#watch');}}
+ function watch({remember:record=true}={}){
+  switching=true;for(const panel of root.querySelectorAll(visible))finishClose(panel);switching=false;
+  if(win?.matchMedia?.('(min-width:960px)').matches){const home=root.querySelector?.('.guide');if(home)open(home,{remember:false});}
+  if(record)remember('watch',null,!!win?.history.state?.utility);
+  root.querySelector?.(win?.matchMedia?.('(min-width:960px)').matches?'#live-tab':'#menu-toggle')?.focus({preventScroll:true});
+ }
+ function close(panel){if(isPage(panel)){watch();return;}const key=utilityKey(panel),unwind=key&&win?.history.state?.utility===key&&!restoring;finishClose(panel,true);if(unwind)win.history.back();}
  for(const panel of root.querySelectorAll('dialog, [data-tv-page]')){panel.addEventListener('cancel',e=>{e.preventDefault();close(panel);});panel.addEventListener('close',sync);if(!isPage(panel)){let outside=false;const beyond=e=>{const r=panel.getBoundingClientRect();return e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom;};panel.addEventListener('pointerdown',e=>outside=e.target===panel&&beyond(e));panel.addEventListener('pointerup',e=>{if(outside&&e.target===panel&&beyond(e))close(panel);outside=false;});}if(isPage(panel))panel.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.defaultPrevented){e.preventDefault();close(panel);}});}
- win?.addEventListener('popstate',()=>{restoring=true;const key=win.location.hash.slice(1),target=key==='movies'?root.querySelector('.movie-night-page'):key==='library'?root.querySelector('.browse-overlay'):key==='guide'?root.querySelector(win.history.state?.guideChannel?'.schedule-overlay':'.guide'):null;if(target)open(target);else{switching=true;for(const p of root.querySelectorAll(visible))finishClose(p);switching=false;}const utility=win.history.state?.utility;if(utility){const dialog=root.querySelector(utility==='info'?'.programme-info':'.tv-settings');if(dialog)open(dialog);}restoring=false;sync();});
- win?.addEventListener('resize',sync);return {open,close,isOpen,sync,dismiss:p=>finishClose(p)};
+ win?.addEventListener('popstate',()=>{restoring=true;const key=win.location.hash.slice(1),target=key==='movies'?root.querySelector('.movie-night-page'):key==='library'?root.querySelector('.browse-overlay'):key==='guide'?root.querySelector('.schedule-overlay'):key==='channels'?root.querySelector('.guide'):null;if(target)open(target,{remember:false});else watch({remember:false});const utility=win.history.state?.utility;if(utility){const dialog=root.querySelector(utility==='info'?'.programme-info':'.tv-settings');if(dialog)open(dialog,{remember:false});}restoring=false;sync();});
+ win?.addEventListener('resize',sync);return {open,close,watch,isOpen,sync,dismiss:p=>finishClose(p)};
 }

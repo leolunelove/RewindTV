@@ -2,6 +2,42 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-07 — Clearer everyday browsing
+
+- Library keeps search and All / Shows / Films upfront. Alphabet, channel, language and source collections sit under Filters, with a clear reset.
+- More numbered results fit each browse page. Episode and search positions are retained when returning to the collection.
+- Channels and Guide have distinct routes, consistent keyboard shortcuts and predictable browser Back behavior.
+- Guide opens around the tuned station and shows more channels per page. Playback continues while browsing.
+- Release checks and production playback samples are recorded in the release report. No worldwide or uninterrupted-playback certification.
+
+## 2026-11-07 — Deeper themed stations
+
+- Added 41 verified programmes, about 17.5 hours, to six existing stations.
+- Boomerang Classics adds 19 Pink Panther and Smurfs cartoons and specials. Cartoon Network Classics gets the first 13 episodes of Code Lyoko series two. Nickelodeon Classics adds The Little Bear Movie. [Official Code Lyoko playlist](https://www.youtube.com/playlist?list=PLDdlwI0EwS7TpHbfjMCjvm62n9WA-3Z-l)
+- Disney Channel Classics adds the House of Mouse premiere and two So Weird episodes. Sitcoms gets the second-series premiere of Jeeves and Wooster, eligible for the 10 November timetable.
+- Horror Movies adds Death Dreams, Night of the Demons 3, Day of Wrath and Viy. Movie Night now has 114 films. [Mosfilm’s Viy](https://www.youtube.com/watch?v=4YmQn6q36HQ)
+- Each addition passed start and near-end playback in one browser network and had an established upload date and full country coverage in YouTube’s metadata. Channel numbers and this week’s schedule matched the prior build.
+
+## 2026-11-07 — Biochao’s Vault and archive curation
+
+- Added 285 playable programmes across 16 stations, for 133.9 hours. This includes 11 films and 12 direct Internet Archive streams.
+- Lost & Found gets all 33 Spatz episodes, 29 T-Bag episodes across series seven to nine, 10 Welcome to Orty-Fou episodes and two parts of Matt’s Million. Sitcoms gets the first two series of The Piglet Files and the first series of Jeeves and Wooster. Halloween adds 38 Tales from the Cryptkeeper episodes. [TV community leads](https://www.reddit.com/r/fulltvshowsonyoutube/)
+- Added 28 Spanish programmes and 21 Mandarin programmes. Normalised existing display titles and episode numbers. Movie Night grows to 109 films, including A Single Spark, Come and See and The Adventures of Mark Twain. [Film community leads](https://www.reddit.com/r/fullmoviesonyoutube/)
+- Library includes Biochao’s Vault under Listed only, with 11 links to original recordings and playlists. NASA mission tapes have a separate source collection. Discovery Club gains complete Computer Chronicles and Net Cafe episodes plus the National Archives’ television discussion of the Challenger investigation. [Biochao’s Vault](https://www.youtube.com/@biochaosvault/videos) · [Internet Archive provenance](https://blog.archive.org/2026/01/11/the-chronicles-of-cheifet/)
+- Disabled eight duplicate uploads and moved a shorter Caillou holiday edit to Browse, with a link to the full feature. Moved 11 Knightmare and Finders Keepers UK episodes to Lost & Found. Added format labels for compilations and pilots and recovered the four Uncle Jack serials’ episode numbering.
+- All retained uploads advanced near the start and end in one browser network with unverified region. The broader playback ledger covers 500 sources, including 48 upcoming fixed-channel programmes, all 24 previous language-channel entries and 39 existing films. The current ten timetables matched the previous build slot for slot. New fixed-channel additions become eligible on 10 November.
+
+## 2026-11-07 — Animation stations and Browse previews
+
+- Added Boomerang Classics, Cartoon Network Classics, Nickelodeon Classics and Disney Channel Classics. Sitcoms and Horror Movies use the existing channel slots.
+- Added 27 verified uploads, including Red Green, The Addams Family, Pink Panther and Smurfs. Two Computer Chronicles episodes play directly from the Internet Archive.
+- Browse now has a Listed only filter, plus trailers, publisher clips and external sources on individual titles. Chad Vader keeps all 38 episodes together, with a separate section for creator extras.
+
+## 2026-11-06 — Classic game shows, mysteries and Art Attack
+
+- Added 42 full episodes across seven shows new to the catalogue. Gameshows gains Fort Boyard UK, Knightmare, Finders Keepers UK and Scrapheap Challenge. Lost & Found gains Bernard’s Watch and Ghostwriter. 90s TV gains Art Attack.
+- All 42 retained uploads passed the embedded start and near-end checks. Five Raven uploads remained blocked in the embed after a retry, and one Scrapheap Challenge source listed a regional restriction.
+
 ## 2026-11-06 — Six more Discovery Club shows
 
 - Added 44 episodes across six shows new to the catalogue. 3-2-1 Contact has 25 episodes, Scientific Eye has ten, Science Shack has four, Science in Action and Local Heroes have two each, and The Experimenter has one.

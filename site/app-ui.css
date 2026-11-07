@@ -498,3 +498,30 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 #shuffle-watch{background:var(--lime);color:var(--bg);font-weight:600}
 #shuffle-watch:hover{background:var(--paper)}
 #shuffle-scopes{background:transparent;border-color:transparent;color:var(--muted)}
+
+/* Browse listings and extras stay separate from the player queue. */
+.browse-overlay .library-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.browse-overlay .library-filters button{min-width:0;padding-inline:.2rem;white-space:normal}
+.library-extras{margin:0 0 var(--room-gap);padding:var(--room-gap) 0;border-block:1px solid var(--line)}
+.library-extras h4{margin:0 0 .35rem;font-size:var(--room-body)}
+.library-extras a{display:flex;align-items:center;min-height:var(--hit);font-size:var(--room-body)}
+
+/* One primary browse task; secondary filters stay a step away. */
+.browse-overlay .library-tools{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:.6rem}
+.library-advanced{margin:0 0 .5rem;border-bottom:1px solid var(--line)}
+.library-advanced>summary{min-height:var(--hit);display:list-item;align-content:center;width:fit-content;cursor:pointer;font:400 var(--room-small)/1.5 var(--type-mono);color:var(--muted);padding:.5rem 0}
+.library-advanced[open]{padding-bottom:.65rem}
+.library-advanced .browse-jumps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.library-advanced .browse-jumps select:last-child{grid-column:auto}
+.library-type-select{display:flex;flex-direction:column;gap:.3rem;font:400 var(--room-small)/1.4 var(--type-mono);color:var(--muted)}
+.library-advanced .browse-jumps>select{align-self:end}
+.library-result-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.browse-overlay .library-count{margin:.55rem 0}
+.library-clear{font:400 var(--room-small)/1.4 var(--type-mono);padding:.35rem .5rem;min-height:var(--hit);color:var(--muted);background:transparent;border-color:transparent}
+.library-clear[hidden]{display:none}
+.library-result-head+.library-grid{margin-top:0}
+@media(max-width:600px){.browse-overlay .library-tools{display:flex;flex-direction:column;align-items:stretch}.library-advanced .browse-jumps{grid-template-columns:minmax(0,1fr)}.library-advanced .browse-jumps>select{grid-column:auto}}
+
+/* The same explicit exit on every page, including phones. */
+.tv-page .page-back-tv{display:block;flex-shrink:0;min-height:var(--hit);font:400 var(--room-small)/1.3 var(--type-sans);padding:.5rem .65rem;white-space:nowrap}
+.tv-page .page-back-tv:before{content:none!important}

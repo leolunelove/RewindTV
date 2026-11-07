@@ -35,7 +35,7 @@
       "adverts": false,
       "logo": "logos/rewind-espanol.svg",
       "brandColour": "#d29a74",
-      "tagline": "Series completas, dibujos y cine clásico en español.",
+      "tagline": "Episodios completos, dibujos y cine clásico en español.",
       "shows": [],
       "audioLanguage": "es",
       "audioLanguageLabel": "Spanish"
@@ -58,7 +58,7 @@
   "videos": [
     {
       "id": "IGUD_5x0UyI",
-      "title": "el inspector gadget ep.10 temporada,1 - el rubí",
+      "title": "Inspector Gadget — El rubí",
       "series": "Inspector Gadget",
       "kind": "full episode",
       "duration": 1329,
@@ -90,11 +90,13 @@
         "checkedAt": "2026-11-04T11:35:03.261Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "el inspector gadget ep.10 temporada,1 - el rubí",
+      "seasonNumber": 1
     },
     {
       "id": "V0_Lp4xFiQA",
-      "title": "el inspector gadget ep.43 temporada,1 - aquí! no Queremos moscas",
+      "title": "Inspector Gadget — ¡Aquí no queremos moscas!",
       "series": "Inspector Gadget",
       "kind": "full episode",
       "duration": 1353,
@@ -126,11 +128,13 @@
         "checkedAt": "2026-11-04T11:35:02.910Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "el inspector gadget ep.43 temporada,1 - aquí! no Queremos moscas",
+      "seasonNumber": 1
     },
     {
       "id": "aUEypr9eNIs",
-      "title": "Sabrina la Brujita Animada 1x06 Witch Switch (Español Latino)",
+      "title": "Sabrina — Witch Switch",
       "series": "Sabrina",
       "kind": "full episode",
       "duration": 1369,
@@ -161,11 +165,14 @@
         "checkedAt": "2026-11-04T11:35:07.814Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "Sabrina la Brujita Animada 1x06 Witch Switch (Español Latino)",
+      "seasonNumber": 1,
+      "episodeNumber": 6
     },
     {
       "id": "64PaAAG3tgY",
-      "title": "David el Gnomo - 10 - El oficio de curar",
+      "title": "David el Gnomo — El oficio de curar",
       "series": "David el Gnomo",
       "kind": "full episode",
       "duration": 1449,
@@ -196,11 +203,14 @@
         "checkedAt": "2026-11-04T11:35:07.113Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "David el Gnomo - 10 - El oficio de curar",
+      "seasonNumber": 1,
+      "episodeNumber": 10
     },
     {
       "id": "niNkZXu5Iu8",
-      "title": "David, el Gnomo (Latino) - 06 - La boda | Episodio Completo |",
+      "title": "David el Gnomo — La boda",
       "series": "David el Gnomo",
       "kind": "full episode",
       "duration": 1430,
@@ -230,11 +240,14 @@
         "checkedAt": "2026-11-04T11:35:11.315Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "David, el Gnomo (Latino) - 06 - La boda | Episodio Completo |",
+      "seasonNumber": 1,
+      "episodeNumber": 6
     },
     {
       "id": "q2_cAG_hq34",
-      "title": "Willy Fog - 11 - El bombín de Rigodón | Episodio Completo |",
+      "title": "La vuelta al mundo de Willy Fog — El bombín de Rigodón",
       "series": "La vuelta al mundo de Willy Fog",
       "kind": "full episode",
       "duration": 1523,
@@ -264,11 +277,14 @@
         "checkedAt": "2026-11-04T11:35:15.516Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "Willy Fog - 11 - El bombín de Rigodón | Episodio Completo |",
+      "seasonNumber": 1,
+      "episodeNumber": 11
     },
     {
       "id": "5O1yc5qLcJA",
-      "title": "D'Artacan y los tres mosqueperros - 05 - Señor de Treville, el capitán de los Mosqueperros",
+      "title": "Dartacán — El señor de Tréville",
       "series": "Dartacán",
       "kind": "full episode",
       "duration": 1225,
@@ -299,11 +315,14 @@
         "checkedAt": "2026-11-04T11:35:16.219Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "D'Artacan y los tres mosqueperros - 05 - Señor de Treville, el capitán de los Mosqueperros",
+      "seasonNumber": 1,
+      "episodeNumber": 5
     },
     {
       "id": "JGIZgJ2XjEQ",
-      "title": "Dartacan 01x02 El Misterioso Caballero del Bigote Negro",
+      "title": "Dartacán — El misterioso caballero del bigote negro",
       "series": "Dartacán",
       "kind": "full episode",
       "duration": 1227,
@@ -334,11 +353,14 @@
         "checkedAt": "2026-11-04T11:35:21.818Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "Dartacan 01x02 El Misterioso Caballero del Bigote Negro",
+      "seasonNumber": 1,
+      "episodeNumber": 2
     },
     {
       "id": "SlkxxHnh3tA",
-      "title": "Erase Una Vez... El Cuerpo Humano - Los huesos y el esqueleto",
+      "title": "Érase una vez la vida — Los huesos y el esqueleto",
       "series": "Érase una vez la vida",
       "kind": "full episode",
       "duration": 1489,
@@ -368,11 +390,12 @@
         "checkedAt": "2026-11-04T11:35:23.921Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "Erase Una Vez... El Cuerpo Humano - Los huesos y el esqueleto"
     },
     {
       "id": "q-HmaKTBwSk",
-      "title": "Los Fruittis | El Enigma de los Gigantes | Serie de Animación Infantil",
+      "title": "Los Fruittis — El enigma de los gigantes",
       "series": "Los Fruittis",
       "kind": "full episode",
       "duration": 1482,
@@ -402,11 +425,12 @@
         "checkedAt": "2026-11-04T11:35:25.669Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "Los Fruittis | El Enigma de los Gigantes | Serie de Animación Infantil"
     },
     {
       "id": "cCrJDEZArew",
-      "title": "LOS FRUITTIS 🍌 El volcán de Los Fruittis 🍍 CAPITULO 1 Español Completo HD",
+      "title": "Los Fruittis — El volcán de los Fruittis",
       "series": "Los Fruittis",
       "kind": "full episode",
       "duration": 1286,
@@ -438,12 +462,14 @@
         "checkedAt": "2026-11-04T11:35:28.122Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "LOS FRUITTIS 🍌 El volcán de Los Fruittis 🍍 CAPITULO 1 Español Completo HD",
+      "seasonNumber": 1
     },
     {
       "id": "cgIuy9Ebejw",
-      "title": "Aventuras de Sonic the Hedgehog - Va Lento | HD | Episodio Completo",
-      "series": "Sonic",
+      "title": "Aventuras de Sonic el Erizo — Va lento",
+      "series": "Aventuras de Sonic el Erizo",
       "kind": "full episode",
       "duration": 1323,
       "year": 1993,
@@ -472,11 +498,14 @@
         "checkedAt": "2026-11-04T11:35:29.872Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "Aventuras de Sonic the Hedgehog - Va Lento | HD | Episodio Completo",
+      "seasonNumber": 1,
+      "episodeNumber": 4
     },
     {
       "id": "0iTLbpzVMWM",
-      "title": "cantinflas por mis pistolas pelicula completa español latino full HD",
+      "title": "Por mis pistolas",
       "series": "Cantinflas",
       "kind": "film",
       "duration": 6418,
@@ -507,11 +536,13 @@
         "checkedAt": "2026-11-04T11:35:34.773Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "cantinflas por mis pistolas pelicula completa español latino full HD",
+      "genre": "Comedy"
     },
     {
       "id": "QruBoiQvMk0",
-      "title": "PELICULA HD SI YO FUERA DIPUTADO",
+      "title": "Si yo fuera diputado",
       "series": "Cantinflas",
       "kind": "film",
       "duration": 5752,
@@ -542,12 +573,14 @@
         "checkedAt": "2026-11-04T11:35:37.226Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "PELICULA HD SI YO FUERA DIPUTADO",
+      "genre": "Comedy"
     },
     {
       "id": "9qaWnxGWk6s",
-      "title": "西游记 01",
-      "series": "西游记",
+      "title": "西游记（1999 动画） — 第1集",
+      "series": "西游记（1999 动画）",
       "kind": "full episode",
       "duration": 1149,
       "year": 1999,
@@ -577,11 +610,14 @@
         "checkedAt": "2026-11-04T11:35:40.728Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "西游记 01",
+      "seasonNumber": 1,
+      "episodeNumber": 1
     },
     {
       "id": "rta9Y16GM2U",
-      "title": "《哪吒传奇》 第1集 哪吒出世 |《哪吒传奇》华语动漫频道",
+      "title": "哪吒传奇 — 哪吒出世",
       "series": "哪吒传奇",
       "kind": "full episode",
       "duration": 1165,
@@ -613,11 +649,13 @@
         "checkedAt": "2026-11-04T11:35:42.128Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "《哪吒传奇》 第1集 哪吒出世 |《哪吒传奇》华语动漫频道",
+      "seasonNumber": 1
     },
     {
       "id": "B8tYI53ol7s",
-      "title": "舒克和贝塔（1989）第12集：罗丘遇难【Episode 12】（Shuke and Beita）（郑渊洁童话）（上海美术电影制片厂）",
+      "title": "舒克和贝塔 — 罗丘遇难",
       "series": "舒克和贝塔",
       "kind": "full episode",
       "duration": 1242,
@@ -649,11 +687,13 @@
         "checkedAt": "2026-11-04T11:35:53.331Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "舒克和贝塔（1989）第12集：罗丘遇难【Episode 12】（Shuke and Beita）（郑渊洁童话）（上海美术电影制片厂）",
+      "seasonNumber": 1
     },
     {
       "id": "gQ2PZk1qFxU",
-      "title": "舒克和贝塔（1989）第7集：出师不利【Episode 7】（Shuke and Beita）（郑渊洁童话）（上海美术电影制片厂）",
+      "title": "舒克和贝塔 — 出师不利",
       "series": "舒克和贝塔",
       "kind": "full episode",
       "duration": 1226,
@@ -685,11 +725,13 @@
         "checkedAt": "2026-11-04T11:35:57.183Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "舒克和贝塔（1989）第7集：出师不利【Episode 7】（Shuke and Beita）（郑渊洁童话）（上海美术电影制片厂）",
+      "seasonNumber": 1
     },
     {
       "id": "sE075OtE1-4",
-      "title": "黑猫警长(1984)第1集 痛歼搬仓鼠 (上海美术电影制片厂）（Black cat Sheriff ）童年的回忆，经典中的经典！",
+      "title": "黑猫警长 — 痛歼搬仓鼠",
       "series": "黑猫警长",
       "kind": "full episode",
       "duration": 1142,
@@ -721,11 +763,13 @@
         "checkedAt": "2026-11-04T11:36:02.435Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "黑猫警长(1984)第1集 痛歼搬仓鼠 (上海美术电影制片厂）（Black cat Sheriff ）童年的回忆，经典中的经典！",
+      "seasonNumber": 1
     },
     {
       "id": "PC3DmhI-3tU",
-      "title": "#杨紫 租”狂野男孩“假扮男友 故意惹夏梅生气《家有儿女》第一季第1集 Home With Kids Season 1 EP. 1【中国电视剧精选】#yangzi #lostyouforever",
+      "title": "家有儿女 — 第1集",
       "series": "家有儿女",
       "kind": "full episode",
       "duration": 1513,
@@ -756,11 +800,13 @@
         "checkedAt": "2026-11-04T11:36:03.617Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "#杨紫 租”狂野男孩“假扮男友 故意惹夏梅生气《家有儿女》第一季第1集 Home With Kids Season 1 EP. 1【中国电视剧精选】#yangzi #lostyouforever",
+      "seasonNumber": 1
     },
     {
       "id": "1bCj2rxYMHI",
-      "title": "重组家庭困难多 叛逆夏雪反击夏东海离婚《家有儿女》第一季第2集 Home With Kids Season 1 EP. 2 | 超清1080P【中国电视剧精选】",
+      "title": "家有儿女 — 第2集",
       "series": "家有儿女",
       "kind": "full episode",
       "duration": 1519,
@@ -791,11 +837,13 @@
         "checkedAt": "2026-11-04T11:36:06.638Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "重组家庭困难多 叛逆夏雪反击夏东海离婚《家有儿女》第一季第2集 Home With Kids Season 1 EP. 2 | 超清1080P【中国电视剧精选】",
+      "seasonNumber": 1
     },
     {
       "id": "E2qfVHKSizE",
-      "title": "我爱我家 01 《发挥余热》（上）",
+      "title": "我爱我家 — 发挥余热（上）",
       "series": "我爱我家",
       "kind": "full episode",
       "duration": 1599,
@@ -825,11 +873,14 @@
         "checkedAt": "2026-11-04T11:36:08.518Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "我爱我家 01 《发挥余热》（上）",
+      "seasonNumber": 1,
+      "episodeNumber": 1
     },
     {
       "id": "5ey5Fqu7WTM",
-      "title": "我爱我家 17 不速之客  上",
+      "title": "我爱我家 — 不速之客（上）",
       "series": "我爱我家",
       "kind": "full episode",
       "duration": 1778,
@@ -859,11 +910,14 @@
         "checkedAt": "2026-11-04T11:36:11.189Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "我爱我家 17 不速之客  上",
+      "seasonNumber": 1,
+      "episodeNumber": 17
     },
     {
       "id": "twNzfPjQvLI",
-      "title": "大闹天宫  孙悟空 上美超清修复完整版 国语中字（1961 1964）#大鬧天宮 ##孫悟空",
+      "title": "大闹天宫",
       "series": "大闹天宫",
       "kind": "film",
       "duration": 5543,
@@ -894,7 +948,10 @@
         "checkedAt": "2026-11-04T11:36:12.991Z",
         "region": "Browser egress region not independently verified",
         "method": "Observed increasing playback time at the start and final 25 seconds. Not a full watch or global test."
-      }
+      },
+      "uploadTitle": "大闹天宫  孙悟空 上美超清修复完整版 国语中字（1961 1964）#大鬧天宮 ##孫悟空",
+      "formatLabel": "92 分钟版",
+      "genre": "Animation"
     }
   ],
   "assignments": {

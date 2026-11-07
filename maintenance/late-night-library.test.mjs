@@ -7,8 +7,9 @@ import {buildShowIndex} from '../site/show-library.mjs';
 
 const read=name=>JSON.parse(fs.readFileSync(new URL('../site/'+name,import.meta.url)));
 const name='late-night-library.json',pack=read(name);
-const base=EXPANSION_PACKS.filter(n=>n!==name).reduce((c,n)=>withExpansion(c,read(n)),withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json')));
-const expanded=EXPANSION_PACKS.reduce((c,n)=>withExpansion(c,read(n)),withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json')));
+const earlierPacks=EXPANSION_PACKS.slice(0,EXPANSION_PACKS.indexOf(name));
+const base=earlierPacks.reduce((c,n)=>withExpansion(c,read(n)),withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json')));
+const expanded=withExpansion(base,pack);
 const scope={};vm.runInNewContext(fs.readFileSync(new URL('../site/schedule.js',import.meta.url),'utf8'),scope);
 
 test('curated uploads have unique identities, aged source evidence and actual embed samples',()=>{
