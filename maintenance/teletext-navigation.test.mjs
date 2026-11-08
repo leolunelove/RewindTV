@@ -1,7 +1,7 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import {readFileSync} from 'node:fs';
 import {createGuideOverview} from '../site/guide-overview.mjs';
 const app=readFileSync(new URL('../site/app.js',import.meta.url),'utf8');
-function fixture(number){const calls=[],c={numberEntry:String(number),clearNumberEntry(){c.numberEntry='';},channels:Array(19),root:{querySelectorAll(){return [{close(){calls.push('close');}}];}},backToTV(){calls.push('watch');},revealControls(){calls.push('watch');},openGuide(){calls.push('index');},openSchedule(){calls.push('guide');},openBrowse(){calls.push('shop');},openMovieNight(){calls.push('movies');},openInfo(){calls.push('info');},panels:{dismiss(panel){panel.close();},open(){calls.push('settings');}},$(){return {};},tune(i){calls.push(i);},setStatus(){calls.push('invalid');}};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function commitNumber(){'),app.indexOf("  document.addEventListener('keydown',e=>{")),c);return {c,calls};}
+function fixture(number){const calls=[],c={numberEntry:String(number),clearNumberEntry(){c.numberEntry='';},channels:Array(19),root:{querySelectorAll(){return [{close(){calls.push('close');}}];}},backToTV(){calls.push('watch');},revealControls(){calls.push('watch');},openGuide(){calls.push('index');},openSchedule(){calls.push('guide');},openBrowse(){calls.push('shop');},openMovieNight(){calls.push('movies');},openInfo(){calls.push('info');},panels:{dismiss(panel){panel.close();},open(){calls.push('settings');}},$(){return {};},watchChannel(i){calls.push('watch',i);},tune(i){calls.push(i);},setStatus(){calls.push('invalid');}};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function commitNumber(){'),app.indexOf("  document.addEventListener('keydown',e=>{")),c);return {c,calls};}
 test('teletext pages close the previous surface and route to the requested page',()=>{for(const [number,action] of [[100,'watch'],[200,'index'],[300,'guide'],[400,'shop'],[500,'info'],[600,'settings'],[700,'movies']]){const f=fixture(number);f.c.commitNumber();assert.deepEqual(f.calls,['close',action]);}});
 test('ordinary channel numbers return to watching and retain the original channel order',()=>{const f=fixture(19);f.c.commitNumber();assert.deepEqual(f.calls,['close','watch',18]);});
 test('invalid page numbers do not dismiss the current panel or change channel',()=>{const f=fixture(201);f.c.commitNumber();assert.deepEqual(f.calls,['invalid']);});
@@ -9,7 +9,7 @@ test('invalid page numbers do not dismiss the current panel or change channel',(
 test('C opens Channels and G opens Guide from watching',()=>{
  const calls=[],context={
   document:{documentElement:{classList:{contains:()=>false}},addEventListener(name,handler){context.handler=handler;}},
-  shuffleDialog:{open:false},infoPanel:{open:false},$(){return {open:false};},
+  libraryContext:false,shuffleDialog:{open:false},infoPanel:{open:false},$(){return {open:false};},
   panels:{isOpen:()=>false},openGuide(){calls.push('channels');},openSchedule(){calls.push('guide');}
  };
  vm.createContext(context);
@@ -19,7 +19,7 @@ test('C opens Channels and G opens Guide from watching',()=>{
 });
 
 function guideFixture({channels=Array.from({length:30},(_,index)=>({key:'channel-'+index,number:index+1,name:'Channel '+(index+1),mode:'shuffle'})),current=14,height=800}={}) {
- const calls=[];
+ const calls=[],scrolls=[];
  const descendants=node=>node.children.flatMap(child=>[child,...descendants(child)]);
  const doc={defaultView:{innerHeight:height},createElement(tag){
   const node={tag,ownerDocument:doc,children:[],dataset:{},attributes:{},className:'',
@@ -28,11 +28,12 @@ function guideFixture({channels=Array.from({length:30},(_,index)=>({key:'channel
    replaceChildren(...children){this.children=children;},
    querySelectorAll(selector){return descendants(this).filter(child=>child.tag===selector);},
    focus(){doc.activeElement=this;},
+   scrollIntoView(options){scrolls.push({channel:this.dataset.guideChannel,options});},
   };
   node.classList={add(name){node.className+=' '+name;}};
   return node;
  }};
- const root=doc.createElement('div');root.parentElement={scrollTop:0};
+ const root=doc.createElement('div');root.parentElement=Object.assign(new EventTarget(),{scrollTop:0});
  const now=Date.now();
  const slots=channels.map((channel,index)=>[
   {video:{id:'now-'+index,series:'Archive Show',title:'Programme '+index,kind:'full episode'},start:now-1000,end:now+60000},
@@ -43,24 +44,27 @@ function guideFixture({channels=Array.from({length:30},(_,index)=>({key:'channel
  const guide=createGuideOverview(root,{getChannels:()=>channels,getCurrent:()=>state.current,getNow:index=>({index:0,slot:slots[index][0]}),getRows:index=>slots[index],onDetail:index=>calls.push(['detail',index]),onWatch:index=>calls.push(['watch',index]),onStart:(index,video)=>calls.push(['start',index,video.id])});
  const byClass=name=>descendants(root).filter(node=>node.className.split(' ').includes(name));
  const control=label=>descendants(root).find(node=>node.attributes['aria-label']===label);
- return {root,doc,state,slots,calls,guide,byClass,control};
+ return {root,doc,state,slots,calls,scrolls,scroller:root.parentElement,guide,byClass,control};
 }
 
-test('Guide opens around the current channel and keeps a browsed page through refreshes',()=>{
+test('Guide exposes all thirty channels continuously and On my channel reveals the tuned row',()=>{
  const f=guideFixture();
  const rows=()=>f.byClass('guide-overview-row');
  const first=()=>f.byClass('guide-number')[0].textContent+'  '+f.byClass('guide-channel-name')[0].textContent;
  f.guide.render();
- assert.equal(rows().length,8);
- assert.equal(first(),'09  Channel 9');
- f.root.children.at(-1).children.at(-1).onclick();
- assert.equal(first(),'17  Channel 17');
- f.state.current=1;f.guide.render();
- assert.equal(first(),'17  Channel 17');
- f.guide.showCurrent();
+ assert.equal(rows().length,30);
  assert.equal(first(),'01  Channel 1');
+ assert.equal(f.byClass('browse-pager').length,0);
+ assert.deepEqual(f.byClass('guide-number').map(node=>node.textContent),Array.from({length:30},(_,i)=>String(i+1).padStart(2,'0')));
+ f.scroller.scrollTop=940;
+ f.state.current=1;f.guide.render();
+ assert.equal(f.scroller.scrollTop,940,'a changed tuned channel does not move the browsed position');
+ f.guide.showCurrent();
+ assert.equal(f.doc.activeElement.dataset.guideChannel,'channel-1');
+ assert.deepEqual(f.scrolls.at(-1),{channel:'channel-1',options:{block:'center',behavior:'smooth'}});
  f.doc.defaultView.innerHeight=500;f.guide.showCurrent();
- assert.equal(rows().length,6);
+ assert.equal(rows().length,30,'short screens retain native scrolling through the full lineup');
+ f.doc.defaultView.matchMedia=()=>({matches:true});f.guide.showCurrent();assert.equal(f.scrolls.at(-1).options.behavior,'auto');
 });
 
 test('Guide searches the whole lineup and preserves search focus and inline expansion during playback refreshes',()=>{
@@ -76,12 +80,14 @@ test('Guide searches the whole lineup and preserves search focus and inline expa
  assert.equal(f.byClass('guide-overview-expanded').length,1);
  assert.equal(f.byClass('guide-overview-detail')[0].attributes['aria-expanded'],'true');
  search.focus();
+ f.scroller.scrollTop=720;
  f.slots[29][2].video.title='A new next episode';
  f.guide.render();
  assert.equal(f.control('Find a channel or programme'),search,'the search element survives ticks');
  assert.equal(f.doc.activeElement,search);
  assert.equal(search.value,'hidden science');
  assert.equal(f.byClass('guide-overview-expanded').length,1);
+ assert.equal(f.scroller.scrollTop,720);
  assert(f.byClass('guide-programme-title').some(node=>node.textContent.includes('A new next episode')));
 });
 
@@ -89,25 +95,39 @@ test('Guide reattaches its retained overview after the shared host renders a ful
  const f=guideFixture();f.guide.render();
  const search=f.control('Find a channel or programme');
  search.value='Programme';search.oninput();
- f.root.children.at(-1).children.at(-1).onclick();
- f.root.children.at(-1).children.at(-1).onclick();
- assert.equal(f.byClass('guide-number')[0].textContent,'17');
- f.byClass('guide-overview-detail')[0].onclick();
+ const channel17=f.byClass('guide-overview-detail')[16];channel17.focus();channel17.onclick();
+ f.scroller.scrollTop=990;f.scroller.dispatchEvent(new Event('scroll'));
  const tools=f.root.children[0];
  f.root.replaceChildren(f.doc.createElement('section'));
+ f.scroller.scrollTop=0;f.scroller.dispatchEvent(new Event('scroll'));
  f.guide.render();
  assert.equal(f.root.children[0],tools,'the original overview controls are reattached');
  assert.equal(f.control('Find a channel or programme'),search);
  assert.equal(search.value,'Programme');
- assert.equal(f.byClass('guide-number')[0].textContent,'17','the browsed page survives schedule detail');
+ assert.equal(f.scroller.scrollTop,990,'the browsed scroll position survives schedule detail');
  assert.equal(f.byClass('guide-overview-expanded').length,1);
- assert.equal(f.root.children.at(-1).attributes['aria-label'],'Guide pages');
+ assert.equal(f.byClass('guide-overview-detail')[16].attributes['aria-expanded'],'true');
+ assert.equal(f.byClass('browse-pager').length,0);
  f.root.replaceChildren(f.doc.createElement('section'));
  f.guide.showCurrent();
- assert.equal(f.byClass('guide-number')[0].textContent,'09');
+ assert.equal(f.doc.activeElement.dataset.guideChannel,'channel-14');
  assert.equal(f.control('Find a channel or programme').value,'');
  assert.equal(f.byClass('guide-overview-expanded').length,1);
  assert.equal(f.byClass('guide-channel-name').filter(node=>node.textContent==='Channel 15').length,1);
+});
+
+test('Guide minute refreshes retain a focused inline action, expansion and native scroll position',t=>{
+ let now=Date.parse('2026-11-08T12:00:00Z');t.mock.method(Date,'now',()=>now);
+ const f=guideFixture();f.guide.render();
+ const detail=f.byClass('guide-overview-detail')[24];detail.focus();detail.onclick();
+ const action=f.byClass('guide-full-schedule')[0];action.focus();
+ f.scroller.scrollTop=1240;
+ now+=60000;f.guide.render();
+ assert.equal(f.scroller.scrollTop,1240);
+ assert.equal(f.doc.activeElement.dataset.guideChannel,'channel-24');
+ assert.equal(f.doc.activeElement.dataset.guideAction,'schedule');
+ assert.notEqual(f.doc.activeElement,action,'focus follows the equivalent replacement control');
+ assert.equal(f.byClass('guide-overview-detail')[24].attributes['aria-expanded'],'true');
 });
 
 test('Guide genre and schedule filters use stable channel keys without changing playback indices',()=>{

@@ -1,6 +1,5 @@
-import {test} from 'node:test';import assert from 'node:assert/strict';import {filterTitles,pageItems} from '../site/library-view.mjs';
+import {test} from 'node:test';import assert from 'node:assert/strict';import {filterTitles} from '../site/library-view.mjs';
 test('library search combines the title query and selected media type',()=>{const titles=[{title:'Café',kind:'show'},{title:'Cafe Society',kind:'film'},{title:'Music',kind:'collection'}];assert.deepEqual(filterTitles(titles,'cafe','show'),[titles[0]]);assert.deepEqual(filterTitles(titles,'','film'),[titles[1]]);assert.equal(filterTitles(titles,'no match').length,0);});
-test('large episode collections remain bounded until another page is requested',()=>{const episodes=Array.from({length:805},(_,i)=>i);assert.equal(pageItems(episodes).length,30);assert.equal(pageItems(episodes,60).length,60);assert.equal(pageItems(episodes,0).length,0);assert.equal(pageItems(episodes,900).length,805);});
 
 test('listed titles are searchable without exposing preview IDs to the player',async()=>{
  const {buildShowIndex,findProgramme}=await import('../site/show-library.mjs');
@@ -16,7 +15,7 @@ test('listed titles are searchable without exposing preview IDs to the player',a
  assert.equal(findProgramme(catalogue,'retro','preview'),null);
 });
 
-function libraryFixture(catalogue,onMovies=()=>{}) {
+function libraryFixture(catalogue,onMovies=()=>{},storage=new Map()) {
   class Element extends EventTarget {
     constructor(tag,doc) {
       super();this.tagName=tag;this.ownerDocument=doc;this.children=[];this.dataset={};this.attributes={};this.className='';this.scrollTop=0;this.textContent='';
@@ -27,11 +26,14 @@ function libraryFixture(catalogue,onMovies=()=>{}) {
     setAttribute(name,value) {this.attributes[name]=String(value);}
     focus() {this.ownerDocument.activeElement=this;}
     remove() {this.parentElement.children=this.parentElement.children.filter(child=>child!==this);}
+    getBoundingClientRect() {return this.ownerDocument.layout?.(this)||{top:0,bottom:0};}
+    querySelectorAll(selector) {return descendants(this).filter(node=>selector.startsWith('.')?node.className.split(' ').includes(selector.slice(1)):node.tagName===selector);}
     querySelector(selector) {
       return descendants(this).find(node=>selector.startsWith('.')?node.className.split(' ').includes(selector.slice(1)):node.tagName===selector)||null;
     }
   }
   const win=new EventTarget();win.innerHeight=800;win.location={hash:'#library'};
+  win.localStorage=storage instanceof Map?{getItem:key=>storage.get(key)||null,setItem:(key,value)=>storage.set(key,value)}:storage;
   const entries=[{state:{rewind:true,panel:'browse-overlay'},hash:'#library'}];
   win.history={
     get state(){return entries.at(-1)?.state;},
@@ -67,9 +69,10 @@ const libraryCatalogue={channels:[{key:'discovery',name:'Discovery',number:25,vi
 test('Library starts with Shows, renders catalogue artwork and keeps all other title types reachable',async()=>{
   const {root,view}=await libraryFixture(libraryCatalogue);
   assert.equal(view.kind,'programmes');
-  assert.equal(byClass(root,'library-title').length,12);
-  assert(byClass(root,'library-title').every(card=>card.querySelector('img')));
-  assert(root.querySelector('img').src.includes('archive0000'));
+  assert.equal(byClass(root,'library-title').length,16);
+  assert(byClass(root,'library-title').filter(card=>card.dataset.showKey.startsWith('show:archive')).every(card=>card.querySelector('img')));
+  assert(byClass(root,'library-title').find(card=>card.dataset.showKey==='show:archive 0').querySelector('img').src.includes('archive0000'));
+  assert(descendants(root).filter(node=>node.tagName==='img').every(image=>image.loading==='lazy'&&image.decoding==='async'));
   change(byLabel(root,'More title types'),'collection');
   assert.equal(view.kind,'collection');
   assert(byClass(root,'library-title').some(card=>card.dataset.showKey==='show:music collection'));
@@ -82,29 +85,27 @@ test('Library starts with Shows, renders catalogue artwork and keeps all other t
   assert.equal(byClass(root,'episode-row').length,0,'external previews never become playable episode rows');
 });
 
-test('returning to a show restores season, episode search, episode page, detail scroll and results position',async()=>{
+test('returning to a show restores season, episode search, continuous episode list, detail scroll and results position',async()=>{
   const {root,view}=await libraryFixture(libraryCatalogue);
-  change(byLabel(root,'Jump to results pages'),'1');
+  change(byLabel(root,'Library order'),'az');
   root.scrollTop=170;root.dispatchEvent(new Event('scroll'));
   view.openDetail('show:science club');
   change(byLabel(root,'Browse season'),'2');
   input(byLabel(root,'Find an episode'),'Science');
-  change(byLabel(root,'Jump to episode pages'),'1');
-  assert.equal(byClass(root,'episode-row').length,6);
+  assert.equal(byClass(root,'episode-row').length,18);
   root.scrollTop=215;root.dispatchEvent(new Event('scroll'));
   view.openIndex();
   assert.equal(view.selected,null);
-  assert.equal(byLabel(root,'Jump to results pages').value,'1');
+  assert.equal(byLabel(root,'Library order').value,'az');
   assert.equal(root.scrollTop,170);
   view.openDetail('show:science club');
   assert.equal(byLabel(root,'Browse season').value,'2');
   assert.equal(byLabel(root,'Find an episode').value,'Science');
-  assert.equal(byLabel(root,'Jump to episode pages').value,'1');
-  assert.equal(byClass(root,'episode-row').length,6);
+  assert.equal(byClass(root,'episode-row').length,18);
   assert.equal(root.scrollTop,215);
   view.resume();
   assert.equal(view.selected.key,'show:science club');
-  assert.equal(byLabel(root,'Jump to episode pages').value,'1');
+  assert.equal(byClass(root,'episode-row').length,18);
   assert.equal(root.scrollTop,215);
 });
 
@@ -204,23 +205,108 @@ test('default Shows search finds creator collections and the Films filter uses t
   assert.equal(moviesOpened,2,'the advanced Films choice routes through onMovies too');
 });
 
-test('the top Page control jumps large collections and stays synchronized with the bottom pager',async()=>{
+test('all 350 titles are continuously reachable, a mix is stable through filtering and Back, and no page controls remain',async()=>{
   const catalogue={channels:[{key:'archive',number:16,name:'Archive',videos:Array.from({length:350},(_,index)=>episode(`archive${String(index).padStart(4,'0')}`,`Catalogue ${index}`,1,1))}]};
   const {root,view}=await libraryFixture(catalogue);
-  const top=byLabel(root,'Jump to results page');
-  assert.equal(top.children.length,30);
-  top.focus();change(top,'28');
-  assert.equal(root.ownerDocument.activeElement,top,'jumping retains keyboard focus');
-  assert.equal(byLabel(root,'Jump to results pages').value,'28');
-  assert.equal(byClass(root,'library-title')[0].dataset.showKey,'show:catalogue 336');
+  const keys=()=>byClass(root,'library-title').map(card=>card.dataset.showKey);
+  assert.equal(keys().length,350);assert.equal(new Set(keys()).size,350);
+  assert.equal(byClass(root,'browse-pager').length,0);assert.equal(byClass(root,'library-page-jump').length,0);
+  assert.equal(byLabel(root,'Jump to results page'),undefined);assert.equal(byLabel(root,'A–Z index').hidden,true);
+  const original=keys();const mix=byClass(root,'library-mix')[0];
+  assert.equal(mix.textContent,'Mix Library');mix.focus();mix.onclick();
+  assert.equal(mix.textContent,'Mix again');assert.equal(root.ownerDocument.activeElement,mix);
+  const mixed=keys();assert.equal(mixed.length,350);assert.notDeepEqual(mixed,original);
+  input(byLabel(root,'Find a show or film'),'Catalogue 3');
+  assert.deepEqual(keys(),mixed.filter(key=>key.startsWith('show:catalogue 3')));
+  input(byLabel(root,'Find a show or film'),'');assert.deepEqual(keys(),mixed);
   root.scrollTop=180;root.dispatchEvent(new Event('scroll'));
   view.openDetail('show:catalogue 336');view.openIndex();
-  assert.equal(byLabel(root,'Jump to results page').value,'28');
-  assert.equal(root.scrollTop,180);
+  assert.deepEqual(keys(),mixed);assert.equal(root.scrollTop,180);
+  change(byLabel(root,'Library order'),'az');
+  assert.equal(byLabel(root,'A–Z index').hidden,false);
+  assert.deepEqual(keys().slice(0,3),['show:catalogue 0','show:catalogue 1','show:catalogue 2']);
+  change(byLabel(root,'Library order'),'mix');assert.deepEqual(keys(),mixed);
   input(byLabel(root,'Find a show or film'),'Catalogue349');
   assert.equal(byClass(root,'library-title').length,1);
-  assert.equal(byLabel(root,'Jump to results page').value,'0');
-  assert.equal(byClass(root,'library-page-jump')[0].hidden,true);
+});
+
+test('all 805 episodes remain chronological and season search never turns the list into a mixed playback queue',async()=>{
+  const episodes=Array.from({length:805},(_,index)=>episode(`full${String(index).padStart(7,'0')}`,'Long Running Show',Math.floor(index/161)+1,index%161+1));
+  const {root,view,played}=await libraryFixture({channels:[{key:'archive',number:16,name:'Archive',videos:[...episodes].reverse()}]});
+  view.openDetail('show:long running show');
+  const ids=()=>byClass(root,'episode-item').map(item=>item.dataset.episodeId);
+  assert.deepEqual(ids(),episodes.map(video=>video.id));
+  assert.equal(byClass(root,'browse-pager').length,0);assert.equal(byClass(root,'library-mix').length,0);
+  change(byLabel(root,'Browse season'),'3');
+  assert.deepEqual(ids(),episodes.slice(322,483).map(video=>video.id));
+  input(byLabel(root,'Find an episode'),'episode 05');
+  assert.deepEqual(ids(),[episodes[326].id]);
+  byClass(root,'episode-row')[0].onclick();
+  assert.equal(played[0].id,episodes[326].id);assert.equal(played[0].channelKey,'archive');
+  input(byLabel(root,'Find an episode'),'');change(byLabel(root,'Browse season'),'all');
+  assert.deepEqual(ids(),episodes.map(video=>video.id));
+});
+
+test('saved filters, stable Mixed order, results scroll and per-show season/search survive a new view instance',async()=>{
+  const storage=new Map();
+  const first=await libraryFixture(libraryCatalogue,()=>{},storage);
+  input(byLabel(first.root,'Find a show or film'),'Archive');
+  change(byLabel(first.root,'Browse by channel'),'discovery');
+  byClass(first.root,'library-mix')[0].onclick();
+  const keys=byClass(first.root,'library-title').map(card=>card.dataset.showKey);
+  first.root.scrollTop=321;first.root.dispatchEvent(new Event('scroll'));
+  first.view.openDetail('show:science club');
+  change(byLabel(first.root,'Browse season'),'2');input(byLabel(first.root,'Find an episode'),'Science');
+  first.root.scrollTop=246;first.root.dispatchEvent(new Event('scroll'));
+  const second=await libraryFixture(libraryCatalogue,()=>{},storage);
+  assert.equal(byLabel(second.root,'Find a show or film').value,'Archive');
+  assert.equal(byLabel(second.root,'Browse by channel').value,'discovery');
+  assert.equal(byLabel(second.root,'Library order').value,'mix');
+  assert.equal(byClass(second.root,'library-mix')[0].textContent,'Mix again');
+  assert.deepEqual(byClass(second.root,'library-title').map(card=>card.dataset.showKey),keys);
+  assert.equal(second.root.scrollTop,321);
+  second.view.openDetail('show:science club');
+  assert.equal(byLabel(second.root,'Browse season').value,'2');assert.equal(byLabel(second.root,'Find an episode').value,'Science');
+  assert.equal(second.root.scrollTop,246);
+});
+
+test('Back keeps the same visible title anchor when the responsive grid changes columns',async()=>{
+  const catalogue={channels:[{key:'archive',name:'Archive',videos:Array.from({length:120},(_,index)=>episode(`archive${String(index).padStart(4,'0')}`,`Catalogue ${index}`,1,1))}]};
+  const {root,view}=await libraryFixture(catalogue);let columns=4;
+  root.ownerDocument.layout=node=>{
+    if(node===root)return {top:100,bottom:700};
+    if(node.className.split(' ').includes('library-title')) {
+      const index=node.parentElement.children.indexOf(node),top=100+Math.floor(index/columns)*100-root.scrollTop;
+      return {top,bottom:top+100};
+    }
+    return {top:0,bottom:0};
+  };
+  root.scrollTop=2100;root.dispatchEvent(new Event('scroll'));
+  const anchor=byClass(root,'library-title')[84].dataset.showKey;
+  view.openDetail(anchor);columns=2;view.openIndex();
+  assert.equal(root.scrollTop,4200);
+  assert.equal(byClass(root,'library-title').find(card=>card.dataset.showKey===anchor).getBoundingClientRect().top,100);
+});
+
+test('playing and hiding Library preserve the retained detail and its position for return from the player',async()=>{
+  const {root,win,view,played}=await libraryFixture(libraryCatalogue);
+  view.openDetail('show:science club');change(byLabel(root,'Browse season'),'2');
+  root.scrollTop=215;root.dispatchEvent(new Event('scroll'));
+  byClass(root,'episode-row')[5].onclick();assert.equal(played[0].id,scienceEpisodes[23].id);
+  root.getClientRects=()=>[];root.scrollTop=0;root.dispatchEvent(new Event('scroll'));win.dispatchEvent(new Event('pagehide'));
+  root.getClientRects=()=>[{}];view.resume();
+  assert.equal(view.selected.key,'show:science club');assert.equal(byLabel(root,'Browse season').value,'2');
+  assert.equal(root.scrollTop,215);assert.equal(byClass(root,'episode-row').length,18);
+});
+
+test('malformed or blocked browse storage cannot prevent Library discovery or mixing',async()=>{
+  const bad=[{getItem:()=>'{',setItem(){}},{getItem:()=>JSON.stringify({filters:[],seed:[],order:'wrong',indexPosition:{scroll:'bad'},titles:{}}),setItem(){}},{getItem(){throw Error('blocked')},setItem(){throw Error('blocked')}}];
+  for(const storage of bad) {
+    const {root}=await libraryFixture(libraryCatalogue,()=>{},storage);
+    assert.equal(byClass(root,'library-title').length,16);
+    assert.equal(byLabel(root,'Library order').value,'mix');byClass(root,'library-mix')[0].onclick();
+    assert.equal(byClass(root,'library-title').length,16);
+  }
 });
 
 test('main Shows and Films together expose playable source records from every real channel',async()=>{
@@ -242,4 +328,8 @@ test('main Shows and Films together expose playable source records from every re
   assert.equal(new Set(programmes.map(show=>show.key)).size,programmes.length,'each title has one browse result');
   assert.equal(browseTitles(index,{kind:'programmes',query:'GMM'})[0].episodes.length,89);
   assert.equal(browseTitles(index,{kind:'programmes',query:'FilthyFrank'})[0].episodes.length,66);
+  const {root}=await libraryFixture(catalogue);
+  const visible=byClass(root,'library-title').map(card=>card.dataset.showKey);
+  assert.deepEqual(new Set(visible),new Set(programmes.map(show=>show.key)),'the actual Library shows every playable non-film title without a shortlist');
+  assert.equal(visible.length,new Set(visible).size);
 });

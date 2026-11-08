@@ -1,13 +1,12 @@
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
-import {pageSlice} from './browse-tools.mjs?v=browse3';
 import {CHANNEL_SECTIONS} from './channel-sections.mjs?v=liquid1';
 import {normalise} from './show-library.mjs?v=archive2';
 
-export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,onDetail,onWatch,onStart}) {
+export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel=()=> 'This channel',getNow,getRows,onDetail,onWatch,onStart}) {
   const doc=root.ownerDocument;
   const clock=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Gibraltar',hour:'2-digit',minute:'2-digit'});
-  const size=()=>doc.defaultView?.innerHeight<650?6:8;
-  let page=Math.floor(getCurrent()/size());
+  const win=doc.defaultView,scroller=root.parentElement||root;
+  let scrollTop=scroller.scrollTop||0;
   let query='';
   let genre='all';
   let mode='all';
@@ -37,7 +36,7 @@ export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,
       node.append(option);
     }
     node.value='all';
-    node.onchange=()=>{action(node.value);page=0;render(true);};
+    node.onchange=()=>{action(node.value);render(true);};
     return node;
   }
 
@@ -62,7 +61,7 @@ export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,
   search.type='search';
   search.placeholder='Find a channel or programme';
   search.setAttribute('aria-label','Find a channel or programme');
-  search.oninput=()=>{query=search.value;page=0;render(true);};
+  search.oninput=()=>{query=search.value;render(true);};
   const genres=CHANNEL_SECTIONS.filter(section=>getChannels().some(channel=>section.keys.includes(channel.key)));
   const genreFilter=select('Browse channel genre',[['all','All genres'],...genres.map(section=>[section.name,section.name])],value=>{genre=value;},'guide-genre-filter');
   const modeFilter=select('Channel schedule type',[['all','All channels'],['fixed','Scheduled'],['shuffle','Mixes']],value=>{mode=value;},'guide-mode-filter');
@@ -70,9 +69,8 @@ export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,
   const count=el('p','','guide-overview-count');
   count.setAttribute('aria-live','polite');
   const list=el('div','','guide-overview-list');
-  const navigation=el('nav','','browse-pager');
-  navigation.setAttribute('aria-label','Guide pages');
-  root.replaceChildren(tools,count,list,navigation);
+  root.replaceChildren(tools,count,list);
+  scroller.addEventListener?.('scroll',()=>{if(Array.from(root.children).includes(list))scrollTop=scroller.scrollTop;},{passive:true});
 
   function programme(slot,label,className) {
     const node=el('div','',`guide-programme ${className}`);
@@ -83,8 +81,9 @@ export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,
   }
 
   function render(force=false) {
-    if(!Array.from(root.children).includes(list)) {
-      root.replaceChildren(tools,count,list,navigation);
+    if(Array.from(root.children).includes(list))scrollTop=scroller.scrollTop;
+    else {
+      root.replaceChildren(tools,count,list);
       force=true;
     }
     const channels=getChannels();
@@ -94,7 +93,7 @@ export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,
       const next=current?getRows(index).slice(current.index+1).find(slot=>slot.video.kind!=='advert'):null;
       return {channel,index,key:channelKey(channel,index),current,next};
     });
-    const signature=JSON.stringify([entries.map(entry=>[entry.key,entry.current?.slot.video.id,entry.current?.slot.video.title,entry.current?.slot.start,entry.current?.slot.end,entry.next?.video.id,entry.next?.video.title,entry.next?.start,entry.next?.end]),getCurrent(),Math.floor(now/60000),page,query,genre,mode,expanded,size()]);
+    const signature=JSON.stringify([entries.map(entry=>[entry.key,entry.current?.slot.video.id,entry.current?.slot.video.title,entry.current?.slot.start,entry.current?.slot.end,entry.next?.video.id,entry.next?.video.title,entry.next?.start,entry.next?.end]),getCurrent(),getCurrentLabel(),Math.floor(now/60000),query,genre,mode,expanded]);
     if(!force&&stamp===signature)return;
     stamp=signature;
     search.value=query;
@@ -107,13 +106,11 @@ export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,
       (mode==='all'||(mode==='shuffle'?channel.mode==='shuffle':channel.mode!=='shuffle'))&&
       (!term||normalise([channel.number??index+1,channel.name,current?.slot.video.series,current?.slot.video.title,programmeLabel(current?.slot.video)].join(' ')).includes(term))
     );
-    const state=pageSlice(filtered,page,size());
-    page=state.page;
-    const countLabel=`${state.total} ${state.total===1?'channel':'channels'} · ${state.total?page*size()+1:0}–${Math.min(state.total,(page+1)*size())}`;
+    const countLabel=`${filtered.length} ${filtered.length===1?'channel':'channels'}`;
     if(count.textContent!==countLabel)count.textContent=countLabel;
     const active=doc.activeElement?.dataset;
     list.replaceChildren();
-    for(const entry of state.items) {
+    for(const entry of filtered) {
       const {channel,index,key,current,next}=entry;
       const slot=current?.slot;
       const open=expanded===key;
@@ -132,7 +129,7 @@ export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,
         el('span',String(channel.number??index+1).padStart(2,'0'),'guide-number'),
         el('strong',channel.name,'guide-channel-name'),
         el('span',programmeLabel(slot?.video),'guide-current-programme'),
-        el('small',[index===getCurrent()?'This channel':channel.mode==='shuffle'?'Mix':'Live',remaining!==null?`${remaining} min left`:''].filter(Boolean).join(' · '),'guide-row-meta'),
+        el('small',[index===getCurrent()?getCurrentLabel():channel.mode==='shuffle'?'Mix':'Live',remaining!==null?`${remaining} min left`:''].filter(Boolean).join(' · '),'guide-row-meta'),
         el('span',open?'−':'+','guide-expand-mark')
       );
       const progress=el('progress','','guide-progress');
@@ -166,26 +163,27 @@ export function createGuideOverview(root,{getChannels,getCurrent,getNow,getRows,
       }
       list.append(row);
     }
-    if(!state.total)list.append(el('p','No channels match. Try another title or clear the filters.','guide-empty'),button('Clear filters',()=>{query='';genre='all';mode='all';page=0;render(true);}));
+    if(!filtered.length)list.append(el('p','No channels match. Try another title or clear the filters.','guide-empty'),button('Clear filters',()=>{query='';genre='all';mode='all';render(true);}));
     if(active?.guideChannel) {
       [...list.querySelectorAll('button')].find(node=>node.dataset.guideChannel===active.guideChannel&&node.dataset.guideAction===active.guideAction)?.focus({preventScroll:true});
     }
-    const previous=button('← Previous',()=>{page--;render(true);(root.parentElement||root).scrollTop=0;});
-    const following=button('Next →',()=>{page++;render(true);(root.parentElement||root).scrollTop=0;});
-    previous.disabled=page===0;
-    following.disabled=page===state.pages-1;
-    navigation.hidden=state.pages===1;
-    navigation.replaceChildren(previous,el('span',`${page+1} / ${state.pages}`),following);
+    scroller.scrollTop=scrollTop;
   }
 
   function showCurrent() {
     query='';
     genre='all';
     mode='all';
-    page=Math.floor(getCurrent()/size());
     const channel=getChannels()[getCurrent()];
     expanded=channel?channelKey(channel,getCurrent()):null;
     render(true);
+    const reveal=()=>{
+      if(root.closest?.('[data-tv-page]')?.hidden)return;
+      const row=[...list.querySelectorAll('button')].find(node=>node.dataset.guideChannel===expanded&&node.dataset.guideAction==='expand');
+      row?.focus({preventScroll:true});
+      row?.scrollIntoView?.({block:'center',behavior:win?.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    };
+    if(win?.requestAnimationFrame)win.requestAnimationFrame(reveal);else reveal();
   }
 
   return {render,showCurrent};

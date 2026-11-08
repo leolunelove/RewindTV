@@ -2,6 +2,15 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-08 — A continuous Library and a place to watch
+
+- Shows and films open a Library watching page with the same media engine: seeking, volume, pause, episode stepping, an ordered episode list and original source links. Back to browsing preserves the collection context.
+- Live TV keeps its own last channel. Returning to Watch rejoins that channel; Library choices and end-of-collection states stay separate from the broadcast.
+- Guide, title results, film results and episode lists scroll continuously. Removed browse page selectors and title shortlists while retaining the full catalogue, filters and source collections.
+- Library defaults to a stable Mixed order. Mix Library / Mix again changes the title order; A–Z sorts it. Filters and Back retain the mix, and episodes stay chronological. Covers load lazily.
+- Shows preserve searches, filters, seasons and scroll anchors across browsing and playback. Browse preferences are saved locally when storage is available.
+- No catalogue, channel-number, fixed-schedule, advert or private-manager data changes. Release playthrough and playback evidence are recorded separately; physical iPhone testing remains outstanding.
+
 ## 2026-11-08 — Safari and small-screen refinement
 
 - Mobile search and select controls use 16px text to avoid iPhone focus zoom. Landscape layouts account for both notch edges, while browsing controls respond to the visible keyboard viewport.

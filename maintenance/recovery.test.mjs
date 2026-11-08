@@ -1,7 +1,7 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import {readFileSync} from 'node:fs';
 import {findFilmAlternative} from '../site/playback-alternatives.mjs';
 const app=readFileSync(new URL('../site/app.js',import.meta.url),'utf8');
-function stateFixture(){const calls=[],player={getVideoData:()=>({video_id:'current'}),pauseVideo:()=>calls.push('pause')};const c={tracePlayer(){},player,power:true,active:{video:{id:'current',provider:'youtube'}},playbackIntent:true,channelLoadTimer:0,paused:false,setStatus:msg=>calls.push(msg),watchPlayback:()=>calls.push('watch'),stopWatch:()=>calls.push('stop'),advance:()=>calls.push('advance')};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function onPlayerStateChange'),app.indexOf('  function onPlayerAutoplayBlocked')),c);return {c,calls,player};}
+function stateFixture(){const calls=[],player={getVideoData:()=>({video_id:'current'}),pauseVideo:()=>calls.push('pause')};const c={libraryContext:false,tracePlayer(){},player,power:true,active:{video:{id:'current',provider:'youtube'}},playbackIntent:true,channelLoadTimer:0,paused:false,setStatus:msg=>calls.push(msg),watchPlayback:()=>calls.push('watch'),stopWatch:()=>calls.push('stop'),advance:()=>calls.push('advance')};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function onPlayerStateChange'),app.indexOf('  function onPlayerAutoplayBlocked')),c);return {c,calls,player};}
 test('late pause from a reused YouTube player cannot cancel the selected channel',()=>{const f=stateFixture();f.c.onPlayerStateChange({target:f.player,data:2});assert.equal(f.c.paused,false);assert.deepEqual(f.calls,['watch']);});
 test('user pause remains a deliberate pause rather than an automatic retry',()=>{const f=stateFixture();f.c.playbackIntent=false;f.c.onPlayerStateChange({target:f.player,data:2});assert.equal(f.c.paused,true);assert.equal(f.calls[0],'stop');});
 test('buffering after playback arms recovery again',()=>{const f=stateFixture();f.c.onPlayerStateChange({target:f.player,data:3});assert.equal(f.calls.at(-1),'watch');});
@@ -120,7 +120,7 @@ test('a cold Archive watchdog expires harmlessly after a newer tune generation',
 function unavailableFixture(original,{others=[],extraChannels=[],queue=[original],elapsed=0}={}){
  const events=[],notices=[],saved=new Map(),location={href:'https://tv.leolune.fun/?release=test&channel=cinema&episode='+original.id+'#watch'};
  const channels=[{key:'cinema',name:'Cinema',mode:'scheduled',videos:[original,...others]},...extraChannels];
- const c={Date:{now:()=>1000000},URL,location,volume:75,history:{state:{view:'watch'},replaceState(state,unused,url){location.href=String(url);events.push('persist');}},localStorage:{setItem:(key,value)=>saved.set(key,value)},
+ const c={libraryContext:false,lastLiveChannelKey:'cinema',Date:{now:()=>1000000},URL,location,volume:75,history:{state:{view:'watch'},replaceState(state,unused,url){location.href=String(url);events.push('persist');}},localStorage:{setItem:(key,value)=>saved.set(key,value)},
   power:true,active:{mode:'ondemand',video:original,offset:0},loadGeneration:0,recoveryChain:0,playbackIntent:true,failed:new Set(),root:{classList:{remove(){}}},
   stopWatch(){},currentPlayer:()=>({getCurrentTime:()=>elapsed,pauseVideo:()=>events.push('pause')}),rememberFailure(id){c.failed.add(id);},
   requestedQueue:queue,requestedIndex:0,globallyRestricted:video=>!!video.regionRestriction,channels,catalogue:{channels},findFilmAlternative,channel:0,

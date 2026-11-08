@@ -17,11 +17,12 @@
 
 - **Find your channel.** Surf 30 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music. Spanish and Mandarin channels, Discovery Club and Kitchen TV broaden the mix. The channel catalogue contains 5,219 source records, including retained exclusions.
 - **Drop into something.** The first ten channels follow a shared weekly timetable. The remaining channels shuffle their collections, giving unseen programmes priority.
-- **Browse without leaving the picture.** Watch, Guide and Library live in a desktop rail and phone tabs. The same picture moves into a mini-player while you browse, with pause, mute and a route back to Watch.
-- **Find a show or creator.** Library Shows includes TV episodes, creator videos, classic web collections and music. Search, filter and jump pages from above the covers. Show details remember the selected season, episode search and page. Filters also reach listed titles and source collections such as Biochao’s Vault.
-- **Make it a movie night.** Open Films under Library to browse artwork by genre or search. **Pick for me** spins the film reel, avoids recent picks and reveals a film before you choose **Watch from start**.
+- **Browse without leaving the picture.** Watch, Guide and Library live in a desktop rail and phone tabs. The same picture moves into a mini-player while you browse, with pause, mute and a route back to the programme.
+- **Find a show or creator.** Library Shows includes TV episodes, creator videos, classic web collections and music. Scroll every matching title, search or filter the collection. **Mix Library** changes the discovery order; **A–Z** offers alphabet browsing. Show details keep every matching episode in chronological order and remember your season, search and position. Filters also reach listed titles and source collections such as Biochao’s Vault.
+- **Watch your choice.** Starting a show or film opens a dedicated Library watching page with seeking, volume, episode controls and the original source. **Back to browsing** keeps your place. Watch returns to your last live channel; Library playback does not replace that saved channel.
+- **Make it a movie night.** Open Films under Library to scroll the full matching collection, mix its order or browse A–Z, by genre or search. **Pick for me** spins the film reel, avoids recent picks and reveals a film before you choose **Watch from start**.
 - **Surprise yourself.** **Surprise me** previews a random programme from **This channel** or **Everywhere**. Keep watching while you pick again. **Watch from start** begins the selection, and **Return to live TV** rejoins the broadcast.
-- **See what’s on.** Guide has numbered rows, genre filters and search across channel names and current programmes. Expand a row for Now, Next, **Watch live**, **From start** and **Full schedule**. Info shows the episode, runtime, progress and upload source.
+- **See what’s on.** Guide has one continuous numbered lineup, genre filters and search across channel names and current programmes. Expand a row for Now, Next, **Watch live**, **From start** and **Full schedule**. Info shows the episode, runtime, progress and upload source.
 - **Make it feel like TV.** The picture keeps its shape while the controls fade during watching. CRT scanlines, colour bleed, curvature and switching sounds are adjustable in Settings. Your last channel, volume, effects and viewing history stay in this browser.
 
 ## Get started
@@ -29,14 +30,14 @@
 1. [Open Watch](https://tv.leolune.fun/#watch). The TV tunes into your last channel and starts muted. Choose **Unmute** for sound, or **Play** if the browser asks for a playback gesture.
 2. While watching, use **← / →**, the channel buttons or a channel number to tune. Pointer, touch and keyboard interaction bring the controls back. **I** opens programme Info, where channel stepping also works.
 3. Open **Guide** from the rail or bottom tabs, or press **C** or **G**. Search the full lineup, expand a numbered row and choose live playback or its full schedule.
-4. Open **Library** for Shows and Films. Shows includes creator and music collections alongside TV. Use the top **Page** control for large result sets, then choose a title and episode. Films opens Movie Night and its selection reel.
-5. Use the mini-player to pause, mute or return to Watch while browsing. After starting an episode or film, choose **Return to live TV** to rejoin the channel.
+4. Open **Library** for Shows and Films. Scroll the matching collection, or search and filter it. **Mix Library** / **Mix again** changes the title order; **A–Z** sorts it. Choose a title and episode, or use Movie Night’s film reel.
+5. Library choices open their own watching page. Use its timeline, previous/next episode buttons, pause and volume controls. **Back to browsing** restores your filters and position. The mini-player returns to the current programme while you browse; **Watch** or **Return to live TV** rejoins your saved live channel.
 
 ## Your TV
 
 The first ten channels get a new timetable every Tuesday at **00:00 Europe/Gibraltar**. Shuffle channels use a changing queue instead of fixed broadcast times. Short adverts sit between programmes.
 
-Preferences and viewing history are saved on this device. There is no account or cross-device sync; clearing the browser’s site data resets your set.
+Preferences, viewing history and Library browse order, filters and positions are saved on this device. Live TV remembers its channel separately from the current Library choice. There is no account or cross-device sync; clearing the browser’s site data resets your set.
 
 Playback comes from third-party YouTube embeds and direct archive streams. Official and fan/archive uploads are labelled. Older upload dates help assess longevity, but availability, region restrictions and removal remain controlled by the source. The player reconnects automatically after initialization failures and tries another upload when a source cannot play. A browser autoplay restriction may still require pressing Play. Public availability does not make a programme public domain.
 
@@ -46,24 +47,24 @@ One foreground player is the default for reliability and lower memory use. **Pre
 
 | Key | Action |
 | --- | --- |
-| ← / → | Previous / next channel on Watch and inside Info |
-| ↑ / ↓ | Volume up / down on Watch and inside Info |
-| Space / K | Play / pause |
+| ← / → | Previous / next channel on live Watch; seek back / forward ten seconds during Library playback |
+| ↑ / ↓ | Volume up / down while watching |
+| Space / K | Play / pause while watching |
 | M | Mute / restore sound, including while browsing |
 | I | Open / close programme Info while watching |
 | C / G | Open Guide |
 | S | Open / close Guide |
 | B | Open / close Library |
 | N | Open / close Movie Night under Library Films |
-| R | Open Surprise me |
+| R | Open Surprise me for live TV |
 | / | Open Library search |
 | F | Toggle fullscreen |
 | P | Power on / off |
 | Channel number, then Enter | Tune to a channel; a short pause also confirms the number |
-| Esc | Close a utility, return to the previous browsing level or cancel a channel number |
+| Esc | Close a utility, return from the Library player to browsing, go back a browsing level or cancel a channel number |
 | ? | Show keyboard help |
 
-Playback shortcuts apply on Watch and inside Info. Guide and Library leave arrow keys, Space and Enter to scrolling and focused controls. Typing into a search field or choosing a filter keeps the keyboard within that control.
+Playback shortcuts apply while watching, including the Library player and Info. Guide and Library browse lists leave arrow keys, Space and Enter to scrolling and focused controls. Typing into a search field or choosing a filter keeps the keyboard within that control.
 
 ## Run locally
 

@@ -1,15 +1,12 @@
 import {showListings} from './show-listings.mjs?v=vault1';
 import {buildShowIndex,normalise} from './show-library.mjs?v=liquid1';
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
-import {browseTitles,pageSlice} from './browse-tools.mjs?v=archive2';
+import {browseTitles} from './browse-tools.mjs?v=archive2';
 import {movieArtwork} from './movie-night.mjs?v=liquid1';
+import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
 
 export function filterTitles(shows,query='',kind='all') {
   return browseTitles(shows,{query,kind});
-}
-
-export function pageItems(items,limit=30) {
-  return items.slice(0,Math.max(0,limit));
 }
 
 export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
@@ -18,13 +15,37 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
   const win=doc.defaultView;
   const titleStates=new Map();
   const initialFilters=()=>({query:'',kind:'programmes',letter:'all',channel:'all',language:'all'});
+  const storageKey='rewind-library-browse-v1';
+  let saved={};
+  try {
+    const value=JSON.parse(win?.localStorage?.getItem(storageKey)||'null');
+    if(value&&typeof value==='object'&&!Array.isArray(value))saved=value;
+  }catch{}
   let filters=initialFilters();
-  let page=0;
+  if(saved.filters&&typeof saved.filters==='object') {
+    const previous=saved.filters;
+    if(typeof previous.query==='string')filters.query=previous.query.slice(0,300);
+    if(['programmes','show','film','all','collection','listed'].includes(previous.kind))filters.kind=previous.kind;
+    if(['all','#','other',...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].includes(previous.letter))filters.letter=previous.letter;
+    if(catalogue.channels.some(channel=>channel.key===previous.channel))filters.channel=previous.channel;
+    if(previous.language==='all'||shows.some(show=>show.language===previous.language)||previous.language==='English')filters.language=previous.language;
+  }
+  let order=saved.order==='az'?'az':'mix';
+  let seed=typeof saved.seed==='string'&&saved.seed.length<=80?saved.seed:createLibrarySeed();
+  let mixedAgain=saved.mixedAgain===true;
+  if(order!=='az')filters.letter='all';
   let selected=null;
   let lastKey=null;
-  let filtersOpen=false;
-  let indexScroll=0;
-  const pageSize=()=>win?.innerHeight<650?8:12;
+  let filtersOpen=saved.filtersOpen===true;
+  const position=value=>({scroll:Number.isFinite(value?.scroll)?Math.max(0,value.scroll):0,anchor:value?.anchor&&typeof value.anchor.key==='string'&&Number.isFinite(value.anchor.offset)?value.anchor:null});
+  let indexPosition=position(saved.indexPosition);
+  let persistTimer=0;
+  if(saved.titles&&typeof saved.titles==='object') {
+    for(const show of shows) {
+      const state=saved.titles[show.key];
+      if(state&&typeof state==='object')titleStates.set(show.key,{query:typeof state.query==='string'?state.query.slice(0,300):'',season:typeof state.season==='string'?state.season:'all',...position(state)});
+    }
+  }
 
   function el(tag,text='',className='') {
     const node=doc.createElement(tag);
@@ -83,39 +104,63 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
       frame.append(image);
     }else {
       frame.classList.add('is-empty');
-      frame.append(el('span',show.kind==='collection'?'Collection':'Listed title','library-cover-label'));
+      frame.append(el('span',show.episodes.length?'No artwork':show.kind==='collection'?'Collection':'Listed title','library-cover-label'));
     }
     return frame;
   }
 
-  function pager(state,change,label='Results pages') {
-    const nav=el('nav','','browse-pager');
-    nav.setAttribute('aria-label',label);
-    nav.hidden=state.pages===1;
-    const previous=button('← Previous',()=>change(state.page-1));
-    const next=button('Next →',()=>change(state.page+1));
-    previous.disabled=state.page===0;
-    next.disabled=state.page===state.pages-1;
-    const jump=select('Jump to '+label.toLowerCase(),
-      Array.from({length:state.pages},(_,index)=>[String(index),`${index+1} / ${state.pages}`]),
-      String(state.page),value=>change(Number(value)));
-    nav.append(previous,jump,next);
-    return nav;
-  }
-
   function play(video) {
+    saveScroll();
+    persist(true);
     const channel=catalogue.channels.find(channel=>channel.key===filters.channel);
     onPlay(channel?.videos.some(item=>item.id===video.id)?{...video,channelKey:channel.key}:video);
   }
 
   function titleState(key) {
-    if(!titleStates.has(key))titleStates.set(key,{query:'',season:'all',page:0,scroll:0});
+    if(!titleStates.has(key))titleStates.set(key,{query:'',season:'all',scroll:0,anchor:null});
     return titleStates.get(key);
   }
 
-  function saveScroll() {
-    if(selected)titleState(selected.key).scroll=root.scrollTop;
-    else indexScroll=root.scrollTop;
+  function captureAnchor() {
+    if(!root.getBoundingClientRect)return null;
+    const top=root.getBoundingClientRect().top;
+    const selector=selected?'.episode-item':'.library-title';
+    for(const node of root.querySelectorAll(selector)) {
+      const bounds=node.getBoundingClientRect();
+      if(bounds.bottom>top)return {key:selected?node.dataset.episodeId:node.dataset.showKey,offset:bounds.top-top};
+    }
+    return null;
+  }
+
+  function saveScroll(capture=true) {
+    if(root.getClientRects&&!root.getClientRects().length)return;
+    const state=selected?titleState(selected.key):indexPosition;
+    state.scroll=root.scrollTop;
+    if(capture)state.anchor=captureAnchor();
+    persist();
+  }
+
+  function restorePosition(state) {
+    root.scrollTop=state.scroll;
+    if(!state.anchor||!root.getBoundingClientRect)return;
+    const selector=selected?'.episode-item':'.library-title';
+    const node=[...root.querySelectorAll(selector)].find(node=>(selected?node.dataset.episodeId:node.dataset.showKey)===state.anchor.key);
+    if(node)root.scrollTop=Math.max(0,root.scrollTop+node.getBoundingClientRect().top-root.getBoundingClientRect().top-state.anchor.offset);
+  }
+
+  function persist(immediate=false) {
+    const write=()=>{
+      persistTimer=0;
+      const state=selected?titleState(selected.key):indexPosition;
+      if(!root.getClientRects||root.getClientRects().length) {
+        state.scroll=root.scrollTop;
+        state.anchor=captureAnchor();
+      }
+      try {win?.localStorage?.setItem(storageKey,JSON.stringify({version:1,filters,order,seed,mixedAgain,filtersOpen,indexPosition,titles:Object.fromEntries(titleStates)}));}catch{}
+    };
+    if(persistTimer)win.clearTimeout(persistTimer);
+    if(immediate||!win?.setTimeout)write();
+    else persistTimer=win.setTimeout(write,200);
   }
 
   function collectionControl() {
@@ -138,7 +183,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
 
   function resetFilters() {
     filters=initialFilters();
-    page=0;
+    indexPosition={scroll:0,anchor:null};
     renderIndex();
   }
 
@@ -156,51 +201,49 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
     const advanced=el('details','','library-advanced');
     const summary=el('summary','Filters');
     const jumps=el('div','','browse-jumps');
-    const changeFilter=(key,value)=>{filters[key]=value;page=0;draw();};
+    const changeFilter=(key,value)=>{filters[key]=value;indexPosition={scroll:0,anchor:null};draw();root.scrollTop=0;persist();};
+    const alphabet=select('A–Z index',[['all','All A–Z'],['#','0–9'],...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter=>[letter,letter]),['other','中文 / Other']],filters.letter,value=>changeFilter('letter',value),'library-alphabet');
     jumps.append(
-      select('A–Z index',[['all','All A–Z'],['#','0–9'],...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter=>[letter,letter]),['other','中文 / Other']],filters.letter,value=>changeFilter('letter',value)),
+      alphabet,
       select('Browse by channel',[['all','All channels'],...catalogue.channels.map(channel=>[channel.key,channel.name])],filters.channel,value=>changeFilter('channel',value)),
       select('Audio language',[['all','All languages'],...[...new Set(['English',...shows.map(show=>show.language).filter(Boolean)])].map(language=>[language,language])],filters.language,value=>changeFilter('language',value)),
       select('More title types',[['programmes','All shows & videos'],['show','TV episodes'],['collection','Collections'],['listed','Listed only'],['all','All titles'],['film','Films']],filters.kind,value=>setKind(value,{notify:value==='film'}))
     );
     advanced.open=filtersOpen;
-    advanced.ontoggle=()=>{filtersOpen=advanced.open;};
+    advanced.ontoggle=()=>{filtersOpen=advanced.open;persist();};
     advanced.append(summary,jumps);
 
     const count=el('p','','library-count');
     count.setAttribute('aria-live','polite');
     const reset=button('Clear filters',resetFilters,'library-clear');
     const resultHead=el('div','','library-result-head');
-    const pageJump=el('label','Page','library-page-jump');
-    const topJump=select('Jump to results page',[],String(page),value=>{
-      page=Number(value);
-      draw();
-      root.scrollTop=0;
-    });
-    pageJump.append(topJump);
+    const ordering=el('div','','library-order-controls');
+    const orderSelect=select('Library order',[['mix','Mixed'],['az','A–Z']],order,value=>{
+      order=value;
+      if(order!=='az')filters.letter='all';
+      alphabet.value=filters.letter;indexPosition={scroll:0,anchor:null};draw();root.scrollTop=0;persist();
+    },'library-order');
+    const mix=button(mixedAgain?'Mix again':'Mix Library',()=>{
+      seed=createLibrarySeed(seed);mixedAgain=true;order='mix';filters.letter='all';
+      alphabet.value='all';orderSelect.value=order;indexPosition={scroll:0,anchor:null};
+      draw();root.scrollTop=0;persist(true);
+    },'library-mix');
+    ordering.append(orderSelect,mix);
     const grid=el('div','','library-grid rwd-library-grid');
-    const navigation=el('div');
-    resultHead.append(count,pageJump,reset);
-    root.append(tools,advanced,resultHead,grid,navigation);
+    resultHead.append(count,ordering,reset);
+    root.append(tools,advanced,resultHead,grid);
 
     function draw() {
       const candidates=filters.kind==='show'||filters.kind==='film'?shows.filter(show=>show.episodes.length):shows;
-      const state=pageSlice(browseTitles(candidates,filters),page,pageSize());
-      page=state.page;
-      pageJump.hidden=state.pages===1;
-      topJump.replaceChildren();
-      for(let index=0;index<state.pages;index++) {
-        const option=el('option',`${index+1} / ${state.pages}`);
-        option.value=String(index);
-        topJump.append(option);
-      }
-      topJump.value=String(page);
-      count.textContent=`${state.total} ${state.total===1?'title':'titles'} · ${state.total?state.page*pageSize()+1:0}–${Math.min(state.total,(state.page+1)*pageSize())}`;
+      const results=orderLibrary(browseTitles(candidates,filters),{mode:order,seed});
+      alphabet.hidden=order!=='az';
+      mix.textContent=mixedAgain?'Mix again':'Mix Library';
+      count.textContent=`${results.length} ${results.length===1?'title':'titles'}`;
       const active=['letter','channel','language'].filter(key=>filters[key]!=='all').length+(filters.kind==='programmes'||filters.kind==='film'?0:1);
       summary.textContent=active?`Filters · ${active} active`:'Filters';
       reset.hidden=!active&&!filters.query;
       grid.replaceChildren();
-      for(const show of state.items) {
+      for(const show of results) {
         const card=button('',()=>openDetail(show.key),'library-title rwd-title-card');
         card.dataset.showKey=show.key;
         card.setAttribute('aria-label',`Browse ${show.title}${show.language?' · '+show.language:''}`);
@@ -210,12 +253,13 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
         card.append(artwork(show),copy);
         grid.append(card);
       }
-      if(!state.total)grid.append(el('p','Nothing matches that title. Try another name or change a filter.','library-empty'),button('Reset filters',resetFilters));
-      navigation.replaceChildren(pager(state,next=>{page=next;draw();root.scrollTop=0;}));
+      if(!results.length)grid.append(el('p','Nothing matches that title. Try another name or change a filter.','library-empty'),button('Reset filters',resetFilters));
     }
-    input.oninput=()=>{filters.query=input.value;page=0;draw();};
+    input.oninput=()=>{filters.query=input.value;indexPosition={scroll:0,anchor:null};draw();root.scrollTop=0;persist();};
     draw();
-    root.scrollTop=restore?indexScroll:0;
+    if(restore)restorePosition(indexPosition);
+    else root.scrollTop=0;
+    persist();
     if(restore)[...grid.children].find(card=>card.dataset.showKey===lastKey)?.focus({preventScroll:true});
   }
 
@@ -281,7 +325,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
       }
     }
     if(!show.episodes.length) {
-      root.scrollTop=state.scroll;
+      restorePosition(state);
       return;
     }
 
@@ -291,7 +335,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
       const options=[['all','All seasons'],...seasons.map(season=>[String(season),`Season ${season}`])];
       if(show.episodes.some(video=>!video.seasonNumber))options.push(['unknown','Other episodes']);
       if(!options.some(([value])=>value===state.season))state.season='all';
-      controls.append(select('Browse season',options,state.season,value=>{state.season=value;state.page=0;draw();},'library-season-filter'));
+      controls.append(select('Browse season',options,state.season,value=>{state.season=value;state.anchor=null;draw();saveScroll();},'library-season-filter'));
     }
     const search=el('input','','episode-search');
     search.type='search';
@@ -299,35 +343,37 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
     search.setAttribute('aria-label','Find an episode');
     search.value=state.query;
     search.hidden=show.episodes.length<=12;
-    search.oninput=()=>{state.query=search.value;state.page=0;draw();};
+    search.oninput=()=>{state.query=search.value;state.anchor=null;draw();saveScroll();};
     controls.append(search);
     const list=el('div','','episode-list rwd-episode-list');
-    const navigation=el('div');
-    root.append(controls,list,navigation);
+    const count=el('p','','library-count library-episode-count');
+    count.setAttribute('aria-live','polite');
+    root.append(controls,count,list);
 
     function draw() {
       const query=normalise(state.query);
       const eligible=show.episodes.filter(video=>(state.season==='all'||(state.season==='unknown'?!video.seasonNumber:String(video.seasonNumber)===state.season))&&(!query||normalise([video.title,video.seasonNumber&&`season ${video.seasonNumber}`,video.episodeNumber&&`episode ${video.episodeNumber}`].filter(Boolean).join(' ')).includes(query)));
-      const result=pageSlice(eligible,state.page,pageSize());
-      state.page=result.page;
+      const unit=show.kind==='film'?'film':show.kind==='show'?'episode':'video';
+      count.textContent=`${eligible.length} ${unit}${eligible.length===1?'':'s'}`;
       list.replaceChildren();
-      if(!result.total)list.append(el('p','No episodes match. Try another name or season.','library-empty'));
-      for(const [index,video] of result.items.entries()) {
+      if(!eligible.length)list.append(el('p','No episodes match. Try another name or season.','library-empty'));
+      for(const video of eligible) {
         const item=el('div','','episode-item');
+        item.dataset.episodeId=video.id;
         const row=button('',()=>play(video),'episode-row rwd-episode-row');
         row.setAttribute('aria-label',`Play ${video.title}`);
         const copy=el('span');
         copy.append(el('strong',programmeTitle(video)),el('small',[video.seasonNumber&&`Season ${video.seasonNumber}`,video.yearLabel||video.year,video.formatLabel,video.provider==='archive'?'Internet Archive':video.sourceProvenance?'Fan / archive upload':''].filter(Boolean).join(' · ')));
-        row.append(el('span',String(video.episodeNumber||state.page*pageSize()+index+1).padStart(2,'0'),'episode-number'),copy,el('span',length(video),'episode-duration'));
+        row.append(el('span',String(video.episodeNumber||show.episodes.indexOf(video)+1).padStart(2,'0'),'episode-number'),copy,el('span',length(video),'episode-duration'));
         item.append(row);
         const source=sourceLink(video,'episode-source');
         if(source)item.append(source);
         list.append(item);
       }
-      navigation.replaceChildren(pager(result,next=>{state.page=next;draw();},'Episode pages'));
     }
     draw();
-    root.scrollTop=state.scroll;
+    restorePosition(state);
+    persist();
   }
 
   function setKind(kind,{notify=false}={}) {
@@ -338,7 +384,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
       onMovies();
       return;
     }
-    if(filters.kind!==kind)page=0;
+    if(filters.kind!==kind)indexPosition={scroll:0,anchor:null};
     filters.kind=kind;
     if(selected&&((kind==='programmes'&&selected.kind!=='film')||(kind==='show'&&selected.kind==='show')))drawDetail();
     else renderIndex();
@@ -354,7 +400,8 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
       renderIndex(true);
     }
   });
-  root.addEventListener('scroll',saveScroll,{passive:true});
+  root.addEventListener('scroll',()=>saveScroll(false),{passive:true});
+  win?.addEventListener('pagehide',()=>{saveScroll();persist(true);});
   root.addEventListener('keydown',event=>{
     if(event.key==='Escape'&&selected) {
       event.preventDefault();
@@ -362,7 +409,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
       back();
     }
   });
-  renderIndex();
+  renderIndex(true);
   return {
     openIndex(){if(selected)back();},
     openDetail,

@@ -9,6 +9,7 @@ Design the public RewindTV player for people who want to watch nostalgic televis
 - Make Watch, Guide and Library the three primary destinations.
 - Keep the programme playing while viewers browse. Preserve the selected source, playback position and audio state across navigation.
 - Give live viewing, playback from the beginning and returning to live TV clear labels.
+- Give Library choices their own watching page. Keep the last live channel separate from the selected show or film.
 - Follow the approved Liquid Broadcast direction. Use a dark smoke-blue room, pale text, quiet glass controls and numbered broadcast rows. Let programme artwork supply most colour.
 - Keep every existing channel and available title reachable. Preserve saved preferences, source credits and schedule rules.
 
@@ -16,7 +17,7 @@ Design the public RewindTV player for people who want to watch nostalgic televis
 
 - Make the picture the main element on Watch. Place programme identity and progress below it, with the compact remote nearby.
 - Use a left navigation rail on desktop and bottom tabs on phone. Keep the same destination order and selected state.
-- Move the existing mounted picture into the browsing mini-player. Measure the Watch and mini-player anchors, then interpolate the same picture between them.
+- Move the existing mounted picture between live Watch, the browsing mini-player and the Library watching stage. Measure their anchors and interpolate the same picture between them.
 - Give Guide numbered, ruled rows. Use image covers for Library shows and films. Keep utility actions visually subordinate.
 - Keep source imagery tied to the actual upload. Use a restrained fallback when an image fails.
 
@@ -44,12 +45,13 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 | Component | Usage |
 | --- | --- |
 | Watch and remote | Programme title, live state, progress, next programme, play/pause, channel stepping, volume, mute, picture shape and fullscreen |
-| Browsing mini-player | The same mounted picture, current programme, play/pause, mute and return to Watch |
-| Guide overview | Search all channels and current programmes. Filter by genre or schedule type. Expand a numbered row for Now, Next, Watch live, From start and Full schedule. |
+| Browsing mini-player | The same mounted picture, current programme, play/pause, mute and return to the current watching destination |
+| Guide overview | One continuous numbered channel list. Search all channels and current programmes. Filter by genre or schedule type. Expand a row for Now, Next, Watch live, From start and Full schedule. |
 | Full schedule | The selected channel’s real timeline, using Europe/Gibraltar times |
-| Library Shows | Use `programmes` to include every playable non-film title, including TV, creator videos, web collections and music. Keep a Page jump beside the result count and retain bottom paging. Filters expose TV episodes, Collections, Listed only and All titles. |
-| Show detail | Available episode count, real source links, season selection, episode search and paging |
-| Library Films / Movie Night | Use the existing film library and `#movies` route under Library. Keep search, genre browsing and Pick for me together. |
+| Library Shows | Use `programmes` to include every playable non-film title, including TV, creator videos, web collections and music. Scroll all matching titles once. Default to stable Mixed order; offer Mix Library / Mix again and A–Z. Show alphabet jumps only in A–Z. Filters expose TV episodes, Collections, Listed only and All titles. |
+| Show detail | Available episode count, real source links, season selection and episode search. Keep all matching episodes in one chronological list. |
+| Library Films / Movie Night | Use the existing film library and `#movies` route under Library. Scroll all matching films. Keep Mixed / A–Z, Mix Library, search, genre browsing and Pick for me together. |
+| Library watching page | Use `#library-watch` under Library. Show the contained picture, programme identity, seek timeline, pause, volume, episode stepping, ordered episode list, end state and source link. Back to browsing returns to its origin. |
 | Info, Settings and Shuffle | One foreground utility over the current destination. Use native buttons, ranges, checkboxes and labelled controls. |
 
 ## 6. Interaction states and behavior
@@ -58,8 +60,10 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 - Keep the picture mounted when switching destinations. Apply geometry changes to its frame and anchors. Keep the full video contained within the resolved ratio.
 - Use Auto aspect ratio with verified source dimensions and a 4:3 fallback. Preserve the saved 4:3 and 16:9 overrides per upload. Retain bars encoded into the source.
 - Fade Watch controls during idle playback. Restore them on pointer, touch, keyboard input and focus. Keep them visible while paused or while an action needs attention.
-- Preserve Guide search, page, filters and expanded row through schedule refreshes. Start near the tuned channel. Offer On my channel to return there.
-- Preserve each Library title’s season, query, episode page and scroll position. Restore results paging, scroll and focus when going back. Keep the top Page jump synchronized with the bottom pager so large collections stay easy to reach.
+- Preserve Guide search, filters, scroll and expanded row through schedule refreshes. Start near the tuned channel. Offer On my channel to return there.
+- Preserve each Library title’s season, query and scroll position. Restore results filters, order, visible anchor and focus when going back from a detail or player. Store browse preferences locally when storage is available; blocked storage must not break browsing.
+- Rank Mixed titles by a stable seed and title identity. Keep the seed through filtering, sorting and Back; only an explicit Mix changes it. Deduplicate title identities. Never mix the episode queue or start playback when mixing covers.
+- Keep live-channel selection independent from Library playback. Library episodes continue in order; an exhausted collection stays within Library with replay or browsing actions. Watch rejoins the saved live channel.
 - Reopening a retained title must record its detail above the Library results history entry. Browser Back returns to results before leaving Library.
 - Keep utility history separate from destination history. Restore the invoking control after closing a utility. Honour Escape, backdrop dismissal and browser Back.
 - Preview shuffle and Movie Night selections before playback. Keep This channel and Everywhere distinct. Watch from start begins the selected programme, and Return to live TV rejoins its channel.
@@ -78,7 +82,7 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 
 - Use semantic headings, native form controls and accessible names for icon actions. Expose current, expanded, selected and pressed states.
 - Keep primary touch actions at the existing 44px target size. Verify every smaller secondary control on a physical phone.
-- Keep keyboard focus visible over dark surfaces and video. Protect text input from global shortcuts. Restrict arrow-key tuning to Watch and Info. Browsing pages keep native arrow-key control and scrolling. C and G both open Guide.
+- Keep keyboard focus visible over dark surfaces and video. Protect text input from global shortcuts. Restrict arrow-key tuning to live Watch and Info. Library playback arrows seek ten seconds; browsing lists retain native arrow-key control and scrolling. C and G both open Guide.
 - Keep source links outside playback buttons. Keep hidden page controls out of the tab order and retain one foreground utility.
 - Announce search and filter results politely. Keep repeated schedule ticks from announcing identical counts.
 - Honour reduced motion for picture movement, panel entry, CRT animation and film selection. Keep sound governed by the viewer’s audio and effects settings.
@@ -90,7 +94,7 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 - At 959px and narrower, use bottom navigation and safe-area spacing. Keep the mini-player above the tabs and page content clear of both.
 - In landscape at up to 560px high, place Watch information and controls beside the picture. Preserve usable short-height browsing and utility sheets.
 - Use two Library columns on phones, three on larger layouts and four at 1500px and wider. Retain the existing two-column exception from 960px to 1100px.
-- Bound Guide to eight rows, or six below 650px viewport height. Page through the complete filtered lineup.
+- Keep Guide, title, film and episode results in continuous native scroll areas. Render every matching result, lazy-load artwork and preserve the visible anchor through grid changes.
 - Retain the compact control adjustments at 380px. Check 320px portrait, zoom, safe areas and rotation.
 - Keep image-cover cropping separate from video containment. Supported physical devices and browser versions are [NEEDS TEAM INPUT].
 
@@ -104,14 +108,15 @@ Shuffle and Pick for me use catalogue selection logic. Describe their scope and 
 - Generic cards for Guide rows, full-screen decorative blur and competing bright accent colours.
 - Recreating the player when a viewer opens a page, overlapping provider audio or stale callbacks retuning a newer selection.
 - Stretching or cropping programme content, inferring source aspect ratio from thumbnail dimensions or removing encoded bars through zoom.
-- Unbounded result lists, unreachable collections or preview links entering playable episode queues.
+- Arbitrary title shortlists, page selectors that hide matching content, duplicate title identities or preview links entering playable episode queues.
+- Mixing episode chronology, replacing the saved live channel with a Library choice, or falling into live TV when a Library collection finishes.
 - Automatic playback from a shuffle or film reveal before the viewer chooses Watch.
 
 ## 12. Canonical design references
 
 - [Application markup](site/index.html), [Liquid Broadcast styles](site/liquid-ui.css) and [application behavior](site/app.js).
 - [Destination and utility motion](site/panel-motion.mjs), [picture framing](site/picture-frame.mjs) and [programme information](site/programme-info.mjs).
-- [Guide](site/guide-overview.mjs), [Library](site/library-view.mjs), [Movie Night](site/movie-night-view.mjs) and [source-aware movie artwork](site/movie-night.mjs).
+- [Guide](site/guide-overview.mjs), [Library](site/library-view.mjs), [stable Library ordering](site/library-order.mjs), [Movie Night](site/movie-night-view.mjs) and [source-aware movie artwork](site/movie-night.mjs).
 - [RewindTV](https://tv.leolune.fun/) is the public release reference. Confirm the deployed revision before using screenshots as a specification.
 - A maintained Figma, Storybook or approved prototype capture within this repository is [NEEDS TEAM INPUT].
 
@@ -129,7 +134,8 @@ Shuffle and Pick for me use catalogue selection logic. Describe their scope and 
 - [ ] Test startup, rapid tuning, recovery, volume, mute and pause across YouTube and direct Archive sources.
 - [ ] Move between Watch, Guide, Library and Movie Night during playback. Check picture continuity and a single active audio source.
 - [ ] Check numbered Guide rows, search across the full lineup, filters, Now/Next, replay and full schedule actions.
-- [ ] Search TV, creators and music from the default Shows tab. Check every title type, top and bottom paging, episode seasons, saved positions and browser Back.
+- [ ] Search TV, creators and music from the default Shows tab. Reach every matching title and episode without paging. Check Mixed / A–Z, explicit Mix, seasons, source links, saved anchors and browser Back.
+- [ ] Start a Library show and film, seek, step episodes and return to browsing. Confirm the last live channel stays separate and an exhausted collection remains in Library.
 - [ ] Check both shuffle scopes, film selection and the reveal’s explicit Watch action.
 - [ ] Test ratios, encoded bars, frame movement, idle controls and CRT settings with reduced motion enabled and disabled.
 - [ ] Inspect keyboard, focus, touch, zoom, contrast and screen-reader output at desktop and phone sizes.
