@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {createMovieNight} from '../site/movie-night-view.mjs';
 
-function fixture({catalogue:provided,storage=new Map([['rewind-film-browse-v1',JSON.stringify({order:'az',seed:'fixture'})]])}={}){
+function fixture({catalogue:provided,storage=new Map([['rewind-film-browse-v1',JSON.stringify({order:'az',seed:'fixture'})]]),continueOptions={}}={}){
  const descendants=node=>node.children.flatMap(child=>[child,...descendants(child)]);
  class Element extends EventTarget{
   constructor(tag,doc){super();this.tagName=tag;this.ownerDocument=doc;this.children=[];this.attributes={};this.dataset={};this.style={};this.className='';this.textContent='';this.hidden=false;this.scrollTop=0;
@@ -23,12 +23,12 @@ function fixture({catalogue:provided,storage=new Map([['rewind-film-browse-v1',J
  const root=doc.createElement('div'),played=[],page=Object.assign(new EventTarget(),{hidden:false}),shell=new EventTarget();root.closest=selector=>selector==='[data-tv-page]'?page:selector==='#rewind-tv'?shell:null;
  const film=(id,title,genre)=>({id,title,genre,year:1986,kind:'film',duration:5400,provider:'youtube'});
  const catalogue=provided||{channels:[{key:'cinema',videos:[film('charade0001','Charade','Adventure'),film('nomads00001','Nomads','Horror'),film('warfilm0001','The Battle','War'),film('warfilm0002','The Front','War')]}]};
- createMovieNight(root,{catalogue,onPlay:video=>played.push(video)});
+ const view=createMovieNight(root,{catalogue,onPlay:video=>played.push(video),...continueOptions});
  const byClass=name=>root.querySelectorAll('.'+name);
  const genre=name=>byClass('movie-genres')[0].children.find(button=>button.textContent===name);
  const title=()=>byClass('movie-hero')[0].querySelector('h3')?.textContent;
  const search=byClass('movie-tools')[0].querySelector('input');
- return {root,doc,win,page,shell,storage,played,byClass,genre,title,search};
+ return {root,doc,win,page,shell,storage,played,byClass,genre,title,search,view};
 }
 
 test('changing film genre updates the hero, selected card and Watch action to the visible collection',()=>{
@@ -86,4 +86,14 @@ test('a filtered film spin and return to collection keep the revealed film insid
  const result=f.byClass('movie-reel-result')[0];assert.equal(result.hidden,false);assert.equal(result.querySelector('h3').textContent,'The Front');
  result.querySelector('.movie-play').onclick();assert.equal(f.played[0].genre,'War');
  f.byClass('movie-reel-back')[0].onclick();assert.equal(f.byClass('movie-reel')[0].hidden,true);assert.equal(f.title(),'The Front');assert.equal(f.search.disabled,false);
+});
+
+
+test('Films Continue watching updates only its own row and resumes without changing film filters or selection',()=>{
+ let records=[{key:'film:charade0001',video:{id:'charade0001',title:'Charade',kind:'film',provider:'youtube',duration:5400,channelKey:'cinema'},position:120,duration:5400,origin:'films'}];const resumed=[];
+ const f=fixture({continueOptions:{getContinueWatching:()=>records,onResume:record=>resumed.push(record)}});
+ assert.equal(f.byClass('continue-item').length,1);const button=f.byClass('continue-resume')[0],card=f.byClass('movie-card')[0];
+ f.genre('War').onclick();f.search.value='The';f.search.oninput();const selected=f.title();f.root.scrollTop=777;button.focus();records=[{...records[0],position:240}];f.view.refreshContinueWatching();
+ assert.equal(f.root.scrollTop,777);assert.equal(f.doc.activeElement,button);assert.equal(f.search.value,'The');assert.equal(f.genre('War').attributes['aria-pressed'],'true');assert.equal(f.title(),selected);assert.equal(f.played.length,0);
+ button.onclick();assert.equal(resumed[0].position,240);assert.equal(resumed[0].video.title,'Charade');
 });

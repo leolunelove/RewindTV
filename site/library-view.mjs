@@ -4,16 +4,19 @@ import {programmeTitle} from './programme-info.mjs?v=liquid1';
 import {browseTitles} from './browse-tools.mjs?v=archive2';
 import {movieArtwork} from './movie-night.mjs?v=liquid1';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
+import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=continue1';
 
 export function filterTitles(shows,query='',kind='all') {
   return browseTitles(shows,{query,kind});
 }
 
-export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
+export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWatching=()=>[],onResume,onRemoveContinue}) {
   const shows=buildShowIndex(catalogue,showListings);
   const doc=root.ownerDocument;
   const win=doc.defaultView;
   const titleStates=new Map();
+  const continuation=createContinueWatching(doc,{getItems:getContinueWatching,onResume:typeof onResume==='function'?resume:undefined,onRemove:onRemoveContinue,kind:'programmes',scroller:root,getAnchor:()=>root.querySelector('.library-grid'),getFallbackFocus:()=>root.querySelector('.library-search')});
+  let detailResume=null,detailStart=null;
   const initialFilters=()=>({query:'',kind:'programmes',letter:'all',channel:'all',language:'all'});
   const storageKey='rewind-library-browse-v1';
   let saved={};
@@ -109,6 +112,20 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
     return frame;
   }
 
+  function resume(record){
+    if(typeof onResume!=='function')return;
+    saveScroll();persist(true);onResume(record);
+  }
+
+  function refreshContinueWatching(){
+    if(selected){
+      if(!detailResume)return;
+      const record=getContinueWatching().find(record=>record.key===selected.key);
+      detailResume.hidden=!record;if(detailStart)detailStart.className=record?'':'primary';
+      if(record){detailResume.textContent=`Resume · ${resumeTime(record.position)}`;detailResume.setAttribute('aria-label',`Resume ${programmeTitle(record.video)} at ${resumeTime(record.position)}`);detailResume.onclick=()=>resume(getContinueWatching().find(item=>item.key===selected.key)||record);}
+    }else continuation.refresh();
+  }
+
   function play(video) {
     saveScroll();
     persist(true);
@@ -142,7 +159,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
 
   function restorePosition(state) {
     root.scrollTop=state.scroll;
-    if(!state.anchor||!root.getBoundingClientRect)return;
+    if(!state.scroll||!state.anchor||!root.getBoundingClientRect)return;
     const selector=selected?'.episode-item':'.library-title';
     const node=[...root.querySelectorAll(selector)].find(node=>(selected?node.dataset.episodeId:node.dataset.showKey)===state.anchor.key);
     if(node)root.scrollTop=Math.max(0,root.scrollTop+node.getBoundingClientRect().top-root.getBoundingClientRect().top-state.anchor.offset);
@@ -188,7 +205,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
   }
 
   function renderIndex(restore=false) {
-    selected=null;
+    selected=null;detailResume=null;detailStart=null;
     root.replaceChildren();
     const tools=el('div','','library-tools');
     const input=el('input','','library-search');
@@ -231,7 +248,8 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
     ordering.append(orderSelect,mix);
     const grid=el('div','','library-grid rwd-library-grid');
     resultHead.append(count,ordering,reset);
-    root.append(tools,advanced,resultHead,grid);
+    continuation.refresh();
+    root.append(tools,continuation.element,advanced,resultHead,grid);
 
     function draw() {
       const candidates=filters.kind==='show'||filters.kind==='film'?shows.filter(show=>show.episodes.length):shows;
@@ -286,7 +304,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
   }
 
   function drawDetail() {
-    const show=selected;
+    const show=selected;detailResume=null;detailStart=null;
     const state=titleState(show.key);
     root.replaceChildren();
     root.append(button('← Back to results',back,'text-button library-back'));
@@ -300,7 +318,8 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
         : show.episodes[0].yearLabel||'';
       head.append(el('p',[years,`${show.episodes.length} available ${unit}${show.episodes.length===1?'':'s'}`,show.language,show.channels.map(channel=>channel.name).join(', ')].filter(Boolean).join(' · '),'library-detail-meta'));
       const actions=el('div','','library-detail-actions');
-      actions.append(button(show.kind==='film'?'▶ Watch film':'▶ Watch from the beginning',()=>play(show.episodes[0]),'primary'));
+      if(typeof onResume==='function'){detailResume=button('',()=>{},'primary library-resume');actions.append(detailResume);refreshContinueWatching();}
+      detailStart=button(show.kind==='film'?'▶ Watch film':'▶ Watch from the beginning',()=>play(show.episodes[0]),typeof onResume==='function'&&getContinueWatching().some(record=>record.key===show.key)?'':'primary');actions.append(detailStart);
       const source=sourceLink(show.episodes[0]);
       if(source)actions.append(source);
       head.append(actions);
@@ -413,6 +432,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies}) {
   return {
     openIndex(){if(selected)back();},
     openDetail,
+    refreshContinueWatching,
     setKind,
     resume({record=true}={}){
       if(selected) {

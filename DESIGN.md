@@ -10,6 +10,7 @@ Design the public RewindTV player for people who want to watch nostalgic televis
 - Keep the programme playing while viewers browse. Preserve the selected source, playback position and audio state across navigation.
 - Give live viewing, playback from the beginning and returning to live TV clear labels.
 - Give Library choices their own watching page. Keep the last live channel separate from the selected show or film.
+- Let viewers resume unfinished Library programmes without changing their live channel or browsing position.
 - Follow the approved Liquid Broadcast direction. Use a dark smoke-blue room, pale text, quiet glass controls and numbered broadcast rows. Let programme artwork supply most colour.
 - Keep every existing channel and available title reachable. Preserve saved preferences, source credits and schedule rules.
 
@@ -52,6 +53,7 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 | Show detail | Available episode count, real source links, season selection and episode search. Keep all matching episodes in one chronological list. |
 | Library Films / Movie Night | Use the existing film library and `#movies` route under Library. Scroll all matching films. Keep Mixed / A–Z, Mix Library, search, genre browsing and Pick for me together. |
 | Library watching page | Use `#library-watch` under Library. Show the contained picture, programme identity, seek timeline, pause, volume, episode stepping, ordered episode list, end state and source link. Back to browsing returns to its origin. |
+| Continue watching | One compact row in Shows and Films. Keep up to twelve recent unfinished titles: the latest episode per show and individual films. Show saved progress, Resume and a labelled remove action. Offer the matching Resume action in show detail alongside playback from the beginning. |
 | Info, Settings and Shuffle | One foreground utility over the current destination. Use native buttons, ranges, checkboxes and labelled controls. |
 
 ## 6. Interaction states and behavior
@@ -64,6 +66,9 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 - Preserve each Library title’s season, query and scroll position. Restore results filters, order, visible anchor and focus when going back from a detail or player. Store browse preferences locally when storage is available; blocked storage must not break browsing.
 - Rank Mixed titles by a stable seed and title identity. Keep the seed through filtering, sorting and Back; only an explicit Mix changes it. Deduplicate title identities. Never mix the episode queue or start playback when mixing covers.
 - Keep live-channel selection independent from Library playback. Library episodes continue in order; an exhausted collection stays within Library with replay or browsing actions. Watch rejoins the saved live channel.
+- Save Library episode identity and position locally about every five seconds, plus pause, seek, leaving playback and page exit. Live broadcasts must not create resume records. Storage failure must preserve in-session playback and browsing.
+- Resume uses the saved episode and position. From beginning explicitly starts again. Remove finished entries and allow removal of a single title without deleting catalogue content. Keep Continue watching independent from Mix, filters and saved scroll anchors.
+- Keep progress in this browser. Do not imply an account or cross-device sync. Persist only identities, clocks and minimal context; resolve titles, source URLs and artwork from the current catalogue.
 - Reopening a retained title must record its detail above the Library results history entry. Browser Back returns to results before leaving Library.
 - Keep utility history separate from destination history. Restore the invoking control after closing a utility. Honour Escape, backdrop dismissal and browser Back.
 - Preview shuffle and Movie Night selections before playback. Keep This channel and Everywhere distinct. Watch from start begins the selected programme, and Return to live TV rejoins its channel.
@@ -72,6 +77,7 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 ## 7. Content and microcopy guidance
 
 - Spell the brand **RewindTV**. Use **Watch**, **Guide**, **Library**, **Shows**, **Films**, **Watch live**, **From start**, **Full schedule** and **Return to live TV** consistently. Label shuffle scope **This channel** and **Everywhere**.
+- Use **Continue watching**, **Resume** and **From beginning** for saved Library progress. Give remove controls a title-specific accessible name. Keep remaining-time copy short.
 - Show actual programme titles, episode identities, available counts and source credits. Preserve original scripts and diacritics.
 - Use Now and Next only for data from the real playback plan. Keep illustrative prototype selections out of broadcast claims.
 - Use English UI copy and 24-hour Europe/Gibraltar schedule times. Keep original audio language labels visible where relevant.
@@ -110,6 +116,7 @@ Shuffle and Pick for me use catalogue selection logic. Describe their scope and 
 - Stretching or cropping programme content, inferring source aspect ratio from thumbnail dimensions or removing encoded bars through zoom.
 - Arbitrary title shortlists, page selectors that hide matching content, duplicate title identities or preview links entering playable episode queues.
 - Mixing episode chronology, replacing the saved live channel with a Library choice, or falling into live TV when a Library collection finishes.
+- Resuming when an action promises playback from the beginning, recording live broadcasts as Library progress, or adding completed and unavailable titles to Continue watching.
 - Automatic playback from a shuffle or film reveal before the viewer chooses Watch.
 
 ## 12. Canonical design references
@@ -117,6 +124,7 @@ Shuffle and Pick for me use catalogue selection logic. Describe their scope and 
 - [Application markup](site/index.html), [Liquid Broadcast styles](site/liquid-ui.css) and [application behavior](site/app.js).
 - [Destination and utility motion](site/panel-motion.mjs), [picture framing](site/picture-frame.mjs) and [programme information](site/programme-info.mjs).
 - [Guide](site/guide-overview.mjs), [Library](site/library-view.mjs), [stable Library ordering](site/library-order.mjs), [Movie Night](site/movie-night-view.mjs) and [source-aware movie artwork](site/movie-night.mjs).
+- [Local Library watch history](site/watch-history.mjs) defines saved progress, completion and catalogue resolution.
 - [RewindTV](https://tv.leolune.fun/) is the public release reference. Confirm the deployed revision before using screenshots as a specification.
 - A maintained Figma, Storybook or approved prototype capture within this repository is [NEEDS TEAM INPUT].
 
@@ -136,6 +144,7 @@ Shuffle and Pick for me use catalogue selection logic. Describe their scope and 
 - [ ] Check numbered Guide rows, search across the full lineup, filters, Now/Next, replay and full schedule actions.
 - [ ] Search TV, creators and music from the default Shows tab. Reach every matching title and episode without paging. Check Mixed / A–Z, explicit Mix, seasons, source links, saved anchors and browser Back.
 - [ ] Start a Library show and film, seek, step episodes and return to browsing. Confirm the last live channel stays separate and an exhausted collection remains in Library.
+- [ ] Pause a Library episode, switch to live TV, reload and Resume it. Check the episode and position, From beginning, completion, single-entry removal, blocked storage and unchanged browse anchors. Confirm live playback never enters Continue watching.
 - [ ] Check both shuffle scopes, film selection and the reveal’s explicit Watch action.
 - [ ] Test ratios, encoded bars, frame movement, idle controls and CRT settings with reduced motion enabled and disabled.
 - [ ] Inspect keyboard, focus, touch, zoom, contrast and screen-reader output at desktop and phone sizes.

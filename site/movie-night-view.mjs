@@ -2,7 +2,8 @@ import {buildMovieLibrary,filterMovies,pickMovie,createMovieReel,filmIdentity,mo
 import {createReelMotion} from './movie-reel-motion.mjs?v=reel1';
 import {createReelSound} from './movie-reel-sound.mjs?v=reel1';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
-export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enabled:false}),onToggleSound=()=>{},onSoundSettings=()=>{}}){
+import {createContinueWatching} from './continue-watching.mjs?v=continue1';
+export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enabled:false}),onToggleSound=()=>{},onSoundSettings=()=>{},getContinueWatching=()=>[],onResume,onRemoveContinue}){
  const doc=root.ownerDocument,win=doc.defaultView,films=buildMovieLibrary(catalogue),page=root.closest('[data-tv-page]'),shell=root.closest('#rewind-tv'),stateKey='rewind-film-browse-v1';let saved={};
  try{const value=JSON.parse(win.localStorage.getItem(stateKey)||'{}');if(value&&typeof value==='object'&&!Array.isArray(value))saved=value;}catch{}
  let genre=films.some(v=>v.genre===saved.genre)?saved.genre:'all',query=typeof saved.query==='string'?saved.query:'',ordering=saved.order==='az'?'az':'mix',seed=typeof saved.seed==='string'&&saved.seed? saved.seed:createLibrarySeed(),mixed=saved.mixed===true,browseScroll=Number.isFinite(saved.scroll)&&saved.scroll>0?saved.scroll:0,wasVisible=!page?.hidden;
@@ -12,6 +13,7 @@ export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enab
  const runtime=v=>`${Math.floor(v.duration/3600)?Math.floor(v.duration/3600)+'h ':''}${Math.round(v.duration%3600/60)}m`;
  function artwork(v,cls='',eager=false){const frame=el('span','',cls),url=movieArtwork(v);frame.setAttribute('aria-hidden','true');frame.append(el('span','REWIND / CINEMA','movie-art-fallback'));if(url){const img=el('img');img.src=url;img.alt='';img.loading=eager?'eager':'lazy';img.decoding='async';img.referrerPolicy='no-referrer';img.onerror=()=>img.remove();frame.append(img);}return frame;}
  const sound=createReelSound({getAudioState}),reduce=win.matchMedia('(prefers-reduced-motion: reduce)');
+ const continuation=createContinueWatching(doc,{getItems:getContinueWatching,onResume,onRemove:onRemoveContinue,kind:'film',scroller:root,getAnchor:()=>root.querySelector('.movie-grid'),getFallbackFocus:()=>root.querySelector('.movie-tools')?.querySelector('input')});
  const hero=el('section','','movie-hero'),reel=el('section','','movie-reel');reel.hidden=true;reel.setAttribute('aria-label','Random film picker');
  const top=el('div','','movie-reel-top'),reelLabel=el('p','LET FATE PICK THE FILM','movie-reel-label');
  const soundButton=button('',()=>{if(!getAudioState().enabled){onSoundSettings();return;}onToggleSound();updateSound();void sound.unlock();},'movie-reel-sound');top.append(reelLabel,soundButton);
@@ -24,7 +26,7 @@ export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enab
  function updateSound(){const state=getAudioState(),audible=state.enabled&&!state.muted&&state.volume>0;soundButton.textContent=!state.enabled?'Effects off · Settings':audible?'♪ Sound on':'♪ Unmute TV & effects';soundButton.setAttribute('aria-pressed',String(audible));}
  const tools=el('div','','movie-tools'),search=el('input');search.type='search';search.placeholder='Find a film';search.value=query;search.setAttribute('aria-label','Find a film');const genres=el('nav','','movie-genres');genres.setAttribute('aria-label','Film genres');
  const order=el('div','','movie-order'),orderSelect=el('select'),mix=button('Mix Library',()=>{ordering='mix';seed=createLibrarySeed(seed);mixed=true;updateOrder();refreshCollection();},'movie-mix');order.setAttribute('role','group');order.setAttribute('aria-label','Film ordering');orderSelect.setAttribute('aria-label','Film order');for(const [value,label]of [['mix','Mixed'],['az','A–Z']]){const option=el('option',label);option.value=value;orderSelect.append(option);}orderSelect.onchange=()=>{ordering=orderSelect.value;updateOrder();refreshCollection();};order.append(orderSelect,mix);
- const count=el('p','','movie-count'),grid=el('div','','movie-grid');count.setAttribute('role','status');tools.append(search,genres);root.replaceChildren(hero,reel,tools,order,count,grid);
+ const count=el('p','','movie-count'),grid=el('div','','movie-grid');count.setAttribute('role','status');tools.append(search,genres);root.replaceChildren(continuation.element,hero,reel,tools,order,count,grid);
  function updateOrder(){orderSelect.value=ordering;orderSelect.disabled=spinning;mix.disabled=spinning;mix.textContent=mixed?'Mix again':'Mix Library';}
  function saveBrowse(){try{win.localStorage.setItem(stateKey,JSON.stringify({order:ordering,seed,mixed,genre,query,scroll:browseScroll}));}catch{}}
  const pool=()=>filterMovies(orderLibrary(films,{mode:ordering,seed,key:filmIdentity}),{genre,query});
@@ -70,5 +72,5 @@ export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enab
  shell?.addEventListener('rewind:audiochange',()=>{sound.stop();updateSound();});
  win.addEventListener('pagehide',saveBrowse);
  const initial=pool();if(!initial.includes(selected))selected=initial[0]||null;
- drawHero();drawGenres();drawGrid();updateOrder();updateSound();root.scrollTop=browseScroll;saveBrowse();return {cancelSpin};
+ drawHero();drawGenres();drawGrid();updateOrder();updateSound();root.scrollTop=browseScroll;saveBrowse();return {cancelSpin,refreshContinueWatching:continuation.refresh};
 }

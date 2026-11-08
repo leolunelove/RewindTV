@@ -4,6 +4,9 @@
   let catalogue,channels,plan,active=null,channel=2,volume=40,power=false,player=null,ready=false,apiLoading=false,paused=false,watchTimer,apiTimer,resumeAfterGuide=false,osdTimer,tuningTimer;
   const [{findProgramme,pickProgramme,showIdentity,buildShowIndex},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache},{movieArtwork},{findFilmAlternative}]=await Promise.all([import('./show-library.mjs?v=liquid1'),import('./programme-info.mjs?v=liquid1'),import('./neighbour-cache.mjs?v=1'),import('./movie-night.mjs?v=liquid1'),import('./playback-alternatives.mjs?v=liquid1')]);let requestedQueue=[];let requestedIndex=0;
   let libraryContext=false,lastLiveChannelKey='',libraryOrigin='shows',libraryEnded=false,libraryQueueStamp='',seekingLibrary=false,librarySession=null;
+  const {createWatchHistory}=await import('./watch-history.mjs?v=continue1');
+  let historyStorage=null;try{historyStorage=window.localStorage;}catch{}
+  const watchHistory=createWatchHistory({storage:historyStorage});let libraryCheckpointAt=0,librarySeek=null;const removedProgress=new Set();
   const {createPanelMotion}=await import('./panel-motion.mjs?v=library1');
   const panels=createPanelMotion(root),wideMenu=matchMedia('(min-width:960px)');
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
@@ -55,7 +58,7 @@
     if(available&&!glowTimer){paintLiveGlow();glowTimer=setInterval(paintLiveGlow,250);}
     else if(!available){clearInterval(glowTimer);glowTimer=0;root.classList.remove('ambient-live');}
   }
-  document.addEventListener('visibilitychange',()=>{root.classList.toggle('page-hidden',document.hidden);applyRasterMotion();updateGlow();if(document.hidden)clearNeighbours();else{reconcileMoviePause();render();scheduleNeighbours();}});
+  document.addEventListener('visibilitychange',()=>{root.classList.toggle('page-hidden',document.hidden);applyRasterMotion();updateGlow();if(document.hidden){checkpointLibrary();clearNeighbours();}else{reconcileMoviePause();render();scheduleNeighbours();}});
   async function tuningSound(){
     if(!settings.sfx||volume===0||startupMuted)return;
     try{
@@ -80,7 +83,7 @@
       movie.currentSrc!==movieSourceUrl||moviePlaybackGeneration!==loadGeneration)return;
     // A browser interruption changes the visible state without cancelling playback intent.
     // Native fullscreen controls can resume the same programme as well as our Play button.
-    paused=true;stopWatch();setStatus('PAUSED · Press PLAY to continue.');render();
+    paused=true;checkpointLibrary();stopWatch();setStatus('PAUSED · Press PLAY to continue.');render();
   }
   function prepareMovie(selection){
     if(!selection||!movie.hidden||!settings.preload||document.hidden||navigator.connection?.saveData)return;
@@ -138,7 +141,7 @@
   movie.addEventListener('playing',()=>{if(!movieMatches()||!power||!playbackIntent){movie.pause();return;}if(movie.currentSrc===movieSourceUrl)moviePlaybackGeneration=loadGeneration;clearTimeout(apiTimer);clearTimeout(playerInitTimer);playerInitTimer=0;recoveryChain=0;recoveryAttempts=0;updateGlow();if(movieMatches()){stopWatch();clearTimeout(tuningTimer);$('.screen').classList.remove('is-tuning');paused=false;applyAudio(true);finishStartup();setStatus((active.mode==='ondemand'?'FROM START':channels[channel].mode==='shuffle'?'MIX':'LIVE')+' · '+programmeTitle(active.video))}});
   movie.addEventListener('pause',()=>{queueMicrotask(updateGlow);reconcileMoviePause();});
   for(const event of ['waiting','stalled'])movie.addEventListener(event,()=>{if(power&&movieMatches()&&playbackIntent){setStatus('BUFFERING · Checking the TV signal…');watchPlayback();}});
-  movie.addEventListener('ended',()=>{if(power&&active?.video.provider==='archive')advance(false)});
+  movie.addEventListener('ended',()=>{if(power&&movieMatches()&&movie.ended&&!movieLoading&&movie.currentSrc===movieSourceUrl&&moviePlaybackGeneration===loadGeneration)advance(false)});
   movie.addEventListener('error',()=>{if(power&&movieMatches()){tracePlayer('archive-error',{id:movieSourceId,code:movie.error?.code,message:movie.error?.message});skipUnavailable('Archive stream unavailable',false);}});
   movie.addEventListener('progress',()=>{if(movieMatches()&&movie.currentSrc===movieSourceUrl)movie.dataset.progressAt=String(Date.now());});
   movie.addEventListener('canplay',()=>{if(movie.hidden){movie.preload='metadata';updateNeighbourStatus();}});
@@ -147,13 +150,13 @@
   const element=(tag,text='',className='')=>{const node=document.createElement(tag);node.textContent=text;if(className)node.className=className;return node;};
   function scheduleAction(label,action,primary=false){const b=element('button',label,primary?'primary':'');b.type='button';b.onclick=action;return b;}
   function sendScheduleState(i=scheduleChannel,focusCurrent=false){
-    if(!plan)return;if(i===-1){$('#schedule-all').hidden=true;guideOverview??=createGuideOverview($('#channel-schedule'),{getChannels:()=>channels,getCurrent:()=>libraryContext?channels.findIndex(c=>c.key===lastLiveChannelKey):channel,getCurrentLabel:()=>libraryContext?'Last live channel':'This channel',getNow:i=>onNow(i),getRows:i=>plan.schedules[i],onDetail:i=>openSchedule(i),onWatch:watchChannel,onStart:(i,v)=>startLibrary({...v,channelKey:channels[i].key},'guide')});if(focusCurrent)guideOverview.showCurrent();else guideOverview.render(!scheduleStamp);scheduleStamp='overview';return;}$('#schedule-all').hidden=false;if(!channels[i])return;
+    if(!plan)return;if(i===-1){$('#schedule-all').hidden=true;guideOverview??=createGuideOverview($('#channel-schedule'),{getChannels:()=>channels,getCurrent:()=>libraryContext?channels.findIndex(c=>c.key===lastLiveChannelKey):channel,getCurrentLabel:()=>libraryContext?'Last live channel':'This channel',getNow:i=>onNow(i),getRows:i=>plan.schedules[i],onDetail:i=>openSchedule(i),onWatch:watchChannel,onStart:(i,v)=>startLibrary({...v,channelKey:channels[i].key},'guide',{fromStart:true})});if(focusCurrent)guideOverview.showCurrent();else guideOverview.render(!scheduleStamp);scheduleStamp='overview';return;}$('#schedule-all').hidden=false;if(!channels[i])return;
     const c=channels[i],state=onNow(i),slot=state.slot,v=slot.video,stamp=c.key+':'+v.id+':'+slot.start+':'+(i===channel&&power);
     if(stamp===scheduleStamp)return;scheduleStamp=stamp;
     const host=$('#channel-schedule');host.replaceChildren();const station=element('div','','schedule-station'),logo=element('img');logo.src=c.logo;logo.alt='';const name=element('div');name.append(element('h3',String(i+1).padStart(2,'0')+' / '+c.name),element('p',c.mode==='shuffle'?'Continuous mix · No fixed timetable':'Live channel · Weekly timetable'));station.append(logo,name);host.append(station);
     const guideFormat=new Intl.DateTimeFormat('en-GB',{timeZone:Schedule.ZONE,weekday:'short',hour:'2-digit',minute:'2-digit'});const guideTime=ms=>guideFormat.format(ms);
     const card=element('section','','schedule-now');card.append(element('p','ON NOW','eyebrow'),element('h3',v.kind==='film'?programmeTitle(v):v.series||programmeTitle(v)),element('p',v.kind==='film'?['Full film',v.yearLabel||v.year].filter(Boolean).join(' · '):programmeTitle(v)),element('p',c.mode==='shuffle'?Math.round(v.duration/60)+' min':guideTime(slot.start)+' – '+guideTime(slot.end)));
-    const actions=element('div','','action-row');actions.append(scheduleAction(i===channel&&power&&!libraryContext?'Return to live channel':'Watch this channel',()=>watchChannel(i),true));if(v.kind!=='advert')actions.append(scheduleAction('Watch from the beginning',()=>startLibrary({...v,channelKey:c.key},'guide')));card.append(actions);host.append(card,element('h3','Up next'));
+    const actions=element('div','','action-row');actions.append(scheduleAction(i===channel&&power&&!libraryContext?'Return to live channel':'Watch this channel',()=>watchChannel(i),true));if(v.kind!=='advert')actions.append(scheduleAction('Watch from the beginning',()=>startLibrary({...v,channelKey:c.key},'guide',{fromStart:true})));card.append(actions);host.append(card,element('h3','Up next'));
     const list=element('div','','schedule-upcoming');for(const [n,row] of plan.schedules[i].slice(state.index+1).filter(row=>row.video.kind!=='advert').slice(0,8).entries()){const article=element('article'),text=element('div');text.append(element('strong',programmeTitle(row.video)),element('p',(row.video.series||'')+' · '+Math.round(row.video.duration/60)+' min'));article.append(element('time',c.mode==='shuffle'?(n===0?'Next':'Then'):guideTime(row.start)),text);list.append(article);}host.append(list,element('p',c.mode==='shuffle'?'This is the current mix. Its order can change as you watch.':'Times shown in Gibraltar time. Short advert breaks play between programmes.','schedule-note'));
     if(c.mode!=='shuffle'){
       const preference=schedulePreferences.get(c.key)||{},weekly=element('details','','weekly-guide'),summary=element('summary','Full weekly timetable'),tools=element('div','','library-tools'),day=element('select'),rows=element('div','','schedule-upcoming'),more=scheduleAction('More programmes ↓',()=>{limit+=30;save();draw();});day.setAttribute('aria-label','Timetable day');let limit=preference.limit||30;
@@ -178,12 +181,12 @@
   let libraryLoading=null,libraryDestination='shows';
   async function openBrowse(restore=false){libraryDestination='shows';const alreadyOpen=panels.isOpen($('.browse-overlay'));if(!alreadyOpen)panels.open($('.browse-overlay'));revealControls();if(libraryView){if(!alreadyOpen)libraryView.resume({record:!restore});return;}
     $('#library-view').textContent='Opening the collection…';
-    try{libraryLoading??=import('./library-view.mjs?v=library1');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:catalogue,onMovies:openMovieNight,onPlay:v=>startLibrary(v,'shows')});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
+    try{libraryLoading??=import('./library-view.mjs?v=continue1');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:catalogue,onMovies:openMovieNight,getContinueWatching:()=>continueItems('programmes'),onResume:resumeLibrary,onRemoveContinue:removeContinue,onPlay:v=>startLibrary(v,'shows',{fromStart:true})});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
   }
   let movieNight=null,movieNightLoading=null;
   async function openMovieNight(){libraryDestination='films';if(!panels.isOpen($('.movie-night-page')))panels.open($('.movie-night-page'));revealControls();if(movieNight)return;
     $('#movie-night-view').textContent='Opening the cinema…';
-    try{movieNightLoading??=import('./movie-night-view.mjs?v=library1');const {createMovieNight}=await movieNightLoading;if(!movieNight)movieNight=createMovieNight($('#movie-night-view'),{catalogue:catalogue,getAudioState:()=>({enabled:settings.sfx,muted:startupMuted||volume===0,volume}),onToggleSound:toggleMute,onSoundSettings:()=>$('#settings-button').click(),onPlay:v=>startLibrary(v,'films')});}catch(error){movieNightLoading=null;$('#movie-night-view').textContent='The cinema could not load. Open Movie Night to try again.';console.warn(error);}
+    try{movieNightLoading??=import('./movie-night-view.mjs?v=continue1');const {createMovieNight}=await movieNightLoading;if(!movieNight)movieNight=createMovieNight($('#movie-night-view'),{catalogue:catalogue,getAudioState:()=>({enabled:settings.sfx,muted:startupMuted||volume===0,volume}),onToggleSound:toggleMute,onSoundSettings:()=>$('#settings-button').click(),getContinueWatching:()=>continueItems('film'),onResume:resumeLibrary,onRemoveContinue:removeContinue,onPlay:v=>startLibrary(v,'films',{fromStart:true})});}catch(error){movieNightLoading=null;$('#movie-night-view').textContent='The cinema could not load. Open Movie Night to try again.';console.warn(error);}
   }
   $('#movie-night-button').onclick=openMovieNight;$('#close-movie-night').onclick=returnToPicture;
   $('#movie-shows-tab').onclick=()=>{libraryView?.setKind('programmes');openBrowse();};
@@ -262,18 +265,50 @@
   $('#shuffle-watch').onclick=watchShufflePick;
   $('#shuffle-scopes').onclick=()=>{resetShuffle();$('#shuffle-channel').focus({preventScroll:true});};
   shuffleDialog.addEventListener('close',()=>{if(!root.querySelector('dialog[open]'))shuffleButton.focus({preventScroll:true});revealControls();});
-  function checkpointLibrary(){
-    if(!libraryContext||!active)return;
-    const p=currentPlayer(),time=p?.getVideoData?.()?.video_id===active.video.id?Number(p.getCurrentTime?.()):active.offset;
-    librarySession={channelKey:channels[channel].key,id:active.video.id,offset:Math.max(0,time||0),origin:libraryOrigin};
+  function continueItems(kind='all'){return catalogue?watchHistory.list(catalogue,{kind}):[];}
+  function refreshContinueWatching(){libraryView?.refreshContinueWatching();movieNight?.refreshContinueWatching();}
+  watchHistory.subscribe(refreshContinueWatching);
+  function removeContinue(key){
+    const entry=watchHistory.get(key);if(entry)removedProgress.add(entry.id);
+    watchHistory.remove(key);
   }
+  function checkpointLibrary(position=null){
+    if(!power||!libraryContext||!active||libraryEnded)return;
+    const p=currentPlayer(),explicit=Number.isFinite(position),matching=p?.getVideoData?.()?.video_id===active.video.id;
+    if(!matching)return;
+    if(!explicit&&active.video.provider==='archive'&&(movie.currentSrc!==movieSourceUrl||moviePlaybackGeneration!==loadGeneration||movieLoading||movie.seeking))return;
+    const time=explicit?position:Number(p.getCurrentTime?.());if(!Number.isFinite(time)||time<0)return;
+    if(explicit)librarySeek={id:active.video.id,target:time,at:Date.now()};
+    else if(librarySeek?.id===active.video.id){
+      if(Math.abs(time-librarySeek.target)>3&&Date.now()-librarySeek.at<8000)return;
+      librarySeek=null;
+    }
+    librarySession={channelKey:channels[channel].key,id:active.video.id,offset:time,origin:libraryOrigin};
+    if(removedProgress.has(active.video.id))return;
+    if(explicit&&time<10&&watchHistory.get(active.video)?.id===active.video.id){watchHistory.remove(active.video);return;}
+    const duration=Number(p.getDuration?.());
+    watchHistory.save(active.video,{channelKey:channels[channel].key,position:time,duration:Number.isFinite(duration)&&duration>0?duration:active.video.duration,origin:libraryOrigin});
+  }
+  function savedLibraryOffset(channelKey,id){
+    return continueItems().find(entry=>entry.video.id===id&&(entry.video.channelKey===channelKey||channels.some(c=>c.key===channelKey&&c.videos.some(v=>v.id===id))))?.position||0;
+  }
+  function resumeLibrary(entry){
+    const saved=continueItems().find(item=>item.key===entry.key);
+    if(!saved){showNotice('This title is no longer available here.');refreshContinueWatching();return false;}
+    removedProgress.delete(saved.video.id);
+    if(libraryContext&&power&&!libraryEnded&&active?.video.id===saved.video.id){
+      showLibraryPlayer();if(paused)$('#tv-play').click();return true;
+    }
+    return startLibrary(saved.video,saved.video.kind==='film'?'films':'shows',{offset:saved.position});
+  }
+  window.addEventListener('pagehide',()=>checkpointLibrary());
   function showLibraryPlayer(record=true){
     const libraryReturn=location.hash==='#library-watch'?history.state?.libraryReturn:location.hash;
     panels.open($('#library-player-page'),{remember:record,state:{libraryOrigin,libraryReturn}});render();revealControls();
   }
-  function startLibrary(v,origin=libraryOrigin,{record=true,offset=0}={}){
+  function startLibrary(v,origin=libraryOrigin,{record=true,offset=0,fromStart=false}={}){
+    if(!playRequested(v.channelKey,v.id,{library:true,offset,fromStart}))return false;
     libraryOrigin=origin;
-    if(!playRequested(v.channelKey,v.id,{library:true,offset}))return false;
     showLibraryPlayer(record);persist();return true;
   }
   function backToLibrary(){
@@ -284,22 +319,23 @@
   root.addEventListener('rewind:library-back',backToLibrary);
   root.addEventListener('rewind:return-picture',returnToPicture);
   $('#library-player-back').onclick=backToLibrary;
-  function playRequested(channelKey,videoId,{library=false,offset=0}={}){
+  function playRequested(channelKey,videoId,{library=false,offset=0,fromStart=false}={}){
     const found=findProgramme(catalogue,channelKey,videoId);if(!found||!channels.some(c=>c.key===channelKey))return false;
-    checkpointLibrary();forgetFailure(videoId);clearShuffleResult();cancelChannelLoad();loadGeneration++;clearTimeout(recoveryBackoffTimer);playbackIntent=true;tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();
-    libraryContext=library;libraryEnded=false;channel=channels.findIndex(c=>c.key===channelKey);requestedQueue=library?(buildShowIndex(catalogue).find(show=>show.key===showIdentity(found.video))?.episodes||found.queue):found.queue;requestedIndex=requestedQueue.findIndex(v=>v.id===videoId);active=requestedActive(found.video);active.offset=Math.max(0,Math.min(offset,found.video.duration-1));power=true;paused=false;
+    checkpointLibrary();if(library&&fromStart)watchHistory.remove(found.video);removedProgress.delete(videoId);forgetFailure(videoId);clearShuffleResult();cancelChannelLoad();loadGeneration++;clearTimeout(recoveryBackoffTimer);playbackIntent=true;tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();
+    libraryContext=library;libraryEnded=false;channel=channels.findIndex(c=>c.key===channelKey);requestedQueue=library?(buildShowIndex(catalogue).find(show=>show.key===showIdentity(found.video))?.episodes||found.queue):found.queue;requestedIndex=requestedQueue.findIndex(v=>v.id===videoId);active=requestedActive(found.video);active.offset=Math.max(0,Math.min(offset,found.video.duration-1));librarySeek=library?{id:videoId,target:active.offset,at:Date.now()}:null;power=true;paused=false;
     clearNeighbours();setStatus('LOADING · '+found.video.title);ensurePlayer();persist();return true;
   }
   function selectLibraryEpisode(index){
     const v=requestedQueue[index];if(!v||!libraryContext)return;
-    startLibrary({...v,channelKey:v.channelKey||channels[channel].key});
+    startLibrary({...v,channelKey:v.channelKey||channels[channel].key},libraryOrigin,{fromStart:true});
   }
   function endLibrary(message){
     libraryEnded=true;playbackIntent=false;paused=true;stopWatch();clearTimeout(recoveryBackoffTimer);currentPlayer()?.pauseVideo?.();setStatus(message);render();
   }
   function renderLibrary(){
     if(!libraryContext||!active)return;
-    const v=active.video,p=currentPlayer(),matching=p?.getVideoData?.()?.video_id===v.id,duration=Number(matching&&p?.getDuration?.())||v.duration,elapsed=Number(matching?p?.getCurrentTime?.():active.offset)||0;
+    const v=active.video,p=currentPlayer(),matching=p?.getVideoData?.()?.video_id===v.id,duration=Number(matching&&p?.getDuration?.())||v.duration,clock=Number(matching?p?.getCurrentTime?.():active.offset)||0;
+    const elapsed=librarySeek?.id===v.id&&Date.now()-librarySeek.at<8000&&Math.abs(clock-librarySeek.target)>3?librarySeek.target:clock;
     $('#library-player-show').textContent=v.kind==='film'?programmeTitle(v):v.series||programmeTitle(v);
     $('#library-player-episode').textContent=v.kind==='film'?[v.yearLabel||v.year,Math.round(v.duration/60)+' min'].filter(Boolean).join(' · '):programmeTitle(v);
     $('#library-player-position').textContent=requestedQueue.length>1?'Episode '+(requestedIndex+1)+' of '+requestedQueue.length:v.kind==='film'?'Film · From start':'From start';
@@ -326,7 +362,7 @@
   $('#settings-button').onclick=()=>{panels.open($('.tv-settings'));revealControls()};$('#close-settings').onclick=()=>{panels.close($('.tv-settings'));revealControls()};
   for(const key of ['crt','curve','sfx','ambient','audio','preload'])$('#setting-'+key).onchange=e=>{settings[key]=e.target.checked;if(key==='preload')neighbourPreloadBlocked=false;applySettings();applyRasterMotion();applyAudio();updateGlow();scheduleNeighbours()};
   const infoPanel=$('.programme-info');let infoKey='',seekingInfo=false;
-  function seekProgramme(seconds){const p=currentPlayer();if(!power||!active||!['ondemand','replay'].includes(active.mode)||!Number.isFinite(seconds))return;const duration=Number(p?.getDuration?.())||active.video.duration;const target=Math.max(0,Math.min(seconds,Math.max(0,duration-1)));if(active.video.provider==='archive'){movieTarget=target;movie.currentTime=target;}else p?.seekTo?.(target,true);active.offset=target;renderInfo();revealControls();}
+  function seekProgramme(seconds){const p=currentPlayer();if(!power||!active||!['ondemand','replay'].includes(active.mode)||!Number.isFinite(seconds))return;const duration=Number(p?.getDuration?.())||active.video.duration;const target=Math.max(0,Math.min(seconds,Math.max(0,duration-1)));if(active.video.provider==='archive'){movieTarget=target;movie.currentTime=target;}else p?.seekTo?.(target,true);active.offset=target;checkpointLibrary(target);renderInfo();revealControls();}
   $('#info-seek').oninput=e=>{seekingInfo=true;const p=programmeProgress(Number(e.target.value),Number(e.target.max));$('#info-elapsed').textContent=p.label;};
   $('#info-seek').onchange=e=>{seekingInfo=false;seekProgramme(Number(e.target.value));};
   $('#info-seek').addEventListener('pointercancel',()=>{seekingInfo=false;renderInfo();});
@@ -410,7 +446,7 @@
   function tracePlayer(event,detail={}){if(debugPlayer)console.info('REWIND-PLAYER',JSON.stringify({at:Math.round(performance.now()),event,...detail}));}
   window.addEventListener('message',e=>{if(!debugPlayer)return;const f=[...root.querySelectorAll('iframe')].find(f=>e.source===f.contentWindow);if(!f)return;try{const m=typeof e.data==='string'?JSON.parse(e.data):e.data;if(m?.event!=='infoDelivery')tracePlayer('message',{frame:f.id,eventName:m?.event});}catch{}});
 
-  function persist(){try{localStorage.setItem('rewind-tv-v2',JSON.stringify({key:lastLiveChannelKey||channels[channel].key,volume}));if(active&&power){const url=new URL(location.href);url.searchParams.set('channel',channels[channel].key);if(active.mode==='ondemand')url.searchParams.set('episode',active.video.id);else url.searchParams.delete('episode');history.replaceState(history.state,'',url);}}catch{}}
+  function persist(){try{localStorage.setItem('rewind-tv-v2',JSON.stringify({key:lastLiveChannelKey||channels[channel].key,volume}));if(active&&power){const url=new URL(location.href);url.searchParams.set('channel',channels[channel].key);if(active.mode==='ondemand')url.searchParams.set('episode',active.video.id);else url.searchParams.delete('episode');if(libraryContext)url.searchParams.set('playback','library');else url.searchParams.delete('playback');history.replaceState(history.state,'',url);}}catch{}}
   function weekPlan(){if(!plan||Schedule.weekAt().key!==plan.week.key){if(plan){location.reload();return false;}plan=Schedule.build(catalogue);return true;}return false;}
   function render(){
     if(!plan)return;pictureFrame.update();updateGlow();if(document.hidden)return;
@@ -607,6 +643,7 @@
   function advance(manual=false){
     if(!active){selectLive();}
     if(active.mode==='ondemand'){
+      if(libraryContext&&!manual)checkpointLibrary();
       remember(active.video.id);if(requestedIndex+1<requestedQueue.length){requestedIndex++;if(libraryContext&&requestedQueue[requestedIndex].channelKey)channel=channels.findIndex(c=>c.key===requestedQueue[requestedIndex].channelKey);active=requestedActive(requestedQueue[requestedIndex]);persist();if(libraryContext)ensurePlayer();else loadActive();}else if(libraryContext){endLibrary('End of this collection. Choose another title or play again.');}else{paused=true;currentPlayer()?.pauseVideo?.();setStatus('End of this collection. Choose another title or return to live TV.');}return;
     }
     if(active.mode==='fallback'&&!manual){remember(active.video.id);selectLive();ensurePlayer();return;}
@@ -647,7 +684,7 @@
         if(!power||!active||active.video.provider==='archive'||channelLoadTimer||e.target.getVideoData?.()?.video_id!==active.video.id)return;
         if(e.data===1){if(!playbackIntent){e.target.pauseVideo?.();return;}recoveryChain=0;recoveryAttempts=0;clearTimeout(tuningTimer);$('.screen').classList.remove('is-tuning');ready=true;clearTimeout(apiTimer);stopWatch();paused=false;applyAudio(true);finishStartup();scheduleNeighbours();setStatus(active.mode==='live'?(channels[channel].mode==='shuffle'?'SHUFFLE · Continuous playback, no fixed timetable.':'LIVE · Channels keep broadcasting while you’re away.'):active.mode==='fallback'?'ALT SIGNAL · This upload replaces an unavailable broadcast.':active.mode==='ondemand'?(active.video.kind==='film'?'MOVIE NIGHT · Playing your chosen film.':(libraryContext?'LIBRARY · Episodes play in order.':'FROM START · Episodes continue in order.')):'REPLAY · Join live whenever you like.');}
         else if(e.data===0){stopWatch();advance(false);}
-        else if(e.data===2){if(playbackIntent){watchPlayback();return;}stopWatch();paused=true;setStatus(libraryContext?'PAUSED · Play to continue.':'PAUSED · Play to continue, or return to live TV.');}
+        else if(e.data===2){checkpointLibrary();if(playbackIntent){watchPlayback();return;}stopWatch();paused=true;setStatus(libraryContext?'PAUSED · Play to continue.':'PAUSED · Play to continue, or return to live TV.');}
         else if(e.data===3){setStatus('BUFFERING · Checking the TV signal…');watchPlayback();}
 
   }
@@ -734,7 +771,7 @@
     },settings.preload&&neighbours.slots.get(channels[channel].key)?.ready?40:220);
   }
   function joinLive(){checkpointLibrary();cancelChannelLoad();loadGeneration++;clearShuffleResult();playbackIntent=true;paused=false;clearTimeout(recoveryBackoffTimer);tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();if(libraryContext){const i=channels.findIndex(c=>c.key===lastLiveChannelKey);if(i>=0)channel=i;}libraryContext=false;libraryEnded=false;lastLiveChannelKey=channels[channel].key;selectLive();power=true;ensurePlayer();persist();}
-  function togglePower(){clearShuffleResult();clearTimeout(playerInitTimer);playerInitTimer=0;loadGeneration++;clearTimeout(recoveryBackoffTimer);cancelChannelLoad();clearNeighbours();if(!power){joinLive();return;}power=false;playbackIntent=false;paused=false;stopWatch();if(currentPlayer()){currentPlayer().pauseVideo?.();currentPlayer().getIframe().hidden=true;}setStatus('TV OFF · The schedule keeps rolling.');}
+  function togglePower(){checkpointLibrary();clearShuffleResult();clearTimeout(playerInitTimer);playerInitTimer=0;loadGeneration++;clearTimeout(recoveryBackoffTimer);cancelChannelLoad();clearNeighbours();if(!power){joinLive();return;}power=false;playbackIntent=false;paused=false;stopWatch();if(currentPlayer()){currentPlayer().pauseVideo?.();currentPlayer().getIframe().hidden=true;}setStatus('TV OFF · The schedule keeps rolling.');}
   function changeVolume(delta){if(!Number.isFinite(delta))return;if(volume>0)lastAudibleVolume=volume;startupMuted=false;volume=Math.max(0,Math.min(100,Math.round(volume+delta)));if(volume>0)lastAudibleVolume=volume;if(currentPlayer()){applyAudio();}persist();render();revealControls();}
   function toggleMute(){if(startupMuted&&volume){enableSound();revealControls();return;}if(volume)changeVolume(-volume);else changeVolume(lastAudibleVolume||40);}
   function closeGuide(resume=true){if(wideMenu.matches){render();return;}if(!resume)resumeAfterGuide=false;panels.close($('.guide'));root.classList.remove('guide-open');render();}
@@ -761,7 +798,7 @@
     $('.standby-code').textContent='P100 / REWIND TELEVISION';$('#start-tv small').textContent=`90s / 2000s / CLASSIC CINEMA. GOOD COMPANY.`;
     $('.source-note').textContent=`${new Set(channels.flatMap(c=>c.videos.map(v=>v.id))).size} UNIQUE VIDEOS · 90s / 2000s / CLASSICS\nREFRESHES TUESDAY 00:00`;
   }catch(error){$('#playback-status').textContent='The catalogue could not load. Refresh this page to retry.';console.error(error);document.documentElement.dataset.appReady='error';window.dispatchEvent(new Event('rewind:error'));return;}
-  $('#tv-play').onclick=()=>{if(!power)return;clearTimeout(recoveryBackoffTimer);playbackIntent=paused;paused=!playbackIntent;if(playbackIntent){if(active?.video.provider!=='archive'&&!ready)ensurePlayer();else{currentPlayer()?.playVideo?.();watchPlayback();}}else{stopWatch();clearTimeout(playerInitTimer);playerInitTimer=0;currentPlayer()?.pauseVideo?.();setStatus('PAUSED · Press PLAY to continue.');}};
+  $('#tv-play').onclick=()=>{if(!power)return;clearTimeout(recoveryBackoffTimer);playbackIntent=paused;paused=!playbackIntent;if(playbackIntent){if(active?.video.provider!=='archive'&&!ready)ensurePlayer();else{currentPlayer()?.playVideo?.();watchPlayback();}}else{checkpointLibrary();stopWatch();clearTimeout(playerInitTimer);playerInitTimer=0;currentPlayer()?.pauseVideo?.();setStatus('PAUSED · Press PLAY to continue.');}};
   $('.remote-power').onclick=togglePower;$('#start-tv').onclick=joinLive;
   root.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='next')tune(channel+1);else if(a==='prev')tune(channel-1);else changeVolume(a==='louder'?10:-10);});
   $('.guide-toggle').onclick=$('#remote-guide').onclick=()=>openSchedule();$('#close-guide').onclick=()=>closeGuide();
@@ -831,6 +868,7 @@
   const refreshFormatter=new Intl.DateTimeFormat('en-GB',{timeZone:Schedule.ZONE,day:'2-digit',month:'short'});let refreshWeek='';
   function tick(){
     checkPlaybackProgress();
+    if(Date.now()-libraryCheckpointAt>=5000){libraryCheckpointAt=Date.now();checkpointLibrary();}
     if(power&&!paused&&currentPlayer()?.getPlayerState?.()===1&&active?.video.id===playingId){playedSeconds++;if(playedSeconds===30)remember(playingId);}
     if(!document.hidden&&!root.classList.contains('controls-hidden'))$('#station-clock').textContent=clockFormatter.format(Date.now());
     const changed=weekPlan();
@@ -844,12 +882,19 @@
   // Reveal on the first picture; a bounded fallback leaves retry/channel controls reachable.
   // Only a playing picture (or an explicit browser block) releases the ident.
   startupTimer=setTimeout(()=>{if(startupPending){document.documentElement.dataset.appReady='error';window.dispatchEvent(new Event('rewind:error'));}},45000);
-  tick();setInterval(tick,1000);const requested=new URLSearchParams(location.search);
-  if(!requested.has('episode')||!playRequested(requested.get('channel'),requested.get('episode'),{library:location.hash==='#library-watch'})){selectLive();power=true;setStatus('TUNING IN · '+channels[channel].name);ensurePlayer();}
+  function restorePlayback(requested=new URLSearchParams(location.search)){
+    const marked=requested.get('playback')==='library',returningLive=marked&&location.hash==='#watch';
+    const fromLibrary=location.hash==='#library-watch'||marked&&!returningLive;
+    if(fromLibrary){const saved=continueItems().find(item=>item.video.id===requested.get('episode'));libraryOrigin=saved?.origin||history.state?.libraryOrigin||(location.hash==='#movies'?'films':'shows');}
+    if(returningLive){const live=channels.findIndex(c=>c.key===lastLiveChannelKey);if(live>=0)channel=live;}
+    if(!returningLive&&requested.has('episode')&&playRequested(requested.get('channel'),requested.get('episode'),{library:fromLibrary,offset:fromLibrary?savedLibraryOffset(requested.get('channel'),requested.get('episode')):0}))return;
+    selectLive();power=true;setStatus('TUNING IN · '+channels[channel].name);ensurePlayer();
+  }
+  tick();setInterval(tick,1000);restorePlayback();
   function restorePage(){
     if(location.hash==='#library-watch'){
       const query=new URLSearchParams(location.search),id=query.get('episode'),key=query.get('channel');libraryOrigin=history.state?.libraryOrigin||librarySession?.origin||'shows';
-      if(!libraryContext||active?.video.id!==id){const saved=librarySession?.id===id?librarySession:null;if(!startLibrary({channelKey:key,id},libraryOrigin,{record:false,offset:saved?.offset||0})){backToLibrary();return;}}else showLibraryPlayer(false);
+      if(!libraryContext||active?.video.id!==id){const saved=librarySession?.id===id?librarySession:null;if(!startLibrary({channelKey:key,id},libraryOrigin,{record:false,offset:saved?.offset??savedLibraryOffset(key,id)})){backToLibrary();return;}}else showLibraryPlayer(false);
     }
     else if(location.hash==='#watch'&&libraryContext){joinLive();panels.watch({remember:false});}
     else if(location.hash==='#guide'){const i=channels.findIndex(c=>c.key===history.state?.guideChannel);if(!panels.isOpen($('.schedule-overlay'))||scheduleChannel!==i)openSchedule(i,false);}

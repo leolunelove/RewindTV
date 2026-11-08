@@ -2,6 +2,14 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-08 — Continue watching in Library
+
+- Added a compact Continue watching row to Library Shows and Films. Keeps up to twelve recent unfinished titles: the latest episode per show, with films saved individually.
+- Resume restores the saved episode and playback position. Show details offer Resume alongside playback from the beginning; the two actions stay distinct.
+- Save progress about every five seconds and on pause, seek, leaving playback and page exit. Switching to live TV keeps Library progress while preserving the saved live channel.
+- Finished programmes leave the row. Remove an entry without changing the catalogue, browse order, filters or scroll position.
+- Progress stays in this browser. No account or cross-device sync; unavailable storage falls back to the current session. Catalogue, schedule and private-manager data remain unchanged. Release validation is recorded separately.
+
 ## 2026-11-08 — A continuous Library and a place to watch
 
 - Shows and films open a Library watching page with the same media engine: seeking, volume, pause, episode stepping, an ordered episode list and original source links. Back to browsing preserves the collection context.

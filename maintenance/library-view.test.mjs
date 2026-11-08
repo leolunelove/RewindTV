@@ -15,7 +15,7 @@ test('listed titles are searchable without exposing preview IDs to the player',a
  assert.equal(findProgramme(catalogue,'retro','preview'),null);
 });
 
-function libraryFixture(catalogue,onMovies=()=>{},storage=new Map()) {
+function libraryFixture(catalogue,onMovies=()=>{},storage=new Map(),continueOptions={}) {
   class Element extends EventTarget {
     constructor(tag,doc) {
       super();this.tagName=tag;this.ownerDocument=doc;this.children=[];this.dataset={};this.attributes={};this.className='';this.scrollTop=0;this.textContent='';
@@ -44,7 +44,7 @@ function libraryFixture(catalogue,onMovies=()=>{},storage=new Map()) {
   const doc={defaultView:win,createElement:tag=>new Element(tag,doc)};
   const root=doc.createElement('div');
   const played=[];
-  return import('../site/library-view.mjs').then(({createLibraryView})=>({root,win,played,view:createLibraryView(root,{catalogue,onPlay:video=>played.push(video),onMovies})}));
+  return import('../site/library-view.mjs').then(({createLibraryView})=>({root,win,played,view:createLibraryView(root,{catalogue,onPlay:video=>played.push(video),onMovies,...continueOptions})}));
 }
 
 function descendants(root) {
@@ -332,4 +332,17 @@ test('main Shows and Films together expose playable source records from every re
   const visible=byClass(root,'library-title').map(card=>card.dataset.showKey);
   assert.deepEqual(new Set(visible),new Set(programmes.map(show=>show.key)),'the actual Library shows every playable non-film title without a shortlist');
   assert.equal(visible.length,new Set(visible).size);
+});
+
+
+test('Library Continue watching resumes the saved episode while From the beginning remains explicit',async()=>{
+ let records=[{key:'show:science club',video:{...scienceEpisodes[22],channelKey:'discovery'},position:321,duration:1200,origin:'shows'}];const resumed=[],removed=[];
+ const f=await libraryFixture(libraryCatalogue,()=>{},new Map(),{getContinueWatching:()=>records,onResume:record=>resumed.push(record),onRemoveContinue:key=>removed.push(key)});
+ assert.equal(byClass(f.root,'continue-item').length,1);assert.equal(f.played.length,0);
+ byClass(f.root,'continue-resume')[0].onclick();assert.equal(resumed[0].video.id,scienceEpisodes[22].id);assert.equal(resumed[0].position,321);
+ f.view.openDetail('show:science club');const resume=byClass(f.root,'library-resume')[0];assert.equal(resume.hidden,false);assert.match(resume.textContent,/5:21/);resume.onclick();assert.equal(resumed.length,2);
+ descendants(f.root).find(node=>node.tagName==='button'&&node.textContent==='▶ Watch from the beginning').onclick();assert.equal(f.played[0].id,scienceEpisodes[0].id);
+ const episodes=byClass(f.root,'episode-row');f.root.scrollTop=234;resume.focus();records=[{...records[0],position:400}];f.view.refreshContinueWatching();
+ assert.equal(byClass(f.root,'library-resume')[0],resume);assert.equal(f.root.ownerDocument.activeElement,resume);assert.equal(f.root.scrollTop,234);assert.equal(byClass(f.root,'episode-row')[0],episodes[0]);assert.match(resume.textContent,/6:40/);
+ records=[];f.view.refreshContinueWatching();assert.equal(resume.hidden,true);
 });

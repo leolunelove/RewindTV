@@ -20,6 +20,7 @@
 - **Browse without leaving the picture.** Watch, Guide and Library live in a desktop rail and phone tabs. The same picture moves into a mini-player while you browse, with pause, mute and a route back to the programme.
 - **Find a show or creator.** Library Shows includes TV episodes, creator videos, classic web collections and music. Scroll every matching title, search or filter the collection. **Mix Library** changes the discovery order; **A–Z** offers alphabet browsing. Show details keep every matching episode in chronological order and remember your season, search and position. Filters also reach listed titles and source collections such as Biochao’s Vault.
 - **Watch your choice.** Starting a show or film opens a dedicated Library watching page with seeking, volume, episode controls and the original source. **Back to browsing** keeps your place. Watch returns to your last live channel; Library playback does not replace that saved channel.
+- **Pick up where you stopped.** **Continue watching** in Library remembers the latest episode per show and each unfinished film, even after returning to live TV or visiting later. Choose **Resume** to keep your place, or **From beginning** to start again. Remove anything you no longer want in the row.
 - **Make it a movie night.** Open Films under Library to scroll the full matching collection, mix its order or browse A–Z, by genre or search. **Pick for me** spins the film reel, avoids recent picks and reveals a film before you choose **Watch from start**.
 - **Surprise yourself.** **Surprise me** previews a random programme from **This channel** or **Everywhere**. Keep watching while you pick again. **Watch from start** begins the selection, and **Return to live TV** rejoins the broadcast.
 - **See what’s on.** Guide has one continuous numbered lineup, genre filters and search across channel names and current programmes. Expand a row for Now, Next, **Watch live**, **From start** and **Full schedule**. Info shows the episode, runtime, progress and upload source.
@@ -31,13 +32,15 @@
 2. While watching, use **← / →**, the channel buttons or a channel number to tune. Pointer, touch and keyboard interaction bring the controls back. **I** opens programme Info, where channel stepping also works.
 3. Open **Guide** from the rail or bottom tabs, or press **C** or **G**. Search the full lineup, expand a numbered row and choose live playback or its full schedule.
 4. Open **Library** for Shows and Films. Scroll the matching collection, or search and filter it. **Mix Library** / **Mix again** changes the title order; **A–Z** sorts it. Choose a title and episode, or use Movie Night’s film reel.
-5. Library choices open their own watching page. Use its timeline, previous/next episode buttons, pause and volume controls. **Back to browsing** restores your filters and position. The mini-player returns to the current programme while you browse; **Watch** or **Return to live TV** rejoins your saved live channel.
+5. Library choices open their own watching page. Use its timeline, previous/next episode buttons, pause and volume controls. **Back to browsing** restores your filters and position. The mini-player returns to the current programme while you browse; **Watch** or **Return to live TV** rejoins your saved live channel. On your next visit, **Continue watching** offers **Resume** without changing live TV’s saved channel.
 
 ## Your TV
 
 The first ten channels get a new timetable every Tuesday at **00:00 Europe/Gibraltar**. Shuffle channels use a changing queue instead of fixed broadcast times. Short adverts sit between programmes.
 
 Preferences, viewing history and Library browse order, filters and positions are saved on this device. Live TV remembers its channel separately from the current Library choice. There is no account or cross-device sync; clearing the browser’s site data resets your set.
+
+Continue watching keeps up to twelve recent unfinished titles in this browser. It saves Library progress about every five seconds and on pause, seek, leaving playback or closing the page. Finished programmes leave the row. You can remove an entry without removing its show or film from the catalogue. Live broadcasts do not create resume entries.
 
 Playback comes from third-party YouTube embeds and direct archive streams. Official and fan/archive uploads are labelled. Older upload dates help assess longevity, but availability, region restrictions and removal remain controlled by the source. The player reconnects automatically after initialization failures and tries another upload when a source cannot play. A browser autoplay restriction may still require pressing Play. Public availability does not make a programme public domain.
 
