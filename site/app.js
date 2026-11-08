@@ -607,7 +607,7 @@
   function advance(manual=false){
     if(!active){selectLive();}
     if(active.mode==='ondemand'){
-      remember(active.video.id);if(requestedIndex+1<requestedQueue.length){requestedIndex++;if(libraryContext&&requestedQueue[requestedIndex].channelKey)channel=channels.findIndex(c=>c.key===requestedQueue[requestedIndex].channelKey);active=requestedActive(requestedQueue[requestedIndex]);persist();loadActive();}else if(libraryContext){endLibrary('End of this collection. Choose another title or play again.');}else{paused=true;currentPlayer()?.pauseVideo?.();setStatus('End of this collection. Choose another title or return to live TV.');}return;
+      remember(active.video.id);if(requestedIndex+1<requestedQueue.length){requestedIndex++;if(libraryContext&&requestedQueue[requestedIndex].channelKey)channel=channels.findIndex(c=>c.key===requestedQueue[requestedIndex].channelKey);active=requestedActive(requestedQueue[requestedIndex]);persist();if(libraryContext)ensurePlayer();else loadActive();}else if(libraryContext){endLibrary('End of this collection. Choose another title or play again.');}else{paused=true;currentPlayer()?.pauseVideo?.();setStatus('End of this collection. Choose another title or return to live TV.');}return;
     }
     if(active.mode==='fallback'&&!manual){remember(active.video.id);selectLive();ensurePlayer();return;}
     if(channels[channel].mode==='shuffle'){

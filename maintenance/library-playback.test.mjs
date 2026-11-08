@@ -30,3 +30,9 @@ test('an exhausted Library failure remains on the chosen collection rather than 
  const {c,events,a}=fixture();c.startLibrary(a);c.requestedQueue=[a];events.length=0;c.skipUnavailable('Unavailable');
  assert.equal(c.libraryEnded,true);assert.equal(c.libraryContext,true);assert.equal(c.active.video.id,'a');assert.equal(c.lastLiveChannelKey,'live');assert.ok(!events.includes('live'));
 });
+
+test('Library episode advance initializes the next provider rather than requiring an existing YouTube handshake',()=>{
+ const {c,a}=fixture();c.startLibrary(a);let initialized=0;
+ c.ensurePlayer=()=>initialized++;c.loadActive=()=>assert.fail('a provider without a handshake cannot use loadActive directly');
+ c.advance();assert.equal(initialized,1);assert.equal(c.active.video.id,'b');
+});
