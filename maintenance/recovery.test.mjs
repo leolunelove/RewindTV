@@ -8,7 +8,7 @@ test('buffering after playback arms recovery again',()=>{const f=stateFixture();
 test('callbacks from a superseded provider or queued channel are ignored',()=>{const f=stateFixture();f.c.active.video.provider='archive';f.c.onPlayerStateChange({target:f.player,data:0});f.c.active.video.provider='youtube';f.c.channelLoadTimer=1;f.c.onPlayerStateChange({target:f.player,data:2});assert.deepEqual(f.calls,[]);});
 function watchdog(provider='youtube',readyState=0){
  const timers=new Map(),deadlines=new Map(),calls=[];let n=0,now=0;
- const c={Date:{now:()=>now},ready:true,movie:{readyState,dataset:{loadStartedAt:'0',progressAt:''}},active:{video:{id:'x',provider}},loadGeneration:1,playbackIntent:true,power:true,paused:false,document:{hidden:false},watchTimer:0,
+ const c={Date:{now:()=>now},pendingLibraryResume:null,ready:true,movie:{readyState,dataset:{loadStartedAt:'0',progressAt:''}},active:{video:{id:'x',provider}},loadGeneration:1,playbackIntent:true,power:true,paused:false,document:{hidden:false},watchTimer:0,
   clearTimeout(id){timers.delete(id);deadlines.delete(id);},
   setTimeout(fn,delay){timers.set(++n,fn);deadlines.set(n,now+delay);return n;},
   currentPlayer:()=>({getPlayerState:()=>3}),playSelection:()=>calls.push('retry'),skipUnavailable:()=>calls.push('skip'),setStatus(){},programmeTitle:video=>video.title||video.id
@@ -103,6 +103,15 @@ test('an Archive stream with metadata keeps both sixteen-second recovery windows
  f.advanceTime(15999);assert.deepEqual(f.calls,['retry']);
  f.advanceTime(1);assert.deepEqual(f.calls,['retry','skip']);
  assert.equal(f.timers.size,0);
+});
+
+test('a metadata-ready Archive Resume gets at most forty seconds of loading grace and one sixteen-second retry',()=>{
+ const f=watchdog('archive',3);f.c.pendingLibraryResume={id:'x',position:187};f.c.movie.networkState=2;f.c.movie.seeking=true;
+ f.c.watchPlayback();f.advanceTime(39999);assert.deepEqual(f.calls,[]);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry']);
+ f.c.movie.dataset.loadStartedAt=String(f.c.Date.now());f.c.movie.dataset.progressAt=String(f.c.Date.now());
+ f.advanceTime(15999);assert.deepEqual(f.calls,['retry']);
+ f.advanceTime(1);assert.deepEqual(f.calls,['retry','skip']);assert.equal(f.timers.size,0);
 });
 test('a metadata arrival gives the next Archive retry the longer buffering window',()=>{
  const f=watchdog('archive',0);f.c.watchPlayback();
@@ -201,7 +210,7 @@ for(const [outgoingProvider,fallbackProvider]of [['youtube','archive'],['archive
  });
 }
 test('a PLAYING state with a frozen clock still retries then moves on',()=>{const f=watchdog();f.c.currentPlayer=()=>({getPlayerState:()=>1,getVideoData:()=>({video_id:'x'})});f.c.watchPlayback(true);const first=[...f.timers.values()][0];first();assert.deepEqual(f.calls,['retry']);[...f.timers.values()].at(-1)();assert.deepEqual(f.calls,['retry','skip']);});
-function progressFixture(){const calls=[];let time=10;const c={power:true,playbackIntent:true,paused:false,document:{hidden:false},channelLoadTimer:0,active:{video:{id:'x'}},loadGeneration:1,currentPlayer:()=>({getCurrentTime:()=>time,getPlayerState:()=>1,getVideoData:()=>({video_id:'x'})}),watchPlayback:force=>calls.push(force),stopWatch(){},recoveryAttempts:1,recoveryChain:1};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  let progressGeneration='),app.indexOf('  function advance(')),c);return {c,calls,setTime:v=>time=v};}
+function progressFixture(){const calls=[];let time=10;const c={pendingLibraryResume:null,power:true,playbackIntent:true,paused:false,document:{hidden:false},channelLoadTimer:0,active:{video:{id:'x'}},loadGeneration:1,currentPlayer:()=>({getCurrentTime:()=>time,getPlayerState:()=>1,getVideoData:()=>({video_id:'x'})}),watchPlayback:force=>calls.push(force),stopWatch(){},recoveryAttempts:1,recoveryChain:1};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  let progressGeneration='),app.indexOf('  function advance(')),c);return {c,calls,setTime:v=>time=v};}
 test('frozen playback requires twelve visible seconds before recovery',()=>{const f=progressFixture();f.c.checkPlaybackProgress(0);f.c.checkPlaybackProgress(11999);assert.deepEqual(f.calls,[]);f.c.checkPlaybackProgress(12000);assert.deepEqual(f.calls,[true]);});
 test('advancing playback, deliberate pause, and a new tune reset freeze detection',()=>{const f=progressFixture();f.c.checkPlaybackProgress(0);f.setTime(11);f.c.checkPlaybackProgress(11000);f.c.checkPlaybackProgress(12000);assert.deepEqual(f.calls,[]);f.c.paused=true;f.c.checkPlaybackProgress(30000);f.c.paused=false;f.c.checkPlaybackProgress(40000);f.c.loadGeneration++;f.c.checkPlaybackProgress(60000);assert.deepEqual(f.calls,[]);});
 function apiFixture(){const timers=[],calls=[];const c={apiTimer:0,apiLoading:true,ready:false,power:true,playbackIntent:true,active:{video:{provider:'youtube'}},document:{getElementById:()=>({remove:()=>calls.push('remove')})},clearTimeout(){},setTimeout(fn,delay){timers.push({fn,delay});return timers.length;},setStatus(){},ensurePlayer:()=>calls.push('ensure')};vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  let apiRecoveryTimer='),app.indexOf('  function ensurePlayer(')),c);return {c,timers,calls};}

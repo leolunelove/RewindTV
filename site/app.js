@@ -6,7 +6,7 @@
   let libraryContext=false,lastLiveChannelKey='',libraryOrigin='shows',libraryEnded=false,libraryQueueStamp='',seekingLibrary=false,librarySession=null;
   const {createWatchHistory}=await import('./watch-history.mjs?v=continue1');
   let historyStorage=null;try{historyStorage=window.localStorage;}catch{}
-  const watchHistory=createWatchHistory({storage:historyStorage});let libraryCheckpointAt=0,librarySeek=null;const removedProgress=new Set();
+  const watchHistory=createWatchHistory({storage:historyStorage});let libraryCheckpointAt=0,librarySeek=null,pendingLibraryResume=null;const removedProgress=new Set();
   const {createPanelMotion}=await import('./panel-motion.mjs?v=library1');
   const panels=createPanelMotion(root),wideMenu=matchMedia('(min-width:960px)');
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
@@ -278,7 +278,8 @@
     if(!matching)return;
     if(!explicit&&active.video.provider==='archive'&&(movie.currentSrc!==movieSourceUrl||moviePlaybackGeneration!==loadGeneration||movieLoading||movie.seeking))return;
     const time=explicit?position:Number(p.getCurrentTime?.());if(!Number.isFinite(time)||time<0)return;
-    if(explicit)librarySeek={id:active.video.id,target:time,at:Date.now()};
+    if(!explicit&&pendingLibraryResume?.id===active.video.id&&time<pendingLibraryResume.position-3)return;
+    if(explicit){librarySeek={id:active.video.id,target:time,at:Date.now()};if(pendingLibraryResume?.id===active.video.id)pendingLibraryResume=time>0?{id:active.video.id,position:time}:null;}
     else if(librarySeek?.id===active.video.id){
       if(Math.abs(time-librarySeek.target)>3&&Date.now()-librarySeek.at<8000)return;
       librarySeek=null;
@@ -322,7 +323,7 @@
   function playRequested(channelKey,videoId,{library=false,offset=0,fromStart=false}={}){
     const found=findProgramme(catalogue,channelKey,videoId);if(!found||!channels.some(c=>c.key===channelKey))return false;
     checkpointLibrary();if(library&&fromStart)watchHistory.remove(found.video);removedProgress.delete(videoId);forgetFailure(videoId);clearShuffleResult();cancelChannelLoad();loadGeneration++;clearTimeout(recoveryBackoffTimer);playbackIntent=true;tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();
-    libraryContext=library;libraryEnded=false;channel=channels.findIndex(c=>c.key===channelKey);requestedQueue=library?(buildShowIndex(catalogue).find(show=>show.key===showIdentity(found.video))?.episodes||found.queue):found.queue;requestedIndex=requestedQueue.findIndex(v=>v.id===videoId);active=requestedActive(found.video);active.offset=Math.max(0,Math.min(offset,found.video.duration-1));librarySeek=library?{id:videoId,target:active.offset,at:Date.now()}:null;power=true;paused=false;
+    libraryContext=library;libraryEnded=false;channel=channels.findIndex(c=>c.key===channelKey);requestedQueue=library?(buildShowIndex(catalogue).find(show=>show.key===showIdentity(found.video))?.episodes||found.queue):found.queue;requestedIndex=requestedQueue.findIndex(v=>v.id===videoId);active=requestedActive(found.video);active.offset=Math.max(0,Math.min(offset,found.video.duration-1));librarySeek=library?{id:videoId,target:active.offset,at:Date.now()}:null;pendingLibraryResume=library&&active.offset>0?{id:videoId,position:active.offset}:null;power=true;paused=false;
     clearNeighbours();setStatus('LOADING · '+found.video.title);ensurePlayer();persist();return true;
   }
   function selectLibraryEpisode(index){
@@ -346,14 +347,15 @@
     $('#library-seek').max=Math.max(1,duration-1);$('#library-seek').disabled=!power||!matching;$('#library-seek').setAttribute('aria-valuetext',progress.label);$('#library-remaining').textContent=progress.remaining;
     const muted=volume===0||startupMuted;$('#library-volume').value=volume;$('#library-volume').setAttribute('aria-valuetext',muted?'Muted':volume+'%');$('#library-mute').textContent=muted?'Unmute':'Mute';$('#library-mute').setAttribute('aria-pressed',String(muted));$('#library-mute').setAttribute('aria-label',muted?'Unmute programme':'Mute programme');
     if($('#library-status').textContent!==status)$('#library-status').textContent=status;
+    $('#library-ended').querySelector('p').textContent=pendingLibraryResume?'Your episode and position are saved.':'This programme has finished.';$('#library-replay').textContent=pendingLibraryResume?'Resume again':'Play again';
     $('#library-source').href=v.watchUrl;$('#library-source').hidden=!v.watchUrl;$('#library-ended').hidden=!libraryEnded;
     $('#library-episodes').hidden=requestedQueue.length<2;
     const stamp=requestedQueue.map(v=>v.id).join('|');
     if(stamp!==libraryQueueStamp){libraryQueueStamp=stamp;const list=$('#library-queue-list');list.replaceChildren();requestedQueue.forEach((episode,index)=>{const button=element('button',programmeTitle(episode));button.type='button';button.dataset.index=index;button.append(element('small',Math.round(episode.duration/60)+' min'));button.onclick=()=>selectLibraryEpisode(index);list.append(button);});}
     for(const button of $('#library-queue-list').children){if(Number(button.dataset.index)===requestedIndex)button.setAttribute('aria-current','true');else button.removeAttribute('aria-current');}
   }
-  $('#library-play').onclick=()=>{if(libraryEnded){selectLibraryEpisode(requestedIndex);return;}$('#tv-play').click();};
-  $('#library-prev').onclick=()=>selectLibraryEpisode(requestedIndex-1);$('#library-next').onclick=()=>selectLibraryEpisode(requestedIndex+1);$('#library-replay').onclick=()=>selectLibraryEpisode(requestedIndex);
+  $('#library-play').onclick=()=>{if(libraryEnded){$('#library-replay').click();return;}$('#tv-play').click();};
+  $('#library-prev').onclick=()=>selectLibraryEpisode(requestedIndex-1);$('#library-next').onclick=()=>selectLibraryEpisode(requestedIndex+1);$('#library-replay').onclick=()=>{const saved=pendingLibraryResume&&continueItems().find(entry=>entry.video.id===active?.video.id);if(saved)resumeLibrary(saved);else selectLibraryEpisode(requestedIndex);};
   $('#library-mute').onclick=toggleMute;$('#library-volume').oninput=e=>changeVolume(Number(e.target.value)-volume);
   $('#library-seek').oninput=e=>{seekingLibrary=true;$('#library-elapsed').textContent=programmeProgress(Number(e.target.value),Number(e.target.max)).label;};
   $('#library-seek').onchange=e=>{seekingLibrary=false;seekProgramme(Number(e.target.value));renderLibrary();};
@@ -417,6 +419,7 @@
           showNotice('Trying another upload of '+previousVideo.title+'.');persist();setStatus('CONNECTING · '+previousVideo.title);ensurePlayer();return;
         }
       }
+      if(libraryContext&&pendingLibraryResume){endLibrary('Could not resume this programme. Your place is saved.');return;}
       const next=requestedQueue.findIndex((v,i)=>i>requestedIndex&&!failed.has(v.id)&&!globallyRestricted(v));
       if(next>=0){requestedIndex=next;if(libraryContext&&requestedQueue[next].channelKey)channel=channels.findIndex(c=>c.key===requestedQueue[next].channelKey);active=requestedActive(requestedQueue[next]);showNotice('That episode could not start. Playing the next available episode.');persist();setStatus(reason+' · Trying the next episode of this show.');ensurePlayer();return;}
       if(libraryContext){endLibrary('No playable upload was found. Choose another title or go back to browsing.');return;}
@@ -614,7 +617,7 @@
       if(document.hidden){watchPlayback(requireProgress);return;}
       // Safari may still be fetching Archive metadata before it emits progress.
       // Keep the first request alive, but bound it to 40s plus one 8s retry.
-      if(active.video.provider==='archive'&&movie.readyState<1&&recoveryAttempts===0){
+      if(active.video.provider==='archive'&&(movie.readyState<1||pendingLibraryResume?.id===active.video.id)&&recoveryAttempts===0){
         const started=Number(movie.dataset?.loadStartedAt),progress=Number(movie.dataset?.progressAt),now=Date.now();
         const elapsed=now-started,transferring=movie.dataset?.progressAt!==''&&Number.isFinite(progress)&&now-progress<4000&&elapsed<30000;
         if(Number.isFinite(started)&&elapsed>=0&&(transferring||(movie.networkState===2&&elapsed<40000))){
@@ -623,7 +626,7 @@
       }
       if(recoveryAttempts++<1){setStatus('CONNECTING · Retrying the TV signal…');playSelection(currentPlayer(),active,true);watchPlayback(requireProgress);}
       else skipUnavailable('Signal did not start',false);
-    },active.video.provider==='archive'&&movie.readyState>=1?16000:8000);
+    },active.video.provider==='archive'&&movie.readyState>=1&&!(pendingLibraryResume?.id===active.video.id&&recoveryAttempts===0)?16000:8000);
   }
 
   let progressGeneration=-1,progressTime=null,progressAt=0;
@@ -632,6 +635,7 @@
     if(!power||!playbackIntent||paused||document.hidden||channelLoadTimer||!active||p?.getPlayerState?.()!==1||p?.getVideoData?.()?.video_id!==active.video.id||!Number.isFinite(time)){
       progressGeneration=-1;return;
     }
+    if(pendingLibraryResume?.id===active.video.id&&progressGeneration===loadGeneration&&progressTime!==null&&time>progressTime+.2&&time>=pendingLibraryResume.position-3)pendingLibraryResume=null;
     if(progressGeneration!==loadGeneration||progressTime===null||Math.abs(time-progressTime)>.2){
       progressGeneration=loadGeneration;progressTime=time;progressAt=now;
       // A changing playback clock is stronger evidence than a PLAYING event.
@@ -762,7 +766,7 @@
   }
   function tune(i){
     checkpointLibrary();clearShuffleResult();cancelChannelLoad();loadGeneration++;clearTimeout(recoveryBackoffTimer);playbackIntent=true;paused=false;tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();
-    libraryContext=false;libraryEnded=false;channel=(i+channels.length)%channels.length;lastLiveChannelKey=channels[channel].key;power=true;selectLive();persist();
+    libraryContext=false;libraryEnded=false;pendingLibraryResume=null;channel=(i+channels.length)%channels.length;lastLiveChannelKey=channels[channel].key;power=true;selectLive();persist();
     setStatus('TUNING IN…');showTuning();revealControls();
     // Keep the remote immediate, but only request the station you settle on.
     channelLoadTimer=setTimeout(()=>{
@@ -770,7 +774,7 @@
       ensurePlayer();
     },settings.preload&&neighbours.slots.get(channels[channel].key)?.ready?40:220);
   }
-  function joinLive(){checkpointLibrary();cancelChannelLoad();loadGeneration++;clearShuffleResult();playbackIntent=true;paused=false;clearTimeout(recoveryBackoffTimer);tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();if(libraryContext){const i=channels.findIndex(c=>c.key===lastLiveChannelKey);if(i>=0)channel=i;}libraryContext=false;libraryEnded=false;lastLiveChannelKey=channels[channel].key;selectLive();power=true;ensurePlayer();persist();}
+  function joinLive(){checkpointLibrary();cancelChannelLoad();loadGeneration++;clearShuffleResult();playbackIntent=true;paused=false;clearTimeout(recoveryBackoffTimer);tuningSound();stopWatch();currentPlayer()?.pauseVideo?.();if(libraryContext){const i=channels.findIndex(c=>c.key===lastLiveChannelKey);if(i>=0)channel=i;}libraryContext=false;libraryEnded=false;pendingLibraryResume=null;lastLiveChannelKey=channels[channel].key;selectLive();power=true;ensurePlayer();persist();}
   function togglePower(){checkpointLibrary();clearShuffleResult();clearTimeout(playerInitTimer);playerInitTimer=0;loadGeneration++;clearTimeout(recoveryBackoffTimer);cancelChannelLoad();clearNeighbours();if(!power){joinLive();return;}power=false;playbackIntent=false;paused=false;stopWatch();if(currentPlayer()){currentPlayer().pauseVideo?.();currentPlayer().getIframe().hidden=true;}setStatus('TV OFF · The schedule keeps rolling.');}
   function changeVolume(delta){if(!Number.isFinite(delta))return;if(volume>0)lastAudibleVolume=volume;startupMuted=false;volume=Math.max(0,Math.min(100,Math.round(volume+delta)));if(volume>0)lastAudibleVolume=volume;if(currentPlayer()){applyAudio();}persist();render();revealControls();}
   function toggleMute(){if(startupMuted&&volume){enableSound();revealControls();return;}if(volume)changeVolume(-volume);else changeVolume(lastAudibleVolume||40);}

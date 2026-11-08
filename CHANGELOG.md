@@ -7,6 +7,7 @@ Dated changes to the player and catalogue. Each release records its validation s
 - Added a compact Continue watching row to Library Shows and Films. Keeps up to twelve recent unfinished titles: the latest episode per show, with films saved individually.
 - Resume restores the saved episode and playback position. Show details offer Resume alongside playback from the beginning; the two actions stay distinct.
 - Save progress about every five seconds and on pause, seek, leaving playback and page exit. Switching to live TV keeps Library progress while preserving the saved live channel.
+- A failed Resume keeps its original episode and position. Archive seeks have a bounded loading grace and automatic retry before offering Resume again.
 - Finished programmes leave the row. Remove an entry without changing the catalogue, browse order, filters or scroll position.
 - Progress stays in this browser. No account or cross-device sync; unavailable storage falls back to the current session. Catalogue, schedule and private-manager data remain unchanged. Release validation is recorded separately.
 

@@ -11,7 +11,7 @@ const memory=()=>{const values=new Map();return {getItem:key=>values.get(key)||n
 function fixture(storage=memory()){
  const events=[],first={id:'episode0001',title:'First episode',series:'Example Show',kind:'full episode',provider:'youtube',duration:600,episodeNumber:1},second={...first,id:'episode0002',title:'Second episode',episodeNumber:2},live={...first,id:'broadcast01',series:'Broadcast Show'};
  const catalogue={channels:[{key:'live',videos:[live]},{key:'archive',videos:[first,second]}]};let now=10000;
- const c={Date:{now:()=>now},Math,Number,URLSearchParams,libraryContext:true,libraryEnded:false,libraryOrigin:'shows',librarySession:null,librarySeek:null,removedProgress:new Set(),lastLiveChannelKey:'live',active:{mode:'ondemand',video:first,offset:0},channel:1,channels:catalogue.channels,catalogue,requestedQueue:[first,second],requestedIndex:0,power:true,paused:false,playbackIntent:true,loadGeneration:12,playerLoadGeneration:12,recoveryBackoffTimer:0,movieLoading:false,moviePlaybackGeneration:12,movieSourceUrl:'https://archive.org/active.mp4',movie:{currentSrc:'https://archive.org/active.mp4',seeking:false},libraryView:null,movieNight:null,
+ const c={Date:{now:()=>now},Math,Number,URLSearchParams,libraryContext:true,libraryEnded:false,libraryOrigin:'shows',librarySession:null,librarySeek:null,pendingLibraryResume:null,document:{hidden:false},channelLoadTimer:0,removedProgress:new Set(),lastLiveChannelKey:'live',active:{mode:'ondemand',video:first,offset:0},channel:1,channels:catalogue.channels,catalogue,requestedQueue:[first,second],requestedIndex:0,power:true,paused:false,playbackIntent:true,loadGeneration:12,playerLoadGeneration:12,recoveryBackoffTimer:0,movieLoading:false,moviePlaybackGeneration:12,movieSourceUrl:'https://archive.org/active.mp4',movie:{currentSrc:'https://archive.org/active.mp4',seeking:false},libraryView:null,movieNight:null,
   watchHistory:createWatchHistory({storage,now:()=>now}),findProgramme,buildShowIndex,showIdentity,location:{hash:'#library'},history:{state:{},back:()=>events.push('back')},window:new EventTarget(),root:{addEventListener(){},classList:{remove(){}}},
   returnToPicture(){},forgetFailure(){},clearShuffleResult(){},cancelChannelLoad(){events.push('cancel tune');},clearTimeout(){},tuningSound(){},stopWatch(){},clearNeighbours(){},setStatus:message=>events.push(['status',message]),persist(){},render(){},renderInfo(){},revealControls(){},openBrowse(){},openMovieNight(){},openSchedule(){},showNotice:message=>events.push(['notice',message]),remember(){},watchPlayback(){},failed:new Set(),rememberFailure(){},globallyRestricted:()=>false,findFilmAlternative:()=>null,recoveryChain:0};
  const provider={id:first.id,time:123,duration:600,pauseVideo:()=>events.push('pause'),getVideoData:()=>({video_id:provider.id}),getCurrentTime:()=>provider.time,getDuration:()=>provider.duration,seekTo:target=>events.push(['seek',target]),playVideo:()=>events.push('play')};
@@ -22,7 +22,7 @@ function fixture(storage=memory()){
  const nodes=new Map();c.$=id=>{if(!nodes.has(id))nodes.set(id,{id,setAttribute(){},addEventListener(){},click(){events.push(['click',id]);if(id==='#tv-play'){c.paused=false;provider.playVideo();}}});return nodes.get(id);};
  c.panels={open:(page,options)=>{events.push(['page',page.id]);c.location.hash='#library-watch';c.history.state=options.state;}};
  vm.createContext(c);
- for(const [start,end]of [['  function requestedActive(','  const shuffleDialog='],["  function continueItems(",'  function renderLibrary(){'],['  function seekProgramme(','  $(\'#info-seek\').oninput='],['  function advance(','  function videoError('],['  function joinLive(){','  function togglePower(){'],['  function restorePlayback(','  tick();setInterval']])vm.runInContext(part(start,end),c);
+ for(const [start,end]of [['  function requestedActive(','  const shuffleDialog='],["  function continueItems(",'  function renderLibrary(){'],['  function seekProgramme(','  $(\'#info-seek\').oninput='],['  function skipUnavailable(','  const timeFormat='],['  let recoveryId=','  function advance('],['  function advance(','  function videoError('],['  function joinLive(){','  function togglePower(){'],['  function restorePlayback(','  tick();setInterval']])vm.runInContext(part(start,end),c);
  return {c,events,first,second,live,provider,storage,setNow:value=>now=value};
 }
 
@@ -110,4 +110,28 @@ test('removing the currently playing title suppresses automatic reinsertion unti
 
 test('pagehide saves the most recent clock even when the five-second checkpoint has not run',()=>{
  const {c,provider,first}=fixture();provider.time=222;c.window.dispatchEvent(new Event('pagehide'));assert.equal(c.watchHistory.get(first).position,222);
+});
+
+test('failed Resume keeps the chosen episode and saved clock instead of advancing to the next episode',()=>{
+ const {c,events,first}=fixture();c.watchHistory.save(first,{channelKey:'archive',position:187,duration:600,origin:'shows'});
+ c.libraryContext=false;c.resumeLibrary(c.continueItems()[0]);assert.equal(c.active.offset,187);assert.equal(c.pendingLibraryResume.id,first.id);
+ events.length=0;c.skipUnavailable('Range request did not start',false);
+ assert.equal(c.active.video.id,first.id);assert.equal(c.requestedIndex,0);assert.equal(c.libraryContext,true);assert.equal(c.libraryEnded,true);assert.equal(c.playbackIntent,false);
+ assert.equal(c.watchHistory.get(first).position,187);assert.ok(!events.includes('load'),'failure must not silently load another episode');
+});
+
+test('Resume stays pending until its matching playback clock moves near the saved target in one generation',()=>{
+ const {c,provider,first}=fixture();provider.getPlayerState=()=>1;c.pendingLibraryResume={id:first.id,position:187};provider.time=187;
+ c.checkPlaybackProgress(1000);assert.ok(c.pendingLibraryResume,'one sample cannot establish clock movement');
+ c.loadGeneration++;provider.time=188;c.checkPlaybackProgress(2000);assert.ok(c.pendingLibraryResume,'a new generation starts a new observation');
+ provider.id='outgoing001';provider.time=189;c.checkPlaybackProgress(3000);assert.ok(c.pendingLibraryResume,'another source cannot confirm Resume');
+ provider.id=first.id;provider.time=190;c.checkPlaybackProgress(4000);assert.ok(c.pendingLibraryResume);
+ provider.time=191;c.checkPlaybackProgress(5000);assert.equal(c.pendingLibraryResume,null);
+});
+
+test('a playing clock before the requested Resume target does not confirm or overwrite the saved position',()=>{
+ const {c,provider,first}=fixture();c.watchHistory.save(first,{channelKey:'archive',position:187,duration:600,origin:'shows'});
+ provider.getPlayerState=()=>1;c.pendingLibraryResume={id:first.id,position:187};provider.time=100;
+ c.checkPlaybackProgress(1000);provider.time=101;c.checkPlaybackProgress(2000);assert.ok(c.pendingLibraryResume);
+ c.checkpointLibrary();assert.equal(c.watchHistory.get(first).position,187);
 });
