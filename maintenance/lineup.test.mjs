@@ -9,13 +9,13 @@ test('00s TV and After School UK append two continuous stations using existing s
  assert.deepEqual(added.videos,[]);
  const previous=cat.channels.slice(0,30);
  const existing=new Set(previous.flatMap(channel=>channel.videos.filter(v=>v.enabled!==false).map(v=>v.id)));
- const stations=cat.channels.slice(30);
+ const stations=cat.channels.slice(30,32);
  assert.deepEqual(stations.map(c=>[c.number,c.key]),[[31,'noughties'],[32,'after-school-uk']]);
  for(const station of stations){
   assert.equal(station.mode,'shuffle');
   assert.equal(station.adverts,false);
   assert(station.videos.length>=100);
-  assert.deepEqual(station.videos.map(video=>video.id),added.assignments[station.key]);
+  assert.deepEqual(station.videos.slice(0,added.assignments[station.key].length).map(video=>video.id),added.assignments[station.key]);
   assert(station.videos.every(video=>existing.has(video.id)&&video.kind==='full episode'&&video.enabled!==false));
  }
  assert(stations[0].videos.every(video=>{

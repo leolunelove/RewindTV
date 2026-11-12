@@ -12,7 +12,7 @@ const packName='november-library.json',pack=read(packName);
 function catalogue(includeAdditions){
  let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));
  for(const name of EXPANSION_PACKS){
-  if(name==='decade-and-after-school.json')continue; // Later stations reuse uploads from this pack.
+  if(['decade-and-after-school.json','official-tv-expansion.json'].includes(name))continue; // Isolate this historical release from later stations and their dependent assignments.
   if(includeAdditions||name!==packName)cat=withExpansion(cat,read(name));
  }
  return cat;

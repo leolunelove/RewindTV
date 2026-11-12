@@ -2,6 +2,13 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-12 — Official episodes and Power Rangers
+
+- Added Power Rangers as channel 33, with 23 official Mighty Morphin episodes. The channel is intended to grow across the franchise; restricted and unverified later-season uploads stay out.
+- Added 40 Old Bear Stories sources, ten He-Man episodes, four She-Ra episodes and six The New Adventures of He-Man episodes. Library and relevant continuous channels receive them immediately; fixed-channel additions join the 17 November timetable.
+- Preserved all existing channel numbers, sources and this week's 8,249 fixed programme/ad slots. Kept overlapping compilations and four runtime-review uploads out.
+- Added a resumable public-origin diagnostic checker. 186 distinct videos passed start and near-end playback samples on the tested browser/network, including all 83 accepted additions. Metadata checks covered 317 candidates; this is not full-catalogue or worldwide certification. See [catalogue report](docs/catalogue-2026-11-12.md).
+
 ## 2026-11-12 — One broadcast room
 
 - Applied the Home mockup direction to the real Guide, Shows, Films, show details and Settings. Kept the persistent picture and existing navigation, source labels, catalogue and private manager.

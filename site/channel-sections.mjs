@@ -1,7 +1,7 @@
 // Group by stable channel keys, never by display order or channel number.
 export const CHANNEL_SECTIONS = [
   {name:'The good stuff',note:'A little of everything',keys:['music']},
-  {name:'Kids & cartoons',note:'Home before the streetlights',keys:['trailers','kids','late','boomerang-classics','cartoon-network-classics','nickelodeon-classics','disney-classics','after-school-uk']},
+  {name:'Kids & cartoons',note:'Home before the streetlights',keys:['trailers','kids','late','boomerang-classics','cartoon-network-classics','nickelodeon-classics','disney-classics','after-school-uk','power-rangers']},
   {name:'Comedy & late night',note:'One more before bed',keys:['sitcom','rewind-after-dark']},
   {name:'Sci-fi & forgotten TV',note:'Somewhere a little stranger',keys:['kids-telly','lost-and-found']},
   {name:'At the movies',note:'Make a night of it',keys:['andromeda','midnight-movies']},

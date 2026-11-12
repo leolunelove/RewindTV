@@ -319,7 +319,7 @@ test('main Shows and Films together expose playable source records from every re
   const programmes=browseTitles(index,{kind:'programmes'});
   const films=browseTitles(index,{kind:'film'});
   const reachable=new Set([...programmes,...films].flatMap(show=>show.episodes.map(video=>video.id)));
-  assert.equal(catalogue.channels.length,32);
+  assert.equal(catalogue.channels.length,33);
   for(const channel of catalogue.channels) {
     const playable=channel.videos.filter(isBrowsable);
     assert(playable.length>0,channel.name);
