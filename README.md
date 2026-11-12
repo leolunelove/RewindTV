@@ -7,6 +7,7 @@
 <p align="center">Something good is always on.</p>
 
 <p align="center">
+  <a href="https://tv.leolune.fun/">Home</a> ·
   <a href="https://tv.leolune.fun/#watch">Watch</a> ·
   <a href="https://tv.leolune.fun/#guide">Guide</a> ·
   <a href="https://tv.leolune.fun/#library">Library</a> ·
@@ -15,15 +16,16 @@
 
 ## Switch on. See where you end up.
 
-- **Find your channel.** Surf 30 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music. Spanish and Mandarin channels, Discovery Club and Kitchen TV broaden the mix. The channel catalogue contains 5,219 source records, including retained exclusions.
+- **A place to switch on.** Home opens Live TV, Films and Shows, with your programme still playing in its footer.
+- **Find your channel.** Surf 32 channels of 80s, 90s and early 2000s TV, cartoons, British nostalgia, gameshows, films, classic YouTube and music. Spanish and Mandarin channels, Discovery Club, Kitchen TV, 00s TV and After School UK broaden the mix. The channel catalogue contains 5,219 source records, including retained exclusions.
 - **Drop into something.** The first ten channels follow a shared weekly timetable. The remaining channels shuffle their collections, giving unseen programmes priority.
-- **Browse without leaving the picture.** Watch, Guide and Library live in a desktop rail and phone tabs. The same picture moves into a mini-player while you browse, with pause, mute and a route back to the programme.
+- **Browse without leaving the picture.** Home, Watch, Guide and Library live in a desktop rail and phone tabs. The same picture moves into a mini-player while you browse, with pause, mute and a route back to the programme.
 - **Find a show or creator.** Library Shows includes TV episodes, creator videos, classic web collections and music. Scroll every matching title, search or filter the collection. **Mix Library** changes the discovery order; **A–Z** offers alphabet browsing. Show details keep every matching episode in chronological order and remember your season, search and position. Filters also reach listed titles and source collections such as Biochao’s Vault.
 - **Watch your choice.** Starting a show or film opens a dedicated Library watching page with seeking, volume, episode controls and the original source. **Back to browsing** keeps your place. Watch returns to your last live channel; Library playback does not replace that saved channel.
 - **Pick up where you stopped.** **Continue watching** in Library remembers the latest episode per show and each unfinished film, even after returning to live TV or visiting later. Choose **Resume** to keep your place, or **From beginning** to start again. Remove anything you no longer want in the row.
 - **Make it a movie night.** Open Films under Library to scroll the full matching collection, mix its order or browse A–Z, by genre or search. **Pick for me** spins the film reel, avoids recent picks and reveals a film before you choose **Watch from start**.
 - **Surprise yourself.** **Surprise me** previews a random programme from **This channel** or **Everywhere**. Keep watching while you pick again. **Watch from start** begins the selection, and **Return to live TV** rejoins the broadcast.
-- **See what’s on.** Guide has one continuous numbered lineup, genre filters and search across channel names and current programmes. Expand a row for Now, Next, **Watch live**, **From start** and **Full schedule**. Info shows the episode, runtime, progress and upload source.
+- **See what’s on.** Guide has one continuous numbered lineup, genre filters and search across channel names and current programmes. See Now and Next in every row. Expand it for **Watch live**, **From start** and **Full schedule**. Info shows the episode, runtime, progress and upload source.
 - **Make it feel like TV.** The picture keeps its shape while the controls fade during watching. CRT scanlines, colour bleed, curvature and switching sounds are adjustable in Settings. Your last channel, volume, effects and viewing history stay in this browser.
 
 ## Get started

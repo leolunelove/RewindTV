@@ -11,7 +11,10 @@ const read=name=>JSON.parse(fs.readFileSync(new URL('../site/'+name,import.meta.
 const packName='november-library.json',pack=read(packName);
 function catalogue(includeAdditions){
  let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));
- for(const name of EXPANSION_PACKS)if(includeAdditions||name!==packName)cat=withExpansion(cat,read(name));
+ for(const name of EXPANSION_PACKS){
+  if(name==='decade-and-after-school.json')continue; // Later stations reuse uploads from this pack.
+  if(includeAdditions||name!==packName)cat=withExpansion(cat,read(name));
+ }
  return cat;
 }
 const base=catalogue(false),expanded=catalogue(true),runtime=hydrateLibrary(compactLibrary(expanded));

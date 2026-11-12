@@ -9,12 +9,12 @@ export function focusPictureRect(viewport,insets,ratio){
 // Presentation only. Routing and geometry never issue a player load or seek.
 export function createLiquidShell(root){
  const doc=root.ownerDocument,win=doc.defaultView;
- const $=selector=>root.querySelector(selector),screen=$('.screen'),watch=$('.screen-anchor'),mini=$('#mini-player'),miniAnchor=$('#mini-picture-anchor'),libraryAnchor=$('#library-picture-anchor');
- let frame=0;
+ const $=selector=>root.querySelector(selector),screen=$('.screen'),watch=$('.screen-anchor'),mini=$('#mini-player'),miniAnchor=$('#mini-picture-anchor'),libraryAnchor=$('#library-picture-anchor'),homeAnchor=$('#home-picture-anchor');
+ let frame=0,lastHomeScroll=null;
  const icon=paused=>`<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paused?'<path d="m9 5 10 7-10 7z"/>':'<path d="M8 5v14M16 5v14"/>'}</svg>`;
  function putText(element,text){if(element.textContent!==text)element.textContent=text;}
  function update(){
-  const browsing=root.classList.contains('is-browsing'),libraryWatching=root.classList.contains('library-watching'),libraryPlaying=root.classList.contains('library-playing');mini.hidden=!browsing||libraryWatching;
+  const browsing=root.classList.contains('is-browsing'),libraryWatching=root.classList.contains('library-watching'),libraryPlaying=root.classList.contains('library-playing'),home=root.classList.contains('home-open');mini.hidden=!browsing||libraryWatching||home;
   $('#exit-focus').hidden=!root.classList.contains('focus-mode');
   putText($('#mini-title'),$('#now-title').textContent);
   $('#mini-return').setAttribute('aria-label','Back to watching '+$('#now-title').textContent+(libraryPlaying?' in Library':' on '+$('#watch-channel-name').textContent));
@@ -32,7 +32,7 @@ export function createLiquidShell(root){
   const viewport={left:visual?.offsetLeft||0,top:visual?.offsetTop||0,width:visual?.width||win.innerWidth,height:visual?.height||win.innerHeight};
   const keyboardInset=Math.max(0,win.innerHeight-viewport.top-viewport.height);
   root.style.setProperty('--visual-bottom-inset',keyboardInset.toFixed(2)+'px');
-  const browsing=root.classList.contains('is-browsing'),libraryWatching=root.classList.contains('library-watching'),anchor=libraryWatching?libraryAnchor:browsing?miniAnchor:watch;
+  const browsing=root.classList.contains('is-browsing'),libraryWatching=root.classList.contains('library-watching'),home=root.classList.contains('home-open'),anchor=libraryWatching?libraryAnchor:home?homeAnchor:browsing?miniAnchor:watch;
   if(!anchor)return;
   const rect=anchor.getBoundingClientRect();if(rect.width<=0||rect.height<=0)return;
   let target={left:rect.left,top:rect.top,width:rect.width,height:rect.height};
@@ -50,10 +50,15 @@ export function createLiquidShell(root){
   for(const [name,value]of Object.entries({'screen-left':target.left,'screen-top':target.top,'screen-width':target.width,'screen-height':target.height,'remote-top':target.top+target.height-24,'now-top':target.top+target.height+Math.max(42,($('.tv-dock').getBoundingClientRect().height||0)-8)})){
    const next=value.toFixed(2)+'px';if(root.style.getPropertyValue('--'+name)!==next)root.style.setProperty('--'+name,next);
   }
-  const bounds=libraryWatching?libraryAnchor.closest('.page-content').getBoundingClientRect():null;
+  const homeContent=home&&!libraryWatching?homeAnchor.closest('.home-content'):null;
+  const homeScroll=homeContent?.scrollTop||0;
+  root.style.setProperty('--home-picture-motion',homeContent&&lastHomeScroll!==null&&homeScroll!==lastHomeScroll?'0ms':'var(--motion-picture)');
+  lastHomeScroll=homeContent?homeScroll:null;
+  const bounds=libraryWatching?libraryAnchor.closest('.page-content').getBoundingClientRect():homeContent?.getBoundingClientRect();
+  const visibleBottom=homeContent&&win.innerWidth<960?Math.min(viewport.top+viewport.height,$('.app-tabs').getBoundingClientRect().top-12):viewport.top+viewport.height;
   root.style.setProperty('--screen-clip-top',bounds?Math.max(0,bounds.top-target.top)+'px':'0px');
-  root.style.setProperty('--screen-clip-bottom',bounds?Math.max(0,target.top+target.height-Math.min(bounds.bottom,viewport.top+viewport.height))+'px':'0px');
-  screen.setAttribute('aria-label',libraryWatching?'Library programme picture':browsing?'TV continues playing while you browse':'Television picture');
+  root.style.setProperty('--screen-clip-bottom',bounds?Math.max(0,target.top+target.height-Math.min(bounds.bottom,visibleBottom))+'px':'0px');
+  screen.setAttribute('aria-label',libraryWatching?'Library programme picture':home?'Programme continues playing on Home':browsing?'TV continues playing while you browse':'Television picture');
  }
  function schedule(){if(!frame)frame=win.requestAnimationFrame(measure);}
  $('#mini-return').onclick=()=>root.dispatchEvent(new win.CustomEvent('rewind:return-picture',{bubbles:true}));
@@ -67,7 +72,7 @@ export function createLiquidShell(root){
  win.addEventListener('resize',schedule);doc.addEventListener('fullscreenchange',schedule);
  win.visualViewport?.addEventListener('resize',schedule);
  win.visualViewport?.addEventListener('scroll',schedule);
- const geometry=new win.ResizeObserver(schedule);geometry.observe(watch);geometry.observe(miniAnchor);if(libraryAnchor)geometry.observe(libraryAnchor);geometry.observe($('.tv-dock'));
+ const geometry=new win.ResizeObserver(schedule);geometry.observe(watch);geometry.observe(miniAnchor);if(libraryAnchor)geometry.observe(libraryAnchor);if(homeAnchor)geometry.observe(homeAnchor);geometry.observe($('.tv-dock'));
  const values=new win.MutationObserver(update);
  for(const node of [$('.club-now'),$('#tv-play'),$('#startup-sound')])values.observe(node,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-label','aria-pressed','disabled']});
  const state=new win.MutationObserver(update);state.observe(root,{attributes:true,attributeFilter:['class']});

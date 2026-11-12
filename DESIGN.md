@@ -6,7 +6,7 @@ Design the public RewindTV player for people who want to watch nostalgic televis
 
 ## 2. Product and user principles
 
-- Make Watch, Guide and Library the three primary destinations.
+- Use Home as a quiet entry into Live TV, Films and Shows. Keep Home, Watch, Guide and Library reachable in the desktop rail and phone tabs.
 - Keep the programme playing while viewers browse. Preserve the selected source, playback position and audio state across navigation.
 - Give live viewing, playback from the beginning and returning to live TV clear labels.
 - Give Library choices their own watching page. Keep the last live channel separate from the selected show or film.
@@ -18,13 +18,14 @@ Design the public RewindTV player for people who want to watch nostalgic televis
 
 - Make the picture the main element on Watch. Place programme identity and progress below it, with the compact remote nearby.
 - Use a left navigation rail on desktop and bottom tabs on phone. Keep the same destination order and selected state.
+- On Home, use three large choices with real catalogue counts. Use Doto for the central RewindTV identity and keep supporting copy brief. Place the existing picture beside the current programme in the footer.
 - Move the existing mounted picture between live Watch, the browsing mini-player and the Library watching stage. Measure their anchors and interpolate the same picture between them.
 - Give Guide numbered, ruled rows. Use image covers for Library shows and films. Keep utility actions visually subordinate.
 - Keep source imagery tied to the actual upload. Use a restrained fallback when an image fails.
 
 ## 4. Token and visual-system guidance
 
-Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-ui.css](site/app-ui.css). Inspect the effective cascade before changing a value.
+Use [liquid-ui.css](site/liquid-ui.css), loaded directly by `index.html`, and the Home component sheet [home.css](site/home.css). The broadcast page component rules are consolidated at the end of `liquid-ui.css`; update these rules instead of adding competing overrides.
 
 | Role | Current implementation |
 | --- | --- |
@@ -34,8 +35,9 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 | Main type | `--type-sans` uses `-apple-system`, `BlinkMacSystemFont`, Helvetica Neue, Arial and sans-serif |
 | Numbers and time | `--type-mono` uses `ui-monospace`, SFMono-Regular, Consolas and monospace. Doto supplies the dotted wordmark and archive-cover fallback. |
 | Type tokens | `--room-body` `14px`, `--room-small` `12px`, `--room-title` `28px`. Retain each component’s responsive hierarchy. |
+| Browse layout | `--page-pad` `clamp(24px,3.5vw,56px)` on desktop and `20px` on phones (`16px` at 380px and below). `--page-surface` `#16212e`; `--page-rule` `#c2d8e31c`. |
 | Space and shape | `--room-pad` `24px`, `--room-gap` `14px`, `--room-radius` `24px`. Phone overrides use `20px` padding and `12px` gaps. |
-| Navigation | `--rail` `190px` on desktop. Phone uses `--rail` `0px` and a `72px` navigation height plus the bottom safe area. |
+| Navigation | `--rail` `176px` on desktop. Phone uses `--rail` `0px` and a `72px` navigation height plus the bottom safe area. |
 | Targets and focus | `--hit` `44px`. Focus uses a `2px` `#c5dce9` outline with a `3px` offset. |
 | Motion tokens | `--motion-touch` `160ms`, `--motion-panel` `240ms`, `--motion-picture` `680ms`. `--ease-liquid` is `cubic-bezier(.22,1,.36,1)`. |
 | Effective transitions | The mounted picture currently uses `680ms`. Page entry uses `220ms` and utility entry uses `280ms` in `panel-motion.mjs`. Check these overrides when tuning motion. |
@@ -45,6 +47,7 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 
 | Component | Usage |
 | --- | --- |
+| Home | Open the implicit entry route at `#home` when the catalogue is ready. Keep explicit viewing and episode links. Live TV rejoins the last live channel, Films opens the cinema, and Shows opens the programme collection. The footer returns to the current live or Library programme. |
 | Watch and remote | Programme title, live state, progress, next programme, play/pause, channel stepping, volume, mute, picture shape and fullscreen |
 | Browsing mini-player | The same mounted picture, current programme, play/pause, mute and return to the current watching destination |
 | Guide overview | One continuous numbered channel list. Search all channels and current programmes. Filter by genre or schedule type. Expand a row for Now, Next, Watch live, From start and Full schedule. |
@@ -60,6 +63,7 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 
 - Keep one active audio source. Pause the outgoing provider before loading another provider. Route main and mini-player controls through the same playback state.
 - Keep the picture mounted when switching destinations. Apply geometry changes to its frame and anchors. Keep the full video contained within the resolved ratio.
+- Move the mounted picture into Home's footer while its three choices are visible. Opening Home, focusing a choice and browsing its destinations must not reload or seek the programme.
 - Use Auto aspect ratio with verified source dimensions and a 4:3 fallback. Preserve the saved 4:3 and 16:9 overrides per upload. Retain bars encoded into the source.
 - Fade Watch controls during idle playback. Restore them on pointer, touch, keyboard input and focus. Keep them visible while paused or while an action needs attention.
 - Preserve Guide search, filters, scroll and expanded row through schedule refreshes. Start near the tuned channel. Offer On my channel to return there.
@@ -98,6 +102,7 @@ Use the final overrides in [liquid-ui.css](site/liquid-ui.css), loaded by [app-u
 
 - At 960px and wider, use the 190px left rail. Fit the picture inside the remaining width and height.
 - At 959px and narrower, use bottom navigation and safe-area spacing. Keep the mini-player above the tabs and page content clear of both.
+- Home uses three columns on desktop and landscape, with stacked choices on narrow portrait screens. Give short phones native scrolling and keep the three primary choices above the navigation where space permits. Keep large Home surfaces free of backdrop blur.
 - In landscape at up to 560px high, place Watch information and controls beside the picture. Preserve usable short-height browsing and utility sheets.
 - Use two Library columns on phones, three on larger layouts and four at 1500px and wider. Retain the existing two-column exception from 960px to 1100px.
 - Keep Guide, title, film and episode results in continuous native scroll areas. Render every matching result, lazy-load artwork and preserve the visible anchor through grid changes.

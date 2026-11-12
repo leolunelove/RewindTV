@@ -2,6 +2,28 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-12 — One broadcast room
+
+- Applied the Home mockup direction to the real Guide, Shows, Films, show details and Settings. Kept the persistent picture and existing navigation, source labels, catalogue and private manager.
+- Guide shows real Now and Next information in aligned numbered rows. Actions open inline without repeating the programme information.
+- Library uses larger artwork, grouped search/Mix/filter tools, clear episode rows and the existing Continue watching shelf. Films keeps its reel picker and all genre choices in a compact native filter.
+- Phones give browsing its own full-height page, with the picture above the four destination tabs. Desktop keeps a quiet rail and a mini-player clear of navigation.
+- Consolidated the old page-specific CSS rules instead of stacking another visual theme. Picture geometry, original proportions, CRT settings and reduced-motion behaviour remain in place.
+- Validation: 334 automated tests passed. Browser samples covered live startup, rapid switching, both shuffle scopes, the film reel, Library resume/Back and direct Archive playback at desktop, phone-sized and short-landscape viewports. See [release QA](docs/2026-11-12-broadcast-room-qa.md). Physical iPhone/Safari remains untested.
+
+## 2026-11-11 — A place to switch on
+
+- Added Home with large Live TV, Films and Shows choices, current catalogue counts, a route to Guide and the programme playing in its footer.
+- Home opens as soon as the catalogue is ready. Its Live TV choice rejoins the saved live channel. Explicit Watch, Guide, Library and episode links retain their routes.
+- Desktop keeps the navigation rail. Phones use four tabs, stacked choices and safe-area spacing. The current picture stays mounted through Home and browsing.
+
+## 2026-11-10 — Main channel cleanup and two new stations
+
+- Added 00s TV and After School UK as continuous mixes of previously sampled episodes. Existing channel numbers stay in place.
+- Retired six duplicate uploads from Library and shuffle. Fixed rotations switch to the retained versions from 17 November. Alternate records remain recoverable.
+- Moved Forensic Files S9E25 to True Crime from the next timetable and labelled standalone cartoon stories and known compilations.
+- Playback probe tested 56 distinct uploads across the main ten and station anchors. 54 played at the start and near the end on one browser network. Two previously excluded sources repeated an embed error.
+
 ## 2026-11-08 — Continue watching in Library
 
 - Added a compact Continue watching row to Library Shows and Films. Keeps up to twelve recent unfinished titles: the latest episode per show, with films saved individually.

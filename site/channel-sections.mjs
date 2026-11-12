@@ -1,7 +1,7 @@
 // Group by stable channel keys, never by display order or channel number.
 export const CHANNEL_SECTIONS = [
   {name:'The good stuff',note:'A little of everything',keys:['music']},
-  {name:'Kids & cartoons',note:'Home before the streetlights',keys:['trailers','kids','late','boomerang-classics','cartoon-network-classics','nickelodeon-classics','disney-classics']},
+  {name:'Kids & cartoons',note:'Home before the streetlights',keys:['trailers','kids','late','boomerang-classics','cartoon-network-classics','nickelodeon-classics','disney-classics','after-school-uk']},
   {name:'Comedy & late night',note:'One more before bed',keys:['sitcom','rewind-after-dark']},
   {name:'Sci-fi & forgotten TV',note:'Somewhere a little stranger',keys:['kids-telly','lost-and-found']},
   {name:'At the movies',note:'Make a night of it',keys:['andromeda','midnight-movies']},
@@ -10,7 +10,7 @@ export const CHANNEL_SECTIONS = [
   {name:'Seasonal specials',note:'Every day can be the occasion',keys:['rewind-specials','halloween-horror','christmas-tv']},
   {name:'Food & home',note:'Something good on the stove',keys:['kitchen-tv']},
   {name:'Discovery & learning',note:'Stay curious',keys:['discovery-club']},
-  {name:'Through the decades',note:'Turn back the clock',keys:['eighties','nineties']},
+  {name:'Through the decades',note:'Turn back the clock',keys:['eighties','nineties','noughties']},
   {name:'World TV',note:'Another way to rewind',keys:['rewind-espanol','rewind-mandarin','rewind-francais']}
 ];
 export function sectionChannels(channels){

@@ -18,7 +18,7 @@ test('C opens Channels and G opens Guide from watching',()=>{
  assert.deepEqual(calls,['channels','guide']);
 });
 
-function guideFixture({channels=Array.from({length:30},(_,index)=>({key:'channel-'+index,number:index+1,name:'Channel '+(index+1),mode:'shuffle'})),current=14,height=800}={}) {
+function guideFixture({channels=Array.from({length:32},(_,index)=>({key:'channel-'+index,number:index+1,name:'Channel '+(index+1),mode:'shuffle'})),current=14,height=800}={}) {
  const calls=[],scrolls=[];
  const descendants=node=>node.children.flatMap(child=>[child,...descendants(child)]);
  const doc={defaultView:{innerHeight:height},createElement(tag){
@@ -47,15 +47,19 @@ function guideFixture({channels=Array.from({length:30},(_,index)=>({key:'channel
  return {root,doc,state,slots,calls,scrolls,scroller:root.parentElement,guide,byClass,control};
 }
 
-test('Guide exposes all thirty channels continuously and On my channel reveals the tuned row',()=>{
+test('Guide exposes all thirty-two channels continuously and On my channel reveals the tuned row',()=>{
  const f=guideFixture();
  const rows=()=>f.byClass('guide-overview-row');
  const first=()=>f.byClass('guide-number')[0].textContent+'  '+f.byClass('guide-channel-name')[0].textContent;
  f.guide.render();
- assert.equal(rows().length,30);
+ assert.equal(rows().length,32);
  assert.equal(first(),'01  Channel 1');
  assert.equal(f.byClass('browse-pager').length,0);
- assert.deepEqual(f.byClass('guide-number').map(node=>node.textContent),Array.from({length:30},(_,i)=>String(i+1).padStart(2,'0')));
+ assert.deepEqual(f.byClass('guide-number').map(node=>node.textContent),Array.from({length:32},(_,i)=>String(i+1).padStart(2,'0')));
+ assert.equal(f.byClass('guide-next-preview').length,32,'every collapsed row exposes its next programme');
+ assert.deepEqual(f.byClass('guide-next-title').map(node=>node.textContent),Array(32).fill('Another Show'));
+ assert.deepEqual(f.byClass('guide-next-episode').map(node=>node.textContent),Array.from({length:32},(_,i)=>'Next programme '+i));
+ assert.equal(f.byClass('guide-overview-expanded').length,0,'Next does not require opening the row');
  f.scroller.scrollTop=940;
  f.state.current=1;f.guide.render();
  assert.equal(f.scroller.scrollTop,940,'a changed tuned channel does not move the browsed position');
@@ -63,7 +67,7 @@ test('Guide exposes all thirty channels continuously and On my channel reveals t
  assert.equal(f.doc.activeElement.dataset.guideChannel,'channel-1');
  assert.deepEqual(f.scrolls.at(-1),{channel:'channel-1',options:{block:'center',behavior:'smooth'}});
  f.doc.defaultView.innerHeight=500;f.guide.showCurrent();
- assert.equal(rows().length,30,'short screens retain native scrolling through the full lineup');
+ assert.equal(rows().length,32,'short screens retain native scrolling through the full lineup');
  f.doc.defaultView.matchMedia=()=>({matches:true});f.guide.showCurrent();assert.equal(f.scrolls.at(-1).options.behavior,'auto');
 });
 
@@ -88,7 +92,7 @@ test('Guide searches the whole lineup and preserves search focus and inline expa
  assert.equal(search.value,'hidden science');
  assert.equal(f.byClass('guide-overview-expanded').length,1);
  assert.equal(f.scroller.scrollTop,720);
- assert(f.byClass('guide-programme-title').some(node=>node.textContent.includes('A new next episode')));
+ assert(f.byClass('guide-next-episode').some(node=>node.textContent.includes('A new next episode')));
 });
 
 test('Guide reattaches its retained overview after the shared host renders a full schedule',()=>{
@@ -150,21 +154,56 @@ test('Guide genre and schedule filters use stable channel keys without changing 
  assert.equal(f.byClass('guide-number')[0].textContent,'04');
 });
 
-test('inline Guide actions use the real now slot, skip adverts for Next and display Gibraltar times',()=>{
+test('inline Guide actions use the real visible now slot, skip adverts for Next and display Gibraltar times',()=>{
  const f=guideFixture({channels:[{key:'sitcom',number:4,name:'Sitcoms',mode:'scheduled'}],current:0});
  const start=Date.parse('2026-11-10T11:00:00Z');
  f.slots[0][0].start=start;f.slots[0][0].end=start+1200000;
  f.slots[0][2].start=start+1260000;f.slots[0][2].end=start+2460000;
- f.guide.render();f.byClass('guide-overview-detail')[0].onclick();
- assert.deepEqual(f.byClass('guide-programme-label').map(node=>node.textContent),['Now','Next']);
- assert(f.byClass('guide-programme-title')[1].textContent.includes('Next programme 0'));
- assert.deepEqual(f.byClass('guide-programme-time').map(node=>node.textContent),['12:00–12:20','12:21–12:41']);
+ f.guide.render();
+ assert.equal(f.byClass('guide-current-title')[0].textContent,'Archive Show');
+ assert.equal(f.byClass('guide-current-episode')[0].textContent,'Programme 0');
+ assert.equal(f.byClass('guide-next-episode')[0].textContent,'Next programme 0');
+ assert.equal(f.byClass('guide-current-time')[0].textContent,'12:00–12:20');
+ assert.equal(f.byClass('guide-next-time')[0].textContent,'12:21–12:41');
+ assert(f.byClass('guide-overview-detail')[0].attributes['aria-label'].includes('Next: Another Show · Next programme 0, 12:21–12:41'));
+ f.byClass('guide-overview-detail')[0].onclick();
+ assert.equal(f.byClass('guide-programmes').length,0,'opening actions does not repeat the programme listing');
  f.byClass('guide-watch')[0].onclick();
  f.byClass('guide-start')[0].onclick();
  f.byClass('guide-full-schedule')[0].onclick();
  assert.deepEqual(f.calls,[['watch',0],['start',0,'now-0'],['detail',0]]);
  f.slots[0][0].video.kind='advert';f.guide.render(true);
  assert.equal(f.byClass('guide-start')[0].disabled,true,'adverts never become replay targets');
+});
+
+test('Guide clock and programme progress use real time without replacing the retained header',t=>{
+ let now=Date.parse('2026-11-10T11:05:00Z');t.mock.method(Date,'now',()=>now);
+ const f=guideFixture({channels:[{key:'sitcom',number:4,name:'Sitcoms',mode:'scheduled'}],current:0});
+ f.slots[0][0].start=now-300000;f.slots[0][0].end=now+900000;
+ f.guide.render();
+ const header=f.byClass('guide-column-head')[0],time=f.byClass('guide-overview-time')[0];
+ assert.equal(time.textContent,'12:05');
+ assert.equal(time.dateTime,'2026-11-10T11:05:00.000Z');
+ assert.equal(f.byClass('guide-progress')[0].value,25);
+ now+=60000;f.guide.render();
+ assert.equal(f.byClass('guide-column-head')[0],header);
+ assert.equal(f.byClass('guide-overview-time')[0],time);
+ assert.equal(time.textContent,'12:06');
+ assert.equal(f.byClass('guide-progress')[0].value,30);
+});
+
+test('Guide gives films one title and handles a schedule with no next programme',()=>{
+ const f=guideFixture({channels:[{key:'andromeda',number:11,name:'Movies',mode:'shuffle'}],current:0});
+ f.slots[0][0].video={id:'film',series:'Public domain films',title:'The Last Man on Earth',kind:'film'};
+ f.slots[0].splice(1);
+ f.guide.render();
+ assert.equal(f.byClass('guide-current-title')[0].textContent,'The Last Man on Earth');
+ assert.equal(f.byClass('guide-current-episode').length,0);
+ assert.equal(f.byClass('guide-next-title')[0].textContent,'Schedule updating');
+ assert.equal(f.byClass('guide-next-time').length,0);
+ f.byClass('guide-overview-detail')[0].onclick();
+ assert.equal(f.byClass('guide-watch').length,1);
+ assert.equal(f.byClass('guide-start')[0].disabled,false);
 });
 
 test('a channel tooltip omits an unknown year and retains a supplied year label',()=>{

@@ -24,8 +24,8 @@ function navigationFixture(wide=false){
  function control(id){
   return {id,isConnected:true,hidden:false,attributes:new Map(),setAttribute(name,value){this.attributes.set(name,value);},removeAttribute(name){this.attributes.delete(name);},getClientRects(){return this.hidden?[]:[{}];},closest(){return null;},focus(){doc.activeElement=this;}};
  }
- const controls=new Map(['watch-tab','remote-guide','browse-button','settings-button','info-button','shuffle-button'].map(id=>[id,control(id)]));
- const names=['guide','schedule-overlay','browse-overlay','movie-night-page','library-player-page','tv-settings','programme-info','shuffle-dialog'];
+ const controls=new Map(['home-tab','watch-tab','remote-guide','browse-button','settings-button','info-button','shuffle-button'].map(id=>[id,control(id)]));
+ const names=['home-page','guide','schedule-overlay','browse-overlay','movie-night-page','library-player-page','tv-settings','programme-info','shuffle-dialog'];
  const panels=new Map(names.map(name=>{
   const panel=new EventTarget(),page=!['tv-settings','programme-info','shuffle-dialog'].includes(name),back=control(name+'-back');
   panel.id=name;panel.open=false;panel.hidden=true;panel.hasAttribute=key=>page&&key==='data-tv-page';
@@ -37,7 +37,7 @@ function navigationFixture(wide=false){
  const events=[];
  const root={dispatchEvent(event){events.push(event);return true;},ownerDocument:doc,dataset:{},classList:{toggle(name,on){if(on)classes.add(name);else classes.delete(name);}},querySelector(selector){if(selector==='#mini-player')return mini;return controls.get(selector.slice(1))||panels.get(selector.slice(1));},querySelectorAll(selector){
   if(selector==='.club-layout, .watch-controls')return regions;
-  if(selector==='.app-tabs button')return ['watch-tab','remote-guide','browse-button'].map(id=>controls.get(id));
+  if(selector==='.app-tabs button')return ['home-tab','watch-tab','remote-guide','browse-button'].map(id=>controls.get(id));
   if(selector==='[aria-haspopup=dialog]')return ['settings-button','info-button','shuffle-button'].map(id=>controls.get(id));
   if(selector==='dialog, [data-tv-page]')return [...panels.values()];
   if(selector==='dialog[open], [data-tv-page]:not([hidden])')return [...panels.values()].filter(panel=>panel.hasAttribute('data-tv-page')?!panel.hidden:panel.open);
@@ -60,6 +60,41 @@ test('Channels and Guide have distinct routes and one history entry per selectio
  assert.equal(f.panels.get('guide').hidden,false);
  assert.equal(f.panels.get('schedule-overlay').hidden,true);
  assert.equal(f.historyEntries.length,3);
+});
+
+test('Home keeps its own route, selection and return history through Library and utilities',()=>{
+ const f=navigationFixture(true),home=f.panels.get('home-page');
+ f.motion.open(home);
+ assert.equal(f.win.location.hash,'#home');
+ assert.equal(f.root.dataset.destination,'home');
+ assert.equal(f.controls.get('home-tab').attributes.get('aria-current'),'page');
+ assert.equal(f.controls.get('watch-tab').attributes.has('aria-current'),false);
+ assert.equal(f.mini.hidden,true);
+ f.motion.open(f.panels.get('tv-settings'));
+ f.motion.close(f.panels.get('tv-settings'));
+ assert.equal(f.win.location.hash,'#home');
+ assert.equal(home.hidden,false);
+ assert.equal(f.mini.hidden,true);
+ f.motion.open(f.panels.get('browse-overlay'));
+ assert.equal(f.root.dataset.destination,'library');
+ assert.equal(f.mini.hidden,false);
+ f.win.history.back();
+ assert.equal(f.win.location.hash,'#home');
+ assert.equal(home.hidden,false);
+ assert.equal(f.mini.hidden,true);
+ f.win.history.forward();
+ assert.equal(f.win.location.hash,'#library');
+ assert.equal(home.hidden,true);
+});
+
+test('Escape on Home requests the current picture without forcing Library playback into live TV',()=>{
+ const f=navigationFixture(),home=f.panels.get('home-page');
+ f.motion.open(home);
+ const event=new Event('keydown',{cancelable:true});event.key='Escape';
+ home.dispatchEvent(event);
+ assert.equal(event.defaultPrevented,true);
+ assert.equal(f.events.at(-1).type,'rewind:return-picture');
+ assert.equal(f.win.location.hash,'#home','the player owner decides whether to restore live or Library');
 });
 
 test('Back from Guide restores the Library detail without an intermediate Channels page',()=>{

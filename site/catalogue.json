@@ -1367,12 +1367,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@FreeMoviesChannel",
           "classicRerun": true,
-          "series": "Genie from Down Under"
+          "series": "Genie from Down Under",
+          "disabledReason": "Alternate 22-minute cut of The Genie From Down Under S1E10; use BuT--S4Pwxo in rotation.",
+          "scheduleUntilWeek": "2026-11-17"
         },
         {
           "id": "FjIuHljYHC4",
@@ -1428,12 +1430,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@FreeMoviesChannel",
           "classicRerun": true,
-          "series": "Genie from Down Under"
+          "series": "Genie from Down Under",
+          "disabledReason": "Alternate 22-minute cut of The Genie From Down Under S1E11; use YaCsXB66QzA in rotation.",
+          "scheduleUntilWeek": "2026-11-17"
         },
         {
           "id": "hftYRQ8-ihw",
@@ -1533,12 +1537,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@FreeMoviesChannel",
           "classicRerun": true,
-          "series": "Genie from Down Under"
+          "series": "Genie from Down Under",
+          "disabledReason": "Alternate 22-minute cut of The Genie From Down Under S1E4; use 9TzbAhJyLy4 in rotation.",
+          "scheduleUntilWeek": "2026-11-17"
         },
         {
           "id": "kQLaBr6tZOc",
@@ -15324,7 +15330,8 @@
           "uploaderUrl": "https://www.youtube.com/@Nicktoons",
           "channelId": "UC74bcC7aGRNz4KoRpJsJNEw",
           "provider": "youtube",
-          "yearPrecision": "series range"
+          "yearPrecision": "series range",
+          "formatLabel": "Standalone story"
         },
         {
           "id": "cgXo9YkzlfU",
@@ -17554,7 +17561,7 @@
           "credit": "WildBrain Turbo",
           "sourceType": "official",
           "kind": "full episode",
-          "formatLabel": "Compilation",
+          "formatLabel": "Episodes 7–13 compilation",
           "family": true,
           "enabled": true,
           "embedStatus": "untested",
@@ -17798,13 +17805,15 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "official-search-listed",
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Zoboomafoo"
+          "series": "Zoboomafoo",
+          "disabledReason": "Duplicate of Zoboomafoo 112 Homes; prefer the established official WildBrain upload 4nm8VY_I8Wo.",
+          "scheduleUntilWeek": "2026-11-17"
         },
         {
           "id": "RNDwajqsG8k",
@@ -17914,7 +17923,8 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Zoboomafoo"
+          "series": "Zoboomafoo",
+          "uploadDate": "2016-02-26"
         },
         {
           "id": "HDYOve7gnq0",
@@ -19585,7 +19595,8 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@RosieAndJim-WildBrain",
           "classicRerun": true,
-          "series": "Rosie and Jim"
+          "series": "Rosie and Jim",
+          "formatLabel": "5-story compilation"
         },
         {
           "id": "I7fWrM696VI",
@@ -19660,13 +19671,15 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@WildBrainKids",
           "classicRerun": true,
           "checkedAt": "2026-10-16",
-          "series": "Rosie and Jim"
+          "series": "Rosie and Jim",
+          "disabledReason": "The three Rosie and Jim stories are included in M02wGWyzMaA.",
+          "scheduleUntilWeek": "2026-11-17"
         },
         {
           "id": "ukUYkjrOkOQ",
@@ -39314,12 +39327,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@GerryAndersonTV",
           "classicRerun": true,
-          "series": "Space Precinct"
+          "series": "Space Precinct",
+          "disabledReason": "Alternate official upload of Space Precinct: The Fire Within Part 1; use Hj0t-vLBocM.",
+          "scheduleUntilWeek": "2026-11-17"
         },
         {
           "id": "Hj0t-vLBocM",
@@ -46675,6 +46690,31 @@
           "sourceEvidence": "https://www.youtube.com/results?search_query=Forensic%20Files%20season%201%20full%20episode",
           "classicRerun": true,
           "series": "Forensic Files"
+        },
+        {
+          "id": "UTRvWZIpw-I",
+          "title": "Silk Stalkings",
+          "duration": 1302,
+          "uploader": "FilmRise True Crime",
+          "uploaderUrl": "https://www.youtube.com/@FilmRiseTrueCrime",
+          "year": 2004,
+          "yearLabel": "2004",
+          "watchUrl": "https://www.youtube.com/watch?v=UTRvWZIpw-I",
+          "credit": "FilmRise True Crime",
+          "sourceType": "official",
+          "kind": "full episode",
+          "family": false,
+          "enabled": true,
+          "embedStatus": "playing",
+          "metadataStatus": "Title, runtime and uploader from YouTube public listing",
+          "sourceEvidence": "https://www.youtube.com/@FilmRiseTrueCrime/about",
+          "classicRerun": true,
+          "series": "Forensic Files",
+          "seasonNumber": 9,
+          "episodeNumber": 25,
+          "scheduleFromWeek": "2026-11-17",
+          "originalTitle": "Forensic Files - Season 9, Episode 25 - Silk Stalkings - Full Episode",
+          "yearEvidence": "FilmRise on Tubi: https://tubitv.com/tv-shows/447724/s09-e25-silk-stalkings"
         }
       ],
       "mode": "scheduled",
@@ -48395,12 +48435,14 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": false,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "Title, runtime and uploader from YouTube public listing",
           "sourceEvidence": "https://www.youtube.com/@FilmRiseTrueCrime/about",
           "classicRerun": true,
-          "series": "Silk Stalkings"
+          "series": "Silk Stalkings",
+          "disabledReason": "Misfiled Forensic Files S9E25. Corrected copy is on True Crime from 17 November 2026.",
+          "scheduleUntilWeek": "2026-11-17"
         },
         {
           "id": "UdoFc1fB15w",

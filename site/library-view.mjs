@@ -1,5 +1,5 @@
 import {showListings} from './show-listings.mjs?v=vault1';
-import {buildShowIndex,normalise} from './show-library.mjs?v=liquid1';
+import {buildShowIndex,normalise} from './show-library.mjs?v=20261112';
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
 import {browseTitles} from './browse-tools.mjs?v=archive2';
 import {movieArtwork} from './movie-night.mjs?v=liquid1';
@@ -207,13 +207,12 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
   function renderIndex(restore=false) {
     selected=null;detailResume=null;detailStart=null;
     root.replaceChildren();
-    const tools=el('div','','library-tools');
+    const tools=el('div','','library-tools library-browse-tools');
     const input=el('input','','library-search');
     input.type='search';
     input.placeholder='Find a title';
     input.setAttribute('aria-label','Find a show or film');
     input.value=filters.query;
-    tools.append(collectionControl(),input);
 
     const advanced=el('details','','library-advanced');
     const summary=el('summary','Filters');
@@ -233,7 +232,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     const count=el('p','','library-count');
     count.setAttribute('aria-live','polite');
     const reset=button('Clear filters',resetFilters,'library-clear');
-    const resultHead=el('div','','library-result-head');
+    const resultHead=el('div','','library-result-head library-collection-bar');
     const ordering=el('div','','library-order-controls');
     const orderSelect=select('Library order',[['mix','Mixed'],['az','A–Z']],order,value=>{
       order=value;
@@ -247,9 +246,10 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     },'library-mix');
     ordering.append(orderSelect,mix);
     const grid=el('div','','library-grid rwd-library-grid');
-    resultHead.append(count,ordering,reset);
+    resultHead.append(collectionControl(),count);
+    tools.append(input,ordering,advanced,reset);
     continuation.refresh();
-    root.append(tools,continuation.element,advanced,resultHead,grid);
+    root.append(resultHead,tools,continuation.element,grid);
 
     function draw() {
       const candidates=filters.kind==='show'||filters.kind==='film'?shows.filter(show=>show.episodes.length):shows;
@@ -310,26 +310,28 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     root.append(button('← Back to results',back,'text-button library-back'));
     const head=el('div','','library-detail-head');
     if(show.episodes.length)head.append(artwork(show,'library-cover library-detail-hero rwd-cover rwd-detail-hero'));
-    head.append(el('h3',show.title));
+    const copy=el('div','','library-detail-copy');
+    copy.append(el('h3',show.title));
     if(show.episodes.length) {
       const unit=show.kind==='film'?'film':show.kind==='show'?'episode':'video';
       const years=show.years.length
         ? show.years[0]===show.years.at(-1)?String(show.years[0]):`${show.years[0]}–${show.years.at(-1)}`
         : show.episodes[0].yearLabel||'';
-      head.append(el('p',[years,`${show.episodes.length} available ${unit}${show.episodes.length===1?'':'s'}`,show.language,show.channels.map(channel=>channel.name).join(', ')].filter(Boolean).join(' · '),'library-detail-meta'));
+      copy.append(el('p',[years,`${show.episodes.length} available ${unit}${show.episodes.length===1?'':'s'}`,show.language,show.channels.map(channel=>channel.name).join(', ')].filter(Boolean).join(' · '),'library-detail-meta'));
       const actions=el('div','','library-detail-actions');
       if(typeof onResume==='function'){detailResume=button('',()=>{},'primary library-resume');actions.append(detailResume);refreshContinueWatching();}
       detailStart=button(show.kind==='film'?'▶ Watch film':'▶ Watch from the beginning',()=>play(show.episodes[0]),typeof onResume==='function'&&getContinueWatching().some(record=>record.key===show.key)?'':'primary');actions.append(detailStart);
       const source=sourceLink(show.episodes[0]);
       if(source)actions.append(source);
-      head.append(actions);
+      copy.append(actions);
     }else {
-      head.append(el('p',show.kind==='collection'?'External collection · Opens at the source.':'Listed only · Full programme unavailable here.','library-detail-meta'));
+      copy.append(el('p',show.kind==='collection'?'External collection · Opens at the source.':'Listed only · Full programme unavailable here.','library-detail-meta'));
     }
+    head.append(copy);
     root.append(head);
     if(show.listing) {
       const listing=show.listing;
-      if(listing.description)head.append(el('p',listing.description));
+      if(listing.description)copy.append(el('p',listing.description,'library-detail-description'));
       if(listing.links?.length) {
         const extras=el(show.episodes.length?'details':'div','','library-extras');
         extras.append(show.episodes.length?el('summary',`Extras and sources (${listing.links.length})`):el('h4',show.kind==='collection'?'From the archive':'Previews and sources'));
@@ -367,7 +369,9 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     const list=el('div','','episode-list rwd-episode-list');
     const count=el('p','','library-count library-episode-count');
     count.setAttribute('aria-live','polite');
-    root.append(controls,count,list);
+    const episodeHead=el('div','','library-episode-heading');
+    episodeHead.append(el('h4',show.kind==='show'?'Episodes':show.kind==='film'?'Film':'Videos'),controls);
+    root.append(episodeHead,count,list);
 
     function draw() {
       const query=normalise(state.query);

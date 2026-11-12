@@ -24,15 +24,16 @@
       for(const key of keys){const pool=groups.get(key);for(let n=0;n<blockSize&&pool.length;n++)result.push(pool.shift());last=key;if(!pool.length)groups.delete(key);}}
     return result;
   }
-  // A catalogue addition can be browsed immediately without moving the live
-  // timetable. Its first fixed-schedule week is a Gibraltar Tuesday date.
+  function isTuesday(value){
+    if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
+    const date=new Date(value+'T12:00:00Z');
+    return Number.isFinite(date.getTime())&&date.toISOString().slice(0,10)===value&&date.getUTCDay()===2;
+  }
+  // Additions and retirements can change the Library before the fixed timetable.
   function availableThisWeek(video,key){
-    if(video.enabled===false)return false;
-    const from=video.scheduleFromWeek;
-    if(from===undefined)return true;
-    if(typeof from!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(from))return false;
-    const date=new Date(from+'T12:00:00Z');
-    return Number.isFinite(date.getTime())&&date.toISOString().slice(0,10)===from&&date.getUTCDay()===2&&from<=key;
+    const from=video.scheduleFromWeek,until=video.scheduleUntilWeek;
+    if(video.enabled===false&&(!isTuesday(until)||until<=key))return false;
+    return from===undefined||isTuesday(from)&&from<=key;
   }
   function build(catalogue,now=Date.now()) {
     const week=weekAt(now),ads=(catalogue.adverts||catalogue.channels.find(c=>c.key==='adverts')?.videos||[]).filter(v=>v.enabled!==false);
@@ -62,6 +63,16 @@
     });
     return {week,schedules};
   }
+  function buildLineup(catalogue,now=Date.now()){
+    const {week,schedules}=build(catalogue,now),channels=[],activeSchedules=[];
+    catalogue.channels.forEach((channel,index)=>{
+      const rows=schedules[index],videos=channel.videos.filter(video=>video.enabled!==false);
+      if(channel.mode==='shuffle'?!videos.length:!rows.length)return;
+      channels.push({...channel,videos});
+      activeSchedules.push(rows);
+    });
+    return {catalogue:{...catalogue,channels},plan:{week,schedules:activeSchedules}};
+  }
   function locate(rows,now) {
     let low=0,high=rows.length-1;
     while(low<high){const mid=(low+high+1)>>1;if(rows[mid].start<=now)low=mid;else high=mid-1;}
@@ -71,6 +82,6 @@
     const rows=plan.schedules[channel],index=locate(rows,now),slot=rows[index];
     return {index,slot,offset:Math.max(0,Math.min((slot.end-slot.start)/1000-0.1,(now-slot.start)/1000)),next:rows[index+1]||null};
   }
-  const api={ZONE,weekAt,build,current,locate};
+  const api={ZONE,weekAt,build,buildLineup,current,locate};
   if(typeof module==='object'&&module.exports)module.exports=api;else scope.RewindSchedule=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

@@ -1,11 +1,11 @@
-/* Three destinations, one continuous picture, and one foreground utility. */
+/* One continuous picture and one foreground page or utility. */
 export function createPanelMotion(root){
  const doc=root.ownerDocument,win=doc?.defaultView;
  const reduce=win?.matchMedia?.('(prefers-reduced-motion: reduce)')||matchMedia('(prefers-reduced-motion: reduce)');
  const visible='dialog[open], [data-tv-page]:not([hidden])';
  const isPage=panel=>panel?.hasAttribute?.('data-tv-page')===true;
  const isOpen=panel=>!!panel&&(isPage(panel)?!panel.hidden:panel.open);
- const pageKey=panel=>panel?.classList.contains('library-player-page')?'library-watch':panel?.classList.contains('movie-night-page')?'movies':panel?.classList.contains('browse-overlay')?'library':panel?.classList.contains('schedule-overlay')?'guide':panel?'channels':'watch';
+ const pageKey=panel=>panel?.classList.contains('home-page')?'home':panel?.classList.contains('library-player-page')?'library-watch':panel?.classList.contains('movie-night-page')?'movies':panel?.classList.contains('browse-overlay')?'library':panel?.classList.contains('schedule-overlay')?'guide':panel?'channels':'watch';
  const utilityKey=panel=>panel?.classList.contains('programme-info')?'info':panel?.classList.contains('tv-settings')?'settings':panel?.id==='shuffle-dialog'?'shuffle':null;
  const entries=new WeakMap(),invokers=new WeakMap();let switching=false,restoring=false;
  function animateOpen(panel){
@@ -15,19 +15,19 @@ export function createPanelMotion(root){
   entries.set(panel,animation);animation.finished.catch(()=>{}).finally(()=>{if(entries.get(panel)===animation)entries.delete(panel);});
  }
  function sync(){
-  const opened=[...root.querySelectorAll(visible)],page=opened.find(isPage),key=pageKey(page),destination=key==='movies'||key==='library'||key==='library-watch'?'library':key==='channels'||key==='guide'?'guide':'watch';
-  root.classList?.toggle('teletext-open',!!page);root.classList?.toggle('is-browsing',!!page&&key!=='library-watch');root.classList?.toggle('library-watching',key==='library-watch');root.classList?.toggle('utility-open',opened.some(panel=>!isPage(panel)));root.classList?.toggle('movie-night-open',key==='movies');
+  const opened=[...root.querySelectorAll(visible)],page=opened.find(isPage),key=pageKey(page),destination=key==='home'?'home':key==='movies'||key==='library'||key==='library-watch'?'library':key==='channels'||key==='guide'?'guide':'watch';
+  root.classList?.toggle('teletext-open',!!page);root.classList?.toggle('is-browsing',!!page&&key!=='library-watch');root.classList?.toggle('home-open',key==='home');root.classList?.toggle('library-watching',key==='library-watch');root.classList?.toggle('utility-open',opened.some(panel=>!isPage(panel)));root.classList?.toggle('movie-night-open',key==='movies');
   if(root.dataset)root.dataset.destination=destination;
   const scrim=root.querySelector?.('#drawer-scrim');if(scrim)scrim.hidden=true;
-  const mini=root.querySelector?.('#mini-player');if(mini)mini.hidden=!page||key==='library-watch';
+  const mini=root.querySelector?.('#mini-player');if(mini)mini.hidden=!page||key==='library-watch'||key==='home';
   root.querySelector?.('#menu-toggle')?.setAttribute('aria-expanded',String(!!page));
   for(const region of root.querySelectorAll('.club-layout, .watch-controls'))region.inert=!!page;
   for(const button of root.querySelectorAll('.app-tabs button')){
-   const selected=destination==='watch'?button.id==='watch-tab':destination==='guide'?button.id==='remote-guide':button.id==='browse-button';
+   const selected=destination==='home'?button.id==='home-tab':destination==='watch'?button.id==='watch-tab':destination==='guide'?button.id==='remote-guide':button.id==='browse-button';
    if(selected)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');
   }
   for(const button of root.querySelectorAll('[aria-haspopup=dialog]')){
-   const selector=button.id==='settings-button'?'.tv-settings':button.id==='info-button'?'.programme-info':button.id==='shuffle-button'?'#shuffle-dialog':null;
+   const selector=button.id==='settings-button'||button.id==='home-settings'?'.tv-settings':button.id==='info-button'?'.programme-info':button.id==='shuffle-button'?'#shuffle-dialog':null;
    if(selector)button.setAttribute('aria-expanded',String(!!root.querySelector(selector)?.open));
   }
   root.dispatchEvent?.(new Event('rewind:viewchange'));
@@ -62,7 +62,7 @@ export function createPanelMotion(root){
   sync();
   if(isPage(panel)){
    if(record)remember(pageKey(panel),state,replace||consumedUtility);
-   if(!alreadyOpen)panel.querySelector('.page-back-tv')?.focus({preventScroll:true});
+   if(!alreadyOpen)(panel.querySelector('[data-page-primary]')||panel.querySelector('.page-back-tv'))?.focus({preventScroll:true});
   }else if(win&&!restoring&&record){
    const utility=utilityKey(panel);
    if(utility&&win.history.state?.utility!==utility)win.history[consumedUtility?'replaceState':'pushState']({...win.history.state,rewind:true,utility},'',win.location.hash||'#watch');
@@ -74,7 +74,7 @@ export function createPanelMotion(root){
   sync();if(record)root.querySelector?.('#watch-tab')?.focus({preventScroll:true});
  }
  function close(panel){
-  if(isPage(panel)){if(pageKey(panel)==='library-watch'){root.dispatchEvent?.(new (win?.CustomEvent||CustomEvent)('rewind:library-back',{bubbles:true}));}else watch();return;}
+  if(isPage(panel)){if(pageKey(panel)==='library-watch'){root.dispatchEvent?.(new (win?.CustomEvent||CustomEvent)('rewind:library-back',{bubbles:true}));}else if(pageKey(panel)==='home'){root.dispatchEvent?.(new (win?.CustomEvent||CustomEvent)('rewind:return-picture',{bubbles:true}));}else watch();return;}
   const key=utilityKey(panel),unwind=key&&win?.history.state?.utility===key&&!restoring;
   finishClose(panel,true);if(unwind)win.history.back();
  }
@@ -88,7 +88,7 @@ export function createPanelMotion(root){
  }
  win?.addEventListener('popstate',()=>{
   restoring=true;
-  const key=win.location.hash.slice(1),target=key==='library-watch'?root.querySelector('.library-player-page'):key==='movies'?root.querySelector('.movie-night-page'):key==='library'?root.querySelector('.browse-overlay'):key==='guide'?root.querySelector('.schedule-overlay'):key==='channels'?root.querySelector('.guide'):null;
+  const key=win.location.hash.slice(1),target=key==='home'?root.querySelector('.home-page'):key==='library-watch'?root.querySelector('.library-player-page'):key==='movies'?root.querySelector('.movie-night-page'):key==='library'?root.querySelector('.browse-overlay'):key==='guide'?root.querySelector('.schedule-overlay'):key==='channels'?root.querySelector('.guide'):null;
   if(target)open(target,{remember:false});else watch({remember:false});
   const utility=win.history.state?.utility;
   if(utility){const panel=root.querySelector(utility==='info'?'.programme-info':utility==='shuffle'?'#shuffle-dialog':'.tv-settings');if(panel)open(panel,{remember:false});}

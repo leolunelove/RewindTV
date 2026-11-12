@@ -1,6 +1,6 @@
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
-import {CHANNEL_SECTIONS} from './channel-sections.mjs?v=liquid1';
-import {normalise} from './show-library.mjs?v=archive2';
+import {CHANNEL_SECTIONS} from './channel-sections.mjs?v=20261112';
+import {normalise} from './show-library.mjs?v=20261112';
 
 export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel=()=> 'This channel',getNow,getRows,onDetail,onWatch,onStart}) {
   const doc=root.ownerDocument;
@@ -59,7 +59,7 @@ export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel
   const tools=el('div','','overview-tools');
   const search=el('input','','guide-search');
   search.type='search';
-  search.placeholder='Find a channel or programme';
+  search.placeholder='Find a channel';
   search.setAttribute('aria-label','Find a channel or programme');
   search.oninput=()=>{query=search.value;render(true);};
   const genres=CHANNEL_SECTIONS.filter(section=>getChannels().some(channel=>section.keys.includes(channel.key)));
@@ -68,22 +68,39 @@ export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel
   tools.append(search,genreFilter,modeFilter,button('On my channel',showCurrent,'guide-current'));
   const count=el('p','','guide-overview-count');
   count.setAttribute('aria-live','polite');
+  const columns=el('div','','guide-column-head');
+  columns.setAttribute('aria-hidden','true');
+  const nowHeading=el('span','Now','guide-column-now');
+  const currentTime=el('time','','guide-overview-time');
+  currentTime.title='Europe/Gibraltar';
+  nowHeading.append(currentTime);
+  columns.append(el('span','Channel','guide-column-channel'),nowHeading,el('span','Next','guide-column-next'));
   const list=el('div','','guide-overview-list');
-  root.replaceChildren(tools,count,list);
+  root.replaceChildren(tools,count,columns,list);
   scroller.addEventListener?.('scroll',()=>{if(Array.from(root.children).includes(list))scrollTop=scroller.scrollTop;},{passive:true});
 
-  function programme(slot,label,className) {
-    const node=el('div','',`guide-programme ${className}`);
-    node.append(el('span',label,'guide-programme-label'),el('strong',programmeLabel(slot?.video),'guide-programme-title'));
+  function programmePreview(slot,scope) {
+    const node=el('span','',scope==='current'?'guide-current-programme':'guide-next-preview');
+    const video=slot?.video;
+    if(!video) {
+      node.append(el('span',scope==='current'?'Programme information unavailable':'Schedule updating',`guide-${scope}-title`));
+      return node;
+    }
+    const title=programmeTitle(video);
+    const standalone=video.kind==='film'||video.kind==='music';
+    const show=standalone?video.title||title:video.series||title;
+    const episode=video.kind==='music'?video.series||'':show!==title&&!standalone?title:'';
+    node.append(el('strong',show,`guide-${scope}-title`));
+    if(episode)node.append(el('small',episode,`guide-${scope}-episode`));
     const time=timeRange(slot);
-    if(time)node.append(el('span',time,'guide-programme-time'));
+    if(time)node.append(el('span',time,`guide-${scope}-time`));
     return node;
   }
 
   function render(force=false) {
     if(Array.from(root.children).includes(list))scrollTop=scroller.scrollTop;
     else {
-      root.replaceChildren(tools,count,list);
+      root.replaceChildren(tools,count,columns,list);
       force=true;
     }
     const channels=getChannels();
@@ -96,6 +113,8 @@ export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel
     const signature=JSON.stringify([entries.map(entry=>[entry.key,entry.current?.slot.video.id,entry.current?.slot.video.title,entry.current?.slot.start,entry.current?.slot.end,entry.next?.video.id,entry.next?.video.title,entry.next?.start,entry.next?.end]),getCurrent(),getCurrentLabel(),Math.floor(now/60000),query,genre,mode,expanded]);
     if(!force&&stamp===signature)return;
     stamp=signature;
+    currentTime.textContent=clock.format(now);
+    currentTime.dateTime=new Date(now).toISOString();
     search.value=query;
     genreFilter.value=genre;
     modeFilter.value=mode;
@@ -121,14 +140,15 @@ export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel
       const detail=button('',()=>{expanded=open?null:key;render(true);},'guide-overview-detail');
       detail.dataset.guideChannel=key;
       detail.dataset.guideAction='expand';
-      detail.setAttribute('aria-label',`Show programmes on ${channel.name}`);
+      detail.setAttribute('aria-label',`${String(channel.number??index+1).padStart(2,'0')} ${channel.name}. Now: ${programmeLabel(slot?.video)}${timeRange(slot)?`, ${timeRange(slot)}`:''}. Next: ${next?programmeLabel(next.video):'Schedule updating'}${timeRange(next)?`, ${timeRange(next)}`:''}. Show programme actions.`);
       detail.setAttribute('aria-expanded',String(open));
       detail.setAttribute('aria-controls',`guide-programmes-${key}`);
       const remaining=Number.isFinite(slot?.end)?Math.max(0,Math.ceil((slot.end-now)/60000)):null;
       detail.append(
         el('span',String(channel.number??index+1).padStart(2,'0'),'guide-number'),
         el('strong',channel.name,'guide-channel-name'),
-        el('span',programmeLabel(slot?.video),'guide-current-programme'),
+        programmePreview(slot,'current'),
+        programmePreview(next,'next'),
         el('small',[index===getCurrent()?getCurrentLabel():channel.mode==='shuffle'?'Mix':'Live',remaining!==null?`${remaining} min left`:''].filter(Boolean).join(' · '),'guide-row-meta'),
         el('span',open?'−':'+','guide-expand-mark')
       );
@@ -141,10 +161,6 @@ export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel
       if(open) {
         const content=el('div','','guide-overview-expanded');
         content.id=`guide-programmes-${key}`;
-        const programmes=el('div','','guide-programmes');
-        programmes.append(programme(slot,'Now','guide-now'));
-        if(next)programmes.append(programme(next,'Next','guide-next'));
-        else programmes.append(el('p','The next programme will appear when the schedule updates.','guide-next-empty'));
         const actions=el('div','','guide-actions');
         const watch=button('Watch live',()=>onWatch(index),'guide-watch');
         watch.setAttribute('aria-label',`Watch ${channel.name} live`);
@@ -158,7 +174,7 @@ export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel
           node.dataset.guideAction=action;
           actions.append(node);
         }
-        content.append(programmes,actions);
+        content.append(actions);
         row.append(content);
       }
       list.append(row);

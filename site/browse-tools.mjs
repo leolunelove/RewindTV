@@ -1,4 +1,4 @@
-import {normalise} from './show-library.mjs?v=liquid1';
+import {normalise} from './show-library.mjs?v=20261112';
 
 export function browseTitles(shows,{query='',kind='all',letter='all',channel='all',language='all'}={}) {
   const q=normalise(query);
