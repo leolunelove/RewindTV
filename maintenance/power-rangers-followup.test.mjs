@@ -1,0 +1,25 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+import {withExpansion,withGameshowAdditions,EXPANSION_PACKS} from '../site/library.mjs';import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';import {buildShowIndex} from '../site/show-library.mjs';
+const read=n=>JSON.parse(fs.readFileSync(new URL('../site/'+n,import.meta.url))),name='power-rangers-followup.json',pack=read(name);
+function load(include){let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)if(include||n!==name)cat=withExpansion(cat,read(n));return cat;}
+const before=load(false),after=load(true),runtime=hydrateLibrary(compactLibrary(after));
+test('later Power Rangers additions require official ownership, unrestricted metadata and actual public playback',()=>{
+ assert.deepEqual(pack.channels,[]);assert(pack.videos.length>=22);const counts={};const oldIds=new Set(before.channels.flatMap(c=>c.videos.map(v=>v.id))),keys=new Set();
+ for(const v of pack.videos){counts[v.series]=(counts[v.series]||0)+1;assert(!oldIds.has(v.id));assert(v.episodeKey&&!keys.has(v.episodeKey));keys.add(v.episodeKey);assert.equal(v.kind,'full episode');assert.equal(v.enabled,true);assert.equal(v.sourceType,'official');assert(!v.sourceProvenance);assert.equal(v.officialOwnershipVerified,true);assert(v.sourceOwnershipEvidence);assert.equal(v.metadataStatus,'OK');assert.equal(v.availabilityEvidence.availableCountryCount,249);assert.equal(v.embeddable,true);assert.equal(v.embedStatus,'playing');assert(!v.regionRestriction?.allowed&&!v.regionRestriction?.blocked);assert(v.duration>=1140);const p=v.playbackCheck;assert(p.start&&p.nearEnd&&p.checkedAt&&p.region);assert.equal(p.origin,'https://tv.leolune.fun');assert(Math.abs(p.observedDuration-v.duration)<5);}
+ assert.equal(pack.videos.length,34);assert.equal(counts['Power Rangers Super Ninja Steel'],19);assert.equal(counts['Power Rangers Wild Force'],10);assert.equal(counts['Power Rangers Samurai'],4);assert.equal(counts['Power Rangers Super Samurai'],1);assert(!pack.videos.some(v=>v.id==='YWWRuhr7p_U'),'Region-limited Forever Red stays out');
+});
+test('Samurai publisher numbers are not mistaken for canonical story order',()=>{
+ const sources=[['pR52wL8aMfs',3,1,'The Team Unites'],['BNeugFSv-U4',4,2,'Deal with a Nighlok'],['wTRxJuyliwM',5,3,'Day Off']];
+ for(const [id,canonical,publisher,title]of sources){const v=pack.videos.find(v=>v.id===id);assert(v,id);assert.equal(v.episodeNumber,canonical);assert.deepEqual(v.publisherEpisodeNumbers,[publisher]);assert.equal(v.title.toLowerCase(),title.toLowerCase());assert(v.canonicalIdentityMapping?.visualIdentityEvidence);}
+ const numbers=pack.videos.filter(v=>v.series==='Power Rangers Super Ninja Steel').map(v=>v.episodeNumber).sort((a,b)=>a-b);assert.deepEqual(numbers,Array.from({length:19},(_,i)=>i+1));
+ const special=pack.videos.find(v=>v.id==='VRlcOrQH1SY');assert(special?.isSpecial);assert.equal(special.title,'Clash of the Red Rangers');assert(!Object.hasOwn(special,'episodeNumber'),'A standalone TV special must not inherit serialized episode numbering');assert(special.duration>=2700,'The standalone46-minute special must not become the23-minute serialized part');
+ const superSamurai=pack.videos.find(v=>v.id==='0MzjgiY2lzo');assert.equal(superSamurai.title,'The Sealing Symbol');assert.equal(superSamurai.seasonNumber,19);assert.equal(superSamurai.episodeNumber,19);assert(superSamurai.canonicalIdentityMapping?.visualIdentityEvidence);
+});
+test('all existing channel identities and records survive while Power Rangers gains distinct series',()=>{
+ assert.equal(after.channels.length,33);for(let i=0;i<before.channels.length;i++){const a=before.channels[i],b=after.channels[i];assert.deepEqual([b.key,b.number,b.mode],[a.key,a.number,a.mode]);assert.deepEqual(b.videos.slice(0,a.videos.length),a.videos);}
+ const power=after.channels.find(c=>c.key==='power-rangers');assert.equal(power.number,33);assert.equal(power.mode,'shuffle');assert.equal(power.videos.length,23+pack.videos.length);assert.equal(new Set(power.videos.map(v=>v.id)).size,power.videos.length);assert(new Set(power.videos.map(v=>v.series)).size>=3);
+});
+test('the new sources reach Library immediately and leave current fixed broadcasts untouched',()=>{
+ const scope={};vm.runInNewContext(fs.readFileSync(new URL('../site/schedule.js',import.meta.url),'utf8'),scope);const slots=cat=>JSON.stringify(scope.RewindSchedule.build(cat,Date.parse('2026-11-12T12:00:00Z')).schedules.slice(0,10).map(rows=>rows.map(r=>[r.video.id,r.start,r.end,r.advert])));assert.equal(slots(before),slots(after));const ids=new Set(pack.videos.map(v=>v.id));for(const c of after.channels.slice(0,10))for(const v of c.videos.filter(v=>ids.has(v.id)))assert.equal(v.scheduleFromWeek,'2026-11-17');
+ const visible=new Map(buildShowIndex(runtime).flatMap(s=>s.episodes.map(v=>[v.id,v])));for(const v of pack.videos){assert(visible.has(v.id));assert.equal(visible.get(v.id).episodeNumber,v.episodeNumber);assert.equal(visible.get(v.id).sourceType,'official');}
+});

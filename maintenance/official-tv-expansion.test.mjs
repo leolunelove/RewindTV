@@ -3,7 +3,7 @@ import {withExpansion,withGameshowAdditions,EXPANSION_PACKS} from '../site/libra
 import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';
 import {buildShowIndex} from '../site/show-library.mjs';import {sectionChannels} from '../site/channel-sections.mjs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../site/'+n,import.meta.url))),name='official-tv-expansion.json',pack=read(name);
-function load(include){let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)if(include||n!==name)cat=withExpansion(cat,read(n));return cat;}
+function load(include){let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)if(n!=='power-rangers-followup.json'&&(include||n!==name))cat=withExpansion(cat,read(n));return cat;}
 const before=load(false),after=load(true),runtime=hydrateLibrary(compactLibrary(after));
 test('official additions retain explicit unrestricted metadata and measured public-origin playback',()=>{
  assert.equal(pack.videos.length,83);const ids=new Set(),episodes=new Set();
@@ -30,5 +30,5 @@ test('this weeks ten schedules retain exact programme/ad slots; additions wait u
 });
 test('all accepted programmes reach Library immediately and survive compact data without research payloads',()=>{
  const visible=new Map(buildShowIndex(runtime).flatMap(s=>s.episodes.map(v=>[v.id,v])));for(const v of pack.videos){assert(visible.has(v.id));assert.equal(visible.get(v.id).sourceType,'official');}
- const r=read('runtime-library.json');assert.equal(new Set(Object.values(r.videos).map(v=>v.id)).size,5308);assert.equal(runtime.channels.length,33);
+ const r=read('runtime-library.json');const shipped=new Set(Object.values(r.videos).map(v=>v.id));for(const v of pack.videos)assert(shipped.has(v.id));assert.equal(runtime.channels.length,33);
 });

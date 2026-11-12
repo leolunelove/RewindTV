@@ -2,6 +2,13 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-12 — More Power Rangers seasons
+
+- Added 33 official full episodes and the Clash of the Red Rangers TV special to the existing Power Rangers channel: Wild Force 1–10, three Samurai stories, Super Samurai’s The Sealing Symbol, and Super Ninja Steel 1–19. The channel now contains 57 programmes across five series.
+- Retained publisher numbering separately from canonical story order. Compared seven retitled/generic uploads with named official editions to avoid wrong episode labels and repeats.
+- Every addition declares all 249 territories, permits embedding and passed actual start/near-end playback on the live site’s diagnostic player. Authenticated the HasTV publisher through primary Hasbro network links.
+- Kept all existing channels and programmes. Wild Force broadens Toon Action from 17 November and 00s TV immediately; this week’s fixed broadcasts remain intact. See [the follow-up report](docs/power-rangers-seasons-2026-11-12.md) for exact coverage and remaining gaps.
+
 ## 2026-11-12 — Official episodes and Power Rangers
 
 - Added Power Rangers as channel 33, with 23 official Mighty Morphin episodes. The channel is intended to grow across the franchise; restricted and unverified later-season uploads stay out.
