@@ -1,34 +1,207 @@
-<!doctype html><meta charset="utf-8"><meta name="referrer" content="strict-origin-when-cross-origin"><title>Rewind playback check</title><form id="manual"><label>Provider <select id="provider"><option value="youtube">YouTube</option><option value="archive">Archive</option></select></label> <label>Video ID <input id="video-id" value="L2UCRNldC3s" required></label> <label>Direct media URL (Archive only) <input id="media-url" type="url"></label> <button>CHECK PLAYBACK</button></form><div id="host"></div><pre id="result"></pre>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Rewind playback check</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui,sans-serif;background:#14202e;color:#e5eef5}body{max-width:1200px;margin:24px auto;padding:0 20px}h1{font-size:1.7rem}h2{font-size:1.2rem;margin:0 0 12px}p{max-width:90ch}.note,small{color:#bed0df}section{margin:24px 0;padding-top:20px;border-top:1px solid #536173}label{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap}input,select,textarea,button{font:inherit;color:inherit;background:#203247;border:1px solid #75869a;border-radius:5px;padding:9px}button{min-height:44px;cursor:pointer}button:disabled{opacity:.55;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #e9cf7b;outline-offset:3px}textarea{box-sizing:border-box;width:100%;resize:vertical;margin:8px 0}#manual,.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.wide{width:100%;display:block}#media-url{width:min(100%,450px)}#run-limit{width:64px}.workers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.worker{min-width:0;margin:0;padding-top:12px}.worker p{overflow-wrap:anywhere;min-height:3em}.player-host iframe,.player-host video{width:100%;height:auto;aspect-ratio:4/3;background:#000}#host{max-width:640px;margin-top:16px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.85rem}#batch-message{min-height:1.5em}progress{width:100%;height:20px}#storage-warning{color:#f3ce81}#batch-error{color:#ffb6af}.table-scroll{overflow:auto;max-height:55vh}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:.9rem}th,td{text-align:left;padding:9px;border-bottom:1px solid #4b5c70}th{position:sticky;top:0;background:#14202e}a{color:#b5dbff}.pass{color:#a5e0bb}.fail{color:#ffc7a0}[hidden]{display:none!important}@media(max-width:720px){body{margin:16px auto;padding:0 12px}.workers{grid-template-columns:1fr}.worker p{min-height:0}#manual label{width:100%}input{max-width:100%;box-sizing:border-box}}
+</style>
+</head>
+<body>
+<h1>Playback check</h1>
+<p class="note">Internal diagnostic page. Checks are muted. A pass means the playback clock advanced at the start and near the end in this browser, on this network. It does not certify the whole episode or worldwide playback. Retry failures before changing the catalogue.</p>
+<form id="manual">
+<label>Provider <select id="provider"><option value="youtube">YouTube</option><option value="archive">Archive</option></select></label>
+<label>Video ID <input id="video-id" value="L2UCRNldC3s" required></label>
+<label>Direct media URL (Archive only) <input id="media-url" type="url"></label>
+<button type="submit">CHECK PLAYBACK</button>
+</form>
+<div id="host" class="player-host"></div><pre id="result" aria-live="polite"></pre>
+<section aria-labelledby="batch-heading">
+<h2 id="batch-heading">YouTube batch</h2>
+<label for="batch-ids" class="wide">Public video IDs or YouTube links, one per line. Up to 1,000 unique IDs.</label>
+<textarea id="batch-ids" rows="7" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="L2UCRNldC3s"></textarea>
+<div class="actions">
+<label>Checks this run <input id="run-limit" type="number" min="1" max="100" step="1" value="100"></label>
+<label><input id="skip-passed" type="checkbox" checked> Skip previously passed</label>
+<button id="check-batch" type="button">Check batch</button>
+<button id="stop-batch" type="button" disabled>Stop</button>
+<button id="download-results" type="button">Download results</button>
+<button id="clear-checkpoint" type="button">Clear saved results</button>
+</div>
+<p class="note">Three independent players. At most 100 checks per run. Queue and results are saved in this browser; run again to continue. Unchecked IDs run before retries. Failed and inconclusive IDs remain eligible for another attempt. No checks run automatically.</p>
+<p id="batch-error" role="alert"></p><p id="storage-warning" role="status"></p>
+<p id="batch-message" role="status" aria-live="polite">Ready.</p>
+<progress id="batch-progress" value="0" max="1" aria-label="Completed checks this run"></progress>
+<div id="batch-players" class="workers"></div>
+<p id="batch-summary"></p>
+<div class="table-scroll"><table><thead><tr><th>Video ID</th><th>Result</th><th>Start</th><th>Near end</th><th>Seconds</th><th>Checked at (UTC)</th></tr></thead><tbody id="batch-results"></tbody></table></div>
+</section>
 <script>
-let apiResolve;const api=new Promise(resolve=>apiResolve=resolve);window.onYouTubeIframeAPIReady=()=>apiResolve();let cleanup=()=>{};
+(() => {
+'use strict';
+let apiResolve;
+const api=new Promise(resolve=>apiResolve=resolve);
+window.onYouTubeIframeAPIReady=()=>apiResolve();
+if(window.YT?.Player)apiResolve();
+const $=selector=>document.querySelector(selector);
+const STORAGE_KEY='rewind-health-probe-batch-v1';
+const MAX_QUEUE=1000,MAX_RUN=100,WORKERS=3,MAX_HISTORY=3000;
+let manualProbe=null,manualBusy=false,running=false,stopRequested=false,runDone=0,runTotal=0;
+let checkpoint={version:1,queue:[],results:[],updatedAt:null};
+let latest=new Map();
+const activeBatch=new Set();
+const cells=Array.from({length:WORKERS},(_,index)=>{
+ const cell=document.createElement('section');cell.className='worker';
+ const title=document.createElement('p');title.textContent=`Player ${index+1} · idle`;
+ const host=document.createElement('div');host.className='player-host';
+ cell.append(title,host);$('#batch-players').append(cell);return {title,host,index};
+});
+function createProbe(video,host){
+ let player,native,poll,timer,apiTimer,finished=false,finishPlayback=null;
+ let phase='start',start=false,tail=false,startFirst=null,startLast=null,tailFirst=null,tailLast=null;
+ let cancelRequested=false,resolveCancellation;
+ const cancellation=new Promise(resolve=>resolveCancellation=resolve);
+ const began=Date.now();
+ function readDuration(){try{return native?native.duration:player?.getDuration?.();}catch{return null;}}
+ function cleanup(){clearInterval(poll);clearTimeout(timer);clearTimeout(apiTimer);if(native){native.onplaying=native.onerror=null;native.pause();native.removeAttribute('src');native.load();}try{player?.destroy();}catch{}host.replaceChildren();}
+ function record(status,code){const duration=readDuration();return {id:video.id,status,code:code??null,start,tail,duration:Number.isFinite(duration)?duration:null,startFirst,startLast,tailFirst,tailLast,elapsedMs:Date.now()-began,checkedAt:new Date().toISOString(),origin:location.origin,region:'Browser network egress region not independently verified',method:'Muted playback clock advanced at start and within final 16 seconds; not full-runtime certification'};}
+ function cancel(){if(finished)return;cancelRequested=true;resolveCancellation('cancelled');finishPlayback?.('cancelled');}
+ const result=(async()=>{
+  host.replaceChildren();
+  if(video.provider!=='archive'){
+   const ready=await Promise.race([api.then(()=>'ready'),new Promise(resolve=>apiTimer=setTimeout(()=>resolve('api-timeout'),15000)),cancellation]);
+   clearTimeout(apiTimer);
+   if(ready!=='ready'||cancelRequested){finished=true;const row=record(cancelRequested?'cancelled':ready);cleanup();return row;}
+  }
+  if(cancelRequested){finished=true;const row=record('cancelled');cleanup();return row;}
+  return new Promise(resolve=>{
+   function finish(status,code){if(finished)return;finished=true;const row=record(status,code);cleanup();resolve(row);}
+   finishPlayback=finish;
+   function inspect(){
+    try{
+     const duration=readDuration(),time=native?native.currentTime:player?.getCurrentTime?.();
+     const playing=native?!native.paused&&native.readyState>=3:player?.getPlayerState?.()===1;
+     if(!playing||!Number.isFinite(duration)||duration<=0||!Number.isFinite(time))return;
+     if(phase==='start'){
+      startFirst??=time;startLast=time;if(startLast-startFirst<1.2)return;
+      start=true;phase='tail';const target=Math.max(0,duration-12);if(native)native.currentTime=target;else player.seekTo(target,true);
+     }else if(time>=duration-16){tailFirst??=time;tailLast=time;if(tailLast-tailFirst>=1.2){tail=true;finish('playing');}}
+    }catch{}
+   }
+   timer=setTimeout(()=>finish('timeout'),40000);poll=setInterval(inspect,250);
+   if(video.provider==='archive'){
+    native=document.createElement('video');native.muted=true;native.playsInline=true;native.controls=true;host.append(native);
+    native.onerror=()=>finish(native.error?.code===2?'network':'media-error',native.error?.code);
+    native.src=video.mediaUrl;native.play().catch(error=>finish(error.name==='NotAllowedError'?'autoplay-blocked':'network'));
+   }else{
+    const target=document.createElement('div');host.append(target);
+    try{player=new YT.Player(target,{width:'100%',height:'240',videoId:video.id,playerVars:{origin:location.origin,playsinline:1,autoplay:1,mute:1,controls:1,start:0},events:{
+     onReady:event=>{if(finished)return;event.target.mute();event.target.playVideo();},
+     onError:event=>finish(event.data===153?'browser-identity':[100,101,150].includes(event.data)?'source-error':'player-error',event.data),
+     onAutoplayBlocked:()=>finish('autoplay-blocked')
+    }});}catch(error){finish('api-error',String(error.message||error));}
+   }
+  });
+ })();
+ return {result,cancel};
+}
+// Public API retained for existing cloud/manual callers. Batch workers own separate hosts and cleanup.
 window.probe=async video=>{
- cleanup();let player,native,timer,poll,start=false,tail=false,phase='start',firstTime=null,tailTime=null,finished=false;
- const host=document.querySelector('#host');host.replaceChildren();
- if(video.provider!=='archive'){try{await Promise.race([api,new Promise((_,reject)=>setTimeout(()=>reject(Error('API timeout')),15000))]);}catch{return {id:video.id,status:'api-timeout',start:false,tail:false};}}
- return new Promise(resolve=>{
-  function finish(status,code){if(finished)return;finished=true;clearTimeout(timer);clearInterval(poll);const result={id:video.id,status,code,start,tail,duration:readDuration()};document.querySelector('#result').textContent=JSON.stringify(result);cleanup();resolve(result);}
-  function readDuration(){try{return native?native.duration:player?.getDuration?.();}catch{return null;}}
-  cleanup=()=>{clearTimeout(timer);clearInterval(poll);if(native){native.onplaying=native.onerror=null;native.pause();native.removeAttribute('src');native.load();}try{player?.destroy();}catch{}};
-  function inspect(){
-   try{const duration=readDuration(),time=native?native.currentTime:player?.getCurrentTime?.(),playing=native?!native.paused&&native.readyState>=3:player?.getPlayerState?.()===1;
-    if(!playing||!Number.isFinite(duration)||duration<=0||!Number.isFinite(time))return;
-    if(phase==='start'){firstTime??=time;if(time-firstTime<1)return;start=true;phase='tail';const target=Math.max(0,duration-12);if(native)native.currentTime=target;else player.seekTo(target,true);}
-    else if(time>=duration-16){tailTime??=time;if(time-tailTime>=1){tail=true;finish('playing');}}
-   }catch{}
-  }
-  timer=setTimeout(()=>finish('timeout'),40000);poll=setInterval(inspect,250);
-  if(video.provider==='archive'){
-   native=document.createElement('video');native.muted=true;native.playsInline=true;host.append(native);
-   native.onerror=()=>finish(native.error?.code===2?'network':'media-error',native.error?.code);native.src=video.mediaUrl;native.play().catch(error=>finish(error.name==='NotAllowedError'?'autoplay-blocked':'network'));
-  }else{
-   const target=document.createElement('div');host.append(target);
-   player=new YT.Player(target,{videoId:video.id,playerVars:{origin:location.origin,playsinline:1,autoplay:1,mute:1,controls:0},events:{
-    onReady:event=>{if(finished)return;event.target.mute();event.target.playVideo();},
-    onError:event=>{if(!finished)finish(event.data===153?'browser-identity':[100,101,150].includes(event.data)?'source-error':'player-error',event.data);},
-    onAutoplayBlocked:()=>finish('autoplay-blocked')
-   }});
-  }
- });
+ manualProbe?.cancel();
+ const task=createProbe(video,$('#host'));manualProbe=task;
+ try{const row=await task.result;$('#result').textContent=JSON.stringify(row);return row;}
+ finally{if(manualProbe===task)manualProbe=null;}
 };
-document.querySelector('#manual').onsubmit=async event=>{event.preventDefault();const button=event.target.querySelector('button');button.disabled=true;document.querySelector('#result').textContent='Checking start and near-end playback…';try{await window.probe({id:document.querySelector('#video-id').value,provider:document.querySelector('#provider').value,mediaUrl:document.querySelector('#media-url').value});}finally{button.disabled=false;}};
-</script><script src="https://www.youtube.com/iframe_api"></script>
+function parseQueue(value){
+ const tokens=value.trim().split(/[\s,;]+/).filter(Boolean),ids=[],invalid=[];const seen=new Set();
+ for(const token of tokens){let id=token;
+  if(/^https?:\/\//i.test(token)){
+   try{const url=new URL(token),name=url.hostname.toLowerCase().replace(/^www\./,'');
+    if(name==='youtu.be')id=url.pathname.split('/').filter(Boolean)[0]||'';
+    else if(['youtube.com','m.youtube.com','youtube-nocookie.com'].includes(name))id=url.pathname==='/watch'?url.searchParams.get('v')||'':url.pathname.match(/^\/(?:embed|shorts|live)\/([^/]+)/)?.[1]||'';
+    else id='';
+   }catch{id='';}
+  }
+  if(!/^[A-Za-z0-9_-]{11}$/.test(id)){invalid.push(token);continue;}
+  if(!seen.has(id)){seen.add(id);ids.push(id);}
+ }
+ return {ids,invalid};
+}
+function passed(row){return row?.status==='playing'&&row.start===true&&row.tail===true;}
+function refreshLatest(){latest=new Map();for(const row of checkpoint.results)latest.set(row.id,row);}
+function save(){checkpoint.updatedAt=new Date().toISOString();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(checkpoint));$('#storage-warning').textContent='';}catch{$('#storage-warning').textContent='Browser storage is unavailable or full. Keep this tab open and download results before leaving.';}}
+function updateControls(){
+ $('#manual').querySelectorAll('input,select,button').forEach(control=>control.disabled=running||manualBusy);
+ $('#check-batch').disabled=running||manualBusy;$('#batch-ids').disabled=running;$('#run-limit').disabled=running;$('#skip-passed').disabled=running;$('#stop-batch').disabled=!running;$('#clear-checkpoint').disabled=running||manualBusy;
+}
+function render(){
+ const passedCount=checkpoint.queue.filter(id=>passed(latest.get(id))).length;
+ const attempted=checkpoint.queue.filter(id=>latest.has(id)).length;
+ $('#batch-summary').textContent=`${checkpoint.queue.length} queued · ${passedCount} passed · ${attempted-passedCount} need retry or review · ${checkpoint.queue.length-attempted} unchecked · ${checkpoint.results.length} recorded attempts`;
+ $('#batch-progress').max=Math.max(1,runTotal);$('#batch-progress').value=runDone;
+ const fragment=document.createDocumentFragment();
+ for(const id of checkpoint.queue){const row=latest.get(id),tr=document.createElement('tr');
+  const idCell=document.createElement('td'),link=document.createElement('a');link.href='https://www.youtube.com/watch?v='+id;link.target='_blank';link.rel='noopener noreferrer';link.textContent=id;idCell.append(link);tr.append(idCell);
+  for(const value of [row?(row.status+(row.code!==null&&row.code!==undefined?' ('+row.code+')':'')):'Unchecked',row?(row.start?'Yes':'No'):'—',row?(row.tail?'Yes':'No'):'—',row?.duration??'—',row?.checkedAt??'—']){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}
+  if(row)tr.className=passed(row)?'pass':'fail';fragment.append(tr);
+ }
+ $('#batch-results').replaceChildren(fragment);
+}
+function remember(row){checkpoint.results.push(row);if(checkpoint.results.length>MAX_HISTORY)checkpoint.results.splice(0,checkpoint.results.length-MAX_HISTORY);latest.set(row.id,row);save();render();}
+function stopBatch(){if(!running)return;stopRequested=true;$('#batch-message').textContent='Stopping active checks…';for(const task of activeBatch)task.cancel();}
+async function runBatch(){
+ if(running||manualBusy)return;$('#batch-error').textContent='';
+ const parsed=parseQueue($('#batch-ids').value);
+ if(parsed.invalid.length){$('#batch-error').textContent=`${parsed.invalid.length} invalid entry/entries. Use public YouTube IDs or links. First: ${parsed.invalid[0].slice(0,100)}`;return;}
+ if(!parsed.ids.length){$('#batch-error').textContent='Add at least one public YouTube video ID.';return;}
+ if(parsed.ids.length>MAX_QUEUE){$('#batch-error').textContent=`Queue has ${parsed.ids.length} IDs. Maximum is ${MAX_QUEUE}; split it into smaller queues.`;return;}
+ const limit=Number($('#run-limit').value);
+ if(!Number.isInteger(limit)||limit<1||limit>MAX_RUN){$('#batch-error').textContent='Choose between 1 and 100 checks per run.';return;}
+ checkpoint.queue=parsed.ids;save();refreshLatest();
+ const skip=$('#skip-passed').checked;
+ const eligible=checkpoint.queue.filter(id=>!skip||!passed(latest.get(id)));
+ const pending=[...eligible.filter(id=>!latest.has(id)),...eligible.filter(id=>latest.has(id))].slice(0,limit);
+ runDone=0;runTotal=pending.length;render();
+ if(!pending.length){$('#batch-message').textContent='Every queued ID has already passed. Clear “Skip previously passed” to test again.';return;}
+ manualProbe?.cancel();running=true;stopRequested=false;updateControls();let cursor=0;
+ $('#batch-message').textContent=`Checking ${runTotal} videos with ${WORKERS} players…`;
+ async function worker(cell){
+  while(!stopRequested&&cursor<pending.length){
+   const id=pending[cursor++];cell.title.textContent=`Player ${cell.index+1} · ${id} · checking`;
+   const task=createProbe({id,provider:'youtube'},cell.host);activeBatch.add(task);
+   let row;try{row=await task.result;}catch(error){row={id,status:'probe-error',code:String(error.message||error),start:false,tail:false,duration:null,checkedAt:new Date().toISOString(),origin:location.origin,region:'Browser network egress region not independently verified'};}
+   finally{activeBatch.delete(task);}
+   remember(row);runDone++;render();cell.title.textContent=`Player ${cell.index+1} · ${id} · ${row.status}`;
+   if(row.status==='api-timeout'){stopRequested=true;for(const active of activeBatch)active.cancel();$('#batch-error').textContent='YouTube’s shared player API did not load. Batch stopped; this is a browser/network failure, not proof the videos are broken.';}
+   $('#batch-message').textContent=`${stopRequested?'Stopping':'Checking'} · ${runDone} of ${runTotal} completed`;
+  }
+ }
+ try{await Promise.all(cells.map(worker));}
+ finally{running=false;activeBatch.clear();updateControls();render();$('#batch-message').textContent=`${stopRequested?'Stopped':'Run complete'} · ${runDone} of ${runTotal} attempted. Run again to continue or retry; download results to keep an export.`;}
+}
+$('#manual').onsubmit=async event=>{
+ event.preventDefault();if(running)return;manualBusy=true;updateControls();$('#result').textContent='Checking start and near-end playback…';
+ try{await window.probe({id:$('#video-id').value.trim(),provider:$('#provider').value,mediaUrl:$('#media-url').value.trim()});}
+ catch(error){$('#result').textContent='Check failed: '+String(error.message||error);}
+ finally{manualBusy=false;updateControls();}
+};
+$('#check-batch').onclick=runBatch;$('#stop-batch').onclick=stopBatch;
+$('#download-results').onclick=()=>{
+ const data={...checkpoint,exportedAt:new Date().toISOString(),origin:location.origin,region:'Browser network egress region not independently verified',scope:'Start and near-end playback on this browser/network only; retry failures before catalogue changes.'};
+ const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='rewind-playback-'+new Date().toISOString().slice(0,10)+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+$('#clear-checkpoint').onclick=()=>{if(running||manualBusy)return;checkpoint.results=[];latest.clear();runDone=0;runTotal=0;save();render();$('#batch-message').textContent='Saved results cleared. Queue kept.';};
+$('#batch-ids').addEventListener('change',()=>{const parsed=parseQueue($('#batch-ids').value);if(!parsed.invalid.length&&parsed.ids.length<=MAX_QUEUE){checkpoint.queue=parsed.ids;save();render();}});
+window.addEventListener('beforeunload',event=>{if(running){event.preventDefault();event.returnValue='';}});
+try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(saved?.version===1&&Array.isArray(saved.queue)&&Array.isArray(saved.results)){checkpoint={version:1,queue:saved.queue.filter(id=>typeof id==='string'&&/^[A-Za-z0-9_-]{11}$/.test(id)).slice(0,MAX_QUEUE),results:saved.results.filter(row=>row&&typeof row.id==='string'&&/^[A-Za-z0-9_-]{11}$/.test(row.id)).slice(-MAX_HISTORY),updatedAt:saved.updatedAt??null};$('#batch-ids').value=checkpoint.queue.join('\n');}}
+catch{$('#storage-warning').textContent='Saved checkpoint could not be read. Start a new queue; download results before leaving.';}
+refreshLatest();render();updateControls();
+})();
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
