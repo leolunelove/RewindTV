@@ -43,6 +43,15 @@ test('changing film genre updates the hero, selected card and Watch action to th
  f.byClass('movie-hero')[0].querySelector('.movie-play').onclick();assert.equal(f.played[0].title,'The Battle');
 });
 
+test('country catalogue updates preserve film filters, selected eligible film and scroll without playing it',()=>{
+ const f=fixture();f.genre('War');f.search.value='The';f.search.oninput();f.byClass('movie-card').find(card=>card.attributes['aria-label']==='Choose The Front').onclick();f.root.scrollTop=777;f.root.dispatchEvent(new Event('scroll'));
+ const film=(id,title)=>({id,title,genre:'War',year:1986,kind:'film',duration:5400,provider:'youtube'});
+ f.view.updateCatalogue({channels:[{key:'cinema',videos:[film('warfilm0002','The Front'),film('warfilm0001','The Battle')]}]});
+ assert.equal(f.title(),'The Front');assert.equal(f.genreControl.value,'War');assert.equal(f.search.value,'The');assert.equal(f.root.scrollTop,777);assert.equal(f.played.length,0);
+ f.view.updateCatalogue({channels:[{key:'cinema',videos:[film('warfilm0001','The Battle')]}]});
+ assert.equal(f.title(),'The Battle');assert.equal(f.genreControl.value,'War');assert.equal(f.search.value,'The');assert.equal(f.root.scrollTop,777);assert.equal(f.played.length,0);assert.deepEqual(f.byClass('movie-card').map(card=>card.attributes['aria-label']),['Choose The Battle']);
+});
+
 test('Films renders the complete collection with lazy artwork and mixes its order without starting playback',()=>{
  const videos=Array.from({length:114},(_,index)=>({id:'film'+String(index).padStart(7,'0'),title:'Film '+index,kind:'film',year:1998,duration:5400,genre:index%2?'Horror':'Comedy',provider:'youtube'}));
  const f=fixture({catalogue:{channels:[{key:'cinema',videos}]}});

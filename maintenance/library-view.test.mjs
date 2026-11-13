@@ -66,6 +66,18 @@ const libraryCatalogue={channels:[{key:'discovery',name:'Discovery',number:25,vi
   {id:'collection1',title:'A Music Video',series:'Music Collection',kind:'music',duration:300,year:2003,watchUrl:'https://www.youtube.com/watch?v=collection1'},
 ]}]};
 
+test('country catalogue updates retain Library filters, detail and scroll without requesting playback',async()=>{
+  const {root,win,view,played}=await libraryFixture(libraryCatalogue);
+  input(byLabel(root,'Find a show or film'),'Science');root.scrollTop=170;root.dispatchEvent(new Event('scroll'));
+  view.openDetail('show:science club');change(byLabel(root,'Browse season'),'2');input(byLabel(root,'Find an episode'),'Science');root.scrollTop=215;root.dispatchEvent(new Event('scroll'));
+  const next={channels:libraryCatalogue.channels.map(channel=>({...channel,videos:channel.videos.filter(video=>video.id!=='science35')}))};
+  view.updateCatalogue(next);
+  assert.equal(view.selected.key,'show:science club');assert.equal(byLabel(root,'Browse season').value,'2');assert.equal(byLabel(root,'Find an episode').value,'Science');assert.equal(root.scrollTop,215);assert.equal(byClass(root,'episode-row').length,17);assert.equal(played.length,0);
+  view.openIndex();assert.equal(byLabel(root,'Find a show or film').value,'Science');assert.equal(root.scrollTop,170);
+  view.openDetail('show:science club');view.updateCatalogue({channels:next.channels.map(channel=>({...channel,videos:channel.videos.filter(video=>video.series!=='Science Club')}))});
+  assert.equal(view.selected,null);assert.equal(win.history.state.detail,undefined);assert.equal(byLabel(root,'Find a show or film').value,'Science');assert.equal(played.length,0);
+});
+
 test('Library starts with Shows, renders catalogue artwork and keeps all other title types reachable',async()=>{
   const {root,view}=await libraryFixture(libraryCatalogue);
   assert.equal(view.kind,'programmes');

@@ -12,7 +12,7 @@ const packName='november-library.json',pack=read(packName);
 function catalogue(includeAdditions){
  let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));
  for(const name of EXPANSION_PACKS){
-  if(['decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json'].includes(name))continue; // Isolate this historical release from later stations and their dependent assignments.
+  if(['decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json'].includes(name))continue; // Isolate this historical release from later stations and their dependent assignments.
   if(includeAdditions||name!==packName)cat=withExpansion(cat,read(name));
  }
  return cat;

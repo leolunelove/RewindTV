@@ -55,7 +55,7 @@ test('a native browser interruption updates Pause to Play and the first remote t
  const f=playingFilm();f.movie.paused=true;f.emit('pause');
  assert.equal(f.c.paused,true);
  assert.equal(f.c.playbackIntent,true,'an external pause still permits native fullscreen controls to resume');
- const button={};f.c.$=()=>button;f.c.recoveryBackoffTimer=0;f.c.currentPlayer=()=>f.c.adapter;
+ const button={};f.c.$=()=>button;f.c.recoveryBackoffTimer=0;f.c.currentPlayer=()=>f.c.adapter;f.c.countryPlaybackBlocked=false;f.c.globallyRestricted=()=>false;
  vm.runInContext(app.slice(app.indexOf("  $('#tv-play').onclick="),app.indexOf("  $('.remote-power').onclick=")),f.c);
  button.onclick();
  assert.equal(f.c.paused,false);assert.deepEqual(f.calls,['play']);

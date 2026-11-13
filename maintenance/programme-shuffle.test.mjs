@@ -21,7 +21,7 @@ test('this-channel shuffle stays in that channel and prefers another show with a
 });
 
 test('shuffle skips commercials and known failures, but supports a film or music station',()=>{
- const a=channel('a',[episode('advert','Ads',{kind:'advert'}),episode('failed','Bad'),episode('region','Bad',{regionRestriction:{allowed:['US']}})]);
+ const a=channel('a',[episode('advert','Ads',{kind:'advert'}),episode('failed','Bad'),episode('region','Bad',{regionRestriction:{allowed:['US']},viewerCountry:'GB'})]);
  const b=channel('b',[episode('film','Cinema',{kind:'film'})]);
  const failed=new Set(['failed']);
  assert.equal(pickProgramme([a,b],{channelKey:'a',failed}),null);

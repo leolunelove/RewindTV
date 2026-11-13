@@ -42,8 +42,8 @@ test('current, failed, disabled, region-limited and embed-restricted sources sta
  const outgoing=film('original'),invalid=[
   outgoing,film('failed'),film('disabled',{enabled:false}),film('restricted',{embedStatus:'restricted'}),
   film('unembeddable',{embeddable:false}),film('status-restricted',{status:{embeddable:false}}),
-  film('allowed-region',{regionRestriction:{allowed:['GB']}}),film('blocked-region',{regionRestriction:{blocked:['US']}}),
-  film('nested-region',{contentDetails:{regionRestriction:{blocked:['GB']}}})
+  film('allowed-region',{regionRestriction:{allowed:['GB']},viewerCountry:'US'}),film('blocked-region',{regionRestriction:{blocked:['US']},viewerCountry:'US'}),
+  film('nested-region',{contentDetails:{regionRestriction:{blocked:['GB']}},viewerCountry:'GB'})
  ];
  const failed=new Set(['failed']),valid=film('valid');
  assert.equal(findFilmAlternative(catalogue(channel('cinema',invalid)),outgoing,{failed}),null);

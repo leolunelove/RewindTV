@@ -68,7 +68,7 @@ test('catalogue resolution prefers the saved owner, falls back to another playab
 });
 test('disabled, advert, deleted-identity and restricted records never become resume actions',()=>{
  const f=fixture(),video=f.episode();f.history.save(video,{channelKey:'source',position:100});
- for(const change of [{enabled:false},{kind:'advert'},{embedStatus:'restricted'},{embeddable:false},{status:{embeddable:false}},{regionRestriction:{allowed:['GB']}},{contentDetails:{regionRestriction:{blocked:['US']}}},{series:'A different show'}]){
+ for(const change of [{enabled:false},{kind:'advert'},{embedStatus:'restricted'},{embeddable:false},{status:{embeddable:false}},{regionRestriction:{allowed:['GB']},viewerCountry:'US'},{contentDetails:{regionRestriction:{blocked:['US']}},viewerCountry:'US'},{series:'A different show'}]){
   assert.deepEqual(f.history.list({channels:[f.channel('source',[{...video,...change}])]}),[],JSON.stringify(change));
  }
  assert.ok(f.history.get(video));
