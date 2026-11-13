@@ -9,7 +9,7 @@
   const {createWatchHistory}=await import('./watch-history.mjs?v=20261113region');
   let historyStorage=null;try{historyStorage=window.localStorage;}catch{}
   const watchHistory=createWatchHistory({storage:historyStorage});let libraryCheckpointAt=0,librarySeek=null,pendingLibraryResume=null;const removedProgress=new Set();
-  const {createPanelMotion}=await import('./panel-motion.mjs?v=20261112');
+  const {createPanelMotion}=await import('./panel-motion.mjs?v=20261113region2');
   const panels=createPanelMotion(root),wideMenu=matchMedia('(min-width:960px)');
   const movie=document.getElementById('archive-player');let movieLoading=false,audioContext;
   const {createPictureFrame}=await import('./picture-frame.mjs?v=signal1');const pictureFrame=createPictureFrame(root,{getVideo:()=>active?.video,native:movie});
@@ -267,7 +267,7 @@
   let libraryLoading=null,libraryDestination='shows';
   async function openBrowse(restore=false){libraryDestination='shows';const alreadyOpen=panels.isOpen($('.browse-overlay'));if(!alreadyOpen)panels.open($('.browse-overlay'));revealControls();if(libraryView){if(!alreadyOpen)libraryView.resume({record:!restore});return;}
     $('#library-view').textContent='Opening the collection…';
-    try{libraryLoading??=import('./library-view.mjs?v=20261113region');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:catalogue,onMovies:openMovieNight,getContinueWatching:()=>continueItems('programmes'),onResume:resumeLibrary,onRemoveContinue:removeContinue,onPlay:v=>startLibrary(v,'shows',{fromStart:true})});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
+    try{libraryLoading??=import('./library-view.mjs?v=20261113region2');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:catalogue,onMovies:openMovieNight,getContinueWatching:()=>continueItems('programmes'),onResume:resumeLibrary,onRemoveContinue:removeContinue,onPlay:v=>startLibrary(v,'shows',{fromStart:true})});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
   }
   let movieNight=null,movieNightLoading=null;
   async function openMovieNight(){libraryDestination='films';if(!panels.isOpen($('.movie-night-page')))panels.open($('.movie-night-page'));revealControls();if(movieNight)return;
@@ -536,7 +536,7 @@
   function tracePlayer(event,detail={}){if(debugPlayer)console.info('REWIND-PLAYER',JSON.stringify({at:Math.round(performance.now()),event,...detail}));}
   window.addEventListener('message',e=>{if(!debugPlayer)return;const f=[...root.querySelectorAll('iframe')].find(f=>e.source===f.contentWindow);if(!f)return;try{const m=typeof e.data==='string'?JSON.parse(e.data):e.data;if(m?.event!=='infoDelivery')tracePlayer('message',{frame:f.id,eventName:m?.event});}catch{}});
 
-  function persist(){try{localStorage.setItem('rewind-tv-v2',JSON.stringify({key:lastLiveChannelKey||channels[channel].key,volume}));if(active&&power){const url=new URL(location.href);url.searchParams.set('channel',channels[channel].key);if(active.mode==='ondemand')url.searchParams.set('episode',active.video.id);else url.searchParams.delete('episode');if(libraryContext)url.searchParams.set('playback','library');else url.searchParams.delete('playback');history.replaceState(history.state,'',url);}}catch{}}
+  function persist(){try{localStorage.setItem('rewind-tv-v2',JSON.stringify({key:lastLiveChannelKey||channels[channel].key,volume}));if(active&&power){const url=new URL(location.href);url.searchParams.set('channel',channels[channel].key);if(active.mode==='ondemand')url.searchParams.set('episode',active.video.id);else url.searchParams.delete('episode');if(libraryContext)url.searchParams.set('playback','library');else url.searchParams.delete('playback');history.replaceState(history.state,'',url);panels.updatePlaybackRoute?.();}}catch{}}
   function weekPlan(){if(!plan||Schedule.weekAt().key!==plan.week.key){if(plan){location.reload();return false;}plan=Schedule.build(catalogue);return true;}return false;}
   function render(){
     if(!plan)return;pictureFrame.update();updateGlow();if(document.hidden)return;

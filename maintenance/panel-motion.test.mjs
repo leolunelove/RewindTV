@@ -1,4 +1,5 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {createPanelMotion} from '../site/panel-motion.mjs';
+import vm from 'node:vm';import {readFileSync} from 'node:fs';
 function fixture(t,reduced=false,types=['dialog'],wide){const old=globalThis.matchMedia;globalThis.matchMedia=()=>({matches:reduced});t.after(()=>globalThis.matchMedia=old);const animations=[];const panels=types.map(type=>{const p=new EventTarget();p.open=false;p.hidden=true;p.hasAttribute=k=>type==='page'&&k==='data-tv-page';p.querySelector=()=>({focus(){p.focused=true;}});p.classList={contains:k=>k==='guide'};p.showModal=()=>p.open=true;p.close=()=>{p.open=false;p.dispatchEvent(new Event('close'));};p.animate=()=>{const a={finished:Promise.resolve(),cancel(){}};animations.push(a);return a;};return p;});const regions=[{inert:false}];const root={querySelector(selector){if(selector==='.guide')return panels.find(p=>p.hasAttribute('data-tv-page'));},ownerDocument:wide===undefined?undefined:{defaultView:{matchMedia:q=>({matches:q.includes('min-width')?wide:reduced}),location:{hash:''},history:{pushState(){}},addEventListener(){}}},querySelectorAll(selector){if(selector==='.club-layout, .watch-controls')return regions;if(selector==='dialog, [data-tv-page]')return panels;if(selector==='dialog[open], [data-tv-page]:not([hidden])')return panels.filter(p=>p.hasAttribute('data-tv-page')?!p.hidden:p.open);return [];}};return {regions,panels,panel:panels[0],animations,motion:createPanelMotion(root)};}
 test('closing releases the page immediately; repeated close cannot leave a blocking overlay',t=>{const f=fixture(t);f.motion.open(f.panel);f.motion.close(f.panel);f.motion.close(f.panel);assert.equal(f.panel.open,false);assert.equal(f.animations.length,1);});
 test('a rapid close and reopen has no deferred close that can hide the new page',async t=>{const f=fixture(t);f.motion.open(f.panel);f.motion.close(f.panel);f.motion.open(f.panel);await Promise.resolve();assert.equal(f.panel.open,true);});
@@ -14,13 +15,13 @@ test('phone drawer blocks controls behind it until dismissed',t=>{const f=fixtur
 test('closing a desktop page returns to Watch without reopening Channels',t=>{const f=fixture(t,false,['page','page'],true);f.motion.open(f.panels[1]);f.motion.close(f.panels[1]);assert.deepEqual(f.panels.map(panel=>panel.hidden),[true,true]);});
 
 function navigationFixture(wide=false){
- const win=new EventTarget(),historyEntries=[{hash:'#watch',state:null}],regions=[{inert:false}];let position=0;
+ const win=new EventTarget(),historyEntries=[{hash:'#watch',url:'https://tv.leolune.fun/#watch',state:null}],regions=[{inert:false}];let position=0;
  const doc={defaultView:win,activeElement:null};
- win.location={hash:'#watch'};
+ win.location=new URL('https://tv.leolune.fun/#watch');
  win.matchMedia=query=>({matches:query.includes('min-width')?wide:true});
- function move(entry){win.location.hash=entry.hash;win.history.state=entry.state;}
+ function move(entry){win.location.href=entry.url;win.history.state=entry.state;}
  function travel(delta){const next=position+delta;if(next<0||next>=historyEntries.length)return;position=next;move(historyEntries[position]);win.dispatchEvent(new Event('popstate'));}
- win.history={state:null,pushState(state,title,hash){historyEntries.splice(position+1);historyEntries.push({hash,state});position++;move(historyEntries[position]);},replaceState(state,title,hash){historyEntries[position]={hash,state};move(historyEntries[position]);},back(){travel(-1);},forward(){travel(1);}};
+ win.history={state:null,pushState(state,title,href){const url=new URL(href??win.location.href,win.location.href);historyEntries.splice(position+1);historyEntries.push({hash:url.hash,url:url.href,state});position++;move(historyEntries[position]);},replaceState(state,title,href){const url=new URL(href??win.location.href,win.location.href);historyEntries[position]={hash:url.hash,url:url.href,state};move(historyEntries[position]);},back(){travel(-1);},forward(){travel(1);}};
  function control(id){
   return {id,isConnected:true,hidden:false,attributes:new Map(),setAttribute(name,value){this.attributes.set(name,value);},removeAttribute(name){this.attributes.delete(name);},getClientRects(){return this.hidden?[]:[{}];},closest(){return null;},focus(){doc.activeElement=this;}};
  }
@@ -241,4 +242,38 @@ test('Back and Forward restore Library player presentation and utility context w
  assert.equal(f.historyEntries.length,length);
  f.motion.open(f.panels.get('tv-settings'));f.motion.close(f.panels.get('tv-settings'));
  assert.equal(f.panels.get('library-player-page').hidden,false);assert.equal(f.classes.has('library-watching'),true);
+});
+
+function playbackNavigationFixture(utility='tv-settings'){
+ const f=navigationFixture(),calls=[],app=readFileSync(new URL('../site/app.js',import.meta.url),'utf8');
+ f.motion.open(f.panels.get('browse-overlay'),{state:{detail:'show:samurai'}});
+ const c={URL,URLSearchParams,location:f.win.location,history:f.win.history,panels:f.motion,localStorage:{setItem(){}},volume:40,lastLiveChannelKey:'power-rangers',channels:[{key:'power-rangers'}],channel:0,power:true,libraryContext:true,librarySession:null,libraryOrigin:'shows',active:{mode:'ondemand',video:{id:'origins-one'}},
+  $:selector=>f.panels.get(selector.replace(/^#/,'')),
+  showLibraryPlayer(record){calls.push(['picture',record]);f.motion.open(f.panels.get('library-player-page'),{remember:record});},
+  startLibrary(video){calls.push(['load',video.id]);if(video.id==='origins-one')return false;c.active.video={id:video.id};return true;},
+  backToLibrary(){calls.push(['browse fallback']);f.win.history.back();},openBrowse(){calls.push(['browse']);},savedLibraryOffset:()=>0,
+  currentPlayer(){throw Error('Closing a utility must not command the player');}};
+ vm.createContext(c);vm.runInContext(app.slice(app.indexOf('  function persist(){'),app.indexOf('  function weekPlan(){')),c);vm.runInContext(app.slice(app.indexOf('  function restorePage(){'),app.indexOf("  window.addEventListener('popstate',restorePage);")),c);
+ c.persist();f.motion.open(f.panels.get('library-player-page'),{state:{libraryOrigin:'shows',libraryReturn:'#library'}});c.persist();
+ f.controls.get(utility==='tv-settings'?'settings-button':utility==='programme-info'?'info-button':'shuffle-button').focus();f.motion.open(f.panels.get(utility));
+ f.win.addEventListener('popstate',()=>c.restorePage());return {...f,c,calls};
+}
+
+test('country recovery or auto-advance behind a utility returns to the current Library picture through real app history callbacks',()=>{
+ for(const utility of ['tv-settings','programme-info','shuffle-dialog'])for(const close of ['button','back']){
+  const f=playbackNavigationFixture(utility),length=f.historyEntries.length,current=f.c.active;current.offset=47.7;
+  f.c.active.video={id:'team-unites'};f.c.persist();
+  assert.equal(f.win.location.search.includes('episode=team-unites'),true);assert.equal(f.win.history.state.utility,utility==='tv-settings'?'settings':utility==='programme-info'?'info':'shuffle');
+  if(close==='button')f.motion.close(f.panels.get(utility));else f.win.history.back();
+  assert.equal(f.win.location.hash,'#library-watch');assert.equal(new URLSearchParams(f.win.location.search).get('episode'),'team-unites');assert.equal(f.win.history.state.libraryReturn,'#library');assert.equal(f.win.history.state.libraryOrigin,'shows');assert.equal(f.win.history.state.utility,undefined);
+  assert.equal(f.panels.get('library-player-page').hidden,false);assert.equal(f.panels.get('browse-overlay').hidden,true);assert.equal(f.mini.hidden,true);assert.equal(f.c.active,current);assert.equal(f.c.active.video.id,'team-unites');assert.equal(f.c.active.offset,47.7);assert.equal(f.historyEntries.length,length);
+  assert(!f.calls.some(call=>['load','browse fallback','browse'].includes(call[0])));assert(f.calls.some(call=>call[0]==='picture'&&call[1]===false));
+ }
+});
+
+test('ordinary Back between requested programmes still restores that programme after a utility is dismissed',()=>{
+ const f=playbackNavigationFixture();f.c.active.video={id:'team-unites'};f.c.persist();f.motion.close(f.panels.get('tv-settings'));
+ const state=f.win.history.state;f.win.history.pushState(state,'','?channel=power-rangers&episode=later-choice&playback=library#library-watch');f.c.active.video={id:'later-choice'};f.c.persist();
+ f.win.history.back();
+ assert.equal(new URLSearchParams(f.win.location.search).get('episode'),'team-unites');assert.deepEqual(f.calls.filter(call=>call[0]==='load'),[['load','team-unites']]);assert.equal(f.c.active.video.id,'team-unites');assert.equal(f.win.location.hash,'#library-watch');
 });

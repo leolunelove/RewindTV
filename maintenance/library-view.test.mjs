@@ -78,6 +78,26 @@ test('country catalogue updates retain Library filters, detail and scroll withou
   assert.equal(view.selected,null);assert.equal(win.history.state.detail,undefined);assert.equal(byLabel(root,'Find a show or film').value,'Science');assert.equal(played.length,0);
 });
 
+test('background country updates preserve the Library player route, utility history and foreground focus',async()=>{
+  const f=await libraryFixture(libraryCatalogue),country=f.root.ownerDocument.createElement('select');
+  f.view.openDetail('show:science club');change(byLabel(f.root,'Browse season'),'2');
+  const watch={rewind:true,panel:'library-player-page',libraryOrigin:'shows',libraryReturn:'#library',detail:'show:science club'};
+  f.win.history.pushState(watch,'','#library-watch');f.win.history.pushState({...watch,utility:'settings'},'','#library-watch');country.focus();
+  const utilityState=f.win.history.state;
+  const shorter={channels:libraryCatalogue.channels.map(channel=>({...channel,videos:channel.videos.filter(video=>video.id!=='science35')}))};
+  f.view.updateCatalogue(shorter);
+  assert.equal(f.win.location.hash,'#library-watch');assert.equal(f.win.history.state,utilityState);assert.equal(f.root.ownerDocument.activeElement,country);assert.equal(f.view.selected.key,'show:science club');assert.equal(byLabel(f.root,'Browse season').value,'2');assert.equal(byClass(f.root,'episode-row').length,17);assert.equal(f.played.length,0);
+  f.view.updateCatalogue({channels:shorter.channels.map(channel=>({...channel,videos:channel.videos.filter(video=>video.series!=='Science Club')}))});
+  assert.equal(f.win.location.hash,'#library-watch');assert.equal(f.win.history.state,utilityState);assert.equal(f.root.ownerDocument.activeElement,country);assert.equal(f.view.selected,null);assert.equal(f.played.length,0);
+});
+
+test('refreshing a background Library index never focuses its previously selected title',async()=>{
+  const f=await libraryFixture(libraryCatalogue);f.view.openDetail('show:science club');f.view.openIndex();
+  const settings=f.root.ownerDocument.createElement('select');f.win.history.pushState({rewind:true,utility:'settings',libraryReturn:'#library'},'','#library-watch');settings.focus();const state=f.win.history.state;
+  f.view.updateCatalogue(libraryCatalogue);
+  assert.equal(f.root.ownerDocument.activeElement,settings);assert.equal(f.win.location.hash,'#library-watch');assert.equal(f.win.history.state,state);assert.equal(f.played.length,0);
+});
+
 test('Library starts with Shows, renders catalogue artwork and keeps all other title types reachable',async()=>{
   const {root,view}=await libraryFixture(libraryCatalogue);
   assert.equal(view.kind,'programmes');

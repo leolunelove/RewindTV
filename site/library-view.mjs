@@ -204,7 +204,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     renderIndex();
   }
 
-  function renderIndex(restore=false) {
+  function renderIndex(restore=false,focus=true) {
     selected=null;detailResume=null;detailStart=null;
     root.replaceChildren();
     const tools=el('div','','library-tools library-browse-tools');
@@ -278,7 +278,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     if(restore)restorePosition(indexPosition);
     else root.scrollTop=0;
     persist();
-    if(restore)[...grid.children].find(card=>card.dataset.showKey===lastKey)?.focus({preventScroll:true});
+    if(restore&&focus)[...grid.children].find(card=>card.dataset.showKey===lastKey)?.focus({preventScroll:true});
   }
 
   function openDetail(key,history=true) {
@@ -442,8 +442,10 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
       selected=key?shows.find(show=>show.key===key)||null:null;
       if(selected)drawDetail();
       else {
-        if(key&&win?.history.state?.detail===key){const {detail,...state}=win.history.state;win.history.replaceState(state,'','#library');}
-        renderIndex(true);
+        // A catalogue refresh may run behind the player or a utility sheet.
+        // Only the foreground Library owns its route; retain outside focus.
+        if(key&&win?.location.hash==='#library'&&win?.history.state?.detail===key){const {detail,...state}=win.history.state;win.history.replaceState(state,'','#library');}
+        renderIndex(true,false);
       }
     },
     openIndex(){if(selected)back();},

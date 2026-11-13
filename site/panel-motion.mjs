@@ -7,7 +7,22 @@ export function createPanelMotion(root){
  const isOpen=panel=>!!panel&&(isPage(panel)?!panel.hidden:panel.open);
  const pageKey=panel=>panel?.classList.contains('home-page')?'home':panel?.classList.contains('library-player-page')?'library-watch':panel?.classList.contains('movie-night-page')?'movies':panel?.classList.contains('browse-overlay')?'library':panel?.classList.contains('schedule-overlay')?'guide':panel?'channels':'watch';
  const utilityKey=panel=>panel?.classList.contains('programme-info')?'info':panel?.classList.contains('tv-settings')?'settings':panel?.id==='shuffle-dialog'?'shuffle':null;
- const entries=new WeakMap(),invokers=new WeakMap();let switching=false,restoring=false;
+ const entries=new WeakMap(),invokers=new WeakMap();let switching=false,restoring=false,utilityRoute=null;
+ const route=()=>({pathname:win?.location.pathname||'',search:win?.location.search||'',hash:win?.location.hash||''});
+ const sameRoute=(a,b)=>a.pathname===b.pathname&&a.search===b.search&&a.hash===b.hash;
+ function updatePlaybackRoute(){
+  if(!win?.history.state?.utility){utilityRoute=null;return;}
+  const current=route();utilityRoute={base:utilityRoute?.base||current,current};
+ }
+ function preserveUtilityPlayback(){
+  const previous=utilityRoute;utilityRoute=null;
+  // Dismissing a utility restores its page, not an older requested episode.
+  // A Back to a different programme/page still follows normal browser history.
+  if(!previous||win.history.state?.utility||!sameRoute(route(),previous.base)||typeof win.location.href!=='string')return;
+  const url=new URL(win.location.href),latest=new URLSearchParams(previous.current.search);
+  for(const key of ['channel','episode','playback']){if(latest.has(key))url.searchParams.set(key,latest.get(key));else url.searchParams.delete(key);}
+  if(url.href!==win.location.href)win.history.replaceState(win.history.state,'',url);
+ }
  function animateOpen(panel){
   if(reduce.matches||typeof panel.animate!=='function')return;
   const frames=isPage(panel)?[{opacity:.25},{opacity:1}]:[{opacity:.4,translate:'0 12px'},{opacity:1,translate:'0 0'}];
@@ -65,13 +80,15 @@ export function createPanelMotion(root){
    if(!alreadyOpen)(panel.querySelector('[data-page-primary]')||panel.querySelector('.page-back-tv'))?.focus({preventScroll:true});
   }else if(win&&!restoring&&record){
    const utility=utilityKey(panel);
+   if(utility&&!consumedUtility)utilityRoute={base:route(),current:route()};
    if(utility&&win.history.state?.utility!==utility)win.history[consumedUtility?'replaceState':'pushState']({...win.history.state,rewind:true,utility},'',win.location.hash||'#watch');
   }
+  updatePlaybackRoute();
  }
  function watch({remember:record=true}={}){
   switching=true;for(const panel of root.querySelectorAll(visible))finishClose(panel);switching=false;
   if(record)remember('watch',null,!!win?.history.state?.utility);
-  sync();if(record)root.querySelector?.('#watch-tab')?.focus({preventScroll:true});
+  sync();updatePlaybackRoute();if(record)root.querySelector?.('#watch-tab')?.focus({preventScroll:true});
  }
  function close(panel){
   if(isPage(panel)){if(pageKey(panel)==='library-watch'){root.dispatchEvent?.(new (win?.CustomEvent||CustomEvent)('rewind:library-back',{bubbles:true}));}else if(pageKey(panel)==='home'){root.dispatchEvent?.(new (win?.CustomEvent||CustomEvent)('rewind:return-picture',{bubbles:true}));}else watch();return;}
@@ -87,14 +104,15 @@ export function createPanelMotion(root){
   }else panel.addEventListener('keydown',event=>{if(event.key==='Escape'&&!event.defaultPrevented){event.preventDefault();close(panel);}});
  }
  win?.addEventListener('popstate',()=>{
+  preserveUtilityPlayback();
   restoring=true;
   const key=win.location.hash.slice(1),target=key==='home'?root.querySelector('.home-page'):key==='library-watch'?root.querySelector('.library-player-page'):key==='movies'?root.querySelector('.movie-night-page'):key==='library'?root.querySelector('.browse-overlay'):key==='guide'?root.querySelector('.schedule-overlay'):key==='channels'?root.querySelector('.guide'):null;
   if(target)open(target,{remember:false});else watch({remember:false});
   const utility=win.history.state?.utility;
   if(utility){const panel=root.querySelector(utility==='info'?'.programme-info':utility==='shuffle'?'#shuffle-dialog':'.tv-settings');if(panel)open(panel,{remember:false});}
-  restoring=false;sync();
+  restoring=false;sync();updatePlaybackRoute();
  });
  win?.addEventListener('rewind:intro-finished',()=>{const panel=root.querySelector('dialog[open]');(panel?.querySelector('[autofocus]')||panel?.querySelector('.tv-dismiss'))?.focus({preventScroll:true});});
  win?.addEventListener('resize',sync);
- return {open,close,watch,isOpen,sync,dismiss:panel=>finishClose(panel)};
+ return {open,close,watch,isOpen,sync,updatePlaybackRoute,dismiss:panel=>finishClose(panel)};
 }

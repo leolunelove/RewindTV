@@ -60,3 +60,9 @@ Super Ninja Steel 20–22 remain missing. The rest of the franchise, hidden entr
 - Local browser country lookup returned Gibraltar. Switching GI→CN changed Samurai 23→4 sources and Super Samurai 21→2; returning to GI restored them. The existing Discovery Club picture advanced 71→82 seconds across the change without a restart. The country selector has an explicit accessible name.
 - Localhost YouTube failures are not treated as source-deletion evidence; these sources separately passed public-origin embedded checks. Final live-app samples are stored in the dated local release checkpoint.
 - Private sync verified 29 channels, Power 29 with 96 sources, 124 ZIP members, CRC and every payload. All 42 protected JSON files and manager/server/broadcast hashes were unchanged. Recoverable backups were kept.
+
+## Live follow-up
+
+The initial release deployed successfully with 367 tests. All 22 changed public assets matched the tested bytes; one transient 503 for schedule.html passed on retry. Live Mac browser samples played Origins, Part 1, Super Samurai and the 45:23 double bill. Changing GI→GB kept Origins advancing; switching to CN automatically recovered to The Team Unites. Startup, rapid Next/Next/Previous tuning, Guide and both shuffle previews also played continuously. These are sampled browser checks, not a full-catalogue or physical-iPhone test.
+
+The live check exposed an additional history bug: Settings’ underlying entry still requested the old blocked episode after recovery, so closing it could return to browsing. A follow-up preserves the current playback query when dismissing a utility, while keeping ordinary programme-to-programme Back behaviour. Background catalogue refreshes also retain outside focus and avoid rewriting a foreground player route. 371 automated tests passed after this correction. Source data, video IDs and schedules are unchanged by the follow-up.

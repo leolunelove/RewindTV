@@ -4,6 +4,7 @@ Dated changes to the player and catalogue. Each release records its validation s
 
 ## 2026-11-13 — Samurai seasons and viewing country
 
+- Fixed Settings, Info and Shuffle returning to an older episode after recovery or automatic episode changes. Closing a utility keeps the current picture; ordinary browser Back between choices still works.
 - Added 39 official uploads covering 40 new stories: completed Samurai and Super Samurai’s 22-episode runs while retaining prior sources. Power Rangers now has 96 sources; Super Ninja Steel remains at 19 of 22.
 - Added approximate country detection and a saved manual override. Known country restrictions filter live mixes, Guide, Library and shuffle; eligible playback continues through a country change. Browser language is not treated as physical location.
 - Accepted broadly available official uploads after the user relaxed the previous global-only rule. The 38 regional singles retain their 238-territory allowlists; the double bill declares 249. All 54 researched candidate uploads passed actual public-origin start/near-end checks, without a worldwide or full-runtime certification claim.
