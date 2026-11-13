@@ -291,6 +291,9 @@ dialog:focus{outline:none}
 .settings-remote{padding-bottom:10px}
 .settings-section{font-weight:500}
 .tv-settings label{font-size:15px;line-height:1.45;min-height:55px}
+.tv-settings .country-setting{gap:14px;flex-wrap:wrap}
+.country-setting select{max-width:100%;min-width:0;flex:1 1 170px;min-height:44px;border:1px solid var(--line);border-radius:12px;padding:9px 12px;background:#162533;color:var(--paper);font:inherit}
+#country-status,#country-privacy{font-size:13px;line-height:1.6;letter-spacing:0;text-transform:none;color:#b6c6d5}
 .tv-settings .picture-modes button{min-height:44px;font-size:14px}
 .tv-settings .audio-level label{font-size:14px}
 .tv-settings .audio-level p{font-size:13px;line-height:1.6}

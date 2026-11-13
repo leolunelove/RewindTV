@@ -1,6 +1,6 @@
+import {isRegionEligible} from './region-eligibility.mjs';
 export function isBrowsable(v){
- const r=v.regionRestriction||v.contentDetails?.regionRestriction;
- return v.enabled!==false&&v.kind!=='advert'&&v.embedStatus!=='restricted'&&v.embeddable!==false&&v.status?.embeddable!==false&&!(r&&(Object.hasOwn(r,'allowed')||(r.blocked||[]).length));
+ return v.enabled!==false&&v.kind!=='advert'&&v.embedStatus!=='restricted'&&v.embeddable!==false&&v.status?.embeddable!==false&&isRegionEligible(v);
 }
 export const normalise=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 export function showIdentity(v){return v.kind==='film'?'film:'+v.id:'show:'+normalise(v.series||v.title)+(v.audioLanguage&&v.audioLanguage!=='en'?'@'+v.audioLanguage:'');}

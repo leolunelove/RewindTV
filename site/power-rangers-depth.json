@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "revision": "power-rangers-depth-2026-11-13",
+  "channels": [],
+  "videos": [
+    {
+      "id": "J7bku2b0kVc",
+      "series": "Power Rangers Super Samurai",
+      "franchiseSeasonNumber": 19,
+      "seasonNumber": 19,
+      "title": "Trading Places + Something Fishy",
+      "coveredEpisodeNumbers": [
+        3,
+        4
+      ],
+      "publisherEpisodeNumbers": [
+        3,
+        4
+      ],
+      "yearLabel": "2012",
+      "description": "Two complete stories in one official double bill. The publisher edition omits repeated opening narration and end credits.",
+      "sourceTitle": "Green Ranger’s SUPERHERO Upgrade! 🔥 Power Rangers Super Samurai | Kids Action Full Episodes 3 & 4 HD",
+      "sourceUrls": [
+        "https://www.youtube.com/watch?v=J7bku2b0kVc",
+        "https://www.youtube.com/watch?v=tYa-nX9ReDA",
+        "https://www.youtube.com/watch?v=6SBiCYNv_30"
+      ],
+      "uploaderChannelId": "UCbIm2iqwql8bFqkO2bHv7Mw",
+      "publisherSeasonIdentifier": "19",
+      "episodeNumber": 3,
+      "canonicalIdentityMapping": {
+        "id": "J7bku2b0kVc",
+        "status": "verified",
+        "checkedAt": "2026-11-13T02:28:28.662241+00:00",
+        "franchiseSeasonNumber": 19,
+        "episodeNumbers": [
+          3,
+          4
+        ],
+        "episodeTitle": "Trading Places + Something Fishy",
+        "primaryEvidenceUrls": [
+          "https://www.youtube.com/watch?v=J7bku2b0kVc",
+          "https://www.youtube.com/watch?v=tYa-nX9ReDA",
+          "https://www.youtube.com/watch?v=6SBiCYNv_30"
+        ],
+        "mappingExplanation": "Exact official named sources identify Trading PlacesE03 and Something FishyE04. Primary auto-caption comparison finds both story spans in the candidate, including opening scenes and both post-battle closing scenes; the second begins at approximately1364seconds. Paused visual checks show the first story closing scene and second story combat. Candidate description contains mistaken character/plot claims, so those are not copied.",
+        "identityComparisonEvidenceFile": "work/power-rangers-depth-2026-11-13/pair-identity-comparison.json",
+        "claimBoundary": "Bounded scene and primary-caption identity/extent review, not an uninterrupted full-runtime viewing."
+      },
+      "fullEpisodeEvidence": {
+        "verified": true,
+        "checkedAt": "2026-11-13T02:28:28.662241+00:00",
+        "primaryEvidenceUrls": [
+          "https://www.youtube.com/watch?v=J7bku2b0kVc",
+          "https://www.youtube.com/watch?v=tYa-nX9ReDA",
+          "https://www.youtube.com/watch?v=6SBiCYNv_30"
+        ],
+        "extentBasis": "Official publisher labels two full episodes; runtime2723seconds. Exact named official episode comparisons confirm both continuous story dialogue spans through their separate post-battle closing scenes. This publisher double bill removes repeated opening narration and credits. Not labelled uncut; no uninterrupted full-watch claim.",
+        "comparisonEvidenceFile": "work/power-rangers-depth-2026-11-13/pair-identity-comparison.json",
+        "boundarySeconds": 1364,
+        "ownerAuthenticationStillRequired": false
+      },
+      "duration": 2723,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=J7bku2b0kVc",
+      "source": "https://www.youtube.com/watch?v=J7bku2b0kVc",
+      "uploadTitle": "Green Ranger’s SUPERHERO Upgrade! 🔥 Power Rangers Super Samurai | Kids Action Full Episodes 3 & 4 HD",
+      "uploadDate": "2025-11-29",
+      "publishedAt": "2025-11-29",
+      "uploader": "Power Rangers Kids - Official Channel",
+      "sourceChannelId": "UCbIm2iqwql8bFqkO2bHv7Mw",
+      "uploaderUrl": "https://www.youtube.com/channel/UCbIm2iqwql8bFqkO2bHv7Mw",
+      "sourceType": "official",
+      "credit": "Power Rangers Kids - Official Channel · official upload",
+      "enabled": true,
+      "embeddable": true,
+      "embedStatus": "playing",
+      "playbackChecked": true,
+      "metadataStatus": "OK",
+      "checkedAt": "2026-11-13T02:20:42.390Z",
+      "metadataCheckedAt": "2026-11-13T02:11:41.780118+00:00",
+      "family": true,
+      "availabilityEvidence": {
+        "availableCountryCount": 249,
+        "checkedAt": "2026-11-13T02:11:41.780118+00:00",
+        "method": "Public YouTube watch-page availableCountries metadata",
+        "rawEvidence": "work/power-rangers-depth-2026-11-13/metadata-checkpoint.json#J7bku2b0kVc",
+        "scope": "249 declared territories; not playback tests in each territory or worldwide reachability certification."
+      },
+      "playabilityEvidence": {
+        "status": "OK",
+        "playableInEmbed": true,
+        "checkedAt": "2026-11-13T02:11:41.780118+00:00"
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-13T02:20:42.390Z",
+        "origin": "https://tv.leolune.fun",
+        "region": "Browser network egress region not independently verified",
+        "method": "Actual muted advancing playback at start and within final 16 seconds; not full-runtime certification",
+        "evidenceFile": "work/power-rangers-depth-2026-11-13/public-playback-checkpoint.json",
+        "observedDuration": 2722.621,
+        "scope": "Sampled actual start and near-end playback on this browser/network; not an uninterrupted full watch or a global test.",
+        "metadataDuration": 2723
+      },
+      "sourceAspectRatio": 1.7778,
+      "sourceAspectRatioEvidence": "Encoded uploaded frame from watch metadata. Preserve the full picture; no stretching or cropping.",
+      "publicationEvidence": {
+        "url": "https://www.youtube.com/watch?v=J7bku2b0kVc",
+        "uploadDate": "2025-11-29",
+        "checkedAt": "2026-11-13T02:11:41.780118+00:00",
+        "method": "Public watch metadata exact publication date"
+      },
+      "verifiedSourceInput": "work/power-rangers-depth-2026-11-13/verified-depth-candidates.json",
+      "episodeKeys": [
+        "power-rangers-super-samurai-s19e03",
+        "power-rangers-super-samurai-s19e04"
+      ],
+      "episodeKey": "power-rangers-super-samurai-s19e03-04",
+      "kind": "full episode",
+      "formatLabel": "Two complete episodes · 3–4",
+      "officialProvenance": "Official Power Rangers publisher upload",
+      "runtimeEvidence": "Official publisher labels two full episodes; runtime2723seconds. Exact named official episode comparisons confirm both continuous story dialogue spans through their separate post-battle closing scenes. This publisher double bill removes repeated opening narration and credits. Not labelled uncut; no uninterrupted full-watch claim.",
+      "yearAccuracy": "Publisher season-era label; no unverified individual episode broadcast year assigned.",
+      "officialOwnershipVerified": true,
+      "sourceOwnershipVerified": true,
+      "sourceOwnershipStatus": "verified",
+      "sourceOwnershipEvidence": {
+        "url": "https://www.youtube.com/@PowerRangersOfficial/featured",
+        "channelId": "UCbIm2iqwql8bFqkO2bHv7Mw",
+        "method": "Exact Kids channel ID linked in the known main publisher’s The Morphin Grid featured shelf",
+        "evidenceFile": "/Users/l/Documents/Codex/2026-10-16/tho/work/catalogue-growth-2026-11-12/power-kids-ownership-and-search-normalization.json"
+      },
+      "synopsis": "Two complete stories in one official double bill. The publisher edition omits repeated opening narration and end credits."
+    }
+  ],
+  "assignments": {
+    "power-rangers": [
+      "J7bku2b0kVc"
+    ]
+  }
+}

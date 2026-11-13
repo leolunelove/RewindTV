@@ -1,8 +1,9 @@
 export const KIDS_PACKS=["kids-cbbc.json", "kids-disney.json", "kids-nick.json", "kids-toons.json"];
 export const CREATOR_PACKS=["classic-gmm.json", "classic-rhett.json", "afterdark-frank.json", "afterdark-idubbbz.json", "more-tv-films.json"];
 export const MUSIC_PACKS=["music-surf.json", "music-proximity.json", "music-sheep.json", "music-ncs.json"];
-export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','library-health.json'];
+export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','library-health.json'];
 export const SOURCE_FILES=['catalogue.json','gameshow-additions.json',...EXPANSION_PACKS];
+export {catalogueForCountry};
 const QUIZ_SERIES=new Set(['Catchphrase','Family Fortunes','The Weakest Link','Who Wants to Be a Millionaire']);
 export function withGameshowAdditions(base,extra){
  if(extra?.channelKey!=='rewind-gameshows'||!Array.isArray(extra.videos))throw Error('Invalid gameshow additions');
@@ -31,6 +32,13 @@ export async function loadLibrary(){
  })();
 }
 
+// Legacy standalone pages share the same country policy as the main player.
+export async function loadViewingLibrary({storage,fetcher}={}){
+ const source=await loadLibrary();if(Object.hasOwn(source,'viewerCountry'))return source;
+ if(storage===undefined)try{storage=globalThis.localStorage;}catch{}
+ const result=await resolveViewingCountry({storage,fetcher});return catalogueForCountry(source,result.country);
+}
+
 export function withExpansion(base,pack){
  if(pack?.version!==1||!Array.isArray(pack.videos)||!Array.isArray(pack.channels)||!pack.assignments||typeof pack.assignments!=='object')throw Error('Invalid library expansion');
  const exclusions=new Map((pack.exclusions||[]).map(e=>[e.id,e]));const permitted=v=>exclusions.has(v.id)?{...v,enabled:false,disabledReason:exclusions.get(v.id).reason,scheduleUntilWeek:undefined}:v;
@@ -47,3 +55,4 @@ export function withExpansion(base,pack){
  const unique=[...new Map(channels.flatMap(c=>c.videos).filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
  return {...base,channels,libraryRevision:base.libraryRevision+'+'+pack.revision,libraryStats:{...base.libraryStats,channels:channels.length,playbackChecksPassedThisUpdate:pack.videos.filter(v=>v.playbackCheck?.start&&v.playbackCheck?.nearEnd).length,uploads:unique.length,hours:Math.round(unique.reduce((n,v)=>n+v.duration,0)/360)/10,fullLengthUploads:unique.filter(v=>v.duration>=600).length}};
 }
+import {catalogueForCountry,resolveViewingCountry} from './region-eligibility.mjs';

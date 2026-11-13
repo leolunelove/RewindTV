@@ -1,17 +1,17 @@
 import {showListings} from './show-listings.mjs?v=vault1';
-import {buildShowIndex,normalise} from './show-library.mjs?v=20261112';
+import {buildShowIndex,normalise} from './show-library.mjs?v=20261113region';
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
-import {browseTitles} from './browse-tools.mjs?v=archive2';
-import {movieArtwork} from './movie-night.mjs?v=liquid1';
+import {browseTitles} from './browse-tools.mjs?v=20261113region';
+import {movieArtwork} from './movie-night.mjs?v=20261113region';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
-import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=continue1';
+import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261113region';
 
 export function filterTitles(shows,query='',kind='all') {
   return browseTitles(shows,{query,kind});
 }
 
 export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWatching=()=>[],onResume,onRemoveContinue}) {
-  const shows=buildShowIndex(catalogue,showListings);
+  let shows=buildShowIndex(catalogue,showListings);
   const doc=root.ownerDocument;
   const win=doc.defaultView;
   const titleStates=new Map();
@@ -434,6 +434,18 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
   });
   renderIndex(true);
   return {
+    updateCatalogue(next){
+      saveScroll();
+      const key=selected?.key;
+      catalogue=next;shows=buildShowIndex(catalogue,showListings);
+      if(filters.channel!=='all'&&!catalogue.channels.some(channel=>channel.key===filters.channel))filters.channel='all';
+      selected=key?shows.find(show=>show.key===key)||null:null;
+      if(selected)drawDetail();
+      else {
+        if(key&&win?.history.state?.detail===key){const {detail,...state}=win.history.state;win.history.replaceState(state,'','#library');}
+        renderIndex(true);
+      }
+    },
     openIndex(){if(selected)back();},
     openDetail,
     refreshContinueWatching,

@@ -1,10 +1,10 @@
-import {buildMovieLibrary,filterMovies,pickMovie,createMovieReel,filmIdentity,movieArtwork} from './movie-night.mjs?v=liquid1';
+import {buildMovieLibrary,filterMovies,pickMovie,createMovieReel,filmIdentity,movieArtwork} from './movie-night.mjs?v=20261113region';
 import {createReelMotion} from './movie-reel-motion.mjs?v=reel1';
 import {createReelSound} from './movie-reel-sound.mjs?v=reel1';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
-import {createContinueWatching} from './continue-watching.mjs?v=continue1';
+import {createContinueWatching} from './continue-watching.mjs?v=20261113region';
 export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enabled:false}),onToggleSound=()=>{},onSoundSettings=()=>{},getContinueWatching=()=>[],onResume,onRemoveContinue}){
- const doc=root.ownerDocument,win=doc.defaultView,films=buildMovieLibrary(catalogue),page=root.closest('[data-tv-page]'),shell=root.closest('#rewind-tv'),stateKey='rewind-film-browse-v1';let saved={};
+ const doc=root.ownerDocument,win=doc.defaultView,page=root.closest('[data-tv-page]'),shell=root.closest('#rewind-tv'),stateKey='rewind-film-browse-v1';let films=buildMovieLibrary(catalogue),saved={};
  try{const value=JSON.parse(win.localStorage.getItem(stateKey)||'{}');if(value&&typeof value==='object'&&!Array.isArray(value))saved=value;}catch{}
  let genre=films.some(v=>v.genre===saved.genre)?saved.genre:'all',query=typeof saved.query==='string'?saved.query:'',ordering=saved.order==='az'?'az':'mix',seed=typeof saved.seed==='string'&&saved.seed? saved.seed:createLibrarySeed(),mixed=saved.mixed===true,browseScroll=Number.isFinite(saved.scroll)&&saved.scroll>0?saved.scroll:0,wasVisible=!page?.hidden;
  let selected=films.find(v=>v.title==='Charade')||films[0],spinning=false,spinWinner=null,recent=[],landing=0,stride=0,base=0,position=0;
@@ -72,5 +72,11 @@ export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enab
  shell?.addEventListener('rewind:audiochange',()=>{sound.stop();updateSound();});
  win.addEventListener('pagehide',saveBrowse);
  const initial=pool();if(!initial.includes(selected))selected=initial[0]||null;
- drawHero();drawGenres();drawGrid();updateOrder();updateSound();root.scrollTop=browseScroll;saveBrowse();return {cancelSpin,refreshContinueWatching:continuation.refresh};
+ drawHero();drawGenres();drawGrid();updateOrder();updateSound();root.scrollTop=browseScroll;saveBrowse();return {cancelSpin,refreshContinueWatching:continuation.refresh,updateCatalogue(next){
+  cancelSpin();const id=selected?.id,scroll=root.scrollTop;
+  films=buildMovieLibrary(next);selected=films.find(video=>video.id===id)||null;
+  if(genre!=='all'&&!films.some(video=>video.genre===genre))genre='all';
+  genres.replaceChildren();for(const [value,label]of [['all','All genres'],...[...new Set(films.map(video=>video.genre))].map(name=>[name,name])]){const option=el('option',label);option.value=value;genres.append(option);}
+  drawGenres();refreshCollection();drawHero();continuation.refresh();root.scrollTop=scroll;browseScroll=scroll;saveBrowse();
+ }};
 }

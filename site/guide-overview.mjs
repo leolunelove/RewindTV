@@ -1,6 +1,6 @@
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
 import {CHANNEL_SECTIONS} from './channel-sections.mjs?v=20261112';
-import {normalise} from './show-library.mjs?v=20261112';
+import {normalise} from './show-library.mjs?v=20261113region';
 
 export function createGuideOverview(root,{getChannels,getCurrent,getCurrentLabel=()=> 'This channel',getNow,getRows,onDetail,onWatch,onStart}) {
   const doc=root.ownerDocument;

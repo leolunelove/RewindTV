@@ -1,5 +1,5 @@
-import {buildShowIndex} from './show-library.mjs?v=20261112';
-import {buildMovieLibrary} from './movie-night.mjs?v=liquid1';
+import {buildShowIndex} from './show-library.mjs?v=20261113region';
+import {buildMovieLibrary} from './movie-night.mjs?v=20261113region';
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
 
 export function createHomeView(host,{catalogue,getNow,onLive,onShows,onFilms,onGuide,onReturn,onSettings,onMute}){
@@ -9,11 +9,14 @@ export function createHomeView(host,{catalogue,getNow,onLive,onShows,onFilms,onG
   if(node.textContent!==value)node.textContent=value;
  };
  const count=new Intl.NumberFormat('en-GB');
- const shows=buildShowIndex(catalogue).filter(show=>show.kind!=='film'&&show.episodes.length);
- const films=buildMovieLibrary(catalogue);
- text('#home-channel-count',count.format(catalogue.channels.length)+' channels');
- text('#home-film-count',count.format(films.length)+' films');
- text('#home-show-count',count.format(shows.length)+' shows & collections');
+ function updateCatalogue(next){
+  catalogue=next;
+  const shows=buildShowIndex(catalogue).filter(show=>show.kind!=='film'&&show.episodes.length),films=buildMovieLibrary(catalogue);
+  text('#home-channel-count',count.format(catalogue.channels.length)+' channels');
+  text('#home-film-count',count.format(films.length)+' films');
+  text('#home-show-count',count.format(shows.length)+' shows & collections');
+ }
+ updateCatalogue(catalogue);
 
  const actions={'#home-live':onLive,'#home-films':onFilms,'#home-shows':onShows,'#home-guide':onGuide,'#home-return':onReturn,'#home-settings':onSettings,'#home-mute':onMute};
  for(const [selector,action] of Object.entries(actions))find(selector).onclick=action;
@@ -45,5 +48,5 @@ export function createHomeView(host,{catalogue,getNow,onLive,onShows,onFilms,onG
   find('#home-mute').dataset.muted=String(now.muted);
  }
  update();
- return {update};
+ return {update,updateCatalogue};
 }
