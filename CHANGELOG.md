@@ -2,6 +2,13 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-13 — Samurai seasons and viewing country
+
+- Added 39 official uploads covering 40 new stories: completed Samurai and Super Samurai’s 22-episode runs while retaining prior sources. Power Rangers now has 96 sources; Super Ninja Steel remains at 19 of 22.
+- Added approximate country detection and a saved manual override. Known country restrictions filter live mixes, Guide, Library and shuffle; eligible playback continues through a country change. Browser language is not treated as physical location.
+- Accepted broadly available official uploads after the user relaxed the previous global-only rule. The 38 regional singles retain their 238-territory allowlists; the double bill declares 249. All 54 researched candidate uploads passed actual public-origin start/near-end checks, without a worldwide or full-runtime certification claim.
+- Preserved channel numbers, first-ten fixed schedules and private manager. See [exact coverage, validation and remaining gaps](docs/power-rangers-depth-2026-11-13.md).
+
 ## 2026-11-12 — More Power Rangers seasons
 
 - Added 33 official full episodes and the Clash of the Red Rangers TV special to the existing Power Rangers channel: Wild Force 1–10, three Samurai stories, Super Samurai’s The Sealing Symbol, and Super Ninja Steel 1–19. The channel now contains 57 programmes across five series.
