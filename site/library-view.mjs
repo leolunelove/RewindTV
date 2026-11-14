@@ -5,6 +5,7 @@ import {browseTitles} from './browse-tools.mjs?v=20261113region';
 import {movieArtwork} from './movie-night.mjs?v=20261113region';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
 import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261113region';
+import {libraryCountLabel} from './library-meta.mjs?v=20261114library';
 
 export function filterTitles(shows,query='',kind='all') {
   return browseTitles(shows,{query,kind});
@@ -266,7 +267,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
         card.dataset.showKey=show.key;
         card.setAttribute('aria-label',`Browse ${show.title}${show.language?' · '+show.language:''}`);
         const copy=el('span','','library-card-copy');
-        const description=!show.episodes.length?'Listed only':show.kind==='film'?length(show.episodes[0]):`${show.episodes.length} ${show.kind==='show'?(show.episodes.length===1?'episode':'episodes'):(show.episodes.length===1?'video':'videos')}`;
+        const description=!show.episodes.length?'Listed only':show.kind==='film'?length(show.episodes[0]):libraryCountLabel(show.episodes,show.kind);
         copy.append(el('strong',show.title),el('small',[description,show.language].filter(Boolean).join(' · ')));
         card.append(artwork(show),copy);
         grid.append(card);
@@ -313,11 +314,10 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     const copy=el('div','','library-detail-copy');
     copy.append(el('h3',show.title));
     if(show.episodes.length) {
-      const unit=show.kind==='film'?'film':show.kind==='show'?'episode':'video';
       const years=show.years.length
         ? show.years[0]===show.years.at(-1)?String(show.years[0]):`${show.years[0]}–${show.years.at(-1)}`
         : show.episodes[0].yearLabel||'';
-      copy.append(el('p',[years,`${show.episodes.length} available ${unit}${show.episodes.length===1?'':'s'}`,show.language,show.channels.map(channel=>channel.name).join(', ')].filter(Boolean).join(' · '),'library-detail-meta'));
+      copy.append(el('p',[years,libraryCountLabel(show.episodes,show.kind),show.language,show.channels.map(channel=>channel.name).join(', ')].filter(Boolean).join(' · '),'library-detail-meta'));
       const actions=el('div','','library-detail-actions');
       if(typeof onResume==='function'){detailResume=button('',()=>{},'primary library-resume');actions.append(detailResume);refreshContinueWatching();}
       detailStart=button(show.kind==='film'?'▶ Watch film':'▶ Watch from the beginning',()=>play(show.episodes[0]),typeof onResume==='function'&&getContinueWatching().some(record=>record.key===show.key)?'':'primary');actions.append(detailStart);
@@ -376,8 +376,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     function draw() {
       const query=normalise(state.query);
       const eligible=show.episodes.filter(video=>(state.season==='all'||(state.season==='unknown'?!video.seasonNumber:String(video.seasonNumber)===state.season))&&(!query||normalise([video.title,video.seasonNumber&&`season ${video.seasonNumber}`,video.episodeNumber&&`episode ${video.episodeNumber}`].filter(Boolean).join(' ')).includes(query)));
-      const unit=show.kind==='film'?'film':show.kind==='show'?'episode':'video';
-      count.textContent=`${eligible.length} ${unit}${eligible.length===1?'':'s'}`;
+      count.textContent=libraryCountLabel(eligible,show.kind);
       list.replaceChildren();
       if(!eligible.length)list.append(el('p','No episodes match. Try another name or season.','library-empty'));
       for(const video of eligible) {

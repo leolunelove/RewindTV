@@ -1,10 +1,53 @@
 export const KIDS_PACKS=["kids-cbbc.json", "kids-disney.json", "kids-nick.json", "kids-toons.json"];
 export const CREATOR_PACKS=["classic-gmm.json", "classic-rhett.json", "afterdark-frank.json", "afterdark-idubbbz.json", "more-tv-films.json"];
 export const MUSIC_PACKS=["music-surf.json", "music-proximity.json", "music-sheep.json", "music-ncs.json"];
-export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','library-health.json'];
+export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','maintenance-growth.json','maintenance-checks.json','library-health.json'];
 export const SOURCE_FILES=['catalogue.json','gameshow-additions.json',...EXPANSION_PACKS];
 export {catalogueForCountry};
 const QUIZ_SERIES=new Set(['Catchphrase','Family Fortunes','The Weakest Link','Who Wants to Be a Millionaire']);
+const textValue=value=>typeof value==='string'&&value.trim().length>0&&value.length<=2000;
+const dateValue=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&Number.isFinite(Date.parse(value))&&new Date(value).toISOString().slice(0,10)===value;
+const timestampValue=value=>dateValue(value)||(typeof value==='string'&&dateValue(value.slice(0,10))&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value)&&Number.isFinite(Date.parse(value)));
+const booleanValue=value=>typeof value==='boolean';
+const recordValue=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
+const countryList=value=>Array.isArray(value)&&value.length<=COUNTRY_CODES.length&&new Set(value).size===value.length&&value.every(code=>typeof code==='string'&&normalizeCountry(code)===code);
+function metadataRecord(value,fields){
+ return recordValue(value)&&Object.keys(value).length>0&&Object.entries(value).every(([key,item])=>Object.hasOwn(fields,key)&&fields[key](item));
+}
+const METADATA_FIELDS={
+ checkedAt:timestampValue,
+ metadataStatus:value=>value==='OK',
+ metadataCheckedAt:timestampValue,
+ uploadDate:dateValue,
+ embeddable:booleanValue,
+ embedStatus:value=>['playing','untested','unavailable','blocked'].includes(value),
+ regionRestriction:value=>metadataRecord(value,{allowed:codes=>countryList(codes)&&codes.length>0,blocked:countryList}),
+ availabilityEvidence:value=>metadataRecord(value,{
+  availableCountryCount:count=>Number.isInteger(count)&&count>=0&&count<=COUNTRY_CODES.length,
+  checkedAt:timestampValue,observedAt:timestampValue,method:textValue,
+  worldwidePlaybackVerified:value=>value===false
+ }),
+ playbackCheck:value=>metadataRecord(value,{
+  start:booleanValue,nearEnd:booleanValue,checkedAt:timestampValue,region:textValue,
+  method:textValue,origin:textValue,observedDuration:duration=>Number.isFinite(duration)&&duration>0
+ })
+};
+function validatedMetadataUpdates(base,updates){
+ const patches=new Map();
+ if(updates===undefined)return patches;
+ if(!Array.isArray(updates))throw Error('Invalid metadata updates');
+ const knownIds=new Set([...base.channels.flatMap(channel=>channel.videos),...(base.adverts||[])].map(video=>video.id));
+ for(const update of updates){
+  if(!recordValue(update)
+   ||Object.keys(update).some(key=>key!=='id'&&key!=='changes')
+   ||typeof update.id!=='string'
+   ||!knownIds.has(update.id)
+   ||patches.has(update.id)
+   ||!metadataRecord(update.changes,METADATA_FIELDS))throw Error('Invalid metadata update');
+  patches.set(update.id,update.changes);
+ }
+ return patches;
+}
 export function withGameshowAdditions(base,extra){
  if(extra?.channelKey!=='rewind-gameshows'||!Array.isArray(extra.videos))throw Error('Invalid gameshow additions');
  const target=base.channels.find(c=>c.key===extra.channelKey);if(!target)throw Error('Gameshow channel missing');
@@ -23,7 +66,7 @@ async function fetchJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!
 export async function loadLibrary(){
  if(typeof window!=='undefined'&&window.parent!==window){try{const shared=await window.parent.RewindLibrary?.();if(shared)return {...shared,channels:shared.channels.map(c=>({...c}))};}catch{}}
  return libraryPromise??=(async()=>{
-  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=20261112');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
+  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=20261114library');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
   catch(error){console.warn('Using source catalogue fallback.',error);}
   const paths=SOURCE_FILES;
   const results=await Promise.allSettled(paths.map(fetchJSON));if(results[0].status!=='fulfilled')throw results[0].reason;let base=results[0].value;
@@ -41,7 +84,12 @@ export async function loadViewingLibrary({storage,fetcher}={}){
 
 export function withExpansion(base,pack){
  if(pack?.version!==1||!Array.isArray(pack.videos)||!Array.isArray(pack.channels)||!pack.assignments||typeof pack.assignments!=='object')throw Error('Invalid library expansion');
- const exclusions=new Map((pack.exclusions||[]).map(e=>[e.id,e]));const permitted=v=>exclusions.has(v.id)?{...v,enabled:false,disabledReason:exclusions.get(v.id).reason,scheduleUntilWeek:undefined}:v;
+ const patches=validatedMetadataUpdates(base,pack.updates);
+ const exclusions=new Map((pack.exclusions||[]).map(e=>[e.id,e]));
+ const permitted=source=>{
+  const video=patches.has(source.id)?{...source,...patches.get(source.id)}:source;
+  return exclusions.has(video.id)?{...video,enabled:false,disabledReason:exclusions.get(video.id).reason,scheduleUntilWeek:undefined}:video;
+ };
  const known=new Map();for(const c of base.channels)for(const source of c.videos){const v=permitted(source);if(!known.has(v.id)||known.get(v.id).enabled===false)known.set(v.id,v);}
  for(const v of pack.videos){if(typeof v.id!=='string'||!v.id||typeof v.series!=='string'||!Number.isFinite(v.duration)||v.duration<60||!['full episode','full pilot','film','short','music','classic video'].includes(v.kind))throw Error('Invalid expansion programme');if(!known.has(v.id))known.set(v.id,v);}
  const keys=new Set(base.channels.map(c=>c.key));let channels=base.channels.map(c=>({...c,videos:c.videos.map(permitted)}));
@@ -53,6 +101,6 @@ export function withExpansion(base,pack){
  }
  if(channels.some(c=>!c.videos.length))throw Error('Empty expansion channel');
  const unique=[...new Map(channels.flatMap(c=>c.videos).filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
- return {...base,channels,libraryRevision:base.libraryRevision+'+'+pack.revision,libraryStats:{...base.libraryStats,channels:channels.length,playbackChecksPassedThisUpdate:pack.videos.filter(v=>v.playbackCheck?.start&&v.playbackCheck?.nearEnd).length,uploads:unique.length,hours:Math.round(unique.reduce((n,v)=>n+v.duration,0)/360)/10,fullLengthUploads:unique.filter(v=>v.duration>=600).length}};
+ return {...base,...(base.adverts?{adverts:base.adverts.map(permitted)}:{}),channels,libraryRevision:base.libraryRevision+'+'+pack.revision,libraryStats:{...base.libraryStats,channels:channels.length,playbackChecksPassedThisUpdate:pack.videos.filter(v=>v.playbackCheck?.start&&v.playbackCheck?.nearEnd).length,uploads:unique.length,hours:Math.round(unique.reduce((n,v)=>n+v.duration,0)/360)/10,fullLengthUploads:unique.filter(v=>v.duration>=600).length}};
 }
-import {catalogueForCountry,resolveViewingCountry} from './region-eligibility.mjs';
+import {COUNTRY_CODES,normalizeCountry,catalogueForCountry,resolveViewingCountry} from './region-eligibility.mjs';

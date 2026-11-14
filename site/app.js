@@ -4,7 +4,7 @@
   let catalogue,channels,plan,active=null,channel=2,volume=40,power=false,player=null,ready=false,apiLoading=false,paused=false,watchTimer,apiTimer,resumeAfterGuide=false,osdTimer,tuningTimer;
   let sourceCatalogue=null,viewingCountry=null,viewingCountrySource='unknown',countryRequest=0,countryPlaybackBlocked=false;
   const {COUNTRY_CODES,normalizeCountry,countryName,isRegionEligible,catalogueForCountry,readCountryOverride,saveCountryOverride,resolveViewingCountry}=await import('./region-eligibility.mjs');
-  const [{findProgramme,pickProgramme,showIdentity,buildShowIndex},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache},{movieArtwork},{findFilmAlternative}]=await Promise.all([import('./show-library.mjs?v=20261113region'),import('./programme-info.mjs?v=liquid1'),import('./neighbour-cache.mjs?v=1'),import('./movie-night.mjs?v=20261113region'),import('./playback-alternatives.mjs?v=20261113region')]);let requestedQueue=[];let requestedIndex=0;
+  const [{findProgramme,pickProgramme,showIdentity,buildShowIndex},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache},{movieArtwork},{findFilmAlternative},{libraryQueueState}]=await Promise.all([import('./show-library.mjs?v=20261113region'),import('./programme-info.mjs?v=liquid1'),import('./neighbour-cache.mjs?v=1'),import('./movie-night.mjs?v=20261113region'),import('./playback-alternatives.mjs?v=20261113region'),import('./library-meta.mjs?v=20261114library')]);let requestedQueue=[];let requestedIndex=0;
   let libraryContext=false,lastLiveChannelKey='',libraryOrigin='shows',libraryEnded=false,libraryQueueStamp='',seekingLibrary=false,librarySession=null;
   const {createWatchHistory}=await import('./watch-history.mjs?v=20261113region');
   let historyStorage=null;try{historyStorage=window.localStorage;}catch{}
@@ -267,7 +267,7 @@
   let libraryLoading=null,libraryDestination='shows';
   async function openBrowse(restore=false){libraryDestination='shows';const alreadyOpen=panels.isOpen($('.browse-overlay'));if(!alreadyOpen)panels.open($('.browse-overlay'));revealControls();if(libraryView){if(!alreadyOpen)libraryView.resume({record:!restore});return;}
     $('#library-view').textContent='Opening the collection…';
-    try{libraryLoading??=import('./library-view.mjs?v=20261113region2');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:catalogue,onMovies:openMovieNight,getContinueWatching:()=>continueItems('programmes'),onResume:resumeLibrary,onRemoveContinue:removeContinue,onPlay:v=>startLibrary(v,'shows',{fromStart:true})});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
+    try{libraryLoading??=import('./library-view.mjs?v=20261114library');const {createLibraryView}=await libraryLoading;if(!libraryView)libraryView=createLibraryView($('#library-view'),{catalogue:catalogue,onMovies:openMovieNight,getContinueWatching:()=>continueItems('programmes'),onResume:resumeLibrary,onRemoveContinue:removeContinue,onPlay:v=>startLibrary(v,'shows',{fromStart:true})});}catch(error){libraryLoading=null;$('#library-view').textContent='The collection could not load. Open Library to try again.';console.warn(error);}
   }
   let movieNight=null,movieNightLoading=null;
   async function openMovieNight(){libraryDestination='films';if(!panels.isOpen($('.movie-night-page')))panels.open($('.movie-night-page'));revealControls();if(movieNight)return;
@@ -425,9 +425,10 @@
     const elapsed=librarySeek?.id===v.id&&Date.now()-librarySeek.at<8000&&Math.abs(clock-librarySeek.target)>3?librarySeek.target:clock;
     $('#library-player-show').textContent=v.kind==='film'?programmeTitle(v):v.series||programmeTitle(v);
     $('#library-player-episode').textContent=v.kind==='film'?[v.yearLabel||v.year,Math.round(v.duration/60)+' min'].filter(Boolean).join(' · '):programmeTitle(v);
-    $('#library-player-position').textContent=requestedQueue.length>1?'Episode '+(requestedIndex+1)+' of '+requestedQueue.length:v.kind==='film'?'Film · From start':'From start';
+    const queueState=libraryQueueState(requestedQueue,requestedIndex,v,{blocked:countryPlaybackBlocked});
+    $('#library-player-position').textContent=queueState.position;
     $('#library-play').textContent=paused?'▶ Play':'Ⅱ Pause';$('#library-play').setAttribute('aria-label',paused?'Play programme':'Pause programme');
-    $('#library-prev').hidden=$('#library-next').hidden=v.kind==='film';$('#library-prev').disabled=requestedIndex===0;$('#library-next').disabled=requestedIndex>=requestedQueue.length-1;
+    $('#library-prev').hidden=$('#library-next').hidden=v.kind==='film';$('#library-prev').disabled=queueState.previousIndex===null;$('#library-next').disabled=queueState.nextIndex===null;$('#library-prev').setAttribute('aria-label','Previous programme');$('#library-next').setAttribute('aria-label',queueState.nextLabel);
     const progress=programmeProgress(elapsed,duration);
     if(!seekingLibrary){$('#library-seek').value=elapsed;$('#library-elapsed').textContent=progress.label;}
     $('#library-seek').max=Math.max(1,duration-1);$('#library-seek').disabled=!power||!matching;$('#library-seek').setAttribute('aria-valuetext',progress.label);$('#library-remaining').textContent=progress.remaining;
@@ -441,7 +442,8 @@
     for(const button of $('#library-queue-list').children){if(Number(button.dataset.index)===requestedIndex)button.setAttribute('aria-current','true');else button.removeAttribute('aria-current');}
   }
   $('#library-play').onclick=()=>{if(libraryEnded){$('#library-replay').click();return;}$('#tv-play').click();};
-  $('#library-prev').onclick=()=>selectLibraryEpisode(requestedIndex-1);$('#library-next').onclick=()=>selectLibraryEpisode(requestedIndex+1);$('#library-replay').onclick=()=>{const saved=pendingLibraryResume&&continueItems().find(entry=>entry.video.id===active?.video.id);if(saved)resumeLibrary(saved);else selectLibraryEpisode(requestedIndex);};
+  function stepLibraryEpisode(direction){if(!active||!libraryContext)return;const state=libraryQueueState(requestedQueue,requestedIndex,active.video,{blocked:countryPlaybackBlocked}),index=direction<0?state.previousIndex:state.nextIndex;if(index!==null)selectLibraryEpisode(index);}
+  $('#library-prev').onclick=()=>stepLibraryEpisode(-1);$('#library-next').onclick=()=>stepLibraryEpisode(1);$('#library-replay').onclick=()=>{const saved=pendingLibraryResume&&continueItems().find(entry=>entry.video.id===active?.video.id);if(saved)resumeLibrary(saved);else selectLibraryEpisode(requestedIndex);};
   $('#library-mute').onclick=toggleMute;$('#library-volume').oninput=e=>changeVolume(Number(e.target.value)-volume);
   $('#library-seek').oninput=e=>{seekingLibrary=true;$('#library-elapsed').textContent=programmeProgress(Number(e.target.value),Number(e.target.max)).label;};
   $('#library-seek').onchange=e=>{seekingLibrary=false;seekProgramme(Number(e.target.value));renderLibrary();};
@@ -885,7 +887,7 @@
   }
   root.querySelectorAll('button').forEach(b=>b.disabled=true);
   try{
-    const {loadLibrary}=await import('./library.mjs?v=20261113region');
+    const {loadLibrary}=await import('./library.mjs?v=20261114library');
     const [source,country]=await Promise.all([loadLibrary(),resolveViewingCountry({storage:historyStorage})]);sourceCatalogue=source;viewingCountry=country.country;viewingCountrySource=country.source;
     ({catalogue,plan}=Schedule.buildLineup(catalogueForCountry(source,viewingCountry)));channels=catalogue.channels;channel=Math.min(channel,channels.length-1);window.RewindLibrary=()=>catalogue;
     loadCountryFailures();setupCountrySettings();
