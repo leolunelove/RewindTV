@@ -78,6 +78,14 @@ test('country catalogue updates retain Library filters, detail and scroll withou
   assert.equal(view.selected,null);assert.equal(win.history.state.detail,undefined);assert.equal(byLabel(root,'Find a show or film').value,'Science');assert.equal(played.length,0);
 });
 
+test('Library shows story totals and standalone specials while leaving double bills as one playable row',async()=>{
+  const videos=[episode('one','An Arbitrary Show',1,1),{...episode('double','An Arbitrary Show',1,2),title:'Two stories together',coveredEpisodeNumbers:[2,3],formatLabel:'Two complete episodes · 2–3'},{...episode('holiday','An Arbitrary Show',1,4),formatLabel:'Christmas special'},{...episode('standalone','An Arbitrary Show',1,undefined),formatLabel:'TV special'}];
+  const f=await libraryFixture({channels:[{key:'one',name:'One',number:1,videos}]});
+  const card=byClass(f.root,'library-title').find(card=>card.dataset.showKey==='show:an arbitrary show');assert.equal(card.querySelector('small').textContent,'4 episodes · 1 special');
+  f.view.openDetail('show:an arbitrary show');assert(byClass(f.root,'library-detail-meta')[0].textContent.includes('4 episodes · 1 special'));assert.equal(byClass(f.root,'library-episode-count')[0].textContent,'4 episodes · 1 special');assert.equal(byClass(f.root,'episode-row').length,4);
+  input(byLabel(f.root,'Find an episode'),'Two stories');assert.equal(byClass(f.root,'library-episode-count')[0].textContent,'2 episodes');assert.equal(byClass(f.root,'episode-row').length,1);assert(byClass(f.root,'episode-row')[0].querySelector('small').textContent.includes('Two complete episodes · 2–3'));assert.equal(f.played.length,0);
+});
+
 test('background country updates preserve the Library player route, utility history and foreground focus',async()=>{
   const f=await libraryFixture(libraryCatalogue),country=f.root.ownerDocument.createElement('select');
   f.view.openDetail('show:science club');change(byLabel(f.root,'Browse season'),'2');

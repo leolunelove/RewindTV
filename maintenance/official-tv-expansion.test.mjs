@@ -3,7 +3,7 @@ import {withExpansion,withGameshowAdditions,EXPANSION_PACKS} from '../site/libra
 import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';
 import {buildShowIndex} from '../site/show-library.mjs';import {sectionChannels} from '../site/channel-sections.mjs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../site/'+n,import.meta.url))),name='official-tv-expansion.json',pack=read(name);
-function load(include){let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)if(!['power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json'].includes(n)&&(include||n!==name))cat=withExpansion(cat,read(n));return cat;}
+function load(include){let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)if(!['power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','maintenance-growth.json','maintenance-checks.json'].includes(n)&&(include||n!==name))cat=withExpansion(cat,read(n));return cat;}
 const before=load(false),after=load(true),runtime=hydrateLibrary(compactLibrary(after));
 test('official additions retain explicit unrestricted metadata and measured public-origin playback',()=>{
  assert.equal(pack.videos.length,83);const ids=new Set(),episodes=new Set();

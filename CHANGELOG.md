@@ -2,6 +2,15 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-14 — Catalogue maintenance and animation depth
+
+- Added 64 official uploads and 23.4 hours across Totally Spies (26), The Transformers (12) and Beast Wars: Transformers (26). Fixed-channel additions join on 17 November.
+- Checked 57 existing main-channel uploads in the public embedded player. All passed at the start and near the end. There are 48 new maintenance-checkpoint entries and nine rechecks, adding 44 sources to the combined dated evidence.
+- Refreshed source metadata and country restrictions. Thirteen existing uploads now carry declared exclusions through the country filter. The wider pass attempted metadata for 137 unique IDs and sampled actual playback for 121 unique IDs.
+- Retired a later CGI Brum edition from nostalgia browsing and mixes, with its fixed cutoff on 17 November. Labelled Angela Anaconda's 61-minute Pet Peeves upload as a compilation. Both sources remain recorded.
+- Library counts known stories and specials clearly. Country-ineligible playback avoids Programme 0 and offers the next eligible programme.
+- Validation records 388 passing public tests and all 8,249 current public fixed slots preserved. The accepted-addition metadata audit has 323 assertions across 64 uploads. Desktop/390px Library checks and 64 private UI tests pass; the private package has 125 verified members. Live verification follows publication. See the [release report and exact coverage](docs/maintenance-growth-2026-11-14.md).
+
 ## 2026-11-13 — Samurai seasons and viewing country
 
 - Fixed Settings, Info and Shuffle returning to an older episode after recovery or automatic episode changes. Closing a utility keeps the current picture; ordinary browser Back between choices still works.

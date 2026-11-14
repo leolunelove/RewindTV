@@ -11249,7 +11249,7 @@
         },
         {
           "id": "O-VFMqfWphs",
-          "title": "Angela Anaconda - The Official Channel | Season 1, Episode 1 | Pet Peeves",
+          "title": "Pet Peeves and more",
           "duration": 3641,
           "uploader": "Angela Anaconda - Wildbrain",
           "uploaderUrl": "https://www.youtube.com/@AngelaAnacondaWildbrain",
@@ -11271,7 +11271,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Angela Anaconda"
+          "series": "Angela Anaconda",
+          "formatLabel": "Compilation",
+          "curationCheckedAt": "2026-11-14",
+          "curationEvidence": {
+            "watchUrl": "https://www.youtube.com/watch?v=O-VFMqfWphs",
+            "method": "Publisher automatic chapters show multiple distinct plots across the 61-minute upload.",
+            "decision": "Label as a compilation. Exact constituent episode identities and overlap are not yet verified; no episode numbers inferred."
+          }
         },
         {
           "id": "PoTzw3ltH54",
@@ -19538,24 +19545,32 @@
         },
         {
           "id": "86MhI8eaV1M",
-          "title": "★Brum★ Season 1 All Episodes Compilation! | KIDS SHOW FULL EPISODE",
+          "title": "Brum CGI shorts collection",
           "duration": 3615,
           "uploader": "WildBrain Turbo",
           "uploaderUrl": "https://www.youtube.com/@ClassicBrum",
-          "year": 1991,
-          "yearLabel": "1991–2002",
+          "yearLabel": "CGI revival · year unverified",
           "watchUrl": "https://www.youtube.com/watch?v=86MhI8eaV1M",
           "credit": "WildBrain Turbo",
           "sourceType": "official",
           "kind": "full episode",
-          "formatLabel": "Compilation",
+          "formatLabel": "CGI shorts collection",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@ClassicBrum",
-          "classicRerun": true,
-          "series": "Brum"
+          "classicRerun": false,
+          "series": "Brum",
+          "uploadTitle": "★Brum★ Season 1 All Episodes Compilation! | KIDS SHOW FULL EPISODE",
+          "scheduleUntilWeek": "2026-11-17",
+          "disabledReason": "Wrong edition for the nostalgia rotation: later CGI shorts, not the original live-action Brum series.",
+          "curationCheckedAt": "2026-11-14",
+          "curationEvidence": {
+            "watchUrl": "https://www.youtube.com/watch?v=86MhI8eaV1M",
+            "method": "Actual video picture observed in the public app at approximately two minutes; confirmed CGI characters. Publisher automatic chapters describe multiple short stories.",
+            "decision": "Retained for recovery. Removed from browsing and shuffle immediately; current fixed broadcast slots retained until the next Tuesday. Original scheduling series and kind are retained solely to preserve this week's deck and advert placement. The title, format and year label identify the CGI edition."
+          }
         },
         {
           "id": "rwbxGtcU8SI",
