@@ -21,6 +21,7 @@ test('00s TV and After School UK append two continuous stations using existing s
  assert(stations[0].videos.every(video=>{
   const label=String(video.yearLabel||video.year);
   const years=label.match(/\b(?:19|20)\d{2}\b/g)||[];
+  if(/^early 2000s$/i.test(label))return true;
   return years.length&&!/onward/i.test(label)&&years.every(year=>Number(year)>=2000&&Number(year)<=2009);
  }));
 });

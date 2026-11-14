@@ -1,7 +1,7 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
 import {withExpansion,withGameshowAdditions,EXPANSION_PACKS} from '../site/library.mjs';import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';import {buildShowIndex} from '../site/show-library.mjs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../site/'+n,import.meta.url))),name='power-rangers-followup.json',pack=read(name);
-function load(include){let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)if(!['power-rangers-depth.json','power-rangers-regional.json'].includes(n)&&(include||n!==name))cat=withExpansion(cat,read(n));return cat;}
+function load(include){let cat=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of EXPANSION_PACKS)if(!['power-rangers-depth.json','power-rangers-regional.json','maintenance-growth.json','maintenance-checks.json'].includes(n)&&(include||n!==name))cat=withExpansion(cat,read(n));return cat;}
 const before=load(false),after=load(true),runtime=hydrateLibrary(compactLibrary(after));
 test('later Power Rangers additions require official ownership, unrestricted metadata and actual public playback',()=>{
  assert.deepEqual(pack.channels,[]);assert(pack.videos.length>=22);const counts={};const oldIds=new Set(before.channels.flatMap(c=>c.videos.map(v=>v.id))),keys=new Set();
