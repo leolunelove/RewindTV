@@ -14292,7 +14292,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Madeline"
+          "series": "Madeline",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · six episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=NuOYom-QDuc",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "DwiBCbKsgfM",
@@ -26056,7 +26063,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "Jurassic Spydra 🔍 Gadget Boy | Full Episode | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=pIGvh2-6BKQ",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "3M8hH7gngCI",
@@ -36599,7 +36614,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "Gadget Boy in Toyland 🔍 Gadget Boy | Full Episode | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=Ue2TS61gMvo",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "TsZ37JIXhTk",
@@ -36621,7 +36644,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "From Russia with Gadget Boy 🔍 Gadget Boy | Full Episode | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=TsZ37JIXhTk",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "1LIwCOgkDjY",
@@ -36643,7 +36674,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "The Day the Gadget Boy Stood Still & MORE! 🔍 Gadget Boy | Full Episode | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=1LIwCOgkDjY",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "cthSOvIfv_I",
@@ -36665,7 +36704,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "Pirate of the Airwaves & MORE! 🔍 Gadget Boy | Full Episodes | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=cthSOvIfv_I",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "y4aWos9o5o4",
@@ -36687,7 +36734,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "My Gadget Guard & MORE! 🔍 Gadget Boy | Full Episodes | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=y4aWos9o5o4",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "QTgsDADu0V0",
@@ -36709,7 +36764,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "Double, Double Toil and Dabble & MORE! 🔍 Gadget Boy | Full Episodes | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=QTgsDADu0V0",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "wMTrHeYfZh8",
@@ -36731,7 +36794,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "Gadget Boy and the Great Race & MORE! 🔍 Gadget Boy | Full Episodes | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=wMTrHeYfZh8",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "UW8Tzdb6KCI",
@@ -36753,7 +36824,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Gadget Boy"
+          "series": "Gadget Boy",
+          "uploadTitle": "Gadget Boy in Toyland & MORE! 🔍 Gadget Boy | Full Episodes | Classic Cartoons",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · multiple episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=UW8Tzdb6KCI",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "ZNWzBfMU0GU",
@@ -72001,7 +72080,14 @@
           "seasonalTags": [
             "Halloween"
           ],
-          "curationNote": "Episode title explicitly describes a supernatural or Halloween story."
+          "curationNote": "Episode title explicitly describes a supernatural or Halloween story.",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · five episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=YjlohyypvKk",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "_2kQh3dZmk8",
@@ -76998,7 +77084,14 @@
           "seasonalTags": [
             "Halloween"
           ],
-          "curationNote": "Episode title explicitly describes a supernatural or Halloween story."
+          "curationNote": "Episode title explicitly describes a supernatural or Halloween story.",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · five episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=YjlohyypvKk",
+            "report": "docs/main-ten-fifth-100-story-evidence-2026-11-22.json",
+            "method": "Madeline duplicate: five identical primary publisher chapter identities plus caption alignment through opening/closing dialogue. Safari: six platform chapter spans with primary captions. Gadget Boy: multi-episode packaging; only five of nine collections have caption comparisons, remaining spans unverified. No canonical episode numbers invented."
+          }
         },
         {
           "id": "BQaR60njzcg",

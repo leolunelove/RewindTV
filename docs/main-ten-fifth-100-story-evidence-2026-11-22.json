@@ -1,0 +1,483 @@
+{
+  "date": "2026-11-22",
+  "madelineResolution": {
+    "date": "2026-11-22",
+    "retiredIds": [
+      "YjlohyypvKk"
+    ],
+    "retainedIds": [
+      "ct06lnkUxxY"
+    ],
+    "matches": [
+      {
+        "retiredId": "YjlohyypvKk",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline and the Spider Lady",
+        "retiredRange": [
+          0,
+          1262
+        ],
+        "retainedRange": [
+          5044,
+          6307
+        ],
+        "similarity": 0.9686888454011742,
+        "longestExactWordRun": 202,
+        "matchedFrom": [
+          19,
+          5064
+        ],
+        "matchedThrough": [
+          1257,
+          6301
+        ]
+      },
+      {
+        "retiredId": "YjlohyypvKk",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline at the North Pole",
+        "retiredRange": [
+          1262,
+          2523
+        ],
+        "retainedRange": [
+          1260,
+          2522
+        ],
+        "similarity": 0.9457981103928393,
+        "longestExactWordRun": 176,
+        "matchedFrom": [
+          1262,
+          1261
+        ],
+        "matchedThrough": [
+          2520,
+          2518
+        ]
+      },
+      {
+        "retiredId": "YjlohyypvKk",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline and the Can Can Cliques",
+        "retiredRange": [
+          2523,
+          3785
+        ],
+        "retainedRange": [
+          2522,
+          3783
+        ],
+        "similarity": 0.9569688768606225,
+        "longestExactWordRun": 147,
+        "matchedFrom": [
+          2524,
+          2522
+        ],
+        "matchedThrough": [
+          3781,
+          3775
+        ]
+      },
+      {
+        "retiredId": "YjlohyypvKk",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline at the Hotel Riche",
+        "retiredRange": [
+          3785,
+          5046
+        ],
+        "retainedRange": [
+          0,
+          1260
+        ],
+        "similarity": 0.9792172739541161,
+        "longestExactWordRun": 370,
+        "matchedFrom": [
+          3785,
+          0
+        ],
+        "matchedThrough": [
+          5041,
+          1252
+        ]
+      },
+      {
+        "retiredId": "YjlohyypvKk",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline and the Dog Who Cried Wolf",
+        "retiredRange": [
+          5046,
+          6307
+        ],
+        "retainedRange": [
+          3783,
+          5044
+        ],
+        "similarity": 0.9524585710404782,
+        "longestExactWordRun": 209,
+        "matchedFrom": [
+          5047,
+          3784
+        ],
+        "matchedThrough": [
+          6303,
+          5041
+        ]
+      }
+    ],
+    "method": "Identical primary publisher chapter sets plus primary English caption alignment through opening and closing dialogue. Full captions not republished. Not frame-for-frame or uninterrupted full-runtime certification.",
+    "noUniqueReviewedStoryLost": true
+  },
+  "successfulMetadataIds": [
+    "5DJlxwfr--0",
+    "8xxX-asJjG8",
+    "9mQk-1Q3M5s",
+    "AWYkMnKC1vM",
+    "NVEE0BiMDXc",
+    "OVg1rml3qCg",
+    "OYWbHn7O1mM",
+    "QtXPCylJhQ8",
+    "XaSWTxeR01U",
+    "a4LgjjUOP_E",
+    "DwiBCbKsgfM",
+    "Q4-a9baKoJs",
+    "SV2JrSKoHqw",
+    "p9C43aEGxkQ",
+    "ulSxCC7b1do",
+    "DmnC93HoxS0",
+    "Qe026wIe0E8",
+    "_M9z_xLmqqQ",
+    "__AwqGZM4j8",
+    "arFUuU2GHEY",
+    "_-LmOqW8jfU",
+    "Fg8bliAcS2k",
+    "ZjmeLl8mt_M",
+    "Utn2dbM9fsg",
+    "YUdzoW2zctQ",
+    "bXutbPhO4EI",
+    "k4rXFCwdNug",
+    "qELX_WKfi9E",
+    "r9Dsj91YS8U",
+    "rRAjrABbDyg",
+    "c3pM9RBHj_c",
+    "eH-52FG60y4",
+    "ihZVOEov7WU",
+    "yLIg-a73fIc",
+    "BhHxVzvwEY4",
+    "DHILCvKRI0Y",
+    "GZGzBSVyUcY",
+    "GnAevtmKR14",
+    "RfqkqbCo_CY",
+    "kE2Ecrn88ls",
+    "TsZ37JIXhTk",
+    "Ue2TS61gMvo",
+    "pIGvh2-6BKQ",
+    "ZNWzBfMU0GU",
+    "BJjiyea-Qzw",
+    "mefic9cvAOk",
+    "EbmRA75fF6Y",
+    "7ml-9xHn9rQ",
+    "ElFtlO2f7so",
+    "J5jJ5ox0HcY",
+    "6gRi9mnlIKo",
+    "9L7Q0EyXSTA",
+    "9u1MIvMsV2k",
+    "9wVgDR6JlSQ",
+    "Km41CTJDttY",
+    "QJclj_wecGU",
+    "_aGEToEak-0",
+    "f-VGjwyfhpA",
+    "jL9Opn4q7e0",
+    "ORfWS8fOqOU",
+    "TqN82URgUuM",
+    "UNScA-cCGH4",
+    "YPuzJS5U4xA",
+    "axBCYGlJnoY",
+    "bo01OUYMaSI",
+    "lWXE8_WUi84",
+    "nTbyH1734Aw",
+    "pD4WrbGFd1c",
+    "qWnv5vzEW0s",
+    "mt7XB6Z74Vw",
+    "2734HlrTGHI",
+    "ErdnyLDeWUU",
+    "F7iX4czlPqA",
+    "IgBQ4b-gRq0",
+    "PT8Rjcb0GPs",
+    "SUlxqK5L0wY",
+    "UdoFc1fB15w",
+    "YSLOcVCAYdw",
+    "oQIUzddQRPs",
+    "H4VsmKU5T7g",
+    "HFdTxqEznIk",
+    "HMx34Am6RFg",
+    "HOdS-G8p1KE",
+    "HQC5sPN9Xhc",
+    "Hq-z06i6HCs",
+    "I4h6TC4CPJY",
+    "Io4fwhacpEs",
+    "JDa6JPcqy88",
+    "JLnIUGOupOA",
+    "ont3Mq0DARE",
+    "MYC-waukYWo",
+    "05jtR9fZAnQ",
+    "Kob0wwKtyC8",
+    "OYx1wPSXkUw",
+    "rO13-X3QOwQ",
+    "wdrPihL6cA4",
+    "yoA9rdSxL0A",
+    "8UaZ9gHr0UQ",
+    "CjAsJfz9dBc",
+    "zWQLjB-7Wlw",
+    "bdUaOsJJC7Q",
+    "ct06lnkUxxY",
+    "NuOYom-QDuc",
+    "YjlohyypvKk",
+    "1LIwCOgkDjY",
+    "cthSOvIfv_I",
+    "y4aWos9o5o4",
+    "QTgsDADu0V0",
+    "wMTrHeYfZh8",
+    "UW8Tzdb6KCI"
+  ],
+  "newRetirements": [
+    {
+      "id": "YjlohyypvKk",
+      "reason": "All five publisher-listed stories match retained collection ct06lnkUxxY through opening and closing dialogue in primary captions. Original source preserved for recovery.",
+      "scheduleUntilWeek": "2026-11-24",
+      "retainedStorySources": [
+        "ct06lnkUxxY"
+      ]
+    },
+    {
+      "id": "a5XjFcdFYpg",
+      "reason": "Two embedded checks returned error 150 while controls passed. Normal YouTube watch UI states: It was blocked due to the claimed content by BBCW Family. Two metadata attempts report UNPLAYABLE. Copyright-claim block observed on this network; no deletion or geographic scope inferred. Original record preserved.",
+      "scheduleUntilWeek": "2026-11-24",
+      "retainedStorySources": []
+    }
+  ],
+  "confirmedCopyrightBlock": {
+    "id": "a5XjFcdFYpg",
+    "watchChecks": [
+      {
+        "checkedAt": "2026-11-22T16:37:03.579800+00:00",
+        "status": "UNPLAYABLE",
+        "reason": "Video unavailable"
+      },
+      {
+        "checkedAt": "2026-11-22T16:41:15.259383+00:00",
+        "status": "UNPLAYABLE",
+        "reason": "Video unavailable"
+      }
+    ],
+    "firstEmbedAttempt": {
+      "id": "a5XjFcdFYpg",
+      "status": "source-error",
+      "resultText": "source-error (150)",
+      "start": false,
+      "tail": false,
+      "duration": 0,
+      "checkedAt": "2026-11-22T16:37:00.667Z"
+    },
+    "retryWithControls": [
+      [
+        "5DJlxwfr--0",
+        "playing",
+        "Yes",
+        "Yes",
+        "1128",
+        "2026-11-22T16:40:56.999Z"
+      ],
+      [
+        "a5XjFcdFYpg",
+        "source-error (150)",
+        "No",
+        "No",
+        "0",
+        "2026-11-22T16:40:52.447Z"
+      ],
+      [
+        "8xxX-asJjG8",
+        "playing",
+        "Yes",
+        "Yes",
+        "1093.461",
+        "2026-11-22T16:40:58.542Z"
+      ]
+    ],
+    "normalWatchUI": "Video unavailable. It was blocked due to the claimed content by BBCW Family.",
+    "scope": "Observed on one Chrome browser/network; no worldwide or geographic restriction inference",
+    "regionRestrictionInferred": false,
+    "deletionInferred": false
+  },
+  "transientCollectionTimeouts": {
+    "firstAttempts": [
+      {
+        "id": "1LIwCOgkDjY",
+        "status": "timeout",
+        "start": false,
+        "tail": false,
+        "duration": 3744,
+        "checkedAt": "2026-11-22T16:43:55.978Z"
+      },
+      {
+        "id": "cthSOvIfv_I",
+        "status": "playing",
+        "start": true,
+        "tail": true,
+        "duration": 3744.601,
+        "checkedAt": "2026-11-22T16:44:03.946Z"
+      },
+      {
+        "id": "y4aWos9o5o4",
+        "status": "playing",
+        "start": true,
+        "tail": true,
+        "duration": 3743,
+        "checkedAt": "2026-11-22T16:44:03.970Z"
+      },
+      {
+        "id": "QTgsDADu0V0",
+        "status": "timeout",
+        "start": false,
+        "tail": false,
+        "duration": 3742,
+        "checkedAt": "2026-11-22T16:43:55.929Z"
+      },
+      {
+        "id": "wMTrHeYfZh8",
+        "status": "playing",
+        "start": true,
+        "tail": true,
+        "duration": 4969.321,
+        "checkedAt": "2026-11-22T16:44:03.892Z"
+      },
+      {
+        "id": "UW8Tzdb6KCI",
+        "status": "timeout",
+        "start": false,
+        "tail": false,
+        "duration": 3771,
+        "checkedAt": "2026-11-22T16:43:55.959Z"
+      }
+    ],
+    "controlledRetry": [
+      [
+        "1LIwCOgkDjY",
+        "playing",
+        "Yes",
+        "Yes",
+        "3743.021",
+        "2026-11-22T16:45:25.700Z"
+      ],
+      [
+        "QTgsDADu0V0",
+        "playing",
+        "Yes",
+        "Yes",
+        "3741.801",
+        "2026-11-22T16:45:31.035Z"
+      ],
+      [
+        "UW8Tzdb6KCI",
+        "playing",
+        "Yes",
+        "Yes",
+        "3770.041",
+        "2026-11-22T16:45:28.029Z"
+      ],
+      [
+        "5DJlxwfr--0",
+        "playing",
+        "Yes",
+        "Yes",
+        "1127.301",
+        "2026-11-22T16:45:47.839Z"
+      ],
+      [
+        "DwiBCbKsgfM",
+        "playing",
+        "Yes",
+        "Yes",
+        "1380.801",
+        "2026-11-22T16:45:47.101Z"
+      ]
+    ],
+    "allRecovered": true
+  },
+  "remainingMpaaGroups": [
+    {
+      "sources": [
+        "VRdFVV2GKR0",
+        "nuRDiHLjNMw",
+        "bZRtRmvPN1g"
+      ],
+      "duplicateSpanCount": 2
+    },
+    {
+      "sources": [
+        "1O3jokn0PJg",
+        "CTgC6zN4ud0"
+      ],
+      "duplicateSpanCount": 1
+    },
+    {
+      "sources": [
+        "0Y8OmC2LWkc",
+        "A0GTZuyraFg"
+      ],
+      "duplicateSpanCount": 1
+    }
+  ],
+  "remainingGadgetinisPair": [
+    "1LuCCQl_T8Y",
+    "PqRx6VDOv-U"
+  ],
+  "gadgetBoyReview": {
+    "date": "2026-11-22",
+    "captionSourcesReviewed": [
+      "TsZ37JIXhTk",
+      "Ue2TS61gMvo",
+      "pIGvh2-6BKQ",
+      "1LIwCOgkDjY",
+      "UW8Tzdb6KCI"
+    ],
+    "remainingCaptionSources": [
+      "cthSOvIfv_I",
+      "y4aWos9o5o4",
+      "QTgsDADu0V0",
+      "wMTrHeYfZh8"
+    ],
+    "matches": [
+      {
+        "sourceA": "TsZ37JIXhTk",
+        "spanA": 3,
+        "sourceB": "UW8Tzdb6KCI",
+        "spanB": 3,
+        "similarity": 0.8560965101249461,
+        "longestExactWordRun": 49
+      },
+      {
+        "sourceA": "UW8Tzdb6KCI",
+        "spanA": 1,
+        "sourceB": "Ue2TS61gMvo",
+        "spanB": 1,
+        "similarity": 0.84938553872535,
+        "longestExactWordRun": 36
+      }
+    ],
+    "retirementDecision": "No whole-source retirement from incomplete caption coverage; preserve unique/unverified story spans. These approximate boundaries are review cues, not canonical episode numbers."
+  },
+  "existingMadelineSinglesChecked": [
+    "zWQLjB-7Wlw",
+    "bdUaOsJJC7Q",
+    "DwiBCbKsgfM",
+    "Q4-a9baKoJs",
+    "SV2JrSKoHqw",
+    "p9C43aEGxkQ",
+    "ulSxCC7b1do"
+  ],
+  "singleScope": "All seven existing main-channel singles checked for playback, current publisher title and runtime. No claim that all seven have full caption alignment. No Gadget Boy single under 1800 seconds found across the existing catalogue; no replacements or new sources sought.",
+  "newContentAdded": 0,
+  "region": "One Chrome browser/network; egress country unverified. No multi-region or physical iPhone/Safari test."
+}
