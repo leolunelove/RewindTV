@@ -1,0 +1,131 @@
+{
+  "date": "2026-11-22",
+  "mpaa": {
+    "checkedAt": "2026-11-22",
+    "method": "Primary YouTube auto-caption sequence comparison. Private analysis only; no transcript text republished.",
+    "sources": [
+      {
+        "id": "0Y8OmC2LWkc",
+        "lastCaptionAt": 2506,
+        "splitNearSeconds": 1256,
+        "rows": 576,
+        "wordsPerHalf": [
+          3452,
+          2767
+        ],
+        "halvesSequenceSimilarity": 0.0476,
+        "longestSharedWordRun": 5,
+        "interpretation": "Two distinct story spans; not a repeated copy of one story. Caption similarity is supporting evidence, not full viewing or canonical episode-number certification."
+      },
+      {
+        "id": "1O3jokn0PJg",
+        "lastCaptionAt": 2503,
+        "splitNearSeconds": 1254,
+        "rows": 594,
+        "wordsPerHalf": [
+          3375,
+          3327
+        ],
+        "halvesSequenceSimilarity": 0.0567,
+        "longestSharedWordRun": 5,
+        "interpretation": "Two distinct story spans; not a repeated copy of one story. Caption similarity is supporting evidence, not full viewing or canonical episode-number certification."
+      },
+      {
+        "id": "4e7OvP6uceM",
+        "lastCaptionAt": 2498,
+        "splitNearSeconds": 1252,
+        "rows": 590,
+        "wordsPerHalf": [
+          3128,
+          3312
+        ],
+        "halvesSequenceSimilarity": 0.04938,
+        "longestSharedWordRun": 5,
+        "interpretation": "Two distinct story spans; not a repeated copy of one story. Caption similarity is supporting evidence, not full viewing or canonical episode-number certification."
+      },
+      {
+        "id": "FyPFO0Yf2d0",
+        "lastCaptionAt": 2497,
+        "splitNearSeconds": 1251,
+        "rows": 560,
+        "wordsPerHalf": [
+          3018,
+          3127
+        ],
+        "halvesSequenceSimilarity": 0.03743,
+        "longestSharedWordRun": 4,
+        "interpretation": "Two distinct story spans; not a repeated copy of one story. Caption similarity is supporting evidence, not full viewing or canonical episode-number certification."
+      },
+      {
+        "id": "WjclQp9LFzU",
+        "lastCaptionAt": 2431,
+        "splitNearSeconds": 1218,
+        "rows": 576,
+        "wordsPerHalf": [
+          3233,
+          3121
+        ],
+        "halvesSequenceSimilarity": 0.05099,
+        "longestSharedWordRun": 8,
+        "interpretation": "Two distinct story spans; not a repeated copy of one story. Caption similarity is supporting evidence, not full viewing or canonical episode-number certification."
+      }
+    ],
+    "crossSourceStoryOverlapCandidates": [
+      {
+        "first": [
+          "4e7OvP6uceM",
+          1
+        ],
+        "second": [
+          "FyPFO0Yf2d0",
+          2
+        ],
+        "ratio": 0.9707434052757794,
+        "longestExactWordRun": 161
+      }
+    ],
+    "limits": "Automated captions can omit dialogue. Complete episode names/order and uncut extent need additional primary identity evidence."
+  },
+  "spies": {
+    "checkedAt": "2026-11-22",
+    "compilationId": "5KNa3AxEPxE",
+    "actualStories": [
+      {
+        "singleId": "QgNt6pcsFjo",
+        "title": "Model Citizens",
+        "compilationRange": [
+          0,
+          1249
+        ],
+        "captionSequenceSimilarity": 0.94177,
+        "matchedWords": 2159,
+        "longestExactWordRun": 92
+      },
+      {
+        "singleId": "XZcGbwce7fU",
+        "title": "Spy Gladiators",
+        "compilationRange": [
+          1249,
+          2470
+        ],
+        "captionSequenceSimilarity": 0.92103,
+        "matchedWords": 1907,
+        "longestExactWordRun": 159
+      },
+      {
+        "singleId": "rsMtaar750Y",
+        "title": "Silicon Valley Girls",
+        "compilationRange": [
+          2470,
+          3717
+        ],
+        "captionSequenceSimilarity": 0.87727,
+        "matchedWords": 1930,
+        "longestExactWordRun": 68
+      }
+    ],
+    "decision": "Replace the triple compilation in rotation with the missing Spy Gladiators single; retain existing Model Citizens and Silicon Valley Girls singles. Do not import Shrinking as a replacement: it is not a story in this compilation despite the publisher chapter label.",
+    "primaryPublisherChapterAccuracy": "The supplied chapter description names the wrong first and third stories; actual primary caption comparisons establish their identities.",
+    "limits": "English transcript sequence comparison supports story identity and extent. This is not uninterrupted full-programme viewing or uncut-edition certification."
+  }
+}
