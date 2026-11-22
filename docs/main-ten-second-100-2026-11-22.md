@@ -4,7 +4,7 @@ This continues the earlier 112-sample pass with **100 different, previously unda
 
 ## Playback and completeness scope
 
-- All 100 new uploads passed actual start and near-end clock-advancement checks in the public site's muted embedded diagnostic player. Five additional established MPAA sources were rechecked; all five passed too. **105 unique IDs in this pass**, distinct from the earlier pass's 112 except those five deliberate rechecks.
+- All 100 new uploads passed actual start and near-end clock-advancement checks in the public site's muted embedded diagnostic player. Five additional established MPAA sources were rechecked; all five passed too. **105 unique IDs in this pass**: the 100 new IDs do not overlap the earlier 112-sample pass; four targeted rechecks overlap that pass, and one revisits an older checkpoint.
 - Primary YouTube metadata for all 105 reports OK and embedding permitted. Declared and observed runtimes agree with stored values within one second. Publication dates are recorded. No newly confirmed deletion, embed failure or incomplete episode was found in this bounded sample.
 - **27 missing country restrictions** are now represented in the existing country filter. None declares Gibraltar blocked. A territory list is not a playback test in those territories; browser egress country was not independently verified.
 - Start/end sampling and runtime agreement do not prove an uninterrupted, uncut or editorially complete episode. Long Caillou, Postman Pat and Rosie and Jim collections remain a content-overlap review queue. No source was disabled merely for a long or short runtime.
