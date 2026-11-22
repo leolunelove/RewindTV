@@ -1,7 +1,7 @@
 export const KIDS_PACKS=["kids-cbbc.json", "kids-disney.json", "kids-nick.json", "kids-toons.json"];
 export const CREATOR_PACKS=["classic-gmm.json", "classic-rhett.json", "afterdark-frank.json", "afterdark-idubbbz.json", "more-tv-films.json"];
 export const MUSIC_PACKS=["music-surf.json", "music-proximity.json", "music-sheep.json", "music-ncs.json"];
-export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','quality-pass.json','maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','library-health.json'];
+export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','quality-pass.json','maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','main-ten-checks-3.json','library-health.json'];
 export const SOURCE_FILES=['catalogue.json','gameshow-additions.json',...EXPANSION_PACKS];
 export {catalogueForCountry};
 const QUIZ_SERIES=new Set(['Catchphrase','Family Fortunes','The Weakest Link','Who Wants to Be a Millionaire']);
@@ -48,6 +48,24 @@ function validatedMetadataUpdates(base,updates){
  }
  return patches;
 }
+// Curation happens after source packs are assembled so a retired source keeps
+// its original place in this week's fixed plan, even when it came from a pack.
+function validatedRetirements(base,rows){
+ const result=new Map();if(rows===undefined)return result;
+ if(!Array.isArray(rows))throw Error('Invalid source retirement');
+ const known=new Set(base.channels.flatMap(c=>c.videos).map(v=>v.id));
+ const active=new Set(base.channels.flatMap(c=>c.videos).filter(v=>v.enabled!==false).map(v=>v.id));
+ for(const row of rows){
+  if(!recordValue(row)||Object.keys(row).some(k=>!['id','reason','scheduleUntilWeek','retainedStorySources'].includes(k))
+   ||!known.has(row.id)||result.has(row.id)||!textValue(row.reason)||!dateValue(row.scheduleUntilWeek)
+   ||new Date(row.scheduleUntilWeek+'T12:00:00Z').getUTCDay()!==2
+   ||!Array.isArray(row.retainedStorySources)||new Set(row.retainedStorySources).size!==row.retainedStorySources.length
+   ||row.retainedStorySources.some(id=>id===row.id||!active.has(id)))throw Error('Invalid source retirement');
+  result.set(row.id,row);
+ }
+ for(const row of result.values())if(row.retainedStorySources.some(id=>result.has(id)))throw Error('Invalid source retirement');
+ return result;
+}
 export function withGameshowAdditions(base,extra){
  if(extra?.channelKey!=='rewind-gameshows'||!Array.isArray(extra.videos))throw Error('Invalid gameshow additions');
  const target=base.channels.find(c=>c.key===extra.channelKey);if(!target)throw Error('Gameshow channel missing');
@@ -66,7 +84,7 @@ async function fetchJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!
 export async function loadLibrary(){
  if(typeof window!=='undefined'&&window.parent!==window){try{const shared=await window.parent.RewindLibrary?.();if(shared)return {...shared,channels:shared.channels.map(c=>({...c}))};}catch{}}
  return libraryPromise??=(async()=>{
-  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=20261122quality2');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
+  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=20261122quality3');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
   catch(error){console.warn('Using source catalogue fallback.',error);}
   const paths=SOURCE_FILES;
   const results=await Promise.allSettled(paths.map(fetchJSON));if(results[0].status!=='fulfilled')throw results[0].reason;let base=results[0].value;
@@ -85,9 +103,12 @@ export async function loadViewingLibrary({storage,fetcher}={}){
 export function withExpansion(base,pack){
  if(pack?.version!==1||!Array.isArray(pack.videos)||!Array.isArray(pack.channels)||!pack.assignments||typeof pack.assignments!=='object')throw Error('Invalid library expansion');
  const patches=validatedMetadataUpdates(base,pack.updates);
+ const retirements=validatedRetirements(base,pack.retirements);
  const exclusions=new Map((pack.exclusions||[]).map(e=>[e.id,e]));
  const permitted=source=>{
-  const video=patches.has(source.id)?{...source,...patches.get(source.id)}:source;
+  let video=patches.has(source.id)?{...source,...patches.get(source.id)}:source;
+  const retired=retirements.get(source.id);
+  if(retired)video={...video,enabled:false,disabledReason:retired.reason,scheduleUntilWeek:retired.scheduleUntilWeek,retainedStorySources:[...retired.retainedStorySources]};
   return exclusions.has(video.id)?{...video,enabled:false,disabledReason:exclusions.get(video.id).reason,scheduleUntilWeek:undefined}:video;
  };
  const known=new Map();for(const c of base.channels)for(const source of c.videos){const v=permitted(source);if(!known.has(v.id)||known.get(v.id).enabled===false)known.set(v.id,v);}

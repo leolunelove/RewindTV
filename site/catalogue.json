@@ -771,7 +771,7 @@
         },
         {
           "id": "Qc8P_MtLl8E",
-          "title": "Ship of Friends 👯 My Parents Are Aliens — full episodes",
+          "title": "Ship of Friends + The Love Bug",
           "uploadTitle": "Ship of Friends 👯 My Parents Are Aliens | Kids Telly",
           "uploader": "Kids Telly",
           "uploaderUrl": "https://www.youtube.com/@KidsTellyITVS",
@@ -795,9 +795,8 @@
           "formatLabel": "Double bill · two stories",
           "curationEvidence": {
             "url": "https://www.youtube.com/watch?v=Qc8P_MtLl8E",
-            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
-            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
-            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
           }
         },
         {
@@ -2508,7 +2507,15 @@
           "sourceEvidence": "https://www.youtube.com/@TheSaddleClubShow",
           "classicRerun": true,
           "checkedAt": "2026-10-16",
-          "series": "The Saddle Club"
+          "series": "The Saddle Club",
+          "uploadTitle": "The Saddle Club | Full episodes 25 to 26 | Saddle Club Season 2",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=aDuFjAzumic",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "L5k6TtxOgUs",
@@ -2608,7 +2615,15 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@TheSaddleClubShow",
           "classicRerun": true,
-          "series": "The Saddle Club"
+          "series": "The Saddle Club",
+          "uploadTitle": "The Saddle Club - 2 Episodes! | Full episodes 23 to 24 | Saddle Club Season 1",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=y_W0NB_pxBE",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "ItB8cA3XcdA",
@@ -14133,7 +14148,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Madeline"
+          "series": "Madeline",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · five episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=ct06lnkUxxY",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "Q4-a9baKoJs",
@@ -14237,7 +14259,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Madeline"
+          "series": "Madeline",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · five episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=lQdzaHy7sbw",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "NuOYom-QDuc",
@@ -17989,7 +18018,15 @@
           "yearAccuracy": "original series range; exact episode year not verified",
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Zoboomafoo"
+          "series": "Zoboomafoo",
+          "uploadTitle": "Grow, Zoboo, Grow + Ants and Eaters + Brain Power | Zoboomafoo - Triple Feature | Episodes 63 - 65",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Triple feature · three episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=RNDwajqsG8k",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "zqOYGVxYraU",
@@ -19108,7 +19145,15 @@
           "metadataStatus": "search-listed",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Wimzies House"
+          "series": "Wimzies House",
+          "uploadTitle": "The Storm | Wimzie's House - WildBrain | Full Episodes for Kids",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · six episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=FFnFoDExtWY",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "WJLYqD4Gyf4",
@@ -19150,7 +19195,15 @@
           "metadataStatus": "search-listed",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Wimzies House"
+          "series": "Wimzies House",
+          "uploadTitle": "Shaggy's Visit | Wimzie's House - WildBrain | Full Episodes for Kids",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · six episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=nSs6uToQ534",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "E0pftsh6ly8",
@@ -19193,7 +19246,15 @@
           "metadataStatus": "search-listed",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Wimzies House"
+          "series": "Wimzies House",
+          "uploadTitle": "Bye Bye Birdie | Wimzie's House - WildBrain | Full Episodes for Kids",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · three episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=LOi9OCSxgiU",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "ExsXQ0klgNg",
@@ -19235,7 +19296,15 @@
           "metadataStatus": "search-listed",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Wimzies House"
+          "series": "Wimzies House",
+          "uploadTitle": "Promises, Promises, Promises | Wimzie's House - WildBrain | Full Episodes for Kids",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · six episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=MeDYCpUVCvg",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "WddAfUQgDNg",
@@ -19861,7 +19930,15 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@WildBrainPlayhouse",
           "classicRerun": true,
-          "series": "Rosie and Jim"
+          "series": "Rosie and Jim",
+          "uploadTitle": "Rosie and Jim - Upside Down + More Full Episodes | WildBrain Zigzag",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · six episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=ukUYkjrOkOQ",
+            "report": "docs/main-ten-third-100-story-evidence-2026-11-22.json",
+            "method": "Primary publisher chapter/title declarations and bounded playback; duplicate retirements additionally verified by caption alignment. NFSTGS94oBY adverts observed in primary captions. No full-runtime certification."
+          }
         },
         {
           "id": "c7DsmJR-bX8",
