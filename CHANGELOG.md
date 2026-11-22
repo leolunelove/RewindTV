@@ -2,6 +2,14 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-22 — Fourth 100 checks, private source and repeated collections
+
+- Published the previous cleanup and verified all 19 changed live site assets. Its consolidated MPAA double bill plays in the app and continues behind Guide.
+- Checked another 100 main-ten uploads: 99 passed and one Byker Grove upload was confirmed private after controlled retries. Six extra existing-source checks passed too.
+- Retired two wholly redundant Gadgetinis collections, preserving all nine reviewed story spans and removing another 3 hours 3 minutes of repeated playback. Current fixed schedules remain intact; retirements take effect on 24 November.
+- Refreshed 26 country-restriction records, clarified collection labels and fixed the supplement-owned original-advert label. Existing singles were checked first; no new content was imported.
+- 402 tests pass. Three MPAA partial groups and one Gadgetinis partial pair remain because their sources still contain unique stories. [Exact evidence and remaining coverage](docs/main-ten-fourth-100-2026-11-22.md).
+
 ## 2026-11-22 — Third 100 checks and repeated collections cleaned
 
 - Checked 100 more main-ten uploads and seven additional existing singles; all 107 passed embedded start/tail sampling. Corrected 28 country restriction records.
