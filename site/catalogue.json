@@ -25952,7 +25952,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Gadget and the Gadgetinis"
+          "series": "Gadget and the Gadgetinis",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · five episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=J5qUarVTggM",
+            "report": "docs/main-ten-fourth-100-story-evidence-2026-11-22.json",
+            "method": "Primary caption story-span review across all six existing Gadgetinis collections and three existing singles. Commish two-episode count comes from explicit publisher title. Span indices are within uploads, not invented canonical numbers."
+          }
         },
         {
           "id": "bDmJzIeSCHA",
@@ -25978,7 +25985,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Gadget and the Gadgetinis"
+          "series": "Gadget and the Gadgetinis",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · four episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=bDmJzIeSCHA",
+            "report": "docs/main-ten-fourth-100-story-evidence-2026-11-22.json",
+            "method": "Primary caption story-span review across all six existing Gadgetinis collections and three existing singles. Commish two-episode count comes from explicit publisher title. Span indices are within uploads, not invented canonical numbers."
+          }
         },
         {
           "id": "m0qOpEzBac8",
@@ -36211,7 +36225,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Gadget and the Gadgetinis"
+          "series": "Gadget and the Gadgetinis",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · four episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=1LuCCQl_T8Y",
+            "report": "docs/main-ten-fourth-100-story-evidence-2026-11-22.json",
+            "method": "Primary caption story-span review across all six existing Gadgetinis collections and three existing singles. Commish two-episode count comes from explicit publisher title. Span indices are within uploads, not invented canonical numbers."
+          }
         },
         {
           "id": "dQpJoKq67Rk",
@@ -36289,7 +36310,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Gadget and the Gadgetinis"
+          "series": "Gadget and the Gadgetinis",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · five episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=ZynpSxDhfoo",
+            "report": "docs/main-ten-fourth-100-story-evidence-2026-11-22.json",
+            "method": "Primary caption story-span review across all six existing Gadgetinis collections and three existing singles. Commish two-episode count comes from explicit publisher title. Span indices are within uploads, not invented canonical numbers."
+          }
         },
         {
           "id": "7XUjOphOv0I",
@@ -36315,7 +36343,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Gadget and the Gadgetinis"
+          "series": "Gadget and the Gadgetinis",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · five episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=7XUjOphOv0I",
+            "report": "docs/main-ten-fourth-100-story-evidence-2026-11-22.json",
+            "method": "Primary caption story-span review across all six existing Gadgetinis collections and three existing singles. Commish two-episode count comes from explicit publisher title. Span indices are within uploads, not invented canonical numbers."
+          }
         },
         {
           "id": "OHYIFjhRBJk",
@@ -36367,7 +36402,14 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Gadget and the Gadgetinis"
+          "series": "Gadget and the Gadgetinis",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Collection · four episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=PqRx6VDOv-U",
+            "report": "docs/main-ten-fourth-100-story-evidence-2026-11-22.json",
+            "method": "Primary caption story-span review across all six existing Gadgetinis collections and three existing singles. Commish two-episode count comes from explicit publisher title. Span indices are within uploads, not invented canonical numbers."
+          }
         },
         {
           "id": "zOCg6RrxjMU",
@@ -48130,7 +48172,15 @@
           "metadataStatus": "Title, runtime and uploader from YouTube public listing",
           "sourceEvidence": "https://www.youtube.com/@WatchCrimeBeatTV/about",
           "classicRerun": true,
-          "series": "The Commish"
+          "series": "The Commish",
+          "uploadTitle": "A Matter of Life or Death | The Commish | S1E5 & S1E6",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=nw9I4rg6esU",
+            "report": "docs/main-ten-fourth-100-story-evidence-2026-11-22.json",
+            "method": "Primary caption story-span review across all six existing Gadgetinis collections and three existing singles. Commish two-episode count comes from explicit publisher title. Span indices are within uploads, not invented canonical numbers."
+          }
         },
         {
           "id": "eA3IjCHUT_o",
