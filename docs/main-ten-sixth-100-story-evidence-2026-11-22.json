@@ -1,0 +1,624 @@
+{
+  "date": "2026-11-22",
+  "newContentAdded": 0,
+  "newMainIds": [
+    "ejoreiS18oI",
+    "gPvzWlUZy7s",
+    "mU-Rni2bthk",
+    "oRhz2Rlhl8E",
+    "uWbmO32XzFo",
+    "umhDLP8qH0c",
+    "y-9mti83ypw",
+    "Tque6TgG2hM",
+    "m_e24iOUrKw",
+    "pY7DLGJ6SBA",
+    "ejOXlx3Ja_8",
+    "lPWufUclH8Q",
+    "ldFpSHAYQNI",
+    "vgOuxM9FojY",
+    "xlmiNQFktD0",
+    "j2edwe7JKDs",
+    "Cl2Fao763ms",
+    "GdGiAiFSulo",
+    "IaECYYvuwso",
+    "ZtEzrcmFAtY",
+    "yJeOSmWGyRU",
+    "zqOYGVxYraU",
+    "rwbxGtcU8SI",
+    "FZ8H8H7uLjc",
+    "btGbsojUVu0",
+    "eoZ6p_YkHx4",
+    "fRj98P0Zg0k",
+    "gaP4VgdmvRc",
+    "iesMh9Qg9C4",
+    "lFLz1lTGFM8",
+    "kHSgRIhGw8E",
+    "oIYI7fW9MHY",
+    "rlTUVX-a2Eg",
+    "u_MVPIdHJiE",
+    "6T8AERZfYQs",
+    "GoS1DUvg2iA",
+    "PjOTzc1DzA0",
+    "Vb_bXq5nG94",
+    "nYHAXQs7dlA",
+    "qMdrCFMvSso",
+    "TcifLBgj4mM",
+    "eG6FsCTasLA",
+    "p5lBTpncsXY",
+    "qa1w52iO_2g",
+    "1-c2BoDAfhg",
+    "23dt_15NAKg",
+    "Do8Afoxc41Q",
+    "Dsa3N1WHpF4",
+    "I84INjBDr6I",
+    "KoYibOKa-cw",
+    "3D9aHXiA0MY",
+    "8FGu-ESsgmg",
+    "9IivvFo70sY",
+    "B6v3j91E2Go",
+    "DqjrLvmJjOo",
+    "G14H1c0XK1A",
+    "IXUGkn83kdk",
+    "NlQ1QwzTpuY",
+    "PBjAxscGEDA",
+    "QE0cVvrnUE4",
+    "rX1fVl1PVM0",
+    "tLQEv_2DrVw",
+    "x9NpXF7GLME",
+    "y9agSS0HPss",
+    "r-rh-wmTxEQ",
+    "rZR07kFJieU",
+    "sMzfrFnBDH4",
+    "s_8LBU-Ua5M",
+    "yZwdg4muE-k",
+    "13K5yktj7W0",
+    "6W6-LTZthAM",
+    "9lVhomdoiE8",
+    "BIcywx_ExXg",
+    "IP3Qv8eyGDg",
+    "JMPwj3u4ZTA",
+    "JUuP75RVZDI",
+    "JdXCoxkOdwQ",
+    "K4aud_SpFDQ",
+    "Kl5X3icOVvw",
+    "KvJmSrErm20",
+    "LeIVNKnWz7o",
+    "NJbzIftLLmU",
+    "ODrV0dfQcNs",
+    "QDwd4pMYyuo",
+    "D7IXiXxENEA",
+    "DD5UKQggXTc",
+    "VEH3u2Qz4fc",
+    "XJKkZXvSvrM",
+    "akT0wxv9ON8",
+    "cL_qGMfbtAk",
+    "dkHJKakHMpo",
+    "dwnX_0zEGgw",
+    "hiOfQ8dRKbE",
+    "iJ-ttWoA57w",
+    "wPUQdr7Bx6c",
+    "7PS5sqMjwZA",
+    "7cWsoYYcN7M",
+    "8iuueI5SOPw",
+    "B1cUfuC5SRk",
+    "B6B2u9OF1nk"
+  ],
+  "successfulMetadataIds": [
+    "gPvzWlUZy7s",
+    "ejoreiS18oI",
+    "mU-Rni2bthk",
+    "uWbmO32XzFo",
+    "oRhz2Rlhl8E",
+    "umhDLP8qH0c",
+    "Tque6TgG2hM",
+    "pY7DLGJ6SBA",
+    "m_e24iOUrKw",
+    "y-9mti83ypw",
+    "ejOXlx3Ja_8",
+    "ldFpSHAYQNI",
+    "vgOuxM9FojY",
+    "lPWufUclH8Q",
+    "xlmiNQFktD0",
+    "Cl2Fao763ms",
+    "j2edwe7JKDs",
+    "GdGiAiFSulo",
+    "IaECYYvuwso",
+    "ZtEzrcmFAtY",
+    "yJeOSmWGyRU",
+    "zqOYGVxYraU",
+    "rwbxGtcU8SI",
+    "FZ8H8H7uLjc",
+    "eoZ6p_YkHx4",
+    "btGbsojUVu0",
+    "fRj98P0Zg0k",
+    "gaP4VgdmvRc",
+    "iesMh9Qg9C4",
+    "lFLz1lTGFM8",
+    "kHSgRIhGw8E",
+    "oIYI7fW9MHY",
+    "rlTUVX-a2Eg",
+    "u_MVPIdHJiE",
+    "6T8AERZfYQs",
+    "GoS1DUvg2iA",
+    "Vb_bXq5nG94",
+    "PjOTzc1DzA0",
+    "nYHAXQs7dlA",
+    "TcifLBgj4mM",
+    "eG6FsCTasLA",
+    "p5lBTpncsXY",
+    "qMdrCFMvSso",
+    "qa1w52iO_2g",
+    "1-c2BoDAfhg",
+    "23dt_15NAKg",
+    "Do8Afoxc41Q",
+    "Dsa3N1WHpF4",
+    "I84INjBDr6I",
+    "KoYibOKa-cw",
+    "3D9aHXiA0MY",
+    "8FGu-ESsgmg",
+    "9IivvFo70sY",
+    "B6v3j91E2Go",
+    "DqjrLvmJjOo",
+    "G14H1c0XK1A",
+    "IXUGkn83kdk",
+    "NlQ1QwzTpuY",
+    "PBjAxscGEDA",
+    "QE0cVvrnUE4",
+    "rX1fVl1PVM0",
+    "tLQEv_2DrVw",
+    "x9NpXF7GLME",
+    "y9agSS0HPss",
+    "r-rh-wmTxEQ",
+    "rZR07kFJieU",
+    "sMzfrFnBDH4",
+    "s_8LBU-Ua5M",
+    "yZwdg4muE-k",
+    "6W6-LTZthAM",
+    "13K5yktj7W0",
+    "9lVhomdoiE8",
+    "BIcywx_ExXg",
+    "IP3Qv8eyGDg",
+    "JMPwj3u4ZTA",
+    "JUuP75RVZDI",
+    "JdXCoxkOdwQ",
+    "K4aud_SpFDQ",
+    "Kl5X3icOVvw",
+    "KvJmSrErm20",
+    "LeIVNKnWz7o",
+    "NJbzIftLLmU",
+    "ODrV0dfQcNs",
+    "D7IXiXxENEA",
+    "DD5UKQggXTc",
+    "QDwd4pMYyuo",
+    "VEH3u2Qz4fc",
+    "akT0wxv9ON8",
+    "XJKkZXvSvrM",
+    "dwnX_0zEGgw",
+    "cL_qGMfbtAk",
+    "dkHJKakHMpo",
+    "hiOfQ8dRKbE",
+    "iJ-ttWoA57w",
+    "wPUQdr7Bx6c",
+    "7PS5sqMjwZA",
+    "7cWsoYYcN7M",
+    "8iuueI5SOPw",
+    "B1cUfuC5SRk",
+    "B6B2u9OF1nk",
+    "1LIwCOgkDjY",
+    "wMTrHeYfZh8",
+    "y4aWos9o5o4",
+    "cthSOvIfv_I",
+    "TsZ37JIXhTk",
+    "Ue2TS61gMvo",
+    "pIGvh2-6BKQ",
+    "QTgsDADu0V0",
+    "UW8Tzdb6KCI",
+    "CIRNMiOZ8Os",
+    "ogUmyGfcGBw",
+    "9fVsjOKoCjQ",
+    "rrSm2V2tk3M",
+    "Rdc22BDjtyo",
+    "P2Rq1knipkk",
+    "NFSTGS94oBY",
+    "zKT65E0_0Gc"
+  ],
+  "newRetirements": [
+    {
+      "id": "QTgsDADu0V0",
+      "reason": "All three story spans match existing retained Gadget Boy collections Ue2TS61gMvo and pIGvh2-6BKQ through opening and closing dialogue; exact caption windows and auto-caption differences documented in sixth quality report. Common opening theme also retained. Original source preserved for recovery.",
+      "scheduleUntilWeek": "2026-11-24",
+      "retainedStorySources": [
+        "Ue2TS61gMvo",
+        "pIGvh2-6BKQ"
+      ]
+    }
+  ],
+  "gadgetBoyReview": {
+    "captionSourcesReviewed": [
+      "pIGvh2-6BKQ",
+      "Ue2TS61gMvo",
+      "TsZ37JIXhTk",
+      "1LIwCOgkDjY",
+      "cthSOvIfv_I",
+      "y4aWos9o5o4",
+      "QTgsDADu0V0",
+      "wMTrHeYfZh8",
+      "UW8Tzdb6KCI"
+    ],
+    "remainingCaptionSources": [],
+    "existingSinglesFound": 0,
+    "comparison": {
+      "sources": [
+        {
+          "id": "pIGvh2-6BKQ",
+          "captionEndSeconds": 3744,
+          "reviewSpans": 3,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        },
+        {
+          "id": "Ue2TS61gMvo",
+          "captionEndSeconds": 3776,
+          "reviewSpans": 3,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        },
+        {
+          "id": "TsZ37JIXhTk",
+          "captionEndSeconds": 3791,
+          "reviewSpans": 3,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        },
+        {
+          "id": "1LIwCOgkDjY",
+          "captionEndSeconds": 3741,
+          "reviewSpans": 3,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        },
+        {
+          "id": "cthSOvIfv_I",
+          "captionEndSeconds": 3743,
+          "reviewSpans": 3,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        },
+        {
+          "id": "y4aWos9o5o4",
+          "captionEndSeconds": 3741,
+          "reviewSpans": 3,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        },
+        {
+          "id": "QTgsDADu0V0",
+          "captionEndSeconds": 3741,
+          "reviewSpans": 3,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        },
+        {
+          "id": "wMTrHeYfZh8",
+          "captionEndSeconds": 4968,
+          "reviewSpans": 4,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        },
+        {
+          "id": "UW8Tzdb6KCI",
+          "captionEndSeconds": 3768,
+          "reviewSpans": 3,
+          "boundaryBasis": "equal-duration triage windows; not canonical episode boundaries"
+        }
+      ],
+      "matches": [
+        {
+          "first": "pIGvh2-6BKQ:2",
+          "second": "QTgsDADu0V0:2",
+          "similarity": 0.87142,
+          "longestExactWordRun": 137,
+          "shingleContainment": 0.67196,
+          "ranges": [
+            [
+              1250,
+              2501
+            ],
+            [
+              1247,
+              2496
+            ]
+          ]
+        },
+        {
+          "first": "Ue2TS61gMvo:1",
+          "second": "UW8Tzdb6KCI:1",
+          "similarity": 0.84857,
+          "longestExactWordRun": 36,
+          "shingleContainment": 0.53629,
+          "ranges": [
+            [
+              0,
+              1262
+            ],
+            [
+              0,
+              1258
+            ]
+          ]
+        },
+        {
+          "first": "Ue2TS61gMvo:2",
+          "second": "QTgsDADu0V0:3",
+          "similarity": 0.7959,
+          "longestExactWordRun": 84,
+          "shingleContainment": 0.60569,
+          "ranges": [
+            [
+              1261,
+              2524
+            ],
+            [
+              2495,
+              3743
+            ]
+          ]
+        },
+        {
+          "first": "Ue2TS61gMvo:3",
+          "second": "QTgsDADu0V0:1",
+          "similarity": 0.86639,
+          "longestExactWordRun": 91,
+          "shingleContainment": 0.69285,
+          "ranges": [
+            [
+              2523,
+              3785
+            ],
+            [
+              0,
+              1248
+            ]
+          ]
+        },
+        {
+          "first": "TsZ37JIXhTk:3",
+          "second": "cthSOvIfv_I:2",
+          "similarity": 0.89122,
+          "longestExactWordRun": 90,
+          "shingleContainment": 0.74042,
+          "ranges": [
+            [
+              2530,
+              3796
+            ],
+            [
+              1248,
+              2498
+            ]
+          ]
+        },
+        {
+          "first": "TsZ37JIXhTk:3",
+          "second": "UW8Tzdb6KCI:3",
+          "similarity": 0.8561,
+          "longestExactWordRun": 49,
+          "shingleContainment": 0.56859,
+          "ranges": [
+            [
+              2530,
+              3796
+            ],
+            [
+              2514,
+              3772
+            ]
+          ]
+        },
+        {
+          "first": "cthSOvIfv_I:2",
+          "second": "UW8Tzdb6KCI:3",
+          "similarity": 0.82593,
+          "longestExactWordRun": 43,
+          "shingleContainment": 0.53376,
+          "ranges": [
+            [
+              1248,
+              2498
+            ],
+            [
+              2514,
+              3772
+            ]
+          ]
+        },
+        {
+          "first": "y4aWos9o5o4:1",
+          "second": "wMTrHeYfZh8:2",
+          "similarity": 0.85612,
+          "longestExactWordRun": 92,
+          "shingleContainment": 0.68395,
+          "ranges": [
+            [
+              0,
+              1249
+            ],
+            [
+              1242,
+              2486
+            ]
+          ]
+        },
+        {
+          "first": "y4aWos9o5o4:2",
+          "second": "wMTrHeYfZh8:4",
+          "similarity": 0.87752,
+          "longestExactWordRun": 93,
+          "shingleContainment": 0.71768,
+          "ranges": [
+            [
+              1248,
+              2496
+            ],
+            [
+              3728,
+              4971
+            ]
+          ]
+        }
+      ]
+    },
+    "exactRetiredStoryMatches": [
+      {
+        "source": "QTgsDADu0V0",
+        "retained": "Ue2TS61gMvo",
+        "ranges": [
+          [
+            67,
+            1293
+          ],
+          [
+            2558,
+            3785
+          ]
+        ],
+        "similarity": 0.903140670361573,
+        "longestExactWordRun": 91,
+        "matchedFirst": [
+          67,
+          2558
+        ],
+        "matchedLast": [
+          1283,
+          3774
+        ]
+      },
+      {
+        "source": "QTgsDADu0V0",
+        "retained": "pIGvh2-6BKQ",
+        "ranges": [
+          [
+            1293,
+            2523
+          ],
+          [
+            1296,
+            2525
+          ]
+        ],
+        "similarity": 0.8951566951566952,
+        "longestExactWordRun": 137,
+        "matchedFirst": [
+          1294,
+          1297
+        ],
+        "matchedLast": [
+          2514,
+          2516
+        ]
+      },
+      {
+        "source": "QTgsDADu0V0",
+        "retained": "Ue2TS61gMvo",
+        "ranges": [
+          [
+            2523,
+            3743
+          ],
+          [
+            1333,
+            2558
+          ]
+        ],
+        "similarity": 0.8421052631578947,
+        "longestExactWordRun": 84,
+        "matchedFirst": [
+          2523,
+          1333
+        ],
+        "matchedLast": [
+          3737,
+          2549
+        ]
+      }
+    ],
+    "retiredDurationSeconds": 3742,
+    "boundaries": "Reviewed actual dialogue transitions, not equal-length thirds; one common 67-second opening theme remains in retained Toyland source. Source windows are story positions, not canonical episode numbers.",
+    "limits": "84.2–90.3% auto-caption agreement, long exact dialogue runs and aligned opening/closing dialogue identify these three story duplicates. Caption transcription differs; not a frame-for-frame or uncut-edition certification."
+  },
+  "mpaaReview": {
+    "existingSinglesCheckedFirst": [
+      {
+        "id": "ogUmyGfcGBw",
+        "captionReview": "captured",
+        "captionEndSeconds": 1252,
+        "matches": []
+      },
+      {
+        "id": "CIRNMiOZ8Os",
+        "captionReview": "captured",
+        "captionEndSeconds": 1250,
+        "matches": []
+      },
+      {
+        "id": "rrSm2V2tk3M",
+        "captionReview": "captured",
+        "captionEndSeconds": 1248,
+        "matches": []
+      },
+      {
+        "id": "9fVsjOKoCjQ",
+        "captionReview": "unavailable after two exports; no retirement decision"
+      },
+      {
+        "id": "NFSTGS94oBY",
+        "captionReview": "captured",
+        "captionEndSeconds": 1362,
+        "matches": []
+      },
+      {
+        "id": "Rdc22BDjtyo",
+        "captionReview": "captured",
+        "captionEndSeconds": 1180,
+        "matches": []
+      },
+      {
+        "id": "P2Rq1knipkk",
+        "captionReview": "captured",
+        "captionEndSeconds": 1288,
+        "matches": [
+          {
+            "collectionId": "4e7OvP6uceM",
+            "span": 2,
+            "similarity": 0.94714,
+            "longestExactWordRun": 94,
+            "shingleContainment": 0.77495
+          },
+          {
+            "collectionId": "Qc8P_MtLl8E",
+            "span": 2,
+            "similarity": 0.9474,
+            "longestExactWordRun": 87,
+            "shingleContainment": 0.77587
+          }
+        ]
+      },
+      {
+        "id": "zKT65E0_0Gc",
+        "captionReview": "captured",
+        "captionEndSeconds": 1242,
+        "matches": []
+      }
+    ],
+    "remainingGroups": [
+      [
+        "VRdFVV2GKR0",
+        "nuRDiHLjNMw",
+        "bZRtRmvPN1g"
+      ],
+      [
+        "1O3jokn0PJg",
+        "CTgC6zN4ud0"
+      ],
+      [
+        "0Y8OmC2LWkc",
+        "A0GTZuyraFg"
+      ]
+    ],
+    "decision": "Keep all three groups: existing singles do not cover their unique story spans. Love Bug is already retained in Qc8P_MtLl8E; its recoverable retired archive single adds no unique story. April Fools caption gap is inconclusive."
+  },
+  "region": "One Chrome/browser network; egress country not independently verified; no global playback claim",
+  "methods": "100 previously undated main-ten IDs plus 17 existing source rechecks. No new uploads or replacements sought."
+}
