@@ -525,7 +525,7 @@
     },
     {
       "id": "NFSTGS94oBY",
-      "title": "My Parents are Aliens",
+      "title": "My Parents Are Aliens · includes original adverts",
       "series": "My Parents Are Aliens",
       "showKey": "myparentsarealiens",
       "episodeKey": "myparentsarealiens-NFSTGS94oBY",
@@ -561,7 +561,13 @@
       "sourceProvenance": "Fan/archive upload — not an official publisher",
       "minimumOnlineYears": 3,
       "sourceStabilityNote": "Older upload age is longevity evidence, not a guarantee against removal.",
-      "uploadTitle": "My Parents are Aliens"
+      "uploadTitle": "My Parents are Aliens",
+      "formatLabel": "Broadcast recording · original adverts",
+      "curationCheckedAt": "2026-11-22",
+      "curationEvidence": {
+        "url": "https://www.youtube.com/watch?v=NFSTGS94oBY",
+        "method": "Original advert dialogue observed at 21:55–22:42 in primary captions during the previous pass. Supplement-owned record now corrected directly; fan/archive attribution preserved."
+      }
     },
     {
       "id": "Rdc22BDjtyo",
