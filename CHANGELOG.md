@@ -2,6 +2,14 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-22 — Fifth 100 checks and another repeated collection
+
+- Checked another 100 main-channel uploads: 99 passed; one Sarah Jane Adventures upload has a corroborated BBCW Family claim. Eleven additional existing sources passed. Three collection timeouts recovered on retry.
+- Retired the redundant Madeline Halloween collection: all five stories remain in the existing Hotel Riche collection, removing about 1 hour 45 minutes of repeated playback.
+- Checked existing singles first, clarified collection packaging and upserted 110 successful metadata/playback records. No new content or replacements imported.
+- Current public/private fixed schedules remain intact; fixed-channel retirement begins 24 November. 406 tests pass. Four Gadget Boy caption reviews and the known partial overlaps remain under review with unique material preserved.
+- [Exact checks, story matches, limits and remaining coverage](docs/main-ten-fifth-100-2026-11-22.md).
+
 ## 2026-11-22 — Fourth 100 checks, private source and repeated collections
 
 - Published the previous cleanup and verified all 19 changed live site assets. Its consolidated MPAA double bill plays in the app and continues behind Guide.
