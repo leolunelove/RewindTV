@@ -29,7 +29,15 @@
           "family": true,
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=VRdFVV2GKR0",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+          }
         },
         {
           "id": "1O3jokn0PJg",
@@ -55,8 +63,9 @@
           "formatLabel": "Double bill · two stories",
           "curationEvidence": {
             "url": "https://www.youtube.com/watch?v=1O3jokn0PJg",
-            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
-            "note": "Two distinct stories, not a loop of one episode."
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
           }
         },
         {
@@ -83,8 +92,9 @@
           "formatLabel": "Double bill · two stories",
           "curationEvidence": {
             "url": "https://www.youtube.com/watch?v=0Y8OmC2LWkc",
-            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
-            "note": "Two distinct stories, not a loop of one episode."
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
           }
         },
         {
@@ -491,8 +501,9 @@
           "formatLabel": "Double bill · two stories",
           "curationEvidence": {
             "url": "https://www.youtube.com/watch?v=WjclQp9LFzU",
-            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
-            "note": "Two distinct stories, not a loop of one episode."
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
           }
         },
         {
@@ -508,7 +519,7 @@
           "kind": "full episode",
           "duration": 2501,
           "year": 2005,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "playing",
           "addedAt": "2026-10-16T11:13:32.150502+00:00",
           "notes": "Needs source, year, category and embed check before scheduling.",
@@ -521,9 +532,16 @@
           "formatLabel": "Double bill · two stories",
           "curationEvidence": {
             "url": "https://www.youtube.com/watch?v=4e7OvP6uceM",
-            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
-            "note": "Hot Gossip and Becky the Freak share one story span, but each also has unique content. Retain both until complete non-overlapping sources are verified."
-          }
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Opening and closing dialogue of both story spans align with retained sources FyPFO0Yf2d0, Qc8P_MtLl8E. Current fixed schedule retained until 24 November."
+          },
+          "scheduleUntilWeek": "2026-11-24",
+          "disabledReason": "Both story spans already retained in verified established official bundles; source preserved for recovery.",
+          "retainedStorySources": [
+            "FyPFO0Yf2d0",
+            "Qc8P_MtLl8E"
+          ]
         },
         {
           "id": "5WvUdLSu5b8",
@@ -543,7 +561,16 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "Fools of a Feather | My Parents Are Aliens | Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=5WvUdLSu5b8",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+          }
         },
         {
           "id": "ogUmyGfcGBw",
@@ -567,7 +594,7 @@
         },
         {
           "id": "FyPFO0Yf2d0",
-          "title": "Becky the Freak",
+          "title": "Becky the Freak + Hot Gossip",
           "uploadTitle": "Becky the Freak 🤪 My Parents Are Aliens | Kids Telly",
           "uploader": "Kids Telly",
           "uploaderUrl": "https://www.youtube.com/@KidsTellyITVS",
@@ -591,8 +618,9 @@
           "formatLabel": "Double bill · two stories",
           "curationEvidence": {
             "url": "https://www.youtube.com/watch?v=FyPFO0Yf2d0",
-            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
-            "note": "Hot Gossip and Becky the Freak share one story span, but each also has unique content. Retain both until complete non-overlapping sources are verified."
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Retained source contains Becky the Freak, followed by the Hot Gossip story. The redundant Hot Gossip bundle is retired without losing either of its story spans."
           }
         },
         {
@@ -608,12 +636,27 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "There's A New Girl on Town But She's Not What She Seems | My Parents Are Aliens | Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=P2rpoQr8-hk",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Opening and closing dialogue of both story spans align with retained sources 5WvUdLSu5b8, 0Y8OmC2LWkc. Current fixed schedule retained until 24 November."
+          },
+          "scheduleUntilWeek": "2026-11-24",
+          "disabledReason": "Both story spans already retained in verified established official bundles; source preserved for recovery.",
+          "retainedStorySources": [
+            "5WvUdLSu5b8",
+            "0Y8OmC2LWkc"
+          ]
         },
         {
           "id": "CIRNMiOZ8Os",
@@ -656,7 +699,15 @@
           "family": true,
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=nuRDiHLjNMw",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+          }
         },
         {
           "id": "bZRtRmvPN1g",
@@ -676,7 +727,16 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "You're Going to Grow Gills – Or A Mermaid Tail | My Parents Are Aliens | Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=bZRtRmvPN1g",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+          }
         },
         {
           "id": "4SD7Lxo8tdg",
@@ -699,7 +759,15 @@
           "family": true,
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=4SD7Lxo8tdg",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+          }
         },
         {
           "id": "Qc8P_MtLl8E",
@@ -722,7 +790,15 @@
           "family": true,
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=Qc8P_MtLl8E",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+          }
         },
         {
           "id": "rrSm2V2tk3M",
@@ -762,7 +838,16 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "That Girl Has a Serious Punch - Million Dollar Harry | My Parents Are Aliens | Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=CTgC6zN4ud0",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+          }
         },
         {
           "id": "9RSCRLSHhKw",
@@ -777,12 +862,27 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "The Chocolate Dictatorship | My Parents Are Aliens | Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=9RSCRLSHhKw",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Opening and closing dialogue of both story spans align with retained sources 4SD7Lxo8tdg, WjclQp9LFzU. Current fixed schedule retained until 24 November."
+          },
+          "scheduleUntilWeek": "2026-11-24",
+          "disabledReason": "Both story spans already retained in verified established official bundles; source preserved for recovery.",
+          "retainedStorySources": [
+            "4SD7Lxo8tdg",
+            "WjclQp9LFzU"
+          ]
         },
         {
           "id": "A0GTZuyraFg",
@@ -802,7 +902,16 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "Hotel Sophie A Hot and Cold Nightmare | My Parents Are Aliens | Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=A0GTZuyraFg",
+            "method": "Two distinct complete-length story spans in primary English captions. Cross-upload alignment maps overlaps without inventing canonical episode numbers.",
+            "report": "docs/main-ten-second-100-story-evidence-2026-11-22.json",
+            "note": "Partially overlapping bundles with unique stories remain retained; no claim that all MPAA is now repeat-free."
+          }
         },
         {
           "id": "oNQjuTNIX7c",
@@ -33992,7 +34101,15 @@
           "doubleBill": true,
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "Beyblade V-Force"
+          "series": "Beyblade V-Force",
+          "uploadTitle": "BEYBLADE VFORCE | Ep.19 Their Own Private Battles | Ep.20 The Power Half Hour!!",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=11uH-YPaCkk",
+            "method": "Publisher title explicitly identifies two full episodes; runtime and actual start/near-end playback agree.",
+            "note": "Both episode names and publisher numbers remain in the original upload title; no canonical episode order invented."
+          }
         },
         {
           "id": "x88nz0dqxzU",
@@ -47259,7 +47376,15 @@
           "metadataStatus": "Title, runtime and uploader from YouTube public listing",
           "sourceEvidence": "https://www.youtube.com/@WatchCrimeBeatTV/about",
           "classicRerun": true,
-          "series": "Renegade"
+          "series": "Renegade",
+          "uploadTitle": "Renegade Double Feature | Final Judgment + La Mala Sombra (Full Episodes)",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=kNRMo1qEPhw",
+            "method": "Publisher title explicitly identifies two full episodes; runtime and actual start/near-end playback agree.",
+            "note": "Both episode names and publisher numbers remain in the original upload title; no canonical episode order invented."
+          }
         },
         {
           "id": "qq2egmDIZwU",
@@ -47439,7 +47564,15 @@
           "metadataStatus": "Title, runtime and uploader from YouTube public listing",
           "sourceEvidence": "https://www.youtube.com/@WatchCrimeBeatTV/about",
           "classicRerun": true,
-          "series": "Renegade"
+          "series": "Renegade",
+          "uploadTitle": "Renegade Season 2 Double Feature | Honor Bound + Hard Rider (Full Episodes)",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two episodes",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=RR7KPMLluE8",
+            "method": "Publisher title explicitly identifies two full episodes; runtime and actual start/near-end playback agree.",
+            "note": "Both episode names and publisher numbers remain in the original upload title; no canonical episode order invented."
+          }
         },
         {
           "id": "CG5pFADG7Vs",

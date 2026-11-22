@@ -1,0 +1,3856 @@
+{
+  "version": 1,
+  "revision": "main-ten-second-100-2026-11-22",
+  "videos": [],
+  "channels": [],
+  "assignments": {},
+  "exclusions": [],
+  "updates": [
+    {
+      "id": "4SD7Lxo8tdg",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:28.130142+00:00",
+        "checkedAt": "2026-11-22T11:24:20.183Z",
+        "uploadDate": "2026-09-11",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:28.130142+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:20.183Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2567.321,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "Qc8P_MtLl8E",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:29.733123+00:00",
+        "checkedAt": "2026-11-22T11:24:20.449Z",
+        "uploadDate": "2026-10-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:29.733123+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:20.449Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2507.201,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "nuRDiHLjNMw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:31.728222+00:00",
+        "checkedAt": "2026-11-22T11:24:19.954Z",
+        "uploadDate": "2026-09-30",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:31.728222+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:19.954Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2503,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "5WvUdLSu5b8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:33.526819+00:00",
+        "checkedAt": "2026-11-22T11:24:24.714Z",
+        "uploadDate": "2026-08-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:33.526819+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:24.714Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2508,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "9RSCRLSHhKw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:35.045007+00:00",
+        "checkedAt": "2026-11-22T11:24:25.188Z",
+        "uploadDate": "2026-08-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:35.045007+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:25.188Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2537.281,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "A0GTZuyraFg",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:36.684828+00:00",
+        "checkedAt": "2026-11-22T11:24:26.205Z",
+        "uploadDate": "2026-06-11",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:36.684828+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:26.205Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2518.181,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "CTgC6zN4ud0",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:38.305208+00:00",
+        "checkedAt": "2026-11-22T11:24:30.472Z",
+        "uploadDate": "2026-07-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:38.305208+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:30.472Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2502.821,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "P2rpoQr8-hk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:39.863945+00:00",
+        "checkedAt": "2026-11-22T11:24:31.444Z",
+        "uploadDate": "2026-06-30",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:39.863945+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:31.444Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2515.381,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "bZRtRmvPN1g",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:41.931254+00:00",
+        "checkedAt": "2026-11-22T11:24:31.709Z",
+        "uploadDate": "2026-07-15",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:41.931254+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:31.709Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2491.021,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "ogUmyGfcGBw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:43.482039+00:00",
+        "checkedAt": "2026-11-22T11:24:35.997Z",
+        "uploadDate": "2026-05-20",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:43.482039+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:35.997Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1256,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "jF9yoGhTA6w",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:45.630166+00:00",
+        "checkedAt": "2026-11-22T11:24:35.951Z",
+        "uploadDate": "2015-10-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:24:45.630166+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:35.951Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1298.901,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "0tHQmLv6mpc",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:47.223706+00:00",
+        "checkedAt": "2026-11-22T11:24:36.465Z",
+        "uploadDate": "2017-12-21",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AE",
+            "AF",
+            "AO",
+            "AU",
+            "AZ",
+            "BD",
+            "BF",
+            "BH",
+            "BI",
+            "BJ",
+            "BN",
+            "BT",
+            "BW",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CM",
+            "CN",
+            "CV",
+            "DJ",
+            "DZ",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "GA",
+            "GH",
+            "GM",
+            "GN",
+            "GQ",
+            "GW",
+            "HK",
+            "ID",
+            "IL",
+            "IN",
+            "IR",
+            "JO",
+            "JP",
+            "KE",
+            "KG",
+            "KH",
+            "KM",
+            "KP",
+            "KR",
+            "KW",
+            "KZ",
+            "LA",
+            "LB",
+            "LK",
+            "LR",
+            "LS",
+            "LY",
+            "MA",
+            "MG",
+            "ML",
+            "MM",
+            "MN",
+            "MR",
+            "MU",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "NP",
+            "NZ",
+            "OM",
+            "PH",
+            "PK",
+            "PS",
+            "QA",
+            "RE",
+            "RW",
+            "SA",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SL",
+            "SN",
+            "SO",
+            "SS",
+            "ST",
+            "SY",
+            "SZ",
+            "TD",
+            "TG",
+            "TH",
+            "TJ",
+            "TM",
+            "TN",
+            "TW",
+            "TZ",
+            "UG",
+            "UZ",
+            "VN",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 146,
+          "checkedAt": "2026-11-22T11:24:47.223706+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:36.465Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1564.101,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "MXMMYkKbAdE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:49.139530+00:00",
+        "checkedAt": "2026-11-22T11:24:42.218Z",
+        "uploadDate": "2017-10-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AF",
+            "AU",
+            "AZ",
+            "BD",
+            "BN",
+            "BT",
+            "CN",
+            "HK",
+            "ID",
+            "IN",
+            "JP",
+            "KG",
+            "KH",
+            "KP",
+            "KR",
+            "KZ",
+            "LA",
+            "LK",
+            "MM",
+            "MN",
+            "MY",
+            "NP",
+            "NZ",
+            "PH",
+            "PK",
+            "SG",
+            "TH",
+            "TJ",
+            "TM",
+            "TW",
+            "UZ",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 217,
+          "checkedAt": "2026-11-22T11:24:49.139530+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:42.218Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1567,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "RqllcCkkwdo",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:50.831161+00:00",
+        "checkedAt": "2026-11-22T11:24:42.752Z",
+        "uploadDate": "2017-10-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AF",
+            "AU",
+            "AZ",
+            "BD",
+            "BN",
+            "BT",
+            "CN",
+            "HK",
+            "ID",
+            "IN",
+            "JP",
+            "KG",
+            "KH",
+            "KP",
+            "KR",
+            "KZ",
+            "LA",
+            "LK",
+            "MM",
+            "MN",
+            "MY",
+            "NP",
+            "NZ",
+            "PH",
+            "PK",
+            "SG",
+            "TH",
+            "TJ",
+            "TM",
+            "TW",
+            "UZ",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 217,
+          "checkedAt": "2026-11-22T11:24:50.831161+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:42.752Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1566,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "c3CLFROu18I",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:52.385431+00:00",
+        "checkedAt": "2026-11-22T11:24:42.471Z",
+        "uploadDate": "2017-10-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AF",
+            "AU",
+            "AZ",
+            "BD",
+            "BN",
+            "BT",
+            "CN",
+            "HK",
+            "ID",
+            "IN",
+            "JP",
+            "KG",
+            "KH",
+            "KP",
+            "KR",
+            "KZ",
+            "LA",
+            "LK",
+            "MM",
+            "MN",
+            "MY",
+            "NP",
+            "NZ",
+            "PH",
+            "PK",
+            "SG",
+            "TH",
+            "TJ",
+            "TM",
+            "TW",
+            "UZ",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 217,
+          "checkedAt": "2026-11-22T11:24:52.385431+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:42.471Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1567,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "l2meDxtvdJU",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:53.974478+00:00",
+        "checkedAt": "2026-11-22T11:24:45.977Z",
+        "uploadDate": "2017-12-15",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AE",
+            "AF",
+            "AO",
+            "AU",
+            "AZ",
+            "BD",
+            "BF",
+            "BH",
+            "BI",
+            "BJ",
+            "BN",
+            "BT",
+            "BW",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CM",
+            "CN",
+            "CV",
+            "DJ",
+            "DZ",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "GA",
+            "GH",
+            "GM",
+            "GN",
+            "GQ",
+            "GW",
+            "HK",
+            "ID",
+            "IL",
+            "IN",
+            "IR",
+            "JO",
+            "JP",
+            "KE",
+            "KG",
+            "KH",
+            "KM",
+            "KP",
+            "KR",
+            "KW",
+            "KZ",
+            "LA",
+            "LB",
+            "LK",
+            "LR",
+            "LS",
+            "LY",
+            "MA",
+            "MG",
+            "ML",
+            "MM",
+            "MN",
+            "MR",
+            "MU",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "NP",
+            "NZ",
+            "OM",
+            "PH",
+            "PK",
+            "PS",
+            "QA",
+            "RE",
+            "RW",
+            "SA",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SL",
+            "SN",
+            "SO",
+            "SS",
+            "ST",
+            "SY",
+            "SZ",
+            "TD",
+            "TG",
+            "TH",
+            "TJ",
+            "TM",
+            "TN",
+            "TW",
+            "TZ",
+            "UG",
+            "UZ",
+            "VN",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 146,
+          "checkedAt": "2026-11-22T11:24:53.974478+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:45.977Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1564.769522,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "vvFJhF7SBd8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:55.650630+00:00",
+        "checkedAt": "2026-11-22T11:24:46.726Z",
+        "uploadDate": "2017-12-29",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AE",
+            "AF",
+            "AO",
+            "AU",
+            "AZ",
+            "BD",
+            "BF",
+            "BH",
+            "BI",
+            "BJ",
+            "BN",
+            "BT",
+            "BW",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CM",
+            "CN",
+            "CV",
+            "DJ",
+            "DZ",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "GA",
+            "GH",
+            "GM",
+            "GN",
+            "GQ",
+            "GW",
+            "HK",
+            "ID",
+            "IL",
+            "IN",
+            "IR",
+            "JO",
+            "JP",
+            "KE",
+            "KG",
+            "KH",
+            "KM",
+            "KP",
+            "KR",
+            "KW",
+            "KZ",
+            "LA",
+            "LB",
+            "LK",
+            "LR",
+            "LS",
+            "LY",
+            "MA",
+            "MG",
+            "ML",
+            "MM",
+            "MN",
+            "MR",
+            "MU",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "NP",
+            "NZ",
+            "OM",
+            "PH",
+            "PK",
+            "PS",
+            "QA",
+            "RE",
+            "RW",
+            "SA",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SL",
+            "SN",
+            "SO",
+            "SS",
+            "ST",
+            "SY",
+            "SZ",
+            "TD",
+            "TG",
+            "TH",
+            "TJ",
+            "TM",
+            "TN",
+            "TW",
+            "TZ",
+            "UG",
+            "UZ",
+            "VN",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 146,
+          "checkedAt": "2026-11-22T11:24:55.650630+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:46.726Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1565,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "wIEYYRIAbm8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:57.267207+00:00",
+        "checkedAt": "2026-11-22T11:24:47.507Z",
+        "uploadDate": "2017-11-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AE",
+            "AF",
+            "AO",
+            "AU",
+            "AZ",
+            "BD",
+            "BF",
+            "BH",
+            "BI",
+            "BJ",
+            "BN",
+            "BT",
+            "BW",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CM",
+            "CN",
+            "CV",
+            "DJ",
+            "DZ",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "GA",
+            "GH",
+            "GM",
+            "GN",
+            "GQ",
+            "GW",
+            "HK",
+            "ID",
+            "IL",
+            "IN",
+            "IR",
+            "JO",
+            "JP",
+            "KE",
+            "KG",
+            "KH",
+            "KM",
+            "KP",
+            "KR",
+            "KW",
+            "KZ",
+            "LA",
+            "LB",
+            "LK",
+            "LR",
+            "LS",
+            "LY",
+            "MA",
+            "MG",
+            "ML",
+            "MM",
+            "MN",
+            "MR",
+            "MU",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "NP",
+            "NZ",
+            "OM",
+            "PH",
+            "PK",
+            "PS",
+            "QA",
+            "RE",
+            "RW",
+            "SA",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SL",
+            "SN",
+            "SO",
+            "SS",
+            "ST",
+            "SY",
+            "SZ",
+            "TD",
+            "TG",
+            "TH",
+            "TJ",
+            "TM",
+            "TN",
+            "TW",
+            "TZ",
+            "UG",
+            "UZ",
+            "VN",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 146,
+          "checkedAt": "2026-11-22T11:24:57.267207+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:47.507Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1566,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "wLTuZvmVHfM",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:24:58.879779+00:00",
+        "checkedAt": "2026-11-22T11:24:50.233Z",
+        "uploadDate": "2017-11-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AE",
+            "AF",
+            "AO",
+            "AU",
+            "AZ",
+            "BD",
+            "BF",
+            "BH",
+            "BI",
+            "BJ",
+            "BN",
+            "BT",
+            "BW",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CM",
+            "CN",
+            "CV",
+            "DJ",
+            "DZ",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "GA",
+            "GH",
+            "GM",
+            "GN",
+            "GQ",
+            "GW",
+            "HK",
+            "ID",
+            "IL",
+            "IN",
+            "IR",
+            "JO",
+            "JP",
+            "KE",
+            "KG",
+            "KH",
+            "KM",
+            "KP",
+            "KR",
+            "KW",
+            "KZ",
+            "LA",
+            "LB",
+            "LK",
+            "LR",
+            "LS",
+            "LY",
+            "MA",
+            "MG",
+            "ML",
+            "MM",
+            "MN",
+            "MR",
+            "MU",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "NP",
+            "NZ",
+            "OM",
+            "PH",
+            "PK",
+            "PS",
+            "QA",
+            "RE",
+            "RW",
+            "SA",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SL",
+            "SN",
+            "SO",
+            "SS",
+            "ST",
+            "SY",
+            "SZ",
+            "TD",
+            "TG",
+            "TH",
+            "TJ",
+            "TM",
+            "TN",
+            "TW",
+            "TZ",
+            "UG",
+            "UZ",
+            "VN",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 146,
+          "checkedAt": "2026-11-22T11:24:58.879779+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:50.233Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1566,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "x_Xkh04ufZw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:00.506795+00:00",
+        "checkedAt": "2026-11-22T11:24:51.231Z",
+        "uploadDate": "2018-01-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AE",
+            "AF",
+            "AO",
+            "AU",
+            "AZ",
+            "BD",
+            "BF",
+            "BH",
+            "BI",
+            "BJ",
+            "BN",
+            "BT",
+            "BW",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CM",
+            "CN",
+            "CV",
+            "DJ",
+            "DZ",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "GA",
+            "GH",
+            "GM",
+            "GN",
+            "GQ",
+            "GW",
+            "HK",
+            "ID",
+            "IL",
+            "IN",
+            "IR",
+            "JO",
+            "JP",
+            "KE",
+            "KG",
+            "KH",
+            "KM",
+            "KP",
+            "KR",
+            "KW",
+            "KZ",
+            "LA",
+            "LB",
+            "LK",
+            "LR",
+            "LS",
+            "LY",
+            "MA",
+            "MG",
+            "ML",
+            "MM",
+            "MN",
+            "MR",
+            "MU",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "NP",
+            "NZ",
+            "OM",
+            "PH",
+            "PK",
+            "PS",
+            "QA",
+            "RE",
+            "RW",
+            "SA",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SL",
+            "SN",
+            "SO",
+            "SS",
+            "ST",
+            "SY",
+            "SZ",
+            "TD",
+            "TG",
+            "TH",
+            "TJ",
+            "TM",
+            "TN",
+            "TW",
+            "TZ",
+            "UG",
+            "UZ",
+            "VN",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 146,
+          "checkedAt": "2026-11-22T11:25:00.506795+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:51.231Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1564.381,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "FDz-xTh9L4Y",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:02.461496+00:00",
+        "checkedAt": "2026-11-22T11:24:52.012Z",
+        "uploadDate": "2019-09-26",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:02.461496+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:52.012Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1109,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "RjGoO__JthQ",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:04.159474+00:00",
+        "checkedAt": "2026-11-22T11:24:54.489Z",
+        "uploadDate": "2019-07-26",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:04.159474+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:54.489Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 3863,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "WddAfUQgDNg",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:05.987453+00:00",
+        "checkedAt": "2026-11-22T11:24:55.989Z",
+        "uploadDate": "2016-12-06",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:05.987453+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:55.989Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 3823,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "twqFuPMLGBE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:07.658046+00:00",
+        "checkedAt": "2026-11-22T11:24:56.270Z",
+        "uploadDate": "2019-05-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:07.658046+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:56.270Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 3768.421,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "we8amlzi-jg",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:09.597217+00:00",
+        "checkedAt": "2026-11-22T11:24:58.496Z",
+        "uploadDate": "2019-06-20",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:09.597217+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:24:58.496Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1308,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "EyeiAhhhj7w",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:11.704226+00:00",
+        "checkedAt": "2026-11-22T11:25:00.245Z",
+        "uploadDate": "2015-08-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:11.704226+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:00.245Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 892,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "aKBfoF8OdFo",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:13.432613+00:00",
+        "checkedAt": "2026-11-22T11:25:03.525Z",
+        "uploadDate": "2014-01-28",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:13.432613+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:03.525Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 910,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "wPqpPscfE5A",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:15.076866+00:00",
+        "checkedAt": "2026-11-22T11:25:03.254Z",
+        "uploadDate": "2026-06-27",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:15.076866+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:03.254Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 4059.981,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "I7fWrM696VI",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:16.719300+00:00",
+        "checkedAt": "2026-11-22T11:25:05.752Z",
+        "uploadDate": "2025-10-30",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:16.719300+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:05.752Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2309,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "LD07vy1GiL0",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:18.351166+00:00",
+        "checkedAt": "2026-11-22T11:25:08.008Z",
+        "uploadDate": "2026-04-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:18.351166+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:08.008Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 3881.821,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "3-gq0HYq5bA",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:20.069787+00:00",
+        "checkedAt": "2026-11-22T11:25:08.038Z",
+        "uploadDate": "2025-09-21",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:20.069787+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:08.038Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1425.941,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "8sWBV_cl2ZI",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:21.780950+00:00",
+        "checkedAt": "2026-11-22T11:25:09.756Z",
+        "uploadDate": "2025-09-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:21.780950+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:09.756Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1353,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "Dp95ecbB0bE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:23.338706+00:00",
+        "checkedAt": "2026-11-22T11:25:26.013Z",
+        "uploadDate": "2026-01-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:23.338706+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:26.013Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1425.881,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "DwETED4gAsk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:25.356308+00:00",
+        "checkedAt": "2026-11-22T11:25:12.544Z",
+        "uploadDate": "2026-01-21",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:25.356308+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:12.544Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1411,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "KFfB_r3swzU",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:27.191127+00:00",
+        "checkedAt": "2026-11-22T11:25:14.262Z",
+        "uploadDate": "2026-01-20",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:27.191127+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:14.262Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1425,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "_eZ0z3RL69c",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:29.019786+00:00",
+        "checkedAt": "2026-11-22T11:25:18.048Z",
+        "uploadDate": "2026-01-22",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:29.019786+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:18.048Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1408,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "jj5_EVbRk_4",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:30.663806+00:00",
+        "checkedAt": "2026-11-22T11:25:19.018Z",
+        "uploadDate": "2018-12-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:30.663806+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:19.018Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1342,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "jtip_UImy5I",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:32.393906+00:00",
+        "checkedAt": "2026-11-22T11:25:22.554Z",
+        "uploadDate": "2026-01-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:32.393906+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:22.554Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1430.941,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "kBFTCMebjU0",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:33.992661+00:00",
+        "checkedAt": "2026-11-22T11:25:23.275Z",
+        "uploadDate": "2026-01-31",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:33.992661+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:23.275Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1494,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "pd2934EHry8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:36.015336+00:00",
+        "checkedAt": "2026-11-22T11:25:26.560Z",
+        "uploadDate": "2026-01-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:36.015336+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:26.560Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1394,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "11uH-YPaCkk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:37.604690+00:00",
+        "checkedAt": "2026-11-22T11:25:27.780Z",
+        "uploadDate": "2024-10-31",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:37.604690+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:27.780Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2633.221,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "-yXSii1Zims",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:39.267451+00:00",
+        "checkedAt": "2026-11-22T11:25:30.519Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:39.267451+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:30.519Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1318,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "147AAVgTu1U",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:41.076073+00:00",
+        "checkedAt": "2026-11-22T11:25:31.315Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:41.076073+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:31.315Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1306.361,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "1w7sD8fYxH8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:42.693792+00:00",
+        "checkedAt": "2026-11-22T11:25:32.036Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AS",
+            "GU",
+            "MH",
+            "MP",
+            "PR",
+            "UM",
+            "US",
+            "VI"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 241,
+          "checkedAt": "2026-11-22T11:25:42.693792+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:32.036Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1304.401,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "2triqAWeoIo",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:44.228958+00:00",
+        "checkedAt": "2026-11-22T11:25:36.277Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:44.228958+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:36.277Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1320.21696,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "6bgA5vLgUUo",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:45.906998+00:00",
+        "checkedAt": "2026-11-22T11:25:37.325Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AS",
+            "GU",
+            "MH",
+            "MP",
+            "PR",
+            "UM",
+            "US",
+            "VI"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 241,
+          "checkedAt": "2026-11-22T11:25:45.906998+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:37.325Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1302.401,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "9rqmDtGhbc4",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:47.579455+00:00",
+        "checkedAt": "2026-11-22T11:25:37.791Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AS",
+            "GU",
+            "MH",
+            "MP",
+            "PR",
+            "UM",
+            "US",
+            "VI"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 241,
+          "checkedAt": "2026-11-22T11:25:47.579455+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:37.791Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1302.4,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "FFUyAul3iXw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:49.613827+00:00",
+        "checkedAt": "2026-11-22T11:25:40.534Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:49.613827+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:40.534Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1318,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "JfB6LsX9ssg",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:51.330796+00:00",
+        "checkedAt": "2026-11-22T11:25:42.330Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:51.330796+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:42.330Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1307.641,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "JlqZR37pKJs",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:53.221506+00:00",
+        "checkedAt": "2026-11-22T11:25:42.296Z",
+        "uploadDate": "2015-06-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:53.221506+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:42.296Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1319.661,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "F8v-_qp6PNk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:54.928074+00:00",
+        "checkedAt": "2026-11-22T11:25:45.540Z",
+        "uploadDate": "2026-10-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "CC",
+            "CX",
+            "NF",
+            "PH",
+            "TF"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 243,
+          "checkedAt": "2026-11-22T11:25:54.928074+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:45.540Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2576.861,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "D9X2BJaXitI",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:56.791797+00:00",
+        "checkedAt": "2026-11-22T11:25:46.805Z",
+        "uploadDate": "2025-03-15",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:25:56.791797+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:46.805Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2686,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "YRB2H7-kJII",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:25:58.790035+00:00",
+        "checkedAt": "2026-11-22T11:25:47.588Z",
+        "uploadDate": "2020-10-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AT",
+            "BD",
+            "CH",
+            "DE",
+            "LI"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 244,
+          "checkedAt": "2026-11-22T11:25:58.790035+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:47.588Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1445.281,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "NmGY5FdxFvY",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:00.484448+00:00",
+        "checkedAt": "2026-11-22T11:25:49.546Z",
+        "uploadDate": "2019-03-13",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:00.484448+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:49.546Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1455,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "_PO6kvPebtE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:02.119109+00:00",
+        "checkedAt": "2026-11-22T11:25:51.060Z",
+        "uploadDate": "2019-03-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:02.119109+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:51.060Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1459.361,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "_acuN43PMs4",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:03.900775+00:00",
+        "checkedAt": "2026-11-22T11:25:52.344Z",
+        "uploadDate": "2019-05-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:03.900775+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:52.344Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1447.481,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "dPxex1geCSY",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:05.978336+00:00",
+        "checkedAt": "2026-11-22T11:25:53.802Z",
+        "uploadDate": "2019-03-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:05.978336+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:53.802Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1447.161,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "uxo3Jq8JeeM",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:07.815457+00:00",
+        "checkedAt": "2026-11-22T11:25:55.565Z",
+        "uploadDate": "2019-03-13",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:07.815457+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:55.565Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1459.161,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "vTPdes31i2w",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:09.421451+00:00",
+        "checkedAt": "2026-11-22T11:25:57.353Z",
+        "uploadDate": "2019-03-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:09.421451+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:57.353Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1459.861,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "2sPtzM0kEAk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:11.244027+00:00",
+        "checkedAt": "2026-11-22T11:25:58.312Z",
+        "uploadDate": "2026-09-27",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "CC",
+            "CX",
+            "NF",
+            "PH",
+            "TF"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 243,
+          "checkedAt": "2026-11-22T11:26:11.244027+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:58.312Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2577,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "L1IjX-faoKk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:13.165218+00:00",
+        "checkedAt": "2026-11-22T11:25:59.821Z",
+        "uploadDate": "2025-03-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "DE"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 247,
+          "checkedAt": "2026-11-22T11:26:13.165218+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:25:59.821Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1361,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "Xs_poAjvZ-o",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:14.717659+00:00",
+        "checkedAt": "2026-11-22T11:26:01.612Z",
+        "uploadDate": "2021-05-20",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "CH",
+            "DE",
+            "GB",
+            "IE",
+            "SE"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 243,
+          "checkedAt": "2026-11-22T11:26:14.717659+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:01.612Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1356,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "lazP183rNvk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:16.577146+00:00",
+        "checkedAt": "2026-11-22T11:26:02.317Z",
+        "uploadDate": "2025-03-06",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "DE"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 247,
+          "checkedAt": "2026-11-22T11:26:16.577146+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:02.317Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1363,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "p27tIbqBN2c",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:18.428275+00:00",
+        "checkedAt": "2026-11-22T11:26:04.082Z",
+        "uploadDate": "2024-09-16",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:18.428275+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:04.082Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1376.841,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "247a7U1JKo8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:20.222598+00:00",
+        "checkedAt": "2026-11-22T11:26:05.873Z",
+        "uploadDate": "2025-11-22",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:20.222598+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:05.873Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 3003,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "Keqy_y4hBdE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:22.014009+00:00",
+        "checkedAt": "2026-11-22T11:26:06.074Z",
+        "uploadDate": "2020-01-11",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:22.014009+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:06.074Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 3000,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "Oi9Kacak4sw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:23.726263+00:00",
+        "checkedAt": "2026-11-22T11:26:08.348Z",
+        "uploadDate": "2020-09-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:23.726263+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:08.348Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 3036,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "QR9gNype9gA",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:25.425245+00:00",
+        "checkedAt": "2026-11-22T11:26:10.133Z",
+        "uploadDate": "2020-09-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:25.425245+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:10.133Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2992.841,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "qGsBua9qvBk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:27.247366+00:00",
+        "checkedAt": "2026-11-22T11:26:10.079Z",
+        "uploadDate": "2020-07-18",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:27.247366+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:10.079Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2995,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "uqjmedy4eMc",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:29.430400+00:00",
+        "checkedAt": "2026-11-22T11:26:13.856Z",
+        "uploadDate": "2025-10-18",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:29.430400+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:13.856Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 3003,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "RR7KPMLluE8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:31.211964+00:00",
+        "checkedAt": "2026-11-22T11:26:14.841Z",
+        "uploadDate": "2025-09-30",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:31.211964+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:14.841Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 5232,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "kNRMo1qEPhw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:33.802642+00:00",
+        "checkedAt": "2026-11-22T11:26:15.391Z",
+        "uploadDate": "2025-09-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:33.802642+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:15.391Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 5136.641,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "1stKwSPB3qk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:35.557394+00:00",
+        "checkedAt": "2026-11-22T11:26:18.122Z",
+        "uploadDate": "2025-05-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:35.557394+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:18.122Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2632,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "BQzaxmbyYJk",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:37.277813+00:00",
+        "checkedAt": "2026-11-22T11:26:19.347Z",
+        "uploadDate": "2025-05-11",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:37.277813+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:19.347Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2634.041,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "POPIlEByV4M",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:39.044544+00:00",
+        "checkedAt": "2026-11-22T11:26:19.898Z",
+        "uploadDate": "2025-03-31",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:39.044544+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:19.898Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2676,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "TW7BD6-23fc",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:40.653635+00:00",
+        "checkedAt": "2026-11-22T11:26:22.632Z",
+        "uploadDate": "2025-05-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:40.653635+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:22.632Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2622.561,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "kc1dnLK1_E8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:42.575248+00:00",
+        "checkedAt": "2026-11-22T11:26:23.856Z",
+        "uploadDate": "2025-04-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:42.575248+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:23.856Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2581.561,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "mElzp5BzhT0",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:44.263895+00:00",
+        "checkedAt": "2026-11-22T11:26:23.903Z",
+        "uploadDate": "2025-05-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:44.263895+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:23.903Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2638,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "pCJQS2ZOdC8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:46.278077+00:00",
+        "checkedAt": "2026-11-22T11:26:27.396Z",
+        "uploadDate": "2025-06-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:46.278077+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:27.396Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2613.181,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "q4r1d4c7rmc",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:48.194823+00:00",
+        "checkedAt": "2026-11-22T11:26:28.618Z",
+        "uploadDate": "2025-04-30",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:48.194823+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:28.618Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2629,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "ppzFgG2K2k4",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:49.791753+00:00",
+        "checkedAt": "2026-11-22T11:26:29.161Z",
+        "uploadDate": "2016-08-17",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:26:49.791753+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:29.161Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1604,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "DXzOIZ3bviQ",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:52.088285+00:00",
+        "checkedAt": "2026-11-22T11:26:31.413Z",
+        "uploadDate": "2019-02-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:26:52.088285+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:31.413Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2469,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "1-9_enMBquw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:53.839022+00:00",
+        "checkedAt": "2026-11-22T11:26:33.127Z",
+        "uploadDate": "2016-09-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:26:53.839022+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:33.127Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1667,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "22SiIDvyJeM",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:55.723643+00:00",
+        "checkedAt": "2026-11-22T11:26:34.167Z",
+        "uploadDate": "2016-11-27",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:26:55.723643+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:34.167Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1495.541,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "2XnIdinwot0",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:57.607226+00:00",
+        "checkedAt": "2026-11-22T11:26:36.440Z",
+        "uploadDate": "2016-11-29",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:26:57.607226+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:36.440Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1481,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "2iNMoQB1Pe8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:26:59.198760+00:00",
+        "checkedAt": "2026-11-22T11:26:37.135Z",
+        "uploadDate": "2016-10-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:26:59.198760+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:37.135Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1617,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "3AHdKAu055M",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:00.938560+00:00",
+        "checkedAt": "2026-11-22T11:26:38.428Z",
+        "uploadDate": "2015-09-30",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:27:00.938560+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:38.428Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1662,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "3q8Zi9480lw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:02.685845+00:00",
+        "checkedAt": "2026-11-22T11:26:40.709Z",
+        "uploadDate": "2016-11-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:27:02.685845+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:40.709Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1492,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "4XxClvPZ1RE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:04.578415+00:00",
+        "checkedAt": "2026-11-22T11:26:41.645Z",
+        "uploadDate": "2016-09-25",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:27:04.578415+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:41.645Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1646.901,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "5U3G61r35Mc",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:06.299874+00:00",
+        "checkedAt": "2026-11-22T11:26:42.697Z",
+        "uploadDate": "2016-08-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T11:27:06.299874+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:42.697Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 1618,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "3VLcLH97eRw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:08.524221+00:00",
+        "checkedAt": "2026-11-22T11:26:45.467Z",
+        "uploadDate": "2011-10-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:08.524221+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:45.467Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 168.021,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "L95ARaw-vu4",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:10.635903+00:00",
+        "checkedAt": "2026-11-22T11:26:45.901Z",
+        "uploadDate": "2012-05-17",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:10.635903+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:45.901Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 66,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "PCtr04cnx5A",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:12.627773+00:00",
+        "checkedAt": "2026-11-22T11:26:47.704Z",
+        "uploadDate": "2011-10-02",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:12.627773+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:47.704Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 502.681,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "npTC6b5-yvM",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:14.506613+00:00",
+        "checkedAt": "2026-11-22T11:26:50.229Z",
+        "uploadDate": "2007-05-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:14.506613+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:50.229Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 121.521,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "nxM1cnphLpw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:16.239188+00:00",
+        "checkedAt": "2026-11-22T11:26:50.159Z",
+        "uploadDate": "2007-05-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:16.239188+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:50.159Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 204,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "5LQOZwZc4Hg",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:17.917395+00:00",
+        "checkedAt": "2026-11-22T11:26:52.462Z",
+        "uploadDate": "2012-11-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:17.917395+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:52.462Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 320.221,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "98BM_66MMCA",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:19.844461+00:00",
+        "checkedAt": "2026-11-22T11:26:54.667Z",
+        "uploadDate": "2012-09-26",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:19.844461+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:54.667Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 257.461,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "CBXqncPisWY",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:21.938537+00:00",
+        "checkedAt": "2026-11-22T11:26:54.737Z",
+        "uploadDate": "2012-03-15",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:21.938537+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:54.737Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 196.261,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "EuzkMYg9XJA",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:23.608238+00:00",
+        "checkedAt": "2026-11-22T11:26:56.719Z",
+        "uploadDate": "2012-03-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:23.608238+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:56.719Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 150,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "F77zqcJX_7w",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:27:25.441686+00:00",
+        "checkedAt": "2026-11-22T11:26:58.936Z",
+        "uploadDate": "2011-02-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:27:25.441686+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:26:58.936Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 232,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "4e7OvP6uceM",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:32:06.189046+00:00",
+        "checkedAt": "2026-11-22T11:31:08.892Z",
+        "uploadDate": "2026-09-02",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:32:06.189046+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:31:08.892Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2501,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "FyPFO0Yf2d0",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:32:07.724231+00:00",
+        "checkedAt": "2026-11-22T11:31:08.919Z",
+        "uploadDate": "2026-09-25",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:32:07.724231+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:31:08.919Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2502,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "0Y8OmC2LWkc",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:36:34.270650+00:00",
+        "checkedAt": "2026-11-22T11:34:51.419Z",
+        "uploadDate": "2026-07-29",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:36:34.270650+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:34:51.419Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2513,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "WjclQp9LFzU",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:36:35.959686+00:00",
+        "checkedAt": "2026-11-22T11:34:50.675Z",
+        "uploadDate": "2026-08-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:36:35.959686+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:34:50.675Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2441,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    },
+    {
+      "id": "VRdFVV2GKR0",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-22T11:36:37.632967+00:00",
+        "checkedAt": "2026-11-22T11:34:50.140Z",
+        "uploadDate": "2026-09-18",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T11:36:37.632967+00:00",
+          "method": "Primary watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T11:34:50.140Z",
+          "origin": "https://tv.leolune.fun",
+          "region": "Browser network egress country not independently verified; no cross-region test",
+          "observedDuration": 2506,
+          "method": "Actual muted clock advancement at start and within final 16 seconds; not full-runtime certification"
+        }
+      }
+    }
+  ]
+}
