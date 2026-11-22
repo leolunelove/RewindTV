@@ -47,7 +47,7 @@ test('the verified individual story replaces overlap without removing any origin
 test('double bills retain both unique story spans and never receive invented constituent episode numbers',()=>{
  const ids=['1O3jokn0PJg','0Y8OmC2LWkc','4e7OvP6uceM','FyPFO0Yf2d0','WjclQp9LFzU'];
  for(const id of ids){const videos=catalogue.channels.flatMap(channel=>channel.videos).filter(video=>video.id===id);assert(videos.length);
-  for(const video of videos){assert.equal(video.formatLabel,'Double bill · two stories');assert.equal(video.enabled,true);
+  for(const video of videos){assert.equal(video.formatLabel,'Double bill · two stories');assert.equal(video.enabled,id!=='4e7OvP6uceM');if(id==='4e7OvP6uceM')assert.equal(video.scheduleUntilWeek,'2026-11-24');
    assert.equal(video.duration,old.get(id).duration);assert.equal(video.episodeNumber,undefined);assert.equal(video.coveredEpisodeNumbers,undefined);assert(video.uploadTitle);}}
 });
 
