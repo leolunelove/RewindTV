@@ -1,4 +1,4 @@
-import {isBrowsable,normalise} from './show-library.mjs?v=20261122quality';
+import {isBrowsable,normalise} from './show-library.mjs?v=20261122quality2';
 
 const releaseYear=video=>{
  const year=Number(video?.year);
