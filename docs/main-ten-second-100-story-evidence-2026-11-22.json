@@ -1,0 +1,478 @@
+{
+  "date": "2026-11-22",
+  "resolution": {
+    "date": "2026-11-22",
+    "retiredIds": [
+      "4e7OvP6uceM",
+      "9RSCRLSHhKw",
+      "P2rpoQr8-hk"
+    ],
+    "retainedIds": [
+      "0Y8OmC2LWkc",
+      "4SD7Lxo8tdg",
+      "5WvUdLSu5b8",
+      "FyPFO0Yf2d0",
+      "Qc8P_MtLl8E",
+      "WjclQp9LFzU"
+    ],
+    "matches": [
+      {
+        "retiredId": "4e7OvP6uceM",
+        "retiredStorySpan": 1,
+        "retiredRangeSeconds": [
+          0,
+          1250
+        ],
+        "retainedId": "FyPFO0Yf2d0",
+        "retainedRangeSeconds": [
+          1261,
+          2502
+        ],
+        "normalisedCaptionSimilarity": 0.9739382239382239,
+        "longestExactWordRun": 159,
+        "retiredCaptionWords": 3107,
+        "retainedCaptionWords": 3109,
+        "alignedWords": 3027,
+        "matchedFromSeconds": [
+          3,
+          1261
+        ],
+        "matchedThroughSeconds": [
+          1239,
+          2497
+        ],
+        "basis": "Primary English caption alignment over entire story spans, including opening and closing dialogue; no captions republished; not an uncut-edition certification"
+      },
+      {
+        "retiredId": "4e7OvP6uceM",
+        "retiredStorySpan": 2,
+        "retiredRangeSeconds": [
+          1250,
+          2501
+        ],
+        "retainedId": "Qc8P_MtLl8E",
+        "retainedRangeSeconds": [
+          1256,
+          2507
+        ],
+        "normalisedCaptionSimilarity": 0.9719033232628399,
+        "longestExactWordRun": 225,
+        "retiredCaptionWords": 3319,
+        "retainedCaptionWords": 3301,
+        "alignedWords": 3217,
+        "matchedFromSeconds": [
+          1250,
+          1256
+        ],
+        "matchedThroughSeconds": [
+          2498,
+          2504
+        ],
+        "basis": "Primary English caption alignment over entire story spans, including opening and closing dialogue; no captions republished; not an uncut-edition certification"
+      },
+      {
+        "retiredId": "P2rpoQr8-hk",
+        "retiredStorySpan": 1,
+        "retiredRangeSeconds": [
+          0,
+          1263
+        ],
+        "retainedId": "5WvUdLSu5b8",
+        "retainedRangeSeconds": [
+          1247,
+          2508
+        ],
+        "normalisedCaptionSimilarity": 0.973371104815864,
+        "longestExactWordRun": 209,
+        "retiredCaptionWords": 3520,
+        "retainedCaptionWords": 3540,
+        "alignedWords": 3436,
+        "matchedFromSeconds": [
+          0,
+          1247
+        ],
+        "matchedThroughSeconds": [
+          1254,
+          2504
+        ],
+        "basis": "Primary English caption alignment over entire story spans, including opening and closing dialogue; no captions republished; not an uncut-edition certification"
+      },
+      {
+        "retiredId": "P2rpoQr8-hk",
+        "retiredStorySpan": 2,
+        "retiredRangeSeconds": [
+          1263,
+          2516
+        ],
+        "retainedId": "0Y8OmC2LWkc",
+        "retainedRangeSeconds": [
+          1260,
+          2513
+        ],
+        "normalisedCaptionSimilarity": 0.9537686634286742,
+        "longestExactWordRun": 107,
+        "retiredCaptionWords": 2799,
+        "retainedCaptionWords": 2760,
+        "alignedWords": 2651,
+        "matchedFromSeconds": [
+          1263,
+          1260
+        ],
+        "matchedThroughSeconds": [
+          2508,
+          2506
+        ],
+        "basis": "Primary English caption alignment over entire story spans, including opening and closing dialogue; no captions republished; not an uncut-edition certification"
+      },
+      {
+        "retiredId": "9RSCRLSHhKw",
+        "retiredStorySpan": 1,
+        "retiredRangeSeconds": [
+          0,
+          1283
+        ],
+        "retainedId": "4SD7Lxo8tdg",
+        "retainedRangeSeconds": [
+          1320,
+          2567
+        ],
+        "normalisedCaptionSimilarity": 0.9468584405753218,
+        "longestExactWordRun": 158,
+        "retiredCaptionWords": 3300,
+        "retainedCaptionWords": 3305,
+        "alignedWords": 3127,
+        "matchedFromSeconds": [
+          0,
+          1320
+        ],
+        "matchedThroughSeconds": [
+          1242,
+          2562
+        ],
+        "basis": "Primary English caption alignment over entire story spans, including opening and closing dialogue; no captions republished; not an uncut-edition certification"
+      },
+      {
+        "retiredId": "9RSCRLSHhKw",
+        "retiredStorySpan": 2,
+        "retiredRangeSeconds": [
+          1283,
+          2538
+        ],
+        "retainedId": "WjclQp9LFzU",
+        "retainedRangeSeconds": [
+          1186,
+          2441
+        ],
+        "normalisedCaptionSimilarity": 0.9704928163139194,
+        "longestExactWordRun": 276,
+        "retiredCaptionWords": 3234,
+        "retainedCaptionWords": 3239,
+        "alignedWords": 3141,
+        "matchedFromSeconds": [
+          1283,
+          1186
+        ],
+        "matchedThroughSeconds": [
+          2529,
+          2431
+        ],
+        "basis": "Primary English caption alignment over entire story spans, including opening and closing dialogue; no captions republished; not an uncut-edition certification"
+      }
+    ],
+    "noUniqueStoryLost": true,
+    "titleNumbering": "No new canonical episode number or unidentified story title invented",
+    "limits": "Caption alignment plus actual bounded playback; no uninterrupted full-runtime, frame-for-frame or worldwide certification"
+  },
+  "fullOfficialBundleMap": {
+    "date": "2026-11-22",
+    "scope": "15 established official MPAA double bills; no new uploads",
+    "method": "Five-word primary-caption shingles shortlist pairs; whole-half normalised caption alignment verifies overlaps. Approximate halves support triage; exact boundaries for the retired source are in mpaa-overlap-resolution.json. No caption text republished.",
+    "sources": [
+      {
+        "id": "VRdFVV2GKR0",
+        "title": "The House Swarming Party 🏠 My Parents Are Aliens — full episodes",
+        "duration": 2506,
+        "approximateSplitSeconds": 1253,
+        "captionEndSeconds": 2502,
+        "captionWordsPerHalf": [
+          3050,
+          3014
+        ],
+        "halvesSequenceSimilarity": 0.03958,
+        "longestSharedWordRun": 8,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "1O3jokn0PJg",
+        "title": "Neighbours From Hell",
+        "duration": 2507,
+        "approximateSplitSeconds": 1254,
+        "captionEndSeconds": 2503,
+        "captionWordsPerHalf": [
+          3370,
+          3311
+        ],
+        "halvesSequenceSimilarity": 0.05688,
+        "longestSharedWordRun": 5,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "0Y8OmC2LWkc",
+        "title": "The Flash Family Battle",
+        "duration": 2513,
+        "approximateSplitSeconds": 1256,
+        "captionEndSeconds": 2506,
+        "captionWordsPerHalf": [
+          3444,
+          2760
+        ],
+        "halvesSequenceSimilarity": 0.04771,
+        "longestSharedWordRun": 5,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "WjclQp9LFzU",
+        "title": "When Parents Meet My Parents",
+        "duration": 2441,
+        "approximateSplitSeconds": 1220,
+        "captionEndSeconds": 2431,
+        "captionWordsPerHalf": [
+          3229,
+          3115
+        ],
+        "halvesSequenceSimilarity": 0.05107,
+        "longestSharedWordRun": 8,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "4e7OvP6uceM",
+        "title": "Hot Gossip",
+        "duration": 2501,
+        "approximateSplitSeconds": 1250,
+        "captionEndSeconds": 2498,
+        "captionWordsPerHalf": [
+          3119,
+          3307
+        ],
+        "halvesSequenceSimilarity": 0.04949,
+        "longestSharedWordRun": 5,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "5WvUdLSu5b8",
+        "title": "Fools of a Feather | My Parents Are Aliens | Kids Telly",
+        "duration": 2508,
+        "approximateSplitSeconds": 1254,
+        "captionEndSeconds": 2504,
+        "captionWordsPerHalf": [
+          3231,
+          3525
+        ],
+        "halvesSequenceSimilarity": 0.05121,
+        "longestSharedWordRun": 6,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "FyPFO0Yf2d0",
+        "title": "Becky the Freak",
+        "duration": 2501,
+        "approximateSplitSeconds": 1250,
+        "captionEndSeconds": 2497,
+        "captionWordsPerHalf": [
+          3015,
+          3118
+        ],
+        "halvesSequenceSimilarity": 0.0375,
+        "longestSharedWordRun": 4,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "P2rpoQr8-hk",
+        "title": "There's A New Girl on Town But She's Not What She Seems | My Parents Are Aliens | Kids Telly",
+        "duration": 2516,
+        "approximateSplitSeconds": 1258,
+        "captionEndSeconds": 2514,
+        "captionWordsPerHalf": [
+          3520,
+          2799
+        ],
+        "halvesSequenceSimilarity": 0.03165,
+        "longestSharedWordRun": 5,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "nuRDiHLjNMw",
+        "title": "The Babysitter 👩‍🍼 My Parents Are Aliens — full episodes",
+        "duration": 2502,
+        "approximateSplitSeconds": 1251,
+        "captionEndSeconds": 2498,
+        "captionWordsPerHalf": [
+          2793,
+          3018
+        ],
+        "halvesSequenceSimilarity": 0.07606,
+        "longestSharedWordRun": 5,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "bZRtRmvPN1g",
+        "title": "You're Going to Grow Gills – Or A Mermaid Tail | My Parents Are Aliens | Kids Telly",
+        "duration": 2491,
+        "approximateSplitSeconds": 1246,
+        "captionEndSeconds": 2489,
+        "captionWordsPerHalf": [
+          3009,
+          3201
+        ],
+        "halvesSequenceSimilarity": 0.04831,
+        "longestSharedWordRun": 6,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "4SD7Lxo8tdg",
+        "title": "Thanks for All the Earthworm Custard 🪱 My Parents Are Aliens — full episodes",
+        "duration": 2567,
+        "approximateSplitSeconds": 1284,
+        "captionEndSeconds": 2562,
+        "captionWordsPerHalf": [
+          3105,
+          3359
+        ],
+        "halvesSequenceSimilarity": 0.05446,
+        "longestSharedWordRun": 5,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "Qc8P_MtLl8E",
+        "title": "Ship of Friends 👯 My Parents Are Aliens — full episodes",
+        "duration": 2507,
+        "approximateSplitSeconds": 1254,
+        "captionEndSeconds": 2504,
+        "captionWordsPerHalf": [
+          3359,
+          3301
+        ],
+        "halvesSequenceSimilarity": 0.03754,
+        "longestSharedWordRun": 4,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "CTgC6zN4ud0",
+        "title": "That Girl Has a Serious Punch - Million Dollar Harry | My Parents Are Aliens | Kids Telly",
+        "duration": 2503,
+        "approximateSplitSeconds": 1252,
+        "captionEndSeconds": 2500,
+        "captionWordsPerHalf": [
+          3349,
+          3082
+        ],
+        "halvesSequenceSimilarity": 0.06873,
+        "longestSharedWordRun": 7,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "9RSCRLSHhKw",
+        "title": "The Chocolate Dictatorship | My Parents Are Aliens | Kids Telly",
+        "duration": 2538,
+        "approximateSplitSeconds": 1269,
+        "captionEndSeconds": 2529,
+        "captionWordsPerHalf": [
+          3298,
+          3236
+        ],
+        "halvesSequenceSimilarity": 0.03183,
+        "longestSharedWordRun": 5,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      },
+      {
+        "id": "A0GTZuyraFg",
+        "title": "Hotel Sophie A Hot and Cold Nightmare | My Parents Are Aliens | Kids Telly",
+        "duration": 2519,
+        "approximateSplitSeconds": 1260,
+        "captionEndSeconds": 2514,
+        "captionWordsPerHalf": [
+          2748,
+          2890
+        ],
+        "halvesSequenceSimilarity": 0.0447,
+        "longestSharedWordRun": 5,
+        "format": "Two distinct story spans; boundary approximate unless separately aligned"
+      }
+    ],
+    "overlaps": [
+      {
+        "first": "VRdFVV2GKR0:2",
+        "second": "nuRDiHLjNMw:2",
+        "normalisedCaptionSimilarity": 0.98806,
+        "longestExactWordRun": 300
+      },
+      {
+        "first": "VRdFVV2GKR0:2",
+        "second": "bZRtRmvPN1g:1",
+        "normalisedCaptionSimilarity": 0.98655,
+        "longestExactWordRun": 236
+      },
+      {
+        "first": "1O3jokn0PJg:2",
+        "second": "CTgC6zN4ud0:1",
+        "normalisedCaptionSimilarity": 0.95375,
+        "longestExactWordRun": 155
+      },
+      {
+        "first": "0Y8OmC2LWkc:2",
+        "second": "P2rpoQr8-hk:2",
+        "normalisedCaptionSimilarity": 0.95377,
+        "longestExactWordRun": 107
+      },
+      {
+        "first": "0Y8OmC2LWkc:2",
+        "second": "A0GTZuyraFg:1",
+        "normalisedCaptionSimilarity": 0.98439,
+        "longestExactWordRun": 251
+      },
+      {
+        "first": "WjclQp9LFzU:2",
+        "second": "9RSCRLSHhKw:2",
+        "normalisedCaptionSimilarity": 0.95198,
+        "longestExactWordRun": 276
+      },
+      {
+        "first": "4e7OvP6uceM:1",
+        "second": "FyPFO0Yf2d0:2",
+        "normalisedCaptionSimilarity": 0.97066,
+        "longestExactWordRun": 159
+      },
+      {
+        "first": "4e7OvP6uceM:2",
+        "second": "Qc8P_MtLl8E:2",
+        "normalisedCaptionSimilarity": 0.97064,
+        "longestExactWordRun": 225
+      },
+      {
+        "first": "5WvUdLSu5b8:2",
+        "second": "P2rpoQr8-hk:1",
+        "normalisedCaptionSimilarity": 0.97289,
+        "longestExactWordRun": 209
+      },
+      {
+        "first": "P2rpoQr8-hk:2",
+        "second": "A0GTZuyraFg:1",
+        "normalisedCaptionSimilarity": 0.95439,
+        "longestExactWordRun": 121
+      },
+      {
+        "first": "nuRDiHLjNMw:2",
+        "second": "bZRtRmvPN1g:1",
+        "normalisedCaptionSimilarity": 0.99287,
+        "longestExactWordRun": 361
+      },
+      {
+        "first": "4SD7Lxo8tdg:2",
+        "second": "9RSCRLSHhKw:1",
+        "normalisedCaptionSimilarity": 0.93946,
+        "longestExactWordRun": 158
+      }
+    ],
+    "limits": "No invented canonical episode numbers or unnamed story titles; no full-viewing, uncut-edition or global availability claim."
+  }
+}
