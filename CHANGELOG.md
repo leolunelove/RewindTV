@@ -2,6 +2,14 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-22 — Third 100 checks and repeated collections cleaned
+
+- Checked 100 more main-ten uploads and seven additional existing singles; all 107 passed embedded start/tail sampling. Corrected 28 country restriction records.
+- Retired redundant Madeline and Wimzie’s House collections and the separately duplicated Love Bug single. All twelve reviewed story spans remain, removing about 4 hours 27 minutes of repeated playback.
+- Disabled a 2023 Andromeda film incorrectly filed as the TV series; clarified eleven collection/ad-bearing records. No new content or channels.
+- Preserved current public/private fixed schedules; retirements take effect in fixed TV on 24 November. Three partial-overlap groups remain under review.
+- 398 tests pass; private manager and 125-member recovery package preserved. Prepared locally, not deployed. [Exact evidence and remaining coverage](docs/main-ten-third-100-2026-11-22.md).
+
 ## 2026-11-22 — Another 100 main-channel checks and fewer repeated stories
 
 - Checked 100 more previously undated main-ten uploads, plus five targeted rechecks. All 105 passed start/near-end playback; refreshed metadata and 27 missing country restrictions.
