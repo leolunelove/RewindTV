@@ -1,0 +1,593 @@
+{
+  "date": "2026-11-22",
+  "resolution": {
+    "date": "2026-11-22",
+    "reviewedCollections": {
+      "1LuCCQl_T8Y": 4,
+      "PqRx6VDOv-U": 4,
+      "bDmJzIeSCHA": 4,
+      "7XUjOphOv0I": 5,
+      "J5qUarVTggM": 5,
+      "ZynpSxDhfoo": 5
+    },
+    "retiredIds": [
+      "bDmJzIeSCHA",
+      "J5qUarVTggM"
+    ],
+    "retainedIds": [
+      "7XUjOphOv0I",
+      "PqRx6VDOv-U"
+    ],
+    "matches": [
+      {
+        "source": "bDmJzIeSCHA",
+        "span": 1,
+        "approximateRangeSeconds": [
+          0,
+          1223
+        ],
+        "retainedId": "PqRx6VDOv-U",
+        "retainedSpan": 4,
+        "retainedApproximateRangeSeconds": [
+          3669,
+          4892
+        ],
+        "similarity": 0.9822891884747554,
+        "longestExactWordRun": 290,
+        "matchedFromSeconds": [
+          0,
+          3669
+        ],
+        "matchedThroughSeconds": [
+          1222,
+          4892
+        ]
+      },
+      {
+        "source": "bDmJzIeSCHA",
+        "span": 2,
+        "approximateRangeSeconds": [
+          1223,
+          2446
+        ],
+        "retainedId": "PqRx6VDOv-U",
+        "retainedSpan": 3,
+        "retainedApproximateRangeSeconds": [
+          2446,
+          3669
+        ],
+        "similarity": 0.9740196078431372,
+        "longestExactWordRun": 214,
+        "matchedFromSeconds": [
+          1232,
+          2455
+        ],
+        "matchedThroughSeconds": [
+          2445,
+          3669
+        ]
+      },
+      {
+        "source": "bDmJzIeSCHA",
+        "span": 3,
+        "approximateRangeSeconds": [
+          2446,
+          3669
+        ],
+        "retainedId": "PqRx6VDOv-U",
+        "retainedSpan": 1,
+        "retainedApproximateRangeSeconds": [
+          0,
+          1223
+        ],
+        "similarity": 0.9588443717634233,
+        "longestExactWordRun": 133,
+        "matchedFromSeconds": [
+          2459,
+          13
+        ],
+        "matchedThroughSeconds": [
+          3672,
+          1225
+        ]
+      },
+      {
+        "source": "bDmJzIeSCHA",
+        "span": 4,
+        "approximateRangeSeconds": [
+          3669,
+          4892
+        ],
+        "retainedId": "PqRx6VDOv-U",
+        "retainedSpan": 2,
+        "retainedApproximateRangeSeconds": [
+          1223,
+          2446
+        ],
+        "similarity": 0.975609756097561,
+        "longestExactWordRun": 310,
+        "matchedFromSeconds": [
+          3672,
+          1225
+        ],
+        "matchedThroughSeconds": [
+          4883,
+          2436
+        ]
+      },
+      {
+        "source": "J5qUarVTggM",
+        "span": 1,
+        "approximateRangeSeconds": [
+          0,
+          1223
+        ],
+        "retainedId": "7XUjOphOv0I",
+        "retainedSpan": 2,
+        "retainedApproximateRangeSeconds": [
+          1223,
+          2446
+        ],
+        "similarity": 0.9646067415730337,
+        "longestExactWordRun": 105,
+        "matchedFromSeconds": [
+          7,
+          1230
+        ],
+        "matchedThroughSeconds": [
+          1224,
+          2449
+        ]
+      },
+      {
+        "source": "J5qUarVTggM",
+        "span": 2,
+        "approximateRangeSeconds": [
+          1223,
+          2446
+        ],
+        "retainedId": "7XUjOphOv0I",
+        "retainedSpan": 5,
+        "retainedApproximateRangeSeconds": [
+          4892,
+          6115
+        ],
+        "similarity": 0.9862363550071191,
+        "longestExactWordRun": 358,
+        "matchedFromSeconds": [
+          1233,
+          4902
+        ],
+        "matchedThroughSeconds": [
+          2439,
+          6108
+        ]
+      },
+      {
+        "source": "J5qUarVTggM",
+        "span": 3,
+        "approximateRangeSeconds": [
+          2446,
+          3669
+        ],
+        "retainedId": "7XUjOphOv0I",
+        "retainedSpan": 4,
+        "retainedApproximateRangeSeconds": [
+          3669,
+          4892
+        ],
+        "similarity": 0.963120191032104,
+        "longestExactWordRun": 120,
+        "matchedFromSeconds": [
+          2449,
+          3672
+        ],
+        "matchedThroughSeconds": [
+          3647,
+          4882
+        ]
+      },
+      {
+        "source": "J5qUarVTggM",
+        "span": 4,
+        "approximateRangeSeconds": [
+          3669,
+          4892
+        ],
+        "retainedId": "7XUjOphOv0I",
+        "retainedSpan": 3,
+        "retainedApproximateRangeSeconds": [
+          2446,
+          3669
+        ],
+        "similarity": 0.9869135014363231,
+        "longestExactWordRun": 224,
+        "matchedFromSeconds": [
+          3672,
+          2449
+        ],
+        "matchedThroughSeconds": [
+          4891,
+          3672
+        ]
+      },
+      {
+        "source": "J5qUarVTggM",
+        "span": 5,
+        "approximateRangeSeconds": [
+          4892,
+          6115
+        ],
+        "retainedId": "7XUjOphOv0I",
+        "retainedSpan": 1,
+        "retainedApproximateRangeSeconds": [
+          0,
+          1223
+        ],
+        "similarity": 0.9929577464788732,
+        "longestExactWordRun": 303,
+        "matchedFromSeconds": [
+          4912,
+          20
+        ],
+        "matchedThroughSeconds": [
+          6113,
+          1221
+        ]
+      }
+    ],
+    "unresolvedRetirementCandidates": [
+      "ZynpSxDhfoo"
+    ],
+    "remainingPartialPairs": [
+      {
+        "sources": [
+          "1LuCCQl_T8Y",
+          "PqRx6VDOv-U"
+        ],
+        "review": {
+          "date": "2026-11-22",
+          "matches": [
+            {
+              "sourceA": "1LuCCQl_T8Y",
+              "spanA": 2,
+              "approximateRangeA": [
+                1223,
+                2446
+              ],
+              "sourceB": "PqRx6VDOv-U",
+              "spanB": 3,
+              "approximateRangeB": [
+                2446,
+                3669
+              ],
+              "similarity": 0.9590184049079754,
+              "longestExactWordRun": 113,
+              "matchedFromSeconds": [
+                1232,
+                2455
+              ],
+              "matchedThroughSeconds": [
+                2438,
+                3663
+              ]
+            },
+            {
+              "sourceA": "1LuCCQl_T8Y",
+              "spanA": 3,
+              "approximateRangeA": [
+                2446,
+                3669
+              ],
+              "sourceB": "PqRx6VDOv-U",
+              "spanB": 1,
+              "approximateRangeB": [
+                0,
+                1223
+              ],
+              "similarity": 0.9377049180327869,
+              "longestExactWordRun": 84,
+              "matchedFromSeconds": [
+                2460,
+                13
+              ],
+              "matchedThroughSeconds": [
+                3664,
+                1217
+              ]
+            },
+            {
+              "sourceA": "1LuCCQl_T8Y",
+              "spanA": 4,
+              "approximateRangeA": [
+                3669,
+                4892
+              ],
+              "sourceB": "PqRx6VDOv-U",
+              "spanB": 4,
+              "approximateRangeB": [
+                3669,
+                4892
+              ],
+              "similarity": 0.9576271186440678,
+              "longestExactWordRun": 127,
+              "matchedFromSeconds": [
+                3673,
+                3673
+              ],
+              "matchedThroughSeconds": [
+                4891,
+                4891
+              ]
+            }
+          ],
+          "existingSinglesChecked": [
+            {
+              "id": "dQpJoKq67Rk",
+              "bestComparison": {
+                "ratio": 0.07506397497867501,
+                "bundle": "7XUjOphOv0I",
+                "span": 3
+              },
+              "duplicateConfirmed": false
+            },
+            {
+              "id": "gWVwC8sSq_M",
+              "bestComparison": {
+                "ratio": 0.07322113965160909,
+                "bundle": "1LuCCQl_T8Y",
+                "span": 1
+              },
+              "duplicateConfirmed": false
+            },
+            {
+              "id": "OHYIFjhRBJk",
+              "bestComparison": {
+                "ratio": 0.07719799857040743,
+                "bundle": "PqRx6VDOv-U",
+                "span": 3
+              },
+              "duplicateConfirmed": false
+            }
+          ],
+          "thirdCollection": "7XUjOphOv0I",
+          "retirementDecision": "Keep all three reviewed collections and three singles: none of the available singles or third collection covers the unique spans of the two overlapping collections. Do not lose unique stories.",
+          "newContentAdded": 0,
+          "limits": "Caption comparisons over approximate 20-minute spans, not canonical episode numbering or frame-for-frame certification."
+        }
+      }
+    ],
+    "existingSinglesChecked": [
+      "dQpJoKq67Rk",
+      "gWVwC8sSq_M",
+      "OHYIFjhRBJk"
+    ],
+    "noUniqueReviewedStoryLost": true,
+    "limits": "Full story-span primary auto-caption alignment, including matched opening and closing dialogue, not a frame-for-frame or uninterrupted full-runtime certification. Span numbers are within these uploads, not canonical episode numbers."
+  },
+  "metadataUpdateIds": [
+    "b_1xatDoj5c",
+    "lU_3OjBQtxs",
+    "TAluKCHl-qU",
+    "VDUwcWM22V0",
+    "kmAzUov_Hn8",
+    "rVeudlG3Pyw",
+    "tBwhAM0-HWQ",
+    "vCcWeLJkr5E",
+    "1DPhctGRj1k",
+    "6oOv9SCl4wc",
+    "BzGCNghko0o",
+    "I0owP4EyH6I",
+    "NTYF1eTSDLg",
+    "NrYVqvHriQc",
+    "UtDwygqO2xQ",
+    "auE1i14sYFU",
+    "oRlivmumIE4",
+    "u4pXJMrXmQE",
+    "2o8tgRGriag",
+    "HNEv_-4zIVg",
+    "lQjYpsK8NLg",
+    "c5HNLVWNxLg",
+    "fi53aJTjO9Q",
+    "gQHi5MU7QNo",
+    "ir1S18ydsuA",
+    "wHWud_PqhWY",
+    "-17aSBpTmlY",
+    "DeYGdmpwSag",
+    "QUQRlM1P3m4",
+    "xQKzrTr44eo",
+    "OrQmMpXiYsU",
+    "QJ32Mf3DAt8",
+    "QcBTTL9_bgI",
+    "klrS-1zznR0",
+    "J_sH-GrUeUw",
+    "QGvIB20VQfA",
+    "TkCEm-_p7UA",
+    "WcN3aBjnI0A",
+    "aatJUSmuVOk",
+    "HG_12dDmVok",
+    "eXaDvcPSSmU",
+    "qqy-RDJfj2U",
+    "1LIwCOgkDjY",
+    "cthSOvIfv_I",
+    "wMTrHeYfZh8",
+    "y4aWos9o5o4",
+    "1LuCCQl_T8Y",
+    "7XUjOphOv0I",
+    "PqRx6VDOv-U",
+    "3EBm0y1Fack",
+    "5MUSWnR4lnU",
+    "8rWjqqWXqcM",
+    "LwcmTzDe5x8",
+    "R5WoWSSKroE",
+    "RGUQXgIUDYk",
+    "mqzXuTKgN2U",
+    "r7fDpKN54Ts",
+    "k8q7qHTw62w",
+    "0z0Re7e4bRw",
+    "k8XrNnP4QE8",
+    "1GSGb2qtvBY",
+    "GKdx9D4v588",
+    "HouUU5cq46I",
+    "HtwCw7lYYdE",
+    "I29V4AAhAkU",
+    "Ixd-TahT6hI",
+    "JN1AkB8I9Fg",
+    "KuMHpPM2BS8",
+    "Nz8RL104kqw",
+    "zBttev2hFLc",
+    "50yPbFBhOOs",
+    "5iPqXjYKInI",
+    "QRS9YPhlM6M",
+    "nw9I4rg6esU",
+    "0FLQvLfhCy0",
+    "3H2Yb-1Zp8s",
+    "7RVEM9xUUx8",
+    "8XZffC78-G4",
+    "HUcUMnJA6DM",
+    "Qi1ijJGJ9L8",
+    "DY1aBv8Z1SQ",
+    "DmYhNHVIdMI",
+    "EHD9u-lo2wc",
+    "FPW2FwK4IOo",
+    "FdIUHudQABI",
+    "FozIp7Va7dY",
+    "GLkLO4KqTRs",
+    "GWehiacnd1E",
+    "H15kV1wbDG4",
+    "Gz3t7yeA2Fo",
+    "j-iJUbN0hzM",
+    "9OcXkizTXlI",
+    "BcsN3d7eKgY",
+    "Frowu1aYxR4",
+    "UwFDr3ab0LE",
+    "UxIQiCAvnko",
+    "sP119zd7TlI",
+    "0XTeD8CKZDY",
+    "Xp9f7Gn4AQw",
+    "dQpJoKq67Rk",
+    "gWVwC8sSq_M",
+    "OHYIFjhRBJk",
+    "J5qUarVTggM",
+    "bDmJzIeSCHA",
+    "ZynpSxDhfoo"
+  ],
+  "newRetirements": [
+    {
+      "id": "bDmJzIeSCHA",
+      "reason": "All reviewed story spans already retained in PqRx6VDOv-U. Primary captions align through opening and closing dialogue; source preserved for recovery.",
+      "scheduleUntilWeek": "2026-11-24",
+      "retainedStorySources": [
+        "PqRx6VDOv-U"
+      ]
+    },
+    {
+      "id": "J5qUarVTggM",
+      "reason": "All reviewed story spans already retained in 7XUjOphOv0I. Primary captions align through opening and closing dialogue; source preserved for recovery.",
+      "scheduleUntilWeek": "2026-11-24",
+      "retainedStorySources": [
+        "7XUjOphOv0I"
+      ]
+    },
+    {
+      "id": "ylxPtZWwoXY",
+      "reason": "Confirmed private video: two primary watch-metadata attempts report Private video; two embedded attempts return error 150 while known controls play; normal watch UI says This video is private. Source record preserved.",
+      "scheduleUntilWeek": "2026-11-24",
+      "retainedStorySources": []
+    }
+  ],
+  "confirmedPrivate": {
+    "id": "ylxPtZWwoXY",
+    "watchChecks": [
+      {
+        "checkedAt": "2026-11-22T15:14:29.460902+00:00",
+        "status": "LOGIN_REQUIRED",
+        "reason": "Private video"
+      },
+      {
+        "checkedAt": "2026-11-22T15:17:41.973606+00:00",
+        "status": "LOGIN_REQUIRED",
+        "reason": "Private video"
+      }
+    ],
+    "embedAttempts": [
+      {
+        "id": "ylxPtZWwoXY",
+        "status": "source-error",
+        "resultText": "source-error (150)",
+        "start": false,
+        "tail": false,
+        "duration": 0,
+        "checkedAt": "2026-11-22T15:14:48.607Z"
+      }
+    ],
+    "retryWithControls": [
+      [
+        "b_1xatDoj5c",
+        "playing",
+        "Yes",
+        "Yes",
+        "1352",
+        "2026-11-22T15:18:23.293Z"
+      ],
+      [
+        "ylxPtZWwoXY",
+        "source-error (150)",
+        "No",
+        "No",
+        "0",
+        "2026-11-22T15:18:19.471Z"
+      ],
+      [
+        "lU_3OjBQtxs",
+        "playing",
+        "Yes",
+        "Yes",
+        "1454.061",
+        "2026-11-22T15:18:24.195Z"
+      ]
+    ],
+    "normalWatchUI": [
+      "Video unavailable",
+      "This video is private"
+    ],
+    "regionRestrictionInferred": false
+  },
+  "remainingMpaaGroups": [
+    {
+      "sources": [
+        "VRdFVV2GKR0",
+        "nuRDiHLjNMw",
+        "bZRtRmvPN1g"
+      ],
+      "duplicateSpanCount": 2
+    },
+    {
+      "sources": [
+        "1O3jokn0PJg",
+        "CTgC6zN4ud0"
+      ],
+      "duplicateSpanCount": 1
+    },
+    {
+      "sources": [
+        "0Y8OmC2LWkc",
+        "A0GTZuyraFg"
+      ],
+      "duplicateSpanCount": 1
+    }
+  ],
+  "heldReplacement": {
+    "id": "m6Q8KE0M-gY",
+    "sourceType": "fan/archive",
+    "uploadDate": "2018-09-07",
+    "declaredCountriesViaWatchDOM": 249,
+    "watchClockAdvanced": true,
+    "embeddedPlaybackTestedThisPass": false,
+    "captionSimilarityToExistingFirstStory": 0.67444,
+    "decision": "Not imported. Normal signed-in watch playback and public DOM metadata now accessible, but visible ghosting/interlacing and weak auto-caption alignment do not justify replacing the established official double bill. Completeness remains unproven; not classified as broken.",
+    "noNewStory": true
+  },
+  "newContentAdded": 0,
+  "region": "One Chrome browser network; egress country not independently verified; no cross-region or physical iPhone/Safari test."
+}

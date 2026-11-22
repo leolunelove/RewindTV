@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-22",
+  "checkedAt": "2026-11-22T15:14:10.097961+00:00",
+  "commit": "ba747dbe38995f447e7306ab26ac0907492aee57",
+  "workflow": "https://github.com/leolunelove/RewindTV/actions/runs/45037066286",
+  "workflowStatus": "success",
+  "assets": [
+    {
+      "path": "site/app.js",
+      "bytes": 100104,
+      "sha256": "80370cfb77458290ccdad2011fb0d4b939ac941077607b2e5b8d1ba8a5687c30",
+      "matches": true
+    },
+    {
+      "path": "site/browse-tools.mjs",
+      "bytes": 1247,
+      "sha256": "54e3f197f4f7015827626be4877dfc06b75bdc1e07a5363c9d74921a31274edf",
+      "matches": true
+    },
+    {
+      "path": "site/browse.html",
+      "bytes": 7196,
+      "sha256": "4ff13247445c0babd9b66a575dd8ba748cc1ecc84520139c1d8cccaf23643c3f",
+      "matches": true
+    },
+    {
+      "path": "site/browse.mjs",
+      "bytes": 8313,
+      "sha256": "fc55b074978d69c825db32b9663195e2fc373eb931d88520e924a936fa01c842",
+      "matches": true
+    },
+    {
+      "path": "site/catalogue.json",
+      "bytes": 5103831,
+      "sha256": "46ffadab09e44456d1407cf93ce2ee86d0f2d83cac6bb2961d3153b0b8f65d6f",
+      "matches": true
+    },
+    {
+      "path": "site/continue-watching.mjs",
+      "bytes": 4980,
+      "sha256": "0effe6715dde0bd6e6c41603e287ff5707c78b67d57052a1e6431f5c5cdf23f1",
+      "matches": true
+    },
+    {
+      "path": "site/guide-overview.mjs",
+      "bytes": 10300,
+      "sha256": "3ccc93e971623d0e0130ef3a756d8f6c52c2479046072575fb4c09ab8e4d4450",
+      "matches": true
+    },
+    {
+      "path": "site/guide.js",
+      "bytes": 8063,
+      "sha256": "55dd5ade1610470d9260ac4e15d6f02fb211a658cad4215110a9603425341c21",
+      "matches": true
+    },
+    {
+      "path": "site/home-view.mjs",
+      "bytes": 2937,
+      "sha256": "34ba76fbf0c19c327c4e522f055765c0f58430035d93c4bb6e02c92c6fb419a0",
+      "matches": true
+    },
+    {
+      "path": "site/index.html",
+      "bytes": 28448,
+      "sha256": "3b18cb408a64a17c6114683ba0002eb69b9dcb8ace2f2b718a1c98e65bb8180c",
+      "matches": true
+    },
+    {
+      "path": "site/library-view.mjs",
+      "bytes": 22707,
+      "sha256": "5828d3096b991cb527b30e5f0211e7dad1633d0e2d5b28cf57dbb8afa3bfb91b",
+      "matches": true
+    },
+    {
+      "path": "site/library.mjs",
+      "bytes": 11063,
+      "sha256": "67bbea68a75c0c1084e8a11e6cd9742d49a51a54f61dfc6a293d0336b9cbde89",
+      "matches": true
+    },
+    {
+      "path": "site/main-ten-checks-3.json",
+      "bytes": 124782,
+      "sha256": "8788ef1a396664aa6dfe80daddd06e2f0f69248432d72527a9ed192b67f32b25",
+      "matches": true
+    },
+    {
+      "path": "site/movie-night-view.mjs",
+      "bytes": 13134,
+      "sha256": "5865306a8626960d3b86671b308a785dedd51b630862a14e1e7bd6d898fa6fa2",
+      "matches": true
+    },
+    {
+      "path": "site/movie-night.mjs",
+      "bytes": 3493,
+      "sha256": "4d56f576e38f899e89bb9b3e28775817870386d843da9146036b06ebfc4273b8",
+      "matches": true
+    },
+    {
+      "path": "site/playback-alternatives.mjs",
+      "bytes": 1668,
+      "sha256": "3e60fc07caae82ea7c2cfeca179ea9c5a3594017d56ee4030c2d95321b2573c1",
+      "matches": true
+    },
+    {
+      "path": "site/runtime-library.json",
+      "bytes": 3122495,
+      "sha256": "85c8d194e182b90f7da4f943bc55076a9247e442f1595584a795aeba6fc7ed64",
+      "matches": true
+    },
+    {
+      "path": "site/schedule.html",
+      "bytes": 2158,
+      "sha256": "e185d348b9fbced7172f5430c651ccc42772b7e936b5572d94341bf7f5792347",
+      "matches": true
+    },
+    {
+      "path": "site/watch-history.mjs",
+      "bytes": 4743,
+      "sha256": "907bc4934583109ac84bad27fb8e11bf3ce71f5012943b3e3cb73b3bbc75445b",
+      "matches": true
+    }
+  ],
+  "allPublicAssetsMatch": true
+}
