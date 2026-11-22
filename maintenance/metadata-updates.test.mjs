@@ -91,9 +91,9 @@ test('metadata success cannot re-enable a source excluded in the same pack or by
 });
 
 test('the 57-source maintenance pack retains all current Gibraltar slots and compacts country restrictions',()=>{
- assert.deepEqual(SOURCE_FILES.slice(-4),['maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','library-health.json']);
+ assert.deepEqual(SOURCE_FILES.slice(-5),['maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','main-ten-checks-3.json','library-health.json']);
  let baseline=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));
- for(const name of SOURCE_FILES.slice(2).filter(name=>!['maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','library-health.json'].includes(name)))baseline=withExpansion(baseline,read(name));
+ for(const name of SOURCE_FILES.slice(2).filter(name=>!['maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','main-ten-checks-3.json','library-health.json'].includes(name)))baseline=withExpansion(baseline,read(name));
  baseline=withExpansion(baseline,read('library-health.json'));
  const allChecks=read('maintenance-checks.json');
  const checks={...allChecks,updates:allChecks.updates.filter(update=>update.changes.metadataCheckedAt.startsWith('2026-11-14'))};

@@ -1,0 +1,420 @@
+{
+  "date": "2026-11-22",
+  "resolution": {
+    "date": "2026-11-22",
+    "retiredIds": [
+      "P2Rq1knipkk",
+      "lQdzaHy7sbw",
+      "nSs6uToQ534"
+    ],
+    "retainedIds": [
+      "MeDYCpUVCvg",
+      "Qc8P_MtLl8E",
+      "ct06lnkUxxY"
+    ],
+    "matches": [
+      {
+        "retiredId": "lQdzaHy7sbw",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline and the Dog Who Cried Wolf",
+        "retiredRangeSeconds": [
+          0,
+          1261
+        ],
+        "retainedRangeSeconds": [
+          3783,
+          5044
+        ],
+        "similarity": 0.9549647314161693,
+        "longestExactWordRun": 214,
+        "captionWordCounts": [
+          1836,
+          1850
+        ],
+        "matchedFromSeconds": [
+          0,
+          3784
+        ],
+        "matchedThroughSeconds": [
+          1252,
+          5036
+        ]
+      },
+      {
+        "retiredId": "lQdzaHy7sbw",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline and the Can Can Cliques",
+        "retiredRangeSeconds": [
+          1261,
+          2522
+        ],
+        "retainedRangeSeconds": [
+          2522,
+          3783
+        ],
+        "similarity": 0.9665488169703562,
+        "longestExactWordRun": 136,
+        "captionWordCounts": [
+          1831,
+          1846
+        ],
+        "matchedFromSeconds": [
+          1261,
+          2522
+        ],
+        "matchedThroughSeconds": [
+          2514,
+          3775
+        ]
+      },
+      {
+        "retiredId": "lQdzaHy7sbw",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline at the Hotel Riche",
+        "retiredRangeSeconds": [
+          2522,
+          3783
+        ],
+        "retainedRangeSeconds": [
+          0,
+          1260
+        ],
+        "similarity": 0.9641219314809819,
+        "longestExactWordRun": 166,
+        "captionWordCounts": [
+          1848,
+          1859
+        ],
+        "matchedFromSeconds": [
+          2522,
+          0
+        ],
+        "matchedThroughSeconds": [
+          3774,
+          1252
+        ]
+      },
+      {
+        "retiredId": "lQdzaHy7sbw",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline at the North Pole",
+        "retiredRangeSeconds": [
+          3783,
+          5044
+        ],
+        "retainedRangeSeconds": [
+          1260,
+          2522
+        ],
+        "similarity": 0.9727704221833625,
+        "longestExactWordRun": 311,
+        "captionWordCounts": [
+          2003,
+          2000
+        ],
+        "matchedFromSeconds": [
+          3783,
+          1261
+        ],
+        "matchedThroughSeconds": [
+          5041,
+          2518
+        ]
+      },
+      {
+        "retiredId": "lQdzaHy7sbw",
+        "retainedId": "ct06lnkUxxY",
+        "story": "Madeline and the Spider Lady",
+        "retiredRangeSeconds": [
+          5044,
+          6307
+        ],
+        "retainedRangeSeconds": [
+          5044,
+          6307
+        ],
+        "similarity": 0.9978054133138259,
+        "longestExactWordRun": 2046,
+        "captionWordCounts": [
+          2055,
+          2046
+        ],
+        "matchedFromSeconds": [
+          5064,
+          5064
+        ],
+        "matchedThroughSeconds": [
+          6301,
+          6301
+        ]
+      },
+      {
+        "retiredId": "nSs6uToQ534",
+        "retainedId": "MeDYCpUVCvg",
+        "story": "Shaggy's Visit",
+        "retiredRangeSeconds": [
+          0,
+          1401
+        ],
+        "retainedRangeSeconds": [
+          7001,
+          8403
+        ],
+        "similarity": 0.9840123775141826,
+        "longestExactWordRun": 329,
+        "captionWordCounts": [
+          2911,
+          2906
+        ],
+        "matchedFromSeconds": [
+          1,
+          7006
+        ],
+        "matchedThroughSeconds": [
+          1398,
+          8398
+        ]
+      },
+      {
+        "retiredId": "nSs6uToQ534",
+        "retainedId": "MeDYCpUVCvg",
+        "story": "Please Don't Say That!",
+        "retiredRangeSeconds": [
+          1401,
+          2802
+        ],
+        "retainedRangeSeconds": [
+          1401,
+          2802
+        ],
+        "similarity": 0.9868490268279853,
+        "longestExactWordRun": 1440,
+        "captionWordCounts": [
+          2858,
+          2845
+        ],
+        "matchedFromSeconds": [
+          1406,
+          1404
+        ],
+        "matchedThroughSeconds": [
+          2799,
+          2799
+        ]
+      },
+      {
+        "retiredId": "nSs6uToQ534",
+        "retainedId": "MeDYCpUVCvg",
+        "story": "Official Backwards Day",
+        "retiredRangeSeconds": [
+          2802,
+          4203
+        ],
+        "retainedRangeSeconds": [
+          4204,
+          5605
+        ],
+        "similarity": 0.9794671644323774,
+        "longestExactWordRun": 187,
+        "captionWordCounts": [
+          2932,
+          2961
+        ],
+        "matchedFromSeconds": [
+          2807,
+          4204
+        ],
+        "matchedThroughSeconds": [
+          4196,
+          5597
+        ]
+      },
+      {
+        "retiredId": "nSs6uToQ534",
+        "retainedId": "MeDYCpUVCvg",
+        "story": "Promises, Promises, Promises",
+        "retiredRangeSeconds": [
+          4203,
+          5605
+        ],
+        "retainedRangeSeconds": [
+          0,
+          1401
+        ],
+        "similarity": 0.9761219305673159,
+        "longestExactWordRun": 264,
+        "captionWordCounts": [
+          2959,
+          2946
+        ],
+        "matchedFromSeconds": [
+          4204,
+          0
+        ],
+        "matchedThroughSeconds": [
+          5604,
+          1400
+        ]
+      },
+      {
+        "retiredId": "nSs6uToQ534",
+        "retainedId": "MeDYCpUVCvg",
+        "story": "Picking a President",
+        "retiredRangeSeconds": [
+          5605,
+          7006
+        ],
+        "retainedRangeSeconds": [
+          2802,
+          4204
+        ],
+        "similarity": 0.9826717076244487,
+        "longestExactWordRun": 416,
+        "captionWordCounts": [
+          3182,
+          3166
+        ],
+        "matchedFromSeconds": [
+          5609,
+          2806
+        ],
+        "matchedThroughSeconds": [
+          7000,
+          4200
+        ]
+      },
+      {
+        "retiredId": "nSs6uToQ534",
+        "retainedId": "MeDYCpUVCvg",
+        "story": "Queen for a Day",
+        "retiredRangeSeconds": [
+          7006,
+          8403
+        ],
+        "retainedRangeSeconds": [
+          5605,
+          7001
+        ],
+        "similarity": 0.9900703351261895,
+        "longestExactWordRun": 297,
+        "captionWordCounts": [
+          2419,
+          2415
+        ],
+        "matchedFromSeconds": [
+          7011,
+          5610
+        ],
+        "matchedThroughSeconds": [
+          8393,
+          6992
+        ]
+      },
+      {
+        "retiredId": "P2Rq1knipkk",
+        "retainedId": "Qc8P_MtLl8E",
+        "story": "The Love Bug",
+        "retiredRangeSeconds": [
+          0,
+          1291
+        ],
+        "retainedRangeSeconds": [
+          1256,
+          2507
+        ],
+        "similarity": 0.9474004256612952,
+        "longestExactWordRun": 87,
+        "captionWordCounts": [
+          3277,
+          3301
+        ],
+        "matchedFromSeconds": [
+          40,
+          1256
+        ],
+        "matchedThroughSeconds": [
+          1288,
+          2504
+        ]
+      }
+    ],
+    "noUniqueReviewedStoryLost": true,
+    "method": "Primary publisher chapter sets plus primary English caption alignment through opening and closing dialogue. No transcript republished. Not frame-for-frame or uninterrupted full-runtime certification."
+  },
+  "existingSinglesChecked": [
+    "ogUmyGfcGBw",
+    "CIRNMiOZ8Os",
+    "rrSm2V2tk3M",
+    "zKT65E0_0Gc",
+    "9fVsjOKoCjQ",
+    "NFSTGS94oBY",
+    "Rdc22BDjtyo",
+    "P2Rq1knipkk"
+  ],
+  "singleComparison": [
+    {
+      "single": "P2Rq1knipkk",
+      "singleTitle": "My Parents Are Aliens S07E09 The Love Bug",
+      "bundle": "4e7OvP6uceM",
+      "bundleTitle": "Hot Gossip",
+      "bundleSpan": 2,
+      "ratio": 0.94714,
+      "longestExactWordRun": 94,
+      "singleWords": 3277,
+      "bundleSpanWords": 3307,
+      "bundleEnabled": false
+    },
+    {
+      "single": "P2Rq1knipkk",
+      "singleTitle": "My Parents Are Aliens S07E09 The Love Bug",
+      "bundle": "Qc8P_MtLl8E",
+      "bundleTitle": "Ship of Friends 👯 My Parents Are Aliens — full episodes",
+      "bundleSpan": 2,
+      "ratio": 0.9474,
+      "longestExactWordRun": 87,
+      "singleWords": 3277,
+      "bundleSpanWords": 3301,
+      "bundleEnabled": true
+    }
+  ],
+  "captionUnavailable": [
+    "9fVsjOKoCjQ"
+  ],
+  "remainingPartialGroups": [
+    {
+      "sources": [
+        "VRdFVV2GKR0",
+        "nuRDiHLjNMw",
+        "bZRtRmvPN1g"
+      ],
+      "duplicateSpanCount": 2
+    },
+    {
+      "sources": [
+        "1O3jokn0PJg",
+        "CTgC6zN4ud0"
+      ],
+      "duplicateSpanCount": 1
+    },
+    {
+      "sources": [
+        "0Y8OmC2LWkc",
+        "A0GTZuyraFg"
+      ],
+      "duplicateSpanCount": 1
+    }
+  ],
+  "replacementHold": {
+    "id": "9PPQihvvtwM",
+    "embed": "Start and tail passed with two known controls",
+    "watch": "LOGIN_REQUIRED on primary watch metadata and public watch UI",
+    "decision": "Not imported: identity/caption and declared country list not verified. Not classified as deleted or embed-blocked."
+  },
+  "misfiledSource": {
+    "id": "GWOWnrtRhtc",
+    "publisherTitle": "Andromeda 2 (2023) [Sci-Fi] [Action] Time Travel. Space Legacy. | full movie",
+    "reason": "Standalone 2023 film, not an episode of the 2000 Andromeda television series."
+  },
+  "region": "Browser network country unverified; no cross-region test",
+  "newContentAdded": 0
+}

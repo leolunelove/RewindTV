@@ -1,0 +1,146 @@
+{
+  "currentPlan": {
+    "date": "2026-11-22",
+    "week": "2026-11-17",
+    "fixedSlots": 8418,
+    "sha256": "8f69f37e449bcc1ea8aa2b792ce5ccaa33ca8c76768e606813f6e601d1b2078e",
+    "channels": [
+      {
+        "key": "music",
+        "number": 1
+      },
+      {
+        "key": "trailers",
+        "number": 2
+      },
+      {
+        "key": "kids",
+        "number": 3
+      },
+      {
+        "key": "sitcom",
+        "number": 4
+      },
+      {
+        "key": "late",
+        "number": 5
+      },
+      {
+        "key": "kids-telly",
+        "number": 6
+      },
+      {
+        "key": "bean",
+        "number": 7
+      },
+      {
+        "key": "adverts",
+        "number": 8
+      },
+      {
+        "key": "aliens",
+        "number": 9
+      },
+      {
+        "key": "cinema",
+        "number": 10
+      },
+      {
+        "key": "andromeda",
+        "number": 11
+      },
+      {
+        "key": "rewind-specials",
+        "number": 12
+      },
+      {
+        "key": "halloween-horror",
+        "number": 13
+      },
+      {
+        "key": "christmas-tv",
+        "number": 14
+      },
+      {
+        "key": "rewind-gameshows",
+        "number": 15
+      },
+      {
+        "key": "lost-and-found",
+        "number": 16
+      },
+      {
+        "key": "midnight-movies",
+        "number": 17
+      },
+      {
+        "key": "rewind-after-dark",
+        "number": 18
+      },
+      {
+        "key": "rewind-music",
+        "number": 19
+      },
+      {
+        "key": "eighties",
+        "number": 20
+      },
+      {
+        "key": "nineties",
+        "number": 21
+      },
+      {
+        "key": "rewind-espanol",
+        "number": 22
+      },
+      {
+        "key": "rewind-mandarin",
+        "number": 23
+      },
+      {
+        "key": "unfiltered",
+        "number": 24
+      },
+      {
+        "key": "discovery-club",
+        "number": 25
+      },
+      {
+        "key": "kitchen-tv",
+        "number": 26
+      },
+      {
+        "key": "boomerang-classics",
+        "number": 27
+      },
+      {
+        "key": "cartoon-network-classics",
+        "number": 28
+      },
+      {
+        "key": "nickelodeon-classics",
+        "number": 29
+      },
+      {
+        "key": "disney-classics",
+        "number": 30
+      },
+      {
+        "key": "noughties",
+        "number": 31
+      },
+      {
+        "key": "after-school-uk",
+        "number": 32
+      },
+      {
+        "key": "power-rangers",
+        "number": 33
+      }
+    ]
+  },
+  "sourceRecordCount": 8114,
+  "sourceIdentitySha256": "dc48c5faefca4c4bd580e7ce111901092c638b14edfabb78025013db412401e3",
+  "uniqueSourceCount": 5440,
+  "sourceIdsSha256": "e8e9c331ebecb110ae0f31ba407e85abb55c0826632efd8c1593a533e4c3d501"
+}
