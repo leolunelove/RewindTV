@@ -2,6 +2,13 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-22 — Sixth main-channel quality pass
+
+- Checked another 100 previously undated main-ten uploads, plus nine existing Gadget Boy collections and eight Aliens singles: all 117 pass embedded start/tail checks.
+- Closed all four remaining Gadget Boy caption gaps. Retired the 62m22s Double Double compilation recoverably: its three stories remain in existing Toyland/Jurassic collections. Fixed-schedule retirement begins 24 November; current slots stay intact.
+- Kept the three Aliens partial groups after checking current singles first; their unique stories remain uncovered. April Fools captions unavailable after two attempts, so no speculative retirement.
+- 410 automated tests; 1,826 enabled main-ten and 2,459 overall private source IDs still lack dated start evidence. No new content. See [full evidence](docs/main-ten-sixth-100-2026-11-22.md).
+
 ## 2026-11-22 — Fifth 100 checks and another repeated collection
 
 - Checked another 100 main-channel uploads: 99 passed; one Sarah Jane Adventures upload has a corroborated BBCW Family claim. Eleven additional existing sources passed. Three collection timeouts recovered on retry.
