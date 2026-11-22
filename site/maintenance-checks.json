@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "main-ten-metadata-2026-11-14",
+  "revision": "main-ten-metadata-2026-11-22",
   "channels": [],
   "videos": [],
   "assignments": {},
@@ -1692,6 +1692,3170 @@
           "observedDuration": 599
         },
         "metadataCheckedAt": "2026-11-14T08:32:19.753761+00:00"
+      }
+    },
+    {
+      "id": "1s5z2tHA6yA",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:45.621Z",
+        "metadataCheckedAt": "2026-11-22T10:05:07.658582+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2023-04-02",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "NZ"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 247,
+          "checkedAt": "2026-11-22T10:05:07.658582+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:45.621Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1320.081
+        }
+      }
+    },
+    {
+      "id": "MwaYdriPoU4",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:45.635Z",
+        "metadataCheckedAt": "2026-11-22T10:05:09.146707+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-01-22",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:09.146707+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:45.635Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1363.6
+        }
+      }
+    },
+    {
+      "id": "gFTLmVsX3ZQ",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:45.395Z",
+        "metadataCheckedAt": "2026-11-22T10:05:10.713411+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2020-12-25",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:10.713411+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:45.395Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1325
+        }
+      }
+    },
+    {
+      "id": "rGw0XWBqP5Q",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:50.401Z",
+        "metadataCheckedAt": "2026-11-22T10:05:12.165422+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2020-04-16",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:12.165422+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:50.401Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1359.581
+        }
+      }
+    },
+    {
+      "id": "ICAbM51qXBQ",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:51.127Z",
+        "metadataCheckedAt": "2026-11-22T10:05:14.175617+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2020-05-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:14.175617+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:51.127Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1359.741
+        }
+      }
+    },
+    {
+      "id": "4HwFxclQWeQ",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:50.140Z",
+        "metadataCheckedAt": "2026-11-22T10:05:15.628077+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-04-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "NZ"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 247,
+          "checkedAt": "2026-11-22T10:05:15.628077+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:50.140Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1416
+        }
+      }
+    },
+    {
+      "id": "I65AQkjWmBA",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:54.403Z",
+        "metadataCheckedAt": "2026-11-22T10:05:17.369953+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-04-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "NZ"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 247,
+          "checkedAt": "2026-11-22T10:05:17.369953+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:54.403Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1415.041
+        }
+      }
+    },
+    {
+      "id": "LmY8qdoF-4k",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:55.934Z",
+        "metadataCheckedAt": "2026-11-22T10:05:19.159802+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2014-11-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AT",
+            "AU",
+            "CC",
+            "CH",
+            "CX",
+            "DE",
+            "HM",
+            "NZ"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 241,
+          "checkedAt": "2026-11-22T10:05:19.159802+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:55.934Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1489
+        }
+      }
+    },
+    {
+      "id": "6LUWNbIp0YM",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:55.882Z",
+        "metadataCheckedAt": "2026-11-22T10:05:20.764813+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2026-09-28",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:20.764813+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:55.882Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2295
+        }
+      }
+    },
+    {
+      "id": "8aKn5s2Nee0",
+      "changes": {
+        "checkedAt": "2026-11-22T09:38:58.918Z",
+        "metadataCheckedAt": "2026-11-22T10:05:22.274508+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2026-10-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:22.274508+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:38:58.918Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2517.941
+        }
+      }
+    },
+    {
+      "id": "jkhCbcj5CdU",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:00.140Z",
+        "metadataCheckedAt": "2026-11-22T10:05:23.957364+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-07-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:23.957364+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:00.140Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1242
+        }
+      }
+    },
+    {
+      "id": "2gzbbXi6-Io",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:00.443Z",
+        "metadataCheckedAt": "2026-11-22T10:05:25.747826+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-06-26",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:25.747826+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:00.443Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1242
+        }
+      }
+    },
+    {
+      "id": "15oeVDJuIww",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:03.929Z",
+        "metadataCheckedAt": "2026-11-22T10:05:27.307750+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2026-10-06",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "US"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:05:27.307750+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:03.929Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 807
+        }
+      }
+    },
+    {
+      "id": "nI__h88vvJU",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:04.399Z",
+        "metadataCheckedAt": "2026-11-22T10:05:29.015692+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2017-11-02",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AF",
+            "AU",
+            "AZ",
+            "BD",
+            "BN",
+            "BT",
+            "CN",
+            "HK",
+            "ID",
+            "IN",
+            "JP",
+            "KG",
+            "KH",
+            "KP",
+            "KR",
+            "KZ",
+            "LA",
+            "LK",
+            "MM",
+            "MN",
+            "MY",
+            "NP",
+            "NZ",
+            "PH",
+            "PK",
+            "SG",
+            "TH",
+            "TJ",
+            "TM",
+            "TW",
+            "UZ",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 217,
+          "checkedAt": "2026-11-22T10:05:29.015692+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:04.399Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1567
+        }
+      }
+    },
+    {
+      "id": "9eH2TywMy0M",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:04.451Z",
+        "metadataCheckedAt": "2026-11-22T10:05:30.473205+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2018-01-11",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AE",
+            "AF",
+            "AO",
+            "AU",
+            "AZ",
+            "BD",
+            "BF",
+            "BH",
+            "BI",
+            "BJ",
+            "BN",
+            "BT",
+            "BW",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CM",
+            "CN",
+            "CV",
+            "DJ",
+            "DZ",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "GA",
+            "GH",
+            "GM",
+            "GN",
+            "GQ",
+            "GW",
+            "HK",
+            "ID",
+            "IL",
+            "IN",
+            "IR",
+            "JO",
+            "JP",
+            "KE",
+            "KG",
+            "KH",
+            "KM",
+            "KP",
+            "KR",
+            "KW",
+            "KZ",
+            "LA",
+            "LB",
+            "LK",
+            "LR",
+            "LS",
+            "LY",
+            "MA",
+            "MG",
+            "ML",
+            "MM",
+            "MN",
+            "MR",
+            "MU",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "NP",
+            "NZ",
+            "OM",
+            "PH",
+            "PK",
+            "PS",
+            "QA",
+            "RE",
+            "RW",
+            "SA",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SL",
+            "SN",
+            "SO",
+            "SS",
+            "ST",
+            "SY",
+            "SZ",
+            "TD",
+            "TG",
+            "TH",
+            "TJ",
+            "TM",
+            "TN",
+            "TW",
+            "TZ",
+            "UG",
+            "UZ",
+            "VN",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 146,
+          "checkedAt": "2026-11-22T10:05:30.473205+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:04.451Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1564
+        }
+      }
+    },
+    {
+      "id": "zWQLjB-7Wlw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:08.689Z",
+        "metadataCheckedAt": "2026-11-22T10:05:32.164702+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2018-10-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:32.164702+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:08.689Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1314
+        }
+      }
+    },
+    {
+      "id": "bdUaOsJJC7Q",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:08.656Z",
+        "metadataCheckedAt": "2026-11-22T10:05:33.895872+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2018-11-16",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:33.895872+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:08.656Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1315
+        }
+      }
+    },
+    {
+      "id": "q8VnyXVstSE",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:08.708Z",
+        "metadataCheckedAt": "2026-11-22T10:05:36.332171+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-11-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:36.332171+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:08.708Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 610
+        }
+      }
+    },
+    {
+      "id": "fucPLTDFGBE",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:14.664Z",
+        "metadataCheckedAt": "2026-11-22T10:05:37.915900+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2017-05-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:37.915900+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:14.664Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 713
+        }
+      }
+    },
+    {
+      "id": "LHJjdH39Hrs",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:15.199Z",
+        "metadataCheckedAt": "2026-11-22T10:05:39.629490+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2020-05-16",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:39.629490+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:15.199Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1263.941
+        }
+      }
+    },
+    {
+      "id": "J69G0S2ENFw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:15.214Z",
+        "metadataCheckedAt": "2026-11-22T10:05:41.381776+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2024-12-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:41.381776+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:15.214Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1465.641
+        }
+      }
+    },
+    {
+      "id": "cq7WZs973GE",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:19.922Z",
+        "metadataCheckedAt": "2026-11-22T10:05:43.022300+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2017-10-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:43.022300+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:19.922Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1200
+        }
+      }
+    },
+    {
+      "id": "iIPMskjhb4U",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:21.205Z",
+        "metadataCheckedAt": "2026-11-22T10:05:44.585437+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2018-02-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:44.585437+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:21.205Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1217.441
+        }
+      }
+    },
+    {
+      "id": "0bwflQPShPQ",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:19.468Z",
+        "metadataCheckedAt": "2026-11-22T10:05:46.119250+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-10-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:46.119250+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:19.468Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 606
+        }
+      }
+    },
+    {
+      "id": "be_HXWOBG1o",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:23.976Z",
+        "metadataCheckedAt": "2026-11-22T10:05:47.546369+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-12-20",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:47.546369+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:23.976Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 605
+        }
+      }
+    },
+    {
+      "id": "xSuo_k89zmM",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:24.428Z",
+        "metadataCheckedAt": "2026-11-22T10:05:49.007600+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2026-09-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:49.007600+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:24.428Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 5543
+        }
+      }
+    },
+    {
+      "id": "agFM7kKap_o",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:25.716Z",
+        "metadataCheckedAt": "2026-11-22T10:05:50.549376+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2017-05-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:50.549376+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:25.716Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 5426
+        }
+      }
+    },
+    {
+      "id": "0sicZ_VW0Fk",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:27.983Z",
+        "metadataCheckedAt": "2026-11-22T10:05:52.226590+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2022-06-22",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:52.226590+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:27.983Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 978
+        }
+      }
+    },
+    {
+      "id": "aieOD9dd8Fw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:28.684Z",
+        "metadataCheckedAt": "2026-11-22T10:05:53.699921+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2022-06-25",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:05:53.699921+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:28.684Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 924.601
+        }
+      }
+    },
+    {
+      "id": "yklOI1j7nLM",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:29.971Z",
+        "metadataCheckedAt": "2026-11-22T10:05:55.189258+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2023-02-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AD",
+            "BE",
+            "CH",
+            "CY",
+            "DK",
+            "FI",
+            "GR",
+            "IS",
+            "IT",
+            "LU",
+            "NL",
+            "NO",
+            "PT",
+            "SM",
+            "TR",
+            "VA"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 233,
+          "checkedAt": "2026-11-22T10:05:55.189258+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:29.971Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1586
+        }
+      }
+    },
+    {
+      "id": "e6VaYr7xOsw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:32.000Z",
+        "metadataCheckedAt": "2026-11-22T10:05:56.734027+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2017-12-31",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:05:56.734027+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:32.000Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1444
+        }
+      }
+    },
+    {
+      "id": "A_S0PQkwO5E",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:32.690Z",
+        "metadataCheckedAt": "2026-11-22T10:05:58.348148+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2010-09-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB",
+            "IE",
+            "RU",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:05:58.348148+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:32.690Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1436
+        }
+      }
+    },
+    {
+      "id": "r1NsFQUZhb8",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:33.977Z",
+        "metadataCheckedAt": "2026-11-22T10:06:00.071530+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2010-09-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB",
+            "IE",
+            "RU",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:00.071530+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:33.977Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1499
+        }
+      }
+    },
+    {
+      "id": "K_bX_jX9O8w",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:36.541Z",
+        "metadataCheckedAt": "2026-11-22T10:06:01.885770+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2010-09-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AT",
+            "CH",
+            "DE",
+            "GB",
+            "IE",
+            "LI",
+            "RU",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 241,
+          "checkedAt": "2026-11-22T10:06:01.885770+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:36.541Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1473
+        }
+      }
+    },
+    {
+      "id": "zHzlsrCI7NA",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:37.446Z",
+        "metadataCheckedAt": "2026-11-22T10:06:03.497929+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-08-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:03.497929+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:37.446Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1298
+        }
+      }
+    },
+    {
+      "id": "pjJp7chhxQs",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:38.232Z",
+        "metadataCheckedAt": "2026-11-22T10:06:05.233756+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2023-06-02",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:05.233756+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:38.232Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1362
+        }
+      }
+    },
+    {
+      "id": "aGVUHGLR2_4",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:40.796Z",
+        "metadataCheckedAt": "2026-11-22T10:06:06.907793+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-06-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:06.907793+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:40.796Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1298
+        }
+      }
+    },
+    {
+      "id": "xLKENLr6DmI",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:42.701Z",
+        "metadataCheckedAt": "2026-11-22T10:06:08.671497+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-09-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:08.671497+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:42.701Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1297.761
+        }
+      }
+    },
+    {
+      "id": "athvzrbAuBg",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:42.490Z",
+        "metadataCheckedAt": "2026-11-22T10:06:10.137251+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2023-08-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:10.137251+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:42.490Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1361.561
+        }
+      }
+    },
+    {
+      "id": "5pimlG70Jm8",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:45.554Z",
+        "metadataCheckedAt": "2026-11-22T10:06:11.855130+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2023-03-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:11.855130+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:45.554Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1370
+        }
+      }
+    },
+    {
+      "id": "QbzRj1lHeP8",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:46.245Z",
+        "metadataCheckedAt": "2026-11-22T10:06:13.671053+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2017-10-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "JP",
+            "KR",
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:13.671053+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:46.245Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1232
+        }
+      }
+    },
+    {
+      "id": "0LGDfZngevs",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:46.958Z",
+        "metadataCheckedAt": "2026-11-22T10:06:15.632292+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2017-10-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "JP",
+            "KR",
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:15.632292+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:46.958Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1156
+        }
+      }
+    },
+    {
+      "id": "NEypfVRripI",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:49.815Z",
+        "metadataCheckedAt": "2026-11-22T10:06:17.133353+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2015-07-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "JP",
+            "KR",
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:17.133353+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:49.815Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1277
+        }
+      }
+    },
+    {
+      "id": "ZcYxdLTcGvA",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:50.000Z",
+        "metadataCheckedAt": "2026-11-22T10:06:18.664729+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2015-07-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "JP",
+            "KR",
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:18.664729+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:50.000Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1279
+        }
+      }
+    },
+    {
+      "id": "qBsRxGQhDKs",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:50.714Z",
+        "metadataCheckedAt": "2026-11-22T10:06:20.197977+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2015-07-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "JP",
+            "KR",
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:20.197977+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:50.714Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1280
+        }
+      }
+    },
+    {
+      "id": "FTMUZlg7WEg",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:53.824Z",
+        "metadataCheckedAt": "2026-11-22T10:06:21.864185+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2015-07-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "JP",
+            "KR",
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:21.864185+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:53.824Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1282
+        }
+      }
+    },
+    {
+      "id": "-INdp_kaWAc",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:54.755Z",
+        "metadataCheckedAt": "2026-11-22T10:06:23.667171+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2015-07-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "JP",
+            "KR",
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:23.667171+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:54.755Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1277
+        }
+      }
+    },
+    {
+      "id": "vIz7_2tjcOU",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:54.718Z",
+        "metadataCheckedAt": "2026-11-22T10:06:25.211133+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2015-07-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "JP",
+            "KR",
+            "RU"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 245,
+          "checkedAt": "2026-11-22T10:06:25.211133+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:54.718Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1276
+        }
+      }
+    },
+    {
+      "id": "PFOxBFT_AKg",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:58.335Z",
+        "metadataCheckedAt": "2026-11-22T10:06:26.770652+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-03-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:26.770652+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:58.335Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1353
+        }
+      }
+    },
+    {
+      "id": "rBXRuEEpqug",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:58.973Z",
+        "metadataCheckedAt": "2026-11-22T10:06:28.341603+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2020-01-15",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:28.341603+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:58.973Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1352
+        }
+      }
+    },
+    {
+      "id": "Sx9Vro649Zk",
+      "changes": {
+        "checkedAt": "2026-11-22T09:39:58.760Z",
+        "metadataCheckedAt": "2026-11-22T10:06:29.913650+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2024-07-16",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:29.913650+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:39:58.760Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2656
+        }
+      }
+    },
+    {
+      "id": "_uufHHF6NgI",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:03.349Z",
+        "metadataCheckedAt": "2026-11-22T10:06:31.472123+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2026-01-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:31.472123+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:03.349Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2656
+        }
+      }
+    },
+    {
+      "id": "dMIVK28wKxU",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:03.520Z",
+        "metadataCheckedAt": "2026-11-22T10:06:33.167793+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-05-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:33.167793+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:03.520Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2656
+        }
+      }
+    },
+    {
+      "id": "pYpJ_-iradg",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:03.477Z",
+        "metadataCheckedAt": "2026-11-22T10:06:34.857135+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-09-21",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:34.857135+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:03.477Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2656
+        }
+      }
+    },
+    {
+      "id": "aGSPj9Z9sKw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:07.360Z",
+        "metadataCheckedAt": "2026-11-22T10:06:36.428313+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2024-08-25",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:36.428313+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:07.360Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2896.681
+        }
+      }
+    },
+    {
+      "id": "MyyYf7UGdOs",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:07.483Z",
+        "metadataCheckedAt": "2026-11-22T10:06:37.945497+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-04-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:37.945497+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:07.483Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2681
+        }
+      }
+    },
+    {
+      "id": "aPP1R1gqgg8",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:09.524Z",
+        "metadataCheckedAt": "2026-11-22T10:06:39.430068+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-08-16",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:39.430068+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:09.524Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2684.301
+        }
+      }
+    },
+    {
+      "id": "PapVl8wZ-Gc",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:12.620Z",
+        "metadataCheckedAt": "2026-11-22T10:06:41.044954+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-08-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:41.044954+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:12.620Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2684.301
+        }
+      }
+    },
+    {
+      "id": "SH26iszQ8dg",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:11.238Z",
+        "metadataCheckedAt": "2026-11-22T10:06:42.547553+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2026-10-11",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AU",
+            "CC",
+            "CX",
+            "NF",
+            "PH",
+            "TF"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 243,
+          "checkedAt": "2026-11-22T10:06:42.547553+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:11.238Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2582
+        }
+      }
+    },
+    {
+      "id": "Vhu990MoGDU",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:13.781Z",
+        "metadataCheckedAt": "2026-11-22T10:06:44.609124+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2020-03-17",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "BD"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:06:44.609124+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:13.781Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1423.361
+        }
+      }
+    },
+    {
+      "id": "KEnLeCSZsKk",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:15.493Z",
+        "metadataCheckedAt": "2026-11-22T10:06:46.060264+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2024-10-26",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:46.060264+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:15.493Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2962.141
+        }
+      }
+    },
+    {
+      "id": "QJ_neegxEK0",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:16.877Z",
+        "metadataCheckedAt": "2026-11-22T10:06:47.712713+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-11-22",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:47.712713+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:16.877Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 3125
+        }
+      }
+    },
+    {
+      "id": "7IApHZNcD3w",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:17.791Z",
+        "metadataCheckedAt": "2026-11-22T10:06:49.372126+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2020-12-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:49.372126+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:17.791Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 3014
+        }
+      }
+    },
+    {
+      "id": "zw9xyHphOto",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:20.250Z",
+        "metadataCheckedAt": "2026-11-22T10:06:51.023688+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2019-03-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:51.023688+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:20.250Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 3003
+        }
+      }
+    },
+    {
+      "id": "pMuZvyTE6L0",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:20.885Z",
+        "metadataCheckedAt": "2026-11-22T10:06:52.548104+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2019-05-22",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:52.548104+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:20.885Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2667
+        }
+      }
+    },
+    {
+      "id": "0DwG_MP5TbE",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:21.799Z",
+        "metadataCheckedAt": "2026-11-22T10:06:54.253318+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2019-03-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:54.253318+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:21.799Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2886
+        }
+      }
+    },
+    {
+      "id": "ReGKPJ_qkcs",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:24.261Z",
+        "metadataCheckedAt": "2026-11-22T10:06:55.945233+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2021-07-27",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:55.945233+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:24.261Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2813
+        }
+      }
+    },
+    {
+      "id": "5ndfHFFi_xw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:24.889Z",
+        "metadataCheckedAt": "2026-11-22T10:06:57.845528+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2019-03-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:57.845528+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:24.889Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 3144
+        }
+      }
+    },
+    {
+      "id": "aNRUAJAuJKw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:25.554Z",
+        "metadataCheckedAt": "2026-11-22T10:06:59.771179+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2019-05-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:06:59.771179+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:25.554Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2747
+        }
+      }
+    },
+    {
+      "id": "I-dINR9ajrc",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:28.270Z",
+        "metadataCheckedAt": "2026-11-22T10:07:01.310441+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2019-03-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:01.310441+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:28.270Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2981
+        }
+      }
+    },
+    {
+      "id": "SMlurGAqfik",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:29.646Z",
+        "metadataCheckedAt": "2026-11-22T10:07:02.803109+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-09-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:02.803109+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:29.646Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2787
+        }
+      }
+    },
+    {
+      "id": "n5ws2Rx526Q",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:30.310Z",
+        "metadataCheckedAt": "2026-11-22T10:07:04.404142+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-09-22",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:04.404142+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:30.310Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2745.721
+        }
+      }
+    },
+    {
+      "id": "BS7lPMpTKGQ",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:33.279Z",
+        "metadataCheckedAt": "2026-11-22T10:07:06.005146+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-10-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:06.005146+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:33.279Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2762.241
+        }
+      }
+    },
+    {
+      "id": "vE6tBGnuTIU",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:33.901Z",
+        "metadataCheckedAt": "2026-11-22T10:07:07.676400+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-11-06",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:07.676400+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:33.901Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2720
+        }
+      }
+    },
+    {
+      "id": "sw1QYvATJDw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:34.817Z",
+        "metadataCheckedAt": "2026-11-22T10:07:09.379901+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-10-30",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:09.379901+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:34.817Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2800.741
+        }
+      }
+    },
+    {
+      "id": "Efu4YHE57g4",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:37.542Z",
+        "metadataCheckedAt": "2026-11-22T10:07:10.918719+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2026-02-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:10.918719+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:37.542Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2790
+        }
+      }
+    },
+    {
+      "id": "NZU2GMOCbVE",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:38.414Z",
+        "metadataCheckedAt": "2026-11-22T10:07:12.620966+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-05-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:12.620966+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:38.414Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2647.641
+        }
+      }
+    },
+    {
+      "id": "CPyV-wwcmf4",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:38.822Z",
+        "metadataCheckedAt": "2026-11-22T10:07:14.429550+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-04-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:14.429550+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:38.822Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2661
+        }
+      }
+    },
+    {
+      "id": "wYiYhNx_XsM",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:43.055Z",
+        "metadataCheckedAt": "2026-11-22T10:07:16.021986+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-05-29",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:16.021986+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:43.055Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2599.041
+        }
+      }
+    },
+    {
+      "id": "GnVkhcSQy4E",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:42.424Z",
+        "metadataCheckedAt": "2026-11-22T10:07:17.625348+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2025-06-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:17.625348+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:42.424Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 2647
+        }
+      }
+    },
+    {
+      "id": "liR0gS0sZY0",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:42.827Z",
+        "metadataCheckedAt": "2026-11-22T10:07:19.390494+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-08-26",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:19.390494+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:42.827Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1628
+        }
+      }
+    },
+    {
+      "id": "_kkZcIgocBM",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:46.949Z",
+        "metadataCheckedAt": "2026-11-22T10:07:20.997252+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-11-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:20.997252+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:46.949Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1496
+        }
+      }
+    },
+    {
+      "id": "pfWV8NkotvU",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:47.085Z",
+        "metadataCheckedAt": "2026-11-22T10:07:23.547321+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-08-25",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:23.547321+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:47.085Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1681
+        }
+      }
+    },
+    {
+      "id": "Qccgam514ds",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:47.310Z",
+        "metadataCheckedAt": "2026-11-22T10:07:25.247423+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-09-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:25.247423+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:47.310Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1655
+        }
+      }
+    },
+    {
+      "id": "G7Etn7QMeO4",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:51.211Z",
+        "metadataCheckedAt": "2026-11-22T10:07:26.739062+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-12-02",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:26.739062+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:51.211Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1536
+        }
+      }
+    },
+    {
+      "id": "bSm3fmEyJ20",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:51.591Z",
+        "metadataCheckedAt": "2026-11-22T10:07:28.344977+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-11-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:28.344977+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:51.591Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1507.001
+        }
+      }
+    },
+    {
+      "id": "obSLZWXmDak",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:51.320Z",
+        "metadataCheckedAt": "2026-11-22T10:07:29.844360+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-10-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:29.844360+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:51.320Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1611
+        }
+      }
+    },
+    {
+      "id": "0mJqzzeWyXs",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:55.471Z",
+        "metadataCheckedAt": "2026-11-22T10:07:31.496382+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-11-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:31.496382+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:55.471Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1646
+        }
+      }
+    },
+    {
+      "id": "crWDcTvDmec",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:55.583Z",
+        "metadataCheckedAt": "2026-11-22T10:07:33.056333+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-11-10",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:33.056333+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:55.583Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1492
+        }
+      }
+    },
+    {
+      "id": "lSeRrm5ZK9c",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:55.847Z",
+        "metadataCheckedAt": "2026-11-22T10:07:34.672960+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2016-10-29",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "GB"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-22T10:07:34.672960+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:55.847Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 1535
+        }
+      }
+    },
+    {
+      "id": "ZpjyH-LkEAg",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:59.231Z",
+        "metadataCheckedAt": "2026-11-22T10:07:36.332252+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2009-12-21",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:36.332252+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:59.231Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 79
+        }
+      }
+    },
+    {
+      "id": "49j6_uk0g3k",
+      "changes": {
+        "checkedAt": "2026-11-22T09:40:59.839Z",
+        "metadataCheckedAt": "2026-11-22T10:07:38.011154+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2010-09-03",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:38.011154+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:40:59.839Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 83
+        }
+      }
+    },
+    {
+      "id": "tKB4h9gvmm0",
+      "changes": {
+        "checkedAt": "2026-11-22T09:41:00.101Z",
+        "metadataCheckedAt": "2026-11-22T10:07:39.859226+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2010-01-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:39.859226+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:41:00.101Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 112
+        }
+      }
+    },
+    {
+      "id": "cYNdUM2gRsg",
+      "changes": {
+        "checkedAt": "2026-11-22T09:41:04.747Z",
+        "metadataCheckedAt": "2026-11-22T10:07:41.579699+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2011-09-02",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:41.579699+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:41:04.747Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 94
+        }
+      }
+    },
+    {
+      "id": "tCnj-uiRCn8",
+      "changes": {
+        "checkedAt": "2026-11-22T09:41:06.595Z",
+        "metadataCheckedAt": "2026-11-22T10:07:43.158050+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2012-05-11",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:43.158050+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:41:06.595Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 87.721
+        }
+      }
+    },
+    {
+      "id": "oY6tCnu-1Do",
+      "changes": {
+        "checkedAt": "2026-11-22T09:41:06.627Z",
+        "metadataCheckedAt": "2026-11-22T10:07:44.964527+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2010-12-31",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:44.964527+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:41:06.627Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 85.221
+        }
+      }
+    },
+    {
+      "id": "DI5_sQ8O-7Y",
+      "changes": {
+        "checkedAt": "2026-11-22T09:41:09.021Z",
+        "metadataCheckedAt": "2026-11-22T10:07:46.598267+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2012-06-22",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:46.598267+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:41:09.021Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 122
+        }
+      }
+    },
+    {
+      "id": "hHkKJfcBXcw",
+      "changes": {
+        "checkedAt": "2026-11-22T09:41:10.602Z",
+        "metadataCheckedAt": "2026-11-22T10:07:48.462014+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2011-09-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:48.462014+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:41:10.602Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 130
+        }
+      }
+    },
+    {
+      "id": "YmokqDrIBKg",
+      "changes": {
+        "checkedAt": "2026-11-22T09:41:10.133Z",
+        "metadataCheckedAt": "2026-11-22T10:07:50.042974+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2012-09-30",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:50.042974+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:41:10.133Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 93
+        }
+      }
+    },
+    {
+      "id": "M3iOROuTuMA",
+      "changes": {
+        "checkedAt": "2026-11-22T09:41:12.783Z",
+        "metadataCheckedAt": "2026-11-22T10:07:51.677849+00:00",
+        "metadataStatus": "OK",
+        "uploadDate": "2007-05-09",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-22T10:07:51.677849+00:00",
+          "method": "Exact public YouTube watch metadata availableCountries; not worldwide playback validation",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-22T09:41:12.783Z",
+          "region": "Browser network egress country not independently verified",
+          "method": "Actual muted embedded clock advancement at start and within final16seconds; not whole-runtime viewing",
+          "origin": "https://tv.leolune.fun",
+          "observedDuration": 111
+        }
       }
     }
   ]

@@ -10,7 +10,7 @@ export function episodeOrder(v){
  if(m)return Number(m[1])*10000+Number(m[2]);
  m=title.match(/\b(?:episode|ep)\.?\s*(\d+)/i);if(m)return 10000+Number(m[1]);
  if(v.series==='Undergrads'){m=title.match(/\b(\d+):(\d+)\b/);if(m)return Number(m[1])*10000+Number(m[2]);}
- return Infinity;
+ return Number.isInteger(v.seasonNumber)&&v.seasonNumber>0?v.seasonNumber*10000+9999:Infinity;
 }
 const compareEpisodes=(a,b)=>{const x=episodeOrder(a),y=episodeOrder(b);return x===y?0:x-y;};
 export function buildShowIndex(catalogue, listings=[]){

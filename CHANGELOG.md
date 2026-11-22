@@ -2,6 +2,14 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-22 — Main-channel quality pass
+
+- Checked 112 unique uploads at the start and near the end, including 100 previously undated main-ten sources. Refreshed all 100 metadata records and 32 missing declared country restrictions.
+- Replaced an overlapping Totally Spies compilation in browsing/mixes with an authenticated official Spy Gladiators single. Retained the other two stories' existing singles and the original source record. Fixed-channel changes begin 24 November; this week's timetable stays intact.
+- Labelled five My Parents Are Aliens double bills clearly. One shared internal story remains under review; unique stories are preserved.
+- Kept named, unnumbered episodes inside their known season. Verified Samurai's existing order through a country-filter roundtrip; no speculative numbering change.
+- 392 automated tests pass. Local desktop/390px checks cover actual replacement playback, Guide/Library continuity, rapid switching and shuffle previews. Private manager and 8,399 fixed slots are preserved. Physical iPhone/Safari remains untested. See [exact coverage and remaining work](docs/catalogue-quality-2026-11-22.md).
+
 ## 2026-11-14 — Catalogue maintenance and animation depth
 
 - Added 64 official uploads and 23.4 hours across Totally Spies (26), The Transformers (12) and Beast Wars: Transformers (26). Fixed-channel additions join on 17 November.

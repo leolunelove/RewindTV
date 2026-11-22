@@ -95,7 +95,8 @@ test('the 57-source maintenance pack retains all current Gibraltar slots and com
  let baseline=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));
  for(const name of SOURCE_FILES.slice(2).filter(name=>!['maintenance-growth.json','maintenance-checks.json','library-health.json'].includes(name)))baseline=withExpansion(baseline,read(name));
  baseline=withExpansion(baseline,read('library-health.json'));
- const checks=read('maintenance-checks.json');
+ const allChecks=read('maintenance-checks.json');
+ const checks={...allChecks,updates:allChecks.updates.filter(update=>update.changes.metadataCheckedAt.startsWith('2026-11-14'))};
  assert.equal(checks.updates.length,57);
  assert.equal(new Set(checks.updates.map(update=>update.id)).size,57);
  const updated=withExpansion(baseline,checks);

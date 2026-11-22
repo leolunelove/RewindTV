@@ -1,10 +1,10 @@
 import {showListings} from './show-listings.mjs?v=vault1';
-import {buildShowIndex,normalise} from './show-library.mjs?v=20261113region';
+import {buildShowIndex,normalise} from './show-library.mjs?v=20261122quality';
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
-import {browseTitles} from './browse-tools.mjs?v=20261113region';
-import {movieArtwork} from './movie-night.mjs?v=20261113region';
+import {browseTitles} from './browse-tools.mjs?v=20261122quality';
+import {movieArtwork} from './movie-night.mjs?v=20261122quality';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
-import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261113region';
+import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261122quality';
 import {libraryCountLabel} from './library-meta.mjs?v=20261114library';
 
 export function filterTitles(shows,query='',kind='all') {

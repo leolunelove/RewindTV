@@ -33,7 +33,7 @@
         },
         {
           "id": "1O3jokn0PJg",
-          "title": "Neighbours From Hell👽 My Parents Are Aliens | Kids Telly",
+          "title": "Neighbours From Hell",
           "duration": 2507,
           "uploader": "Kids Telly",
           "uploaderUrl": "https://www.youtube.com/@KidsTellyITVS",
@@ -49,11 +49,19 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "Neighbours From Hell👽 My Parents Are Aliens | Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=1O3jokn0PJg",
+            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
+            "note": "Two distinct stories, not a loop of one episode."
+          }
         },
         {
           "id": "0Y8OmC2LWkc",
-          "title": "The Flash Family Battle | My Parents Are Aliens | Kids Telly",
+          "title": "The Flash Family Battle",
           "duration": 2513,
           "uploader": "Kids Telly",
           "uploaderUrl": "https://www.youtube.com/@KidsTellyITVS",
@@ -69,7 +77,15 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "The Flash Family Battle | My Parents Are Aliens | Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=0Y8OmC2LWkc",
+            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
+            "note": "Two distinct stories, not a loop of one episode."
+          }
         },
         {
           "id": "glA-d8uAZJ0",
@@ -453,7 +469,7 @@
         },
         {
           "id": "WjclQp9LFzU",
-          "title": "When Parents Meet My Parents | My Parents Are Aliens 👽 Kids Telly",
+          "title": "When Parents Meet My Parents",
           "duration": 2441,
           "uploader": "Kids Telly",
           "uploaderUrl": "https://www.youtube.com/@KidsTellyITVS",
@@ -469,11 +485,19 @@
           "metadataStatus": "Search listing verified; watch endpoint rate limited during audit",
           "sourceEvidence": "https://www.youtube.com/@KidsTellyITVS",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "uploadTitle": "When Parents Meet My Parents | My Parents Are Aliens 👽 Kids Telly",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=WjclQp9LFzU",
+            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
+            "note": "Two distinct stories, not a loop of one episode."
+          }
         },
         {
           "id": "4e7OvP6uceM",
-          "title": "Hot Gossip 👀 My Parents Are Aliens — full episodes",
+          "title": "Hot Gossip",
           "uploadTitle": "Hot Gossip 👀 My Parents Are Aliens | Kids Telly",
           "uploader": "Kids Telly",
           "uploaderUrl": "https://www.youtube.com/@KidsTellyITVS",
@@ -492,7 +516,14 @@
           "family": true,
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=4e7OvP6uceM",
+            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
+            "note": "Hot Gossip and Becky the Freak share one story span, but each also has unique content. Retain both until complete non-overlapping sources are verified."
+          }
         },
         {
           "id": "5WvUdLSu5b8",
@@ -536,7 +567,7 @@
         },
         {
           "id": "FyPFO0Yf2d0",
-          "title": "Becky the Freak 🤪 My Parents Are Aliens — full episodes",
+          "title": "Becky the Freak",
           "uploadTitle": "Becky the Freak 🤪 My Parents Are Aliens | Kids Telly",
           "uploader": "Kids Telly",
           "uploaderUrl": "https://www.youtube.com/@KidsTellyITVS",
@@ -555,7 +586,14 @@
           "family": true,
           "checkedAt": "2026-10-16",
           "classicRerun": true,
-          "series": "My Parents Are Aliens"
+          "series": "My Parents Are Aliens",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Double bill · two stories",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=FyPFO0Yf2d0",
+            "method": "Primary English captions contain two distinct story spans. No canonical pair numbers or unnamed episode identities invented.",
+            "note": "Hot Gossip and Becky the Freak share one story span, but each also has unique content. Retain both until complete non-overlapping sources are verified."
+          }
         },
         {
           "id": "P2rpoQr8-hk",
@@ -36613,7 +36651,7 @@
         },
         {
           "id": "5KNa3AxEPxE",
-          "title": "BRAND NEW 🚨 Totally Spies! 🌸 Season 1, Episode 10-12 ✨ FULL HD REMASTER - TRIPLE EPISODE",
+          "title": "Model Citizens + Spy Gladiators + Silicon Valley Girls",
           "duration": 3717,
           "uploader": "Totally Spies!",
           "uploaderUrl": "https://www.youtube.com/@TotallySpiesChannel",
@@ -36625,7 +36663,7 @@
           "sourceType": "official",
           "kind": "full episode",
           "family": true,
-          "enabled": true,
+          "enabled": false,
           "embedStatus": "untested",
           "uploadTitle": "BRAND NEW 🚨 Totally Spies! 🌸 Season 1, Episode 10-12 ✨ FULL HD REMASTER - TRIPLE EPISODE",
           "playability": "OK",
@@ -36635,7 +36673,16 @@
           "metadataStatus": "watch-available",
           "yearAccuracy": "series range; exact episode year not verified",
           "classicRerun": true,
-          "series": "Totally Spies"
+          "series": "Totally Spies",
+          "curationCheckedAt": "2026-11-22",
+          "formatLabel": "Three-story compilation",
+          "scheduleUntilWeek": "2026-11-24",
+          "disabledReason": "Overlapping compilation replaced by the three verified individual stories; retained for recovery.",
+          "curationEvidence": {
+            "url": "https://www.youtube.com/watch?v=5KNa3AxEPxE",
+            "method": "Primary dialogue matches Model Citizens single QgNt6pcsFjo, Spy Gladiators single XZcGbwce7fU and Silicon Valley Girls single rsMtaar750Y. The broadly available ZeeKay edition1bT9jmp507s replaces the missing single.",
+            "note": "Publisher chapter text misnames the first and third stories. Original scheduling series/kind/duration remain for the current fixed timetable until24November."
+          }
         },
         {
           "id": "rsMtaar750Y",
