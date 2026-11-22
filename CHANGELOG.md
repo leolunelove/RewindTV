@@ -2,6 +2,13 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-22 — Another 100 main-channel checks and fewer repeated stories
+
+- Checked 100 more previously undated main-ten uploads, plus five targeted rechecks. All 105 passed start/near-end playback; refreshed metadata and 27 missing country restrictions.
+- Retired three wholly redundant My Parents Are Aliens double bills, including the shared Hot Gossip bundle. All six story spans remain in verified existing uploads. Removed about 126 minutes of repeated bundle playback, with fixed-channel retirement on 24 November.
+- Labelled 15 reviewed MPAA double bills and three explicit two-episode uploads clearly. Partial overlaps with unique stories stay under review; no speculative content loss.
+- Added no videos or channels. All current public/private fixed slots are preserved; 394 tests pass. See [exact checks, story matches and remaining coverage](docs/main-ten-second-100-2026-11-22.md).
+
 ## 2026-11-22 — Main-channel quality pass
 
 - Checked 112 unique uploads at the start and near the end, including 100 previously undated main-ten sources. Refreshed all 100 metadata records and 32 missing declared country restrictions.
