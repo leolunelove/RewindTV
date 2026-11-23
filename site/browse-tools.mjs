@@ -1,3 +1,4 @@
+import {isLibraryCollection} from './library-meta.mjs?v=20261123polish';
 import {normalise} from './show-library.mjs?v=20261122quality3';
 
 export function browseTitles(shows,{query='',kind='all',letter='all',channel='all',language='all'}={}) {
@@ -5,7 +6,7 @@ export function browseTitles(shows,{query='',kind='all',letter='all',channel='al
   return shows.filter(show=>{
     const title=normalise(show.title);
     const programmes=kind==='programmes';
-    const typeMatches=kind==='all'||(programmes?show.kind!=='film'&&show.episodes?.length>0:kind==='listed'?!show.episodes?.length:show.kind===kind);
+    const typeMatches=kind==='all'||(programmes?show.kind!=='film'&&show.episodes?.length>0:kind==='listed'?!show.episodes?.length:kind==='collection'?(show.kind==='collection'||show.episodes?.some(isLibraryCollection)):show.kind===kind);
     const queryMatches=!q||title.includes(q)||(programmes&&(title.replaceAll(' ','').includes(q.replaceAll(' ',''))||title.split(' ').map(word=>word[0]).join('')===q));
     return typeMatches&&queryMatches&&
       (channel==='all'||show.channels?.some(item=>item.key===channel)||show.listing?.channelKey===channel)&&
