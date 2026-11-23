@@ -2,6 +2,14 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-23 — Library clarity and recovery polish
+
+- Label unnumbered compilations as collections, including Gadget Boy’s eight retained uploads and mixed lists such as My Parents Are Aliens. Preserve verified canonical episode totals and original playback queues.
+- Make the Collections filter include labelled television bundles alongside creator collections.
+- Keep saved episode searches editable after shorter catalogue or country-filter refreshes. Add Show all recovery to empty episode, collection and video lists; restore query/season and focus without starting playback.
+- Normalize rounded runtimes so a near-two-hour upload reads 2h 0m instead of 1h 60m.
+- 415 tests pass. Desktop and narrow Chrome playback/navigation checks are recorded in [the polish report](docs/polish-2026-11-23.md). No new content or catalogue/schedule changes; physical iPhone/Safari remains untested.
+
 ## 2026-11-22 — Sixth main-channel quality pass
 
 - Checked another 100 previously undated main-ten uploads, plus nine existing Gadget Boy collections and eight Aliens singles: all 117 pass embedded start/tail checks.

@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {countLibraryStories,libraryCountLabel,libraryQueueState} from '../site/library-meta.mjs';
+import {countLibraryStories,libraryCountLabel,librarySectionLabel,libraryQueueState} from '../site/library-meta.mjs';
 import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';
 import {buildShowIndex} from '../site/show-library.mjs';
 import {catalogueForCountry} from '../site/region-eligibility.mjs';
@@ -14,7 +14,7 @@ test('story totals count double bills once per canonical story and keep numbered
   {id:'holiday',seasonNumber:1,episodeNumber:4,formatLabel:'Christmas special'},
   {id:'standalone',seasonNumber:1,formatLabel:'TV special'},
  ];
- assert.deepEqual(countLibraryStories(rows),{episodes:4,specials:1,uploads:5});assert.equal(libraryCountLabel(rows),'4 episodes · 1 special');
+ assert.deepEqual(countLibraryStories(rows),{episodes:4,specials:1,collections:0,uploads:5});assert.equal(libraryCountLabel(rows),'4 episodes · 1 special');
  assert.equal(libraryCountLabel([rows[1]]),'2 episodes');assert.equal(libraryCountLabel([rows[4]]),'1 special');
  assert.equal(libraryCountLabel([{id:'unlabelled'}]),'1 episode');assert.equal(libraryCountLabel([]),'0 episodes');
  assert.equal(libraryCountLabel([{id:'a'},{id:'b'}],'collection'),'2 videos');assert.equal(libraryCountLabel([{id:'a'}],'film'),'1 film');
@@ -40,4 +40,25 @@ test('a paused excluded queue entry has no zero ordinal or Previous action and N
  const empty=libraryQueueState([],-1,excluded,{blocked:true});assert.equal(empty.previousIndex,null);assert.equal(empty.nextIndex,null);
  const first=libraryQueueState(queue,0,queue[0]);assert.equal(first.position,'Programme 1 of 2');assert.equal(first.previousIndex,null);assert.equal(first.nextIndex,1);
  const last=libraryQueueState(queue,1,queue[1]);assert.equal(last.previousIndex,0);assert.equal(last.nextIndex,null);
+});
+
+test('unnumbered compilations are collections, while canonical double bills keep deduplicated episode counts',()=>{
+ const single={id:'one',seasonNumber:1,episodeNumber:1};
+ const double={id:'two-three',formatLabel:'Double bill · two episodes',seasonNumber:1,coveredEpisodeNumbers:[2,3]};
+ const bundle={id:'bundle',formatLabel:'Collection · five episodes'};
+ const other={id:'other',formatLabel:'Compilation'};
+ assert.equal(libraryCountLabel([bundle,bundle,other]),'2 collections');
+ assert.equal(libraryCountLabel([single,double,bundle]),'3 episodes · 1 collection');
+ assert.equal(librarySectionLabel([bundle,other]),'Collections');
+ assert.equal(librarySectionLabel([single,bundle]),'Episodes & collections');
+ assert.equal(librarySectionLabel([double]),'Episodes');
+ assert.equal(librarySectionLabel([bundle],'collection'),'Videos');
+ assert.equal(libraryCountLabel([{...bundle,episodeNumber:1}]),'1 collection','a bundle ordinal cannot certify its covered stories');
+});
+
+test('real Gadget Boy collection counts describe uploads without inventing canonical episodes',()=>{
+ const catalogue=hydrateLibrary(JSON.parse(fs.readFileSync(new URL('../site/runtime-library.json',import.meta.url))));
+ const show=buildShowIndex(catalogue).find(show=>show.title==='Gadget Boy');
+ assert.equal(libraryCountLabel(show.episodes,show.kind),'8 collections');
+ assert.equal(librarySectionLabel(show.episodes,show.kind),'Collections');
 });

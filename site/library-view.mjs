@@ -1,11 +1,11 @@
 import {showListings} from './show-listings.mjs?v=vault1';
 import {buildShowIndex,normalise} from './show-library.mjs?v=20261122quality3';
 import {programmeTitle} from './programme-info.mjs?v=liquid1';
-import {browseTitles} from './browse-tools.mjs?v=20261122quality3';
+import {browseTitles} from './browse-tools.mjs?v=20261123polish';
 import {movieArtwork} from './movie-night.mjs?v=20261122quality3';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
 import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261122quality3';
-import {libraryCountLabel} from './library-meta.mjs?v=20261114library';
+import {libraryCountLabel,librarySectionLabel} from './library-meta.mjs?v=20261123polish';
 
 export function filterTitles(shows,query='',kind='all') {
   return browseTitles(shows,{query,kind});
@@ -66,9 +66,8 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
   }
 
   function length(video) {
-    return video.duration>=3600
-      ? `${Math.floor(video.duration/3600)}h ${Math.round(video.duration%3600/60)}m`
-      : `${Math.round(video.duration/60)} min`;
+    const minutes=Math.round(video.duration/60);
+    return minutes>=60?`${Math.floor(minutes/60)}h ${minutes%60}m`:`${minutes} min`;
   }
 
   function select(label,options,value,change,className='') {
@@ -306,6 +305,8 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
 
   function drawDetail() {
     const show=selected;detailResume=null;detailStart=null;
+    const section=librarySectionLabel(show.episodes,show.kind);
+    const itemName=section==='Collections'?'collection':section==='Videos'?'video':section==='Episodes'?'episode':'programme';
     const state=titleState(show.key);
     root.replaceChildren();
     root.append(button('← Back to results',back,'text-button library-back'));
@@ -360,25 +361,33 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     }
     const search=el('input','','episode-search');
     search.type='search';
-    search.placeholder='Find an episode';
-    search.setAttribute('aria-label','Find an episode');
+    search.placeholder=`Find ${itemName==='episode'?'an':'a'} ${itemName}`;
+    search.setAttribute('aria-label',search.placeholder);
     search.value=state.query;
-    search.hidden=show.episodes.length<=12;
+    search.hidden=show.episodes.length<=12&&!state.query;
     search.oninput=()=>{state.query=search.value;state.anchor=null;draw();saveScroll();};
     controls.append(search);
     const list=el('div','','episode-list rwd-episode-list');
     const count=el('p','','library-count library-episode-count');
     count.setAttribute('aria-live','polite');
     const episodeHead=el('div','','library-episode-heading');
-    episodeHead.append(el('h4',show.kind==='show'?'Episodes':show.kind==='film'?'Film':'Videos'),controls);
+    episodeHead.append(el('h4',section),controls);
     root.append(episodeHead,count,list);
 
     function draw() {
       const query=normalise(state.query);
       const eligible=show.episodes.filter(video=>(state.season==='all'||(state.season==='unknown'?!video.seasonNumber:String(video.seasonNumber)===state.season))&&(!query||normalise([video.title,video.seasonNumber&&`season ${video.seasonNumber}`,video.episodeNumber&&`episode ${video.episodeNumber}`].filter(Boolean).join(' ')).includes(query)));
-      count.textContent=libraryCountLabel(eligible,show.kind);
+      count.textContent=eligible.length?libraryCountLabel(eligible,show.kind):`0 ${itemName}s`;
       list.replaceChildren();
-      if(!eligible.length)list.append(el('p','No episodes match. Try another name or season.','library-empty'));
+      if(!eligible.length){
+        list.append(el('p',`No ${itemName}s match. Try another name or season.`,'library-empty'));
+        list.append(button(`Show all ${itemName}s`,()=>{
+          state.query='';state.season='all';state.anchor=null;search.value='';
+          const season=controls.querySelector('.library-season-filter');if(season)season.value='all';
+          draw();saveScroll();
+          (search.hidden?list.querySelector('.episode-row'):search)?.focus();
+        },'text-button'));
+      }
       for(const video of eligible) {
         const item=el('div','','episode-item');
         item.dataset.episodeId=video.id;
