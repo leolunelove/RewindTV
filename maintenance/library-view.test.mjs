@@ -386,3 +386,25 @@ test('Library Continue watching resumes the saved episode while From the beginni
  assert.equal(byClass(f.root,'library-resume')[0],resume);assert.equal(f.root.ownerDocument.activeElement,resume);assert.equal(f.root.scrollTop,234);assert.equal(byClass(f.root,'episode-row')[0],episodes[0]);assert.match(resume.textContent,/6:40/);
  records=[];f.view.refreshContinueWatching();assert.equal(resume.hidden,true);
 });
+
+test('a saved episode query remains editable when a refreshed catalogue has fewer than thirteen uploads',async()=>{
+ const videos=Array.from({length:13},(_,i)=>episode(`episode${String(i).padStart(4,'0')}`,'Science Club',1,i+1));
+ const catalogue={channels:[{key:'science',name:'Science',videos}]};
+ const {root,view,played}=await libraryFixture(catalogue);view.openDetail('show:science club');
+ input(byLabel(root,'Find an episode'),'not present');
+ view.updateCatalogue({channels:[{...catalogue.channels[0],videos:videos.slice(0,8)}]});
+ const search=byLabel(root,'Find an episode');assert.equal(search.hidden,false);assert.equal(search.value,'not present');assert.equal(byClass(root,'episode-row').length,0);
+ const reset=descendants(root).find(node=>node.tagName==='button'&&node.textContent==='Show all episodes');reset.onclick();
+ assert.equal(search.value,'');assert.equal(byLabel(root,'Browse season').value,'all');assert.equal(byClass(root,'episode-row').length,8);assert.equal(played.length,0);assert.equal(root.ownerDocument.activeElement,search);
+});
+
+test('collection details and filtered empty states use collection language, with a clear recovery action',async()=>{
+ const videos=Array.from({length:13},(_,i)=>({...episode(`bundle${String(i).padStart(5,'0')}`,'Archive Show',undefined,undefined),formatLabel:'Collection · multiple episodes',duration:7199}));
+ const {root,view,played}=await libraryFixture({channels:[{key:'archive',name:'Archive',videos}]});view.openDetail('show:archive show');
+ assert.equal(byClass(root,'library-detail-meta')[0].textContent.includes('13 collections'),true);
+ assert(descendants(root).some(node=>node.tagName==='h4'&&node.textContent==='Collections'));
+ assert.equal(byClass(root,'episode-duration')[0].textContent,'2h 0m');
+ input(byLabel(root,'Find a collection'),'missing');assert.equal(byClass(root,'library-episode-count')[0].textContent,'0 collections');
+ descendants(root).find(node=>node.tagName==='button'&&node.textContent==='Show all collections').onclick();
+ assert.equal(byClass(root,'episode-row').length,13);assert.equal(played.length,0);
+});

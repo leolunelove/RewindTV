@@ -18,3 +18,11 @@ test('programmes combines playable TV, creator videos and music while leaving fi
  assert.deepEqual(browseTitles(records,{kind:'programmes',query:'FilthyFrank'}),[records[2]]);
  assert.deepEqual(browseTitles(records,{kind:'show'}),[records[0],records[5]],'the existing TV-only filter retains its original meaning');
 });
+
+test('Collections finds labelled television bundles as well as creator collections without changing the playable queues',()=>{
+ const bundle={title:'Gadget Boy',kind:'show',episodes:[{id:'original',formatLabel:'Collection · multiple episodes'}]};
+ const creator={title:'Classic creator',kind:'collection',episodes:[{id:'web'}]};
+ const single={title:'A Series',kind:'show',episodes:[{id:'single',formatLabel:'Full episode'}]};
+ const rows=[bundle,creator,single];assert.deepEqual(browseTitles(rows,{kind:'collection'}),[bundle,creator]);assert.deepEqual(bundle.episodes,[{id:'original',formatLabel:'Collection · multiple episodes'}]);
+ assert.deepEqual(browseTitles(rows,{kind:'collection',query:'gadget'}),[bundle]);
+});
