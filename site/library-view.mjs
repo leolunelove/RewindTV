@@ -6,6 +6,7 @@ import {movieArtwork} from './movie-night.mjs?v=20261124archive';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
 import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261122quality3';
 import {libraryCountLabel,librarySectionLabel} from './library-meta.mjs?v=20261123polish';
+import {createProgrammeAbout,programmeLanguage} from './programme-about.mjs?v=20261124about';
 
 export function filterTitles(shows,query='',kind='all') {
   return browseTitles(shows,{query,kind});
@@ -267,7 +268,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
         card.setAttribute('aria-label',`Browse ${show.title}${show.language?' · '+show.language:''}`);
         const copy=el('span','','library-card-copy');
         const description=!show.episodes.length?'Listed only':show.kind==='film'?length(show.episodes[0]):libraryCountLabel(show.episodes,show.kind);
-        copy.append(el('strong',show.title),el('small',[description,show.language].filter(Boolean).join(' · ')));
+        copy.append(el('strong',show.title),el('small',[description,programmeLanguage(show.title,show.episodes)].filter(Boolean).join(' · ')));
         card.append(artwork(show),copy);
         grid.append(card);
       }
@@ -318,7 +319,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
       const years=show.years.length
         ? show.years[0]===show.years.at(-1)?String(show.years[0]):`${show.years[0]}–${show.years.at(-1)}`
         : show.episodes[0].yearLabel||'';
-      copy.append(el('p',[years,libraryCountLabel(show.episodes,show.kind),show.language,show.channels.map(channel=>channel.name).join(', ')].filter(Boolean).join(' · '),'library-detail-meta'));
+      copy.append(el('p',[years,libraryCountLabel(show.episodes,show.kind),programmeLanguage(show.title,show.episodes),show.channels.map(channel=>channel.name).join(', ')].filter(Boolean).join(' · '),'library-detail-meta'));
       const actions=el('div','','library-detail-actions');
       if(typeof onResume==='function'){detailResume=button('',()=>{},'primary library-resume');actions.append(detailResume);refreshContinueWatching();}
       detailStart=button(show.kind==='film'?'▶ Watch film':'▶ Watch from the beginning',()=>play(show.episodes[0]),typeof onResume==='function'&&getContinueWatching().some(record=>record.key===show.key)?'':'primary');actions.append(detailStart);
@@ -330,9 +331,10 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     }
     head.append(copy);
     root.append(head);
+    const about=createProgrammeAbout(doc,show);
+    if(about)root.append(about);
     if(show.listing) {
       const listing=show.listing;
-      if(listing.description)copy.append(el('p',listing.description,'library-detail-description'));
       if(listing.links?.length) {
         const extras=el(show.episodes.length?'details':'div','','library-extras');
         extras.append(show.episodes.length?el('summary',`Extras and sources (${listing.links.length})`):el('h4',show.kind==='collection'?'From the archive':'Previews and sources'));

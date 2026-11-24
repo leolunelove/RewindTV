@@ -58,6 +58,16 @@ function episode(id,series,season,number) {
   return {id,title:`${series} — Science episode ${String(number).padStart(2,'0')}`,series,kind:'full episode',duration:1200,year:2001,seasonNumber:season,episodeNumber:number,watchUrl:`https://www.youtube.com/watch?v=${id}`,sourceType:'official',credit:'Original publisher'};
 }
 
+test('browsing About shows real title information without starting playback or adding a popup',async()=>{
+ const f=await libraryFixture({channels:[{key:'science',name:'Science',number:1,videos:[{...episode('nasa','NASA SCI Files',1,1),audioLanguageLabel:'English'}]}]});
+ f.view.openDetail('show:nasa sci files');
+ const about=byClass(f.root,'programme-about')[0];assert(about);assert.equal(about.attributes['aria-label'],'About NASA SCI Files');
+ assert.match(byClass(about,'programme-about-description')[0].textContent,/Young investigators/);
+ assert(descendants(about).some(n=>n.tagName==='dd'&&n.textContent==='NASA Langley Research Center · Office of Education'));
+ assert.equal(about.querySelector('button'),null);assert.equal(f.played.length,0);
+ f.view.openIndex();assert.equal(byClass(f.root,'programme-about').length,0);assert.equal(f.played.length,0);
+});
+
 const scienceEpisodes=Array.from({length:36},(_,index)=>episode(`science${index}`,'Science Club',index<18?1:2,index%18+1));
 const libraryCatalogue={channels:[{key:'discovery',name:'Discovery',number:25,videos:[
   ...Array.from({length:14},(_,index)=>episode(`archive${String(index).padStart(4,'0')}`,`Archive ${index}`,1,1)),
@@ -418,3 +428,9 @@ test('mixed existing and Archive episodes keep per-episode licence attribution v
  const link=credit.querySelector('a');assert.equal(link.href,licensed.rights.licenseUrl);assert.equal(link.target,'_blank');assert.equal(credit.parentElement.tagName,'div');assert.equal(played.length,0);
  byLabel(root,'Play '+licensed.title).onclick();assert.equal(played[0].id,licensed.id);
 });
+
+ test('dialogue-free titles have consistent language labels in cards, details and About',async()=>{
+ const f=await libraryFixture({channels:[{key:'shorts',name:'Shorts',number:1,videos:[{id:'bunny',title:'Big Buck Bunny',series:'Big Buck Bunny',kind:'short',year:2008,duration:597,audioLanguageLabel:'English'}]}]});
+ const card=byClass(f.root,'library-title')[0];assert(card.querySelector('small').textContent.includes('No dialogue'));
+ f.view.openDetail('show:big buck bunny');assert(byClass(f.root,'library-detail-meta')[0].textContent.includes('No dialogue'));assert(!byClass(f.root,'library-detail-meta')[0].textContent.includes('English'));assert.equal(f.played.length,0);
+ });

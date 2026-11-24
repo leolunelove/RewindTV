@@ -11,6 +11,8 @@ jobs:
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -18,6 +20,26 @@ jobs:
       - run: npx playwright install --with-deps chrome
       - run: node maintenance/build-library.mjs
       - run: node --test maintenance/*.test.mjs
+      - name: Choose source coverage
+        env:
+          REWIND_EVENT: ${{ github.event_name }}
+          REWIND_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          node --input-type=module <<'NODE'
+          import {execFileSync} from 'node:child_process';
+          import {appendFileSync} from 'node:fs';
+          // UI-only pull requests still run real playback/navigation flows.
+          // New source data, catalogue logic and manual runs retain the full probe.
+          let flowOnly=false;
+          if(process.env.REWIND_EVENT==='pull_request'&&/^[a-f0-9]{40}$/.test(process.env.REWIND_BASE||'')){
+            try{
+              const changed=execFileSync('git',['diff','--name-only',process.env.REWIND_BASE,'HEAD'],{encoding:'utf8'}).trim().split('\n');
+              flowOnly=!changed.some(path=>/^site\/.*\.json$/.test(path)||['site/library.mjs','site/runtime-library.mjs','maintenance/build-library.mjs'].includes(path));
+            }catch{ console.log('Source diff unavailable; keeping full source coverage.'); }
+          }
+          appendFileSync(process.env.GITHUB_ENV,`REWIND_RELEASE_FLOW_ONLY=${flowOnly?'1':'0'}\n`);
+          console.log(flowOnly?'UI-only change: check real desktop/mobile playback flows.':'Catalogue change or manual run: check every enabled source in the release pack.');
+          NODE
       - name: Test real Library playback and saved progress
         run: node maintenance/library-release-check.mjs
         env:

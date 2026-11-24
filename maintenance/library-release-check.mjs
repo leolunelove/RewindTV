@@ -10,7 +10,9 @@ const packName=process.env.REWIND_RELEASE_PACK||'archive-library.json';
 const pack=JSON.parse(await fs.readFile(path.join(root,packName),'utf8'));
 const discovery=packName==='archive-discovery.json';
 const sources=pack.videos.filter(v=>v.enabled!==false);
-const report={checkedAt:new Date().toISOString(),region:'GitHub runner egress country not independently verified',scope:'Actual app startup and near-end clock checks, not full-runtime or worldwide certification',sources:[],flows:[]};
+const flowOnly=process.env.REWIND_RELEASE_FLOW_ONLY==='1';
+const report={checkedAt:new Date().toISOString(),region:'GitHub runner egress country not independently verified',scope:flowOnly?'Desktop/mobile About and playback/resume/navigation checks; no catalogue-wide, full-runtime or worldwide certification':'Actual app startup and near-end clock checks, not full-runtime or worldwide certification',sources:[],flows:[]};
+report.sourceCoverage=flowOnly?'UI-only run; catalogue source probes not repeated':'All enabled sources in the selected release pack';
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=http.createServer(async(req,res)=>{
   try{const name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);const file=path.resolve(root,'.'+(name==='/'?'/index.html':name));if(!file.startsWith(root+path.sep))throw Error('Forbidden');res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');res.end(await fs.readFile(file));}catch{res.statusCode=404;res.end('Not found');}
@@ -65,6 +67,15 @@ async function checkFlow(viewport){
     const credits=await page.locator('.episode-rights').count();if(credits!==expected)throw Error(`Missing episode licence credits: ${credits}`);
     if(discovery){
       if(!(await page.locator('.library-detail-meta').innerText()).includes('92 episodes'))throw Error('Multipart stories were counted twice');
+      const about=page.getByRole('region',{name:'About Where Are the Joneses?',exact:true});
+      await about.waitFor({state:'visible'});
+      const text=await about.innerText();
+      for(const term of ['2007','Programme length','English','Baby Cow','Dawn Jones'])if(!text.includes(term))throw Error('Missing show About fact: '+term);
+      record.aboutShow={text,playback:await playing(page,v,119)};
+      await about.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+      if(viewport.isMobile){const bottom=await about.locator('dd').evaluateAll(nodes=>Math.max(...nodes.map(n=>n.getBoundingClientRect().bottom))),dock=await page.locator('#mini-player').boundingBox();if(dock&&bottom>dock.y-8)throw Error('About facts remain behind the floating mini-player');}
+      if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error('About caused horizontal page overflow');
+      await page.screenshot({path:path.join(out,`about-show-${viewport.isMobile?'mobile':'desktop'}.png`)});
       await page.getByRole('searchbox',{name:'Find an episode',exact:true}).fill('Post Mortem');
       await page.locator('.episode-row').click();
       await playing(page,pack.videos.find(x=>x.id==='archive-joneses-056a'));
@@ -86,6 +97,13 @@ async function checkFlow(viewport){
       await page.getByRole('searchbox',{name:'Find a film',exact:true}).fill('Nasty Old People');
       await page.getByRole('button',{name:'Choose Nasty Old People',exact:true}).click();
       if(!(await page.locator('.movie-hero').innerText()).includes('Swedish'))throw Error('Swedish audio not labelled');
+      const about=page.getByRole('region',{name:'About Nasty Old People',exact:true});
+      const text=await about.innerText();for(const term of ['2009','1h 24m','Swedish','Hanna Sköld','Mette'])if(!text.includes(term))throw Error('Missing film About fact: '+term);
+      record.aboutFilm={text,playback:await playing(page,guideVideo)};
+      await about.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+      if(viewport.isMobile){const bottom=await about.locator('dd').evaluateAll(nodes=>Math.max(...nodes.map(n=>n.getBoundingClientRect().bottom))),dock=await page.locator('#mini-player').boundingBox();if(dock&&bottom>dock.y-8)throw Error('About facts remain behind the floating mini-player');}
+      if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error('Film About caused horizontal page overflow');
+      await page.screenshot({path:path.join(out,`about-film-${viewport.isMobile?'mobile':'desktop'}.png`)});
       await page.locator('.movie-hero .movie-play').click();await playing(page,film);
       await seek(page,120);await playing(page,film,119);await page.locator('#library-play').click();
       await page.locator('#watch-tab').click();await page.locator('#home-tab').click();await page.locator('#home-films').click();
@@ -119,7 +137,7 @@ try{
     }
     await context.close();
   }
-  await Promise.all(Array.from({length:discovery?2:1},worker));
+  if(!flowOnly)await Promise.all(Array.from({length:discovery?2:1},worker));
   await checkFlow({viewport:{width:1440,height:900}});
   await checkFlow({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2});
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));}
