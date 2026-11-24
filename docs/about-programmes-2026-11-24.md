@@ -22,3 +22,5 @@ Inline title information, kept separate from source uploaders, source licences a
 ## QA scope
 
 Unit coverage checks fallback metadata, factual roles, no dialogue, no invented English, stale selection clearing and browsing without playback requests. Release browser checks inspect About on desktop and mobile Chrome emulation while the same Library source clock advances, then exercise playback/resume as before. Physical iPhone/Safari testing is not claimed.
+
+Additional primary checks: [Neil Edmond’s agency biography](https://www.unitedagents.co.uk/cv/9031/film_tv_theatre) supports the Joneses family-search premise; [NASA educational links](https://www.grc.nasa.gov/www/k-12/UEET/StudentSite/educationallinks.html) identifies Connect’s producing office and classroom format. Mobile browser QA scrolls About into a reading position and checks its facts clear the floating mini-player.
