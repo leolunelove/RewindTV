@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "status": "prepared-local-not-published",
+  "status": "browser-verified-ready-to-publish",
   "scope": "Library additions only; existing live channel identities, programmes, schedules, advert placement and live shuffle preserved. Private local manager/package untouched.",
   "totals": {
     "newEpisodes": 20,
@@ -14,7 +14,7 @@
   "series": {
     "Net Cafe": {
       "additionalEpisodes": 12,
-      "years": "1996–1999"
+      "years": "1996\u20131999"
     },
     "BBS: The Documentary": {
       "additionalEpisodes": 8,
@@ -479,7 +479,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
         "licenseLabel": "CC BY-SA 3.0",
-        "attribution": "© 2010 Tim Baumann / Valkaama Open Source Movie Project",
+        "attribution": "\u00a9 2010 Tim Baumann / Valkaama Open Source Movie Project",
         "evidenceUrl": "https://www.valkaama.com/",
         "itemEvidenceUrl": "https://archive.org/metadata/valkaama",
         "nonCommercialOnly": false,
@@ -516,7 +516,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
         "licenseLabel": "CC BY 3.0",
-        "attribution": "© 2008 Blender Foundation / www.bigbuckbunny.org",
+        "attribution": "\u00a9 2008 Blender Foundation / www.bigbuckbunny.org",
         "evidenceUrl": "https://peach.blender.org/about/",
         "itemEvidenceUrl": "https://archive.org/metadata/BigBuckBunny_328",
         "nonCommercialOnly": false,
@@ -553,7 +553,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
         "licenseLabel": "CC BY-SA 2.0",
-        "attribution": "BBS: The Documentary · Jason Scott",
+        "attribution": "BBS: The Documentary \u00b7 Jason Scott",
         "evidenceUrl": "https://ascii.textfiles.com/archives/865",
         "itemEvidenceUrl": "https://archive.org/metadata/BBS.The.Documentary",
         "nonCommercialOnly": false,
@@ -590,7 +590,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
         "licenseLabel": "CC BY-SA 2.0",
-        "attribution": "BBS: The Documentary · Jason Scott",
+        "attribution": "BBS: The Documentary \u00b7 Jason Scott",
         "evidenceUrl": "https://ascii.textfiles.com/archives/865",
         "itemEvidenceUrl": "https://archive.org/metadata/BBS.The.Documentary",
         "nonCommercialOnly": false,
@@ -627,7 +627,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
         "licenseLabel": "CC BY-SA 2.0",
-        "attribution": "BBS: The Documentary · Jason Scott",
+        "attribution": "BBS: The Documentary \u00b7 Jason Scott",
         "evidenceUrl": "https://ascii.textfiles.com/archives/865",
         "itemEvidenceUrl": "https://archive.org/metadata/BBS.The.Documentary",
         "nonCommercialOnly": false,
@@ -664,7 +664,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
         "licenseLabel": "CC BY-SA 2.0",
-        "attribution": "BBS: The Documentary · Jason Scott",
+        "attribution": "BBS: The Documentary \u00b7 Jason Scott",
         "evidenceUrl": "https://ascii.textfiles.com/archives/865",
         "itemEvidenceUrl": "https://archive.org/metadata/BBS.The.Documentary",
         "nonCommercialOnly": false,
@@ -701,7 +701,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
         "licenseLabel": "CC BY-SA 2.0",
-        "attribution": "BBS: The Documentary · Jason Scott",
+        "attribution": "BBS: The Documentary \u00b7 Jason Scott",
         "evidenceUrl": "https://ascii.textfiles.com/archives/865",
         "itemEvidenceUrl": "https://archive.org/metadata/BBS.The.Documentary",
         "nonCommercialOnly": false,
@@ -738,7 +738,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
         "licenseLabel": "CC BY-SA 2.0",
-        "attribution": "BBS: The Documentary · Jason Scott",
+        "attribution": "BBS: The Documentary \u00b7 Jason Scott",
         "evidenceUrl": "https://ascii.textfiles.com/archives/865",
         "itemEvidenceUrl": "https://archive.org/metadata/BBS.The.Documentary",
         "nonCommercialOnly": false,
@@ -775,7 +775,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
         "licenseLabel": "CC BY-SA 2.0",
-        "attribution": "BBS: The Documentary · Jason Scott",
+        "attribution": "BBS: The Documentary \u00b7 Jason Scott",
         "evidenceUrl": "https://ascii.textfiles.com/archives/865",
         "itemEvidenceUrl": "https://archive.org/metadata/BBS.The.Documentary",
         "nonCommercialOnly": false,
@@ -812,7 +812,7 @@
       "rights": {
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
         "licenseLabel": "CC BY-SA 2.0",
-        "attribution": "BBS: The Documentary · Jason Scott",
+        "attribution": "BBS: The Documentary \u00b7 Jason Scott",
         "evidenceUrl": "https://ascii.textfiles.com/archives/865",
         "itemEvidenceUrl": "https://archive.org/metadata/BBS.The.Documentary",
         "nonCommercialOnly": false,
@@ -1282,16 +1282,28 @@
     "fullRuntimeWatched": false,
     "crossRegionTested": false,
     "physicalIPhoneOrSafariTested": false,
-    "browserLibraryPreview": "Not completed: local server binding denied by this session and file URLs blocked by browser policy. No bypass attempted. Actual media playback tested through the existing live Rewind health-probe UI; Library navigation, resume and licence rendering tested in Node DOM fixtures.",
+    "browserLibraryPreview": "Passed actual-app Chrome checks in GitHub Actions: all 22 sources advanced at startup and near the end; desktop 1440x900 and mobile Chrome 390x844 flows passed. Episode progress survived live TV and reload, Library Back preserved source and clock, all eight BBS episodes displayed licence credits, Guide preserved playback, mini-player returned to Library. Physical iPhone/Safari and worldwide playback remain untested.",
     "firstAndNextTuesdayPlansUnchanged": true,
     "allExistingChannelsAndVideosPreserved": true,
     "libraryResumeAndLicenceDOMTestsPassed": true,
     "allExistingRuntimeRecordsByteEquivalentAfterJsonParsing": true,
-    "runtimeByteIncrease": 28708
+    "runtimeByteIncrease": 28708,
+    "appReleaseCheck": {
+      "runUrl": "https://github.com/leolunelove/RewindTV/actions/runs/45407935027",
+      "commit": "b484b846ec8709d34e4df409a49a77f91d7821f2",
+      "sourcesPassed": 22,
+      "flowViewports": [
+        "1440x900 desktop Chrome",
+        "390x844 mobile Chrome emulation"
+      ],
+      "result": "success",
+      "region": "Runner egress country not independently verified",
+      "artifactId": 14924754887
+    }
   },
   "deployment": {
     "published": false,
-    "githubChanged": false,
-    "requiresBrowserPreviewBeforeRelease": true
+    "githubChanged": true,
+    "requiresBrowserPreviewBeforeRelease": false
   }
 }
