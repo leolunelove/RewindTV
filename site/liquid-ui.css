@@ -912,7 +912,6 @@ dialog:focus{outline:none}
 .programme-about-fact { min-width: 0; }
 .programme-about-fact dt { color: var(--muted); font-size: 13px; line-height: 1.4; }
 .programme-about-fact dd { margin: 4px 0 0; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
-#movie-night-view.is-picking .movie-about { display: none; }
 @media (max-width: 700px) {
   .programme-about { grid-template-columns: minmax(0,1fr); gap: 16px; margin: 20px 0; }
 }
@@ -1333,6 +1332,7 @@ dialog:focus{outline:none}
   margin-top: 16px;
 }
 .is-picking .movie-hero,
+.is-picking .movie-about,
 .is-picking .movie-tools,
 .is-picking .movie-count,
 .is-picking .movie-grid,

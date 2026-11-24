@@ -124,3 +124,7 @@ test('film About updates with selection and empty search clears stale facts with
  f.search.value='Valkaama';f.search.oninput();about=f.byClass('programme-about')[0];assert.equal(about.attributes['aria-label'],'About Valkaama');assert(!about.querySelectorAll('dd').some(n=>n.textContent==='Swedish'));assert.equal(f.played.length,0);
  f.search.value='No such film';f.search.oninput();assert.equal(f.byClass('movie-about')[0].hidden,true);assert.equal(f.byClass('programme-about').length,0);assert.equal(f.played.length,0);
 });
+
+ test('an unknown film language is not presented as English in the hero',()=>{
+ const f=fixture();assert(!f.byClass('movie-hero')[0].querySelector('.movie-meta').textContent.includes('English'));
+ });

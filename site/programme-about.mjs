@@ -7,6 +7,10 @@ function length(seconds){
  return minutes<60?`${minutes} min`:`${Math.floor(minutes/60)}h${minutes%60?` ${minutes%60}m`:''}`;
 }
 
+export function programmeLanguage(title,episodes=[]){
+ return programmeBackgrounds[title]?.language||unique(episodes.map(v=>text(v.audioLanguageLabel))).join(' / ');
+}
+
 // Presentation only: never fetch metadata or call a player from this component.
 export function programmeAbout({title,kind,episodes=[],listing=null}){
  const background=programmeBackgrounds[title]||{},single=kind==='film'||(episodes.length===1&&episodes[0].kind==='short');
@@ -18,8 +22,7 @@ export function programmeAbout({title,kind,episodes=[],listing=null}){
  const durations=episodes.map(v=>Number(v.duration)).filter(n=>Number.isFinite(n)&&n>0);
  let runtime='';
  if(durations.length){const min=Math.min(...durations),max=Math.max(...durations);runtime=length(min)===length(max)?length(min):`${length(min)} – ${length(max)}`;}
- const languages=unique(episodes.map(v=>text(v.audioLanguageLabel)));
- const language=background.language||languages.join(' / ');
+ const language=programmeLanguage(title,episodes);
  const facts=[];
  if(yearsLabel)facts.push([single?'Year':'Available years',yearsLabel]);
  if(runtime)facts.push([single?'Runtime':'Programme length',runtime]);
