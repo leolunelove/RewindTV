@@ -1,6 +1,6 @@
-import {buildShowIndex} from './show-library.mjs?v=20261122quality3';
-import {buildMovieLibrary} from './movie-night.mjs?v=20261122quality3';
-import {programmeTitle} from './programme-info.mjs?v=liquid1';
+import {buildShowIndex} from './show-library.mjs?v=20261124archive';
+import {buildMovieLibrary} from './movie-night.mjs?v=20261124archive';
+import {programmeTitle} from './programme-info.mjs?v=20261124archive';
 
 export function createHomeView(host,{catalogue,getNow,onLive,onShows,onFilms,onGuide,onReturn,onSettings,onMute}){
  const find=selector=>host.querySelector(selector);

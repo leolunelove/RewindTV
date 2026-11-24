@@ -30,7 +30,7 @@ export function catalogueForCountry(catalogue,country){
  const code=normalizeCountry(country);
  const eligible=video=>isRegionEligible(video,code);
  const prepare=video=>video.regionRestriction||video.contentDetails?.regionRestriction?{...video,viewerCountry:code}:video;
- return {...catalogue,viewerCountry:code,channels:catalogue.channels.map(channel=>({...channel,videos:channel.videos.filter(eligible).map(prepare)})),adverts:(catalogue.adverts||[]).filter(eligible).map(prepare)};
+ return {...catalogue,viewerCountry:code,...(catalogue.libraryVideos?{libraryVideos:catalogue.libraryVideos.filter(eligible).map(prepare)}:{}),channels:catalogue.channels.map(channel=>({...channel,videos:channel.videos.filter(eligible).map(prepare)})),adverts:(catalogue.adverts||[]).filter(eligible).map(prepare)};
 }
 export const REGION_STORAGE_KEY='rewind-viewing-country-v1';
 export const REGION_CACHE_KEY='rewind-detected-country-v1';

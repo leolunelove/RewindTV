@@ -2,6 +2,13 @@
 
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
+## 2026-11-24 — Licensed Archive Library additions
+
+- Add 12 creator-licensed Net Cafe episodes from 1996–1999, all eight BBS: The Documentary episodes (2005), Valkaama (2010, feature) and Big Buck Bunny (2008, complete short). No duplicate source files or existing titles imported.
+- Keep the new titles in Library only. Preserve all channel numbers, live programmes, Tuesday schedules and both live shuffle pools. Library queues and Continue watching resolve browse-only sources through their existing channel context.
+- Show creator attribution and a licence link in Library details and Movie Night; include attribution in programme Info. Preserve original hosted files and credits, with no inserted adverts in Library playback. Noncommercial licences require the service to remain noncommercial.
+- 425 automated checks pass. All 22 sources also pass actual-app startup/near-end playback on a GitHub runner. Desktop and mobile Chrome flows preserve browsing playback, restore episode progress after live TV and reload, show all eight BBS episode credits and return from Guide through the mini-player. Physical iPhone/Safari remains untested. Individual item runtimes match; this is not an uninterrupted full watch, worldwide test or legal clearance for the existing catalogue. See [source and verification evidence](docs/archive-library-2026-11-24.json).
+
 ## 2026-11-23 — Library clarity and recovery polish
 
 - Label unnumbered compilations as collections, including Gadget Boy’s eight retained uploads and mixed lists such as My Parents Are Aliens. Preserve verified canonical episode totals and original playback queues.

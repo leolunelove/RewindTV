@@ -1,4 +1,4 @@
-import {isBrowsable,showIdentity} from './show-library.mjs?v=20261122quality3';
+import {isBrowsable,showIdentity,browseChannels} from './show-library.mjs?v=20261124archive';
 
 const STORAGE_KEY='rewind-watch-history-v1',LIMIT=12,MIN_POSITION=10,MAX_DURATION=7*86400;
 const cleanString=(value,max)=>typeof value==='string'&&value.length>0&&value.length<=max&&!/[\u0000-\u001f\u007f]/.test(value)?value:null;
@@ -51,7 +51,7 @@ export function createWatchHistory({storage,now=Date.now}={}){
  }
  function list(catalogue,{kind='all'}={}){
   const owners=new Map();
-  for(const channel of catalogue?.channels||[]){
+  for(const channel of catalogue?browseChannels(catalogue):[]){
    if(!cleanString(channel?.key,160))continue;
    for(const video of channel.videos||[]){
     if(!video||!isBrowsable(video))continue;

@@ -1007,6 +1007,15 @@ dialog:focus{outline:none}
 .episode-item:last-child {
   border-bottom: 0;
 }
+.episode-rights {
+  grid-column: 1 / -1;
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.episode-rights a { color: inherit; text-underline-offset: 3px; }
 .episode-row,
 .rwd-episode-row {
   display: grid;
