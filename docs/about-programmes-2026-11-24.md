@@ -24,3 +24,9 @@ Inline title information, kept separate from source uploaders, source licences a
 Unit coverage checks fallback metadata, factual roles, no dialogue, no invented English, stale selection clearing and browsing without playback requests. Release browser checks inspect About on desktop and mobile Chrome emulation while the same Library source clock advances, then exercise playback/resume as before. Physical iPhone/Safari testing is not claimed.
 
 Additional primary checks: [Neil Edmond’s agency biography](https://www.unitedagents.co.uk/cv/9031/film_tv_theatre) supports the Joneses family-search premise; [NASA educational links](https://www.grc.nasa.gov/www/k-12/UEET/StudentSite/educationallinks.html) identifies Connect’s producing office and classroom format. Mobile browser QA scrolls About into a reading position and checks its facts clear the floating mini-player.
+
+## Published verification
+
+Released in PR #7, merge `47f64f4124ef36ae7b3ff2a0da51eec58004ff67`. All 439 automated tests passed. [Final desktop/mobile UI run](https://github.com/leolunelove/RewindTV/actions/runs/45463139406) passed About content, mobile dock clearance, continuous playback, multipart stepping and saved progress across live TV/reload. This UI-only run did not repeat catalogue-wide source probes.
+
+Live Chrome on tv.leolune.fun displayed Joneses and Nasty Old People About sections. Joneses continued playing while both were browsed (same episode 3 clock advanced 96.77 to 123.01 seconds during film selection). Browser network country was not independently verified; physical iPhone/Safari remains untested. No source catalogue or schedule changes.

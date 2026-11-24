@@ -1,0 +1,83 @@
+{
+  "checkedAt": "2026-11-24T18:47:44.017Z",
+  "region": "GitHub runner egress country not independently verified",
+  "scope": "Desktop/mobile About and playback/resume/navigation checks; no catalogue-wide, full-runtime or worldwide certification",
+  "sources": [],
+  "flows": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": "passed",
+      "aboutShow": {
+        "text": "About\n\nDawn Jones sets off around Europe to find the siblings she never knew she had. This British road-trip comedy was made for the early web, with viewers helping shape the story as its short episodes appeared.\n\nAvailable years\n2007\nProgramme length\n1 min – 8 min\nLanguage\nEnglish\nProduction\nImagination Group and Baby Cow Productions",
+        "playback": {
+          "src": "https://archive.org/download/where-are-the-joneses/Where%20are%20the%20Joneses%2001%20-%20Where%20is%20My%20Family.mp4",
+          "time": 125.643131,
+          "duration": 204.73034,
+          "paused": false,
+          "ready": 4,
+          "width": 320,
+          "error": null
+        }
+      },
+      "aboutFilm": {
+        "text": "About\n\nMette works as a carer for four elderly people while living a very different life as part of a neo-Nazi gang. Their unlikely bond challenges her beliefs in this Swedish drama about isolation, violence and the need to belong.\n\nSwedish audio. English subtitles have not been verified for this copy.\n\nYear\n2009\nRuntime\n1h 24m\nLanguage\nSwedish\nDirector\nHanna Sköld\nProduction\nTangram Film",
+        "playback": {
+          "src": "https://archive.org/download/where-are-the-joneses/Where%20are%20the%20Joneses%2057%20-%20Fonzi%20Duplo.mp4",
+          "time": 4.244536,
+          "duration": 330.721814,
+          "paused": false,
+          "ready": 4,
+          "width": 320,
+          "error": null
+        }
+      },
+      "resume": {
+        "saved": 121.310842,
+        "resumed": 122.668256,
+        "reloaded": 123.983507
+      },
+      "notes": "Joneses multipart order and 92-story count, Swedish film label and film resume passed. Library source preserved while browsing; saved progress survived Live TV and reload; per-episode credits visible; Guide kept clock advancing and mini-player returned to Library."
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "passed",
+      "aboutShow": {
+        "text": "About\n\nDawn Jones sets off around Europe to find the siblings she never knew she had. This British road-trip comedy was made for the early web, with viewers helping shape the story as its short episodes appeared.\n\nAvailable years\n2007\nProgramme length\n1 min – 8 min\nLanguage\nEnglish\nProduction\nImagination Group and Baby Cow Productions",
+        "playback": {
+          "src": "https://archive.org/download/where-are-the-joneses/Where%20are%20the%20Joneses%2001%20-%20Where%20is%20My%20Family.mp4",
+          "time": 125.427049,
+          "duration": 204.73034,
+          "paused": false,
+          "ready": 4,
+          "width": 320,
+          "error": null
+        }
+      },
+      "aboutFilm": {
+        "text": "About\n\nMette works as a carer for four elderly people while living a very different life as part of a neo-Nazi gang. Their unlikely bond challenges her beliefs in this Swedish drama about isolation, violence and the need to belong.\n\nSwedish audio. English subtitles have not been verified for this copy.\n\nYear\n2009\nRuntime\n1h 24m\nLanguage\nSwedish\nDirector\nHanna Sköld\nProduction\nTangram Film",
+        "playback": {
+          "src": "https://archive.org/download/where-are-the-joneses/Where%20are%20the%20Joneses%2057%20-%20Fonzi%20Duplo.mp4",
+          "time": 4.182724,
+          "duration": 330.721814,
+          "paused": false,
+          "ready": 4,
+          "width": 320,
+          "error": null
+        }
+      },
+      "resume": {
+        "saved": 121.281882,
+        "resumed": 122.579369,
+        "reloaded": 123.887086
+      },
+      "notes": "Joneses multipart order and 92-story count, Swedish film label and film resume passed. Library source preserved while browsing; saved progress survived Live TV and reload; per-episode credits visible; Guide kept clock advancing and mini-player returned to Library."
+    }
+  ],
+  "sourceCoverage": "UI-only run; catalogue source probes not repeated"
+}
