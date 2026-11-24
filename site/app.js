@@ -4,7 +4,7 @@
   let catalogue,channels,plan,active=null,channel=2,volume=40,power=false,player=null,ready=false,apiLoading=false,paused=false,watchTimer,apiTimer,resumeAfterGuide=false,osdTimer,tuningTimer;
   let sourceCatalogue=null,viewingCountry=null,viewingCountrySource='unknown',countryRequest=0,countryPlaybackBlocked=false;
   const {COUNTRY_CODES,normalizeCountry,countryName,isRegionEligible,catalogueForCountry,readCountryOverride,saveCountryOverride,resolveViewingCountry}=await import('./region-eligibility.mjs?v=20261124archive');
-  const [{findProgramme,pickProgramme,showIdentity,buildShowIndex},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache},{movieArtwork},{findFilmAlternative},{libraryQueueState}]=await Promise.all([import('./show-library.mjs?v=20261124archive'),import('./programme-info.mjs?v=20261124archive'),import('./neighbour-cache.mjs?v=1'),import('./movie-night.mjs?v=20261124archive'),import('./playback-alternatives.mjs?v=20261122quality3'),import('./library-meta.mjs?v=20261123polish')]);let requestedQueue=[];let requestedIndex=0;
+  const [{findProgramme,pickProgramme,showIdentity,buildShowIndex},{programmeInfo,programmeProgress,programmeTitle},{NeighbourCache},{movieArtwork},{findFilmAlternative},{libraryQueueState}]=await Promise.all([import('./show-library.mjs?v=20261124archive'),import('./programme-info.mjs?v=20261124archive'),import('./neighbour-cache.mjs?v=1'),import('./movie-night.mjs?v=20261124archive'),import('./playback-alternatives.mjs?v=20261124archive'),import('./library-meta.mjs?v=20261123polish')]);let requestedQueue=[];let requestedIndex=0;
   let libraryContext=false,lastLiveChannelKey='',libraryOrigin='shows',libraryEnded=false,libraryQueueStamp='',seekingLibrary=false,librarySession=null;
   const {createWatchHistory}=await import('./watch-history.mjs?v=20261124archive');
   let historyStorage=null;try{historyStorage=window.localStorage;}catch{}
@@ -209,7 +209,7 @@
   movie.addEventListener('error',()=>{if(power&&movieMatches()){tracePlayer('archive-error',{id:movieSourceId,code:movie.error?.code,message:movie.error?.message});skipUnavailable('Archive stream unavailable',false);}});
   movie.addEventListener('progress',()=>{if(movieMatches()&&movie.currentSrc===movieSourceUrl)movie.dataset.progressAt=String(Date.now());});
   movie.addEventListener('canplay',()=>{if(movie.hidden){movie.preload='metadata';updateNeighbourStatus();}});
-  const {createGuideOverview}=await import('./guide-overview.mjs?v=20261122quality3');
+  const {createGuideOverview}=await import('./guide-overview.mjs?v=20261124archive');
   let scheduleChannel=-1,scheduleStamp='',libraryView=null,guideOverview=null;const schedulePreferences=new Map();
   const element=(tag,text='',className='')=>{const node=document.createElement(tag);node.textContent=text;if(className)node.className=className;return node;};
   function scheduleAction(label,action,primary=false){const b=element('button',label,primary?'primary':'');b.type='button';b.onclick=action;return b;}
@@ -251,7 +251,7 @@
     panels.open($('#home-page'),{remember});revealControls();finishStartup();
     if(homeView){homeView.update();return;}
     try{
-      homeLoading??=import('./home-view.mjs?v=20261122quality3');
+      homeLoading??=import('./home-view.mjs?v=20261124archive');
       const {createHomeView}=await homeLoading;
       if(!homeView)homeView=createHomeView($('#home-page'),{
         catalogue,
