@@ -115,3 +115,12 @@ test('a Library-only licensed film shows its attribution and licence before play
  const f=fixture({catalogue:{channels:[{key:'movies',videos:[]}],libraryVideos:[video]}}),sources=f.byClass('movie-source');
  assert(sources.some(node=>node.textContent==='Internet Archive · Licensed source'));const credit=sources.find(node=>node.textContent.includes('Example filmmaker'));assert(credit);assert.equal(credit.querySelector('a').href,video.rights.licenseUrl);assert.equal(f.played.length,0);f.byClass('movie-play')[0].onclick();assert.equal(f.played[0].id,video.id);assert.equal(f.played[0].libraryOnly,true);
 });
+
+test('film About updates with selection and empty search clears stale facts without playback',()=>{
+ const film=(id,title,language)=>({id,title,series:title,kind:'film',duration:5065,year:2009,audioLanguageLabel:language});
+ const f=fixture({catalogue:{channels:[{key:'cinema',videos:[film('one','Nasty Old People','Swedish'),film('two','Valkaama','English')]}]}});
+ f.search.value='Nasty';f.search.oninput();
+ let about=f.byClass('programme-about')[0];assert.equal(about.attributes['aria-label'],'About Nasty Old People');assert.match(f.byClass('programme-about-description')[0].textContent,/Mette/);assert(about.querySelectorAll('dd').some(n=>n.textContent==='Hanna Sköld'));assert.equal(f.played.length,0);
+ f.search.value='Valkaama';f.search.oninput();about=f.byClass('programme-about')[0];assert.equal(about.attributes['aria-label'],'About Valkaama');assert(!about.querySelectorAll('dd').some(n=>n.textContent==='Swedish'));assert.equal(f.played.length,0);
+ f.search.value='No such film';f.search.oninput();assert.equal(f.byClass('movie-about')[0].hidden,true);assert.equal(f.byClass('programme-about').length,0);assert.equal(f.played.length,0);
+});

@@ -1,5 +1,11 @@
 # Rewind TV changelog
 
+## 2026-11-24 — About shows and films
+
+- Added one inline About section to Library title details and selected films, with descriptions, available years, programme length, audio language and verified maker credits.
+- Curated backgrounds for the recent Joneses, NASA, Sintel and Nasty Old People additions, plus Net Cafe, Computer Chronicles, BBS, Valkaama and Big Buck Bunny. Dialogue-free material is labelled accurately; unverified subtitles are not promised.
+- Facts use existing catalogue durations and years. Missing information stays absent; source uploaders are never substituted for creators. Browsing About has no player callbacks, network requests or new popup layer.
+
 ## 2026-11-24 — Joneses and nostalgic science in Library
 
 - Added 92 Where Are the Joneses? stories across 94 original parts, 38 NASA science programmes, Nasty Old People and the complete Sintel short: 134 files and 32.42 hours, all Library only.

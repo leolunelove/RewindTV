@@ -58,6 +58,16 @@ function episode(id,series,season,number) {
   return {id,title:`${series} — Science episode ${String(number).padStart(2,'0')}`,series,kind:'full episode',duration:1200,year:2001,seasonNumber:season,episodeNumber:number,watchUrl:`https://www.youtube.com/watch?v=${id}`,sourceType:'official',credit:'Original publisher'};
 }
 
+test('browsing About shows real title information without starting playback or adding a popup',async()=>{
+ const f=await libraryFixture({channels:[{key:'science',name:'Science',number:1,videos:[{...episode('nasa','NASA SCI Files',1,1),audioLanguageLabel:'English'}]}]});
+ f.view.openDetail('show:nasa sci files');
+ const about=byClass(f.root,'programme-about')[0];assert(about);assert.equal(about.attributes['aria-label'],'About NASA SCI Files');
+ assert.match(byClass(about,'programme-about-description')[0].textContent,/Young investigators/);
+ assert(descendants(about).some(n=>n.tagName==='dd'&&n.textContent==='NASA Langley Research Center · Office of Education'));
+ assert.equal(about.querySelector('button'),null);assert.equal(f.played.length,0);
+ f.view.openIndex();assert.equal(byClass(f.root,'programme-about').length,0);assert.equal(f.played.length,0);
+});
+
 const scienceEpisodes=Array.from({length:36},(_,index)=>episode(`science${index}`,'Science Club',index<18?1:2,index%18+1));
 const libraryCatalogue={channels:[{key:'discovery',name:'Discovery',number:25,videos:[
   ...Array.from({length:14},(_,index)=>episode(`archive${String(index).padStart(4,'0')}`,`Archive ${index}`,1,1)),

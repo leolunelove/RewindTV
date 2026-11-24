@@ -65,6 +65,14 @@ async function checkFlow(viewport){
     const credits=await page.locator('.episode-rights').count();if(credits!==expected)throw Error(`Missing episode licence credits: ${credits}`);
     if(discovery){
       if(!(await page.locator('.library-detail-meta').innerText()).includes('92 episodes'))throw Error('Multipart stories were counted twice');
+      const about=page.getByRole('region',{name:'About Where Are the Joneses?',exact:true});
+      await about.waitFor({state:'visible'});
+      const text=await about.innerText();
+      for(const term of ['2007','Programme length','English','Baby Cow','Dawn Jones'])if(!text.includes(term))throw Error('Missing show About fact: '+term);
+      await playing(page,v,119);
+      await about.scrollIntoViewIfNeeded();
+      if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error('About caused horizontal page overflow');
+      await page.screenshot({path:path.join(out,`about-show-${viewport.isMobile?'mobile':'desktop'}.png`)});
       await page.getByRole('searchbox',{name:'Find an episode',exact:true}).fill('Post Mortem');
       await page.locator('.episode-row').click();
       await playing(page,pack.videos.find(x=>x.id==='archive-joneses-056a'));
@@ -86,6 +94,12 @@ async function checkFlow(viewport){
       await page.getByRole('searchbox',{name:'Find a film',exact:true}).fill('Nasty Old People');
       await page.getByRole('button',{name:'Choose Nasty Old People',exact:true}).click();
       if(!(await page.locator('.movie-hero').innerText()).includes('Swedish'))throw Error('Swedish audio not labelled');
+      const about=page.getByRole('region',{name:'About Nasty Old People',exact:true});
+      const text=await about.innerText();for(const term of ['2009','1h 24m','Swedish','Hanna Sköld','Mette'])if(!text.includes(term))throw Error('Missing film About fact: '+term);
+      await playing(page,guideVideo);
+      await about.scrollIntoViewIfNeeded();
+      if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error('Film About caused horizontal page overflow');
+      await page.screenshot({path:path.join(out,`about-film-${viewport.isMobile?'mobile':'desktop'}.png`)});
       await page.locator('.movie-hero .movie-play').click();await playing(page,film);
       await seek(page,120);await playing(page,film,119);await page.locator('#library-play').click();
       await page.locator('#watch-tab').click();await page.locator('#home-tab').click();await page.locator('#home-films').click();

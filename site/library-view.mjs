@@ -6,6 +6,7 @@ import {movieArtwork} from './movie-night.mjs?v=20261124archive';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
 import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261122quality3';
 import {libraryCountLabel,librarySectionLabel} from './library-meta.mjs?v=20261123polish';
+import {createProgrammeAbout} from './programme-about.mjs?v=20261124about';
 
 export function filterTitles(shows,query='',kind='all') {
   return browseTitles(shows,{query,kind});
@@ -330,9 +331,10 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     }
     head.append(copy);
     root.append(head);
+    const about=createProgrammeAbout(doc,show);
+    if(about)root.append(about);
     if(show.listing) {
       const listing=show.listing;
-      if(listing.description)copy.append(el('p',listing.description,'library-detail-description'));
       if(listing.links?.length) {
         const extras=el(show.episodes.length?'details':'div','','library-extras');
         extras.append(show.episodes.length?el('summary',`Extras and sources (${listing.links.length})`):el('h4',show.kind==='collection'?'From the archive':'Previews and sources'));
