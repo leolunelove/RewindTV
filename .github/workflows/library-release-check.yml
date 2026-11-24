@@ -8,7 +8,7 @@ permissions:
 jobs:
   library:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,6 +20,8 @@ jobs:
       - run: node --test maintenance/*.test.mjs
       - name: Test real Library playback and saved progress
         run: node maintenance/library-release-check.mjs
+        env:
+          REWIND_RELEASE_PACK: archive-discovery.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

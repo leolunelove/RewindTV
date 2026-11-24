@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-24",
+  "status": "candidate-awaiting-browser-and-credit-review",
+  "sources": 136,
+  "joneses": {
+    "numberedStories": 92,
+    "originalFiles": 94,
+    "multipartStories": [
+      56,
+      84
+    ],
+    "duplicatesAndOuttakesExcluded": true,
+    "licenceEvidence": "https://creativecommons.org/2007/06/20/where-are-the-joneses/"
+  },
+  "science": {
+    "NASA Connect": 16,
+    "NASA Destination Tomorrow": 10,
+    "NASA SCI Files": 13
+  },
+  "films": [
+    "Nasty Old People",
+    "Four Eyed Monsters"
+  ],
+  "completeShorts": [
+    "Sintel"
+  ],
+  "automatedTestsPassed": 430,
+  "browserVerificationPending": true,
+  "worldwidePlaybackVerified": false,
+  "physicalIPhoneOrSafariTested": false,
+  "libraryOnly": true,
+  "liveCatalogueAndSchedulesPreserved": true,
+  "privateManagerAndPackageUntouched": true,
+  "rightsReview": "Original creator licence versions retained. NASA credits/third-party notices and film source credits remain under review. No blanket legal clearance claim.",
+  "remainingCuratorCoverage": "Archive Watch feed and favourites remain discovery sources only; no bulk import. Four Eyed Monsters source/licence provenance and Nasty Old People subtitles under review."
+}
