@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "status": "verified-release-candidate",
+  "status": "published-and-live-samples-verified",
   "sources": 136,
   "joneses": {
     "numberedStories": 92,
@@ -38,9 +38,40 @@
     "archive-VODO142FourEyedMonsters": "On-screen CC BY-NC-SA notice contradicts Archive BY-SA metadata; exact licence version and VODO edition runtime require reconciliation.",
     "archive-NasaDestinationTomorrow-Episode12": "Credits identify separately owned Kitty Hawk documentary footage; reuse permission for this contribution is not established."
   },
-  "browserRun": "https://github.com/leolunelove/RewindTV/actions/runs/45448311958",
+  "browserRun": "https://github.com/leolunelove/RewindTV/actions/runs/45450363476",
   "sourceChecksPassed": 136,
   "desktopAndMobileChromeFlowsPassed": true,
   "enabledHours": 32.42,
-  "evidenceErratum": "The first browser report notes contain a legacy eight BBS episodes phrase; this run tested 94 Joneses files and 92 stories, as asserted by the test and recorded above. Corrected in subsequent harness."
+  "evidenceErratum": "The first browser report notes contain a legacy eight BBS episodes phrase; this run tested 94 Joneses files and 92 stories, as asserted by the test and recorded above. Corrected in subsequent harness.",
+  "initialBrowserRun": "https://github.com/leolunelove/RewindTV/actions/runs/45448311958",
+  "finalEnabledSourcesPassed": 134,
+  "liveUrl": "https://tv.leolune.fun/",
+  "publicPlayback": {
+    "region": "Mac browser network country not independently verified",
+    "ids": [
+      "archive-joneses-001",
+      "archive-joneses-002",
+      "archive-NasaSciFiles-TheCaseOfTheGalacticVacation",
+      "archive-VisionOntv-NastyOldPeopleFeatureFilm625-3",
+      "archive-Sintel"
+    ],
+    "jonesesResume": {
+      "before": 16.797825,
+      "restored": 16.849384,
+      "later": 32.576843
+    },
+    "galacticClock": [
+      10.936418,
+      22.671184
+    ],
+    "nastyClock": [
+      16.609689,
+      38.759302
+    ],
+    "sintelClock": [
+      13.903125,
+      27.823791
+    ],
+    "allObservedUnpausedAndDecoded": true
+  }
 }
