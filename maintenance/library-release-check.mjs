@@ -9,6 +9,7 @@ await fs.mkdir(out,{recursive:true});
 const packName=process.env.REWIND_RELEASE_PACK||'archive-library.json';
 const pack=JSON.parse(await fs.readFile(path.join(root,packName),'utf8'));
 const discovery=packName==='archive-discovery.json';
+const sources=pack.videos.filter(v=>v.enabled!==false);
 const report={checkedAt:new Date().toISOString(),region:'GitHub runner egress country not independently verified',scope:'Actual app startup and near-end clock checks, not full-runtime or worldwide certification',sources:[],flows:[]};
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=http.createServer(async(req,res)=>{
@@ -92,7 +93,7 @@ async function checkFlow(viewport){
       await page.reload({waitUntil:'domcontentloaded'});await playing(page,film,119);
     }
     await page.screenshot({path:path.join(out,`library-${viewport.isMobile?'mobile':'desktop'}.png`)});
-    record.status='passed';record.resume={saved:saved.time,resumed:resumed.time,reloaded:reloaded.time};record.notes=(discovery?'Joneses multipart order and 92-story count, Swedish film label and film resume passed. ':'')+'Library source preserved while browsing; saved progress survived Live TV and reload; eight credited BBS episodes; Guide kept clock advancing and mini-player returned to Library.';
+    record.status='passed';record.resume={saved:saved.time,resumed:resumed.time,reloaded:reloaded.time};record.notes=(discovery?'Joneses multipart order and 92-story count, Swedish film label and film resume passed. ':'')+'Library source preserved while browsing; saved progress survived Live TV and reload; per-episode credits visible; Guide kept clock advancing and mini-player returned to Library.';
   }catch(e){record.error=String(e);await page.screenshot({path:path.join(out,`flow-failure-${viewport.isMobile?'mobile':'desktop'}.png`)}).catch(()=>{});}
   finally{report.flows.push(record);await context.close();await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));}
 }
@@ -100,8 +101,8 @@ try{
   let cursor=0;
   async function worker(){
     const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),page=await context.newPage();page.setDefaultTimeout(15000);
-    while(cursor<pack.videos.length){
-      const v=pack.videos[cursor++],record={id:v.id,title:v.title,url:v.mediaUrl,status:'failed'};
+    while(cursor<sources.length){
+      const v=sources[cursor++],record={id:v.id,title:v.title,url:v.mediaUrl,status:'failed'};
       for(let attempt=1;attempt<=2;attempt++){
         try{
           record.start=await activate(page,v);record.attempt=attempt;

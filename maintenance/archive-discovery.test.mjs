@@ -35,3 +35,8 @@ test('a multipart resume keeps the exact original file and its next part in a la
  const v=cat.libraryVideos.find(v=>v.id==='archive-joneses-056a'),saved=new Map(),storage={getItem:k=>saved.get(k),setItem:(k,v)=>saved.set(k,v)};
  createWatchHistory({storage}).save(v,{position:90,channelKey:v.channelKey});const record=createWatchHistory({storage}).list(cat).find(r=>r.video.id===v.id);assert.equal(record.position,90);const found=findProgramme(cat,record.video.channelKey,record.video.id),i=found.queue.findIndex(x=>x.id===v.id);assert.equal(found.queue[i+1].id,'archive-joneses-056b');
 });
+
+test('sources with unresolved rights are retained but never exposed to playback',()=>{
+ for(const id of ["archive-VODO142FourEyedMonsters", "archive-NasaDestinationTomorrow-Episode12"]){assert.equal(pack.videos.find(v=>v.id===id).enabled,false);assert.equal(cat.libraryVideos.find(v=>v.id===id)?.enabled,false);assert(!buildShowIndex(cat).some(show=>show.episodes.some(v=>v.id===id)));assert.equal(findProgramme(cat,'andromeda',id),null);}
+ assert.equal(pack.videos.filter(v=>v.enabled!==false).length,134);
+});

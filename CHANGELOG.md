@@ -1,5 +1,13 @@
 # Rewind TV changelog
 
+## 2026-11-24 — Joneses and nostalgic science in Library
+
+- Added 92 Where Are the Joneses? stories across 94 original parts, 38 NASA science programmes, Nasty Old People and the complete Sintel short: 134 files and 32.42 hours, all Library only.
+- Excluded alternate encodes/outtakes and selected the complete Galactic Vacation file instead of a derivative missing over five minutes. Multipart stories stay adjacent and count once.
+- Retained Four Eyed Monsters and NASA Destination Tomorrow episode 12 as disabled candidates pending conflicting licence/third-party footage review. Nasty Old People is labelled Swedish; English subtitles are not promised.
+- All 136 candidate files passed actual app startup, duration and near-end clock checks. Desktop and mobile Chrome emulation passed browsing, multipart Next, Guide continuity and Continue watching across live TV/reload. These checks do not certify whole runtimes, worldwide playback or physical iPhone/Safari.
+- Preserved every live channel and fixed schedule, the private manager and local package. Source credits and original licence versions remain visible per episode.
+
 Dated changes to the player and catalogue. Each release records its validation scope. Browser samples do not certify every upload or worldwide playback.
 
 ## 2026-11-24 — Licensed Archive Library additions

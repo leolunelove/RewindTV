@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "status": "candidate-awaiting-browser-and-credit-review",
+  "status": "verified-release-candidate",
   "sources": 136,
   "joneses": {
     "numberedStories": 92,
@@ -24,13 +24,23 @@
   "completeShorts": [
     "Sintel"
   ],
-  "automatedTestsPassed": 430,
-  "browserVerificationPending": true,
+  "automatedTestsPassed": 431,
+  "browserVerificationPending": false,
   "worldwidePlaybackVerified": false,
   "physicalIPhoneOrSafariTested": false,
   "libraryOnly": true,
   "liveCatalogueAndSchedulesPreserved": true,
   "privateManagerAndPackageUntouched": true,
-  "rightsReview": "Original creator licence versions retained. NASA credits/third-party notices and film source credits remain under review. No blanket legal clearance claim.",
-  "remainingCuratorCoverage": "Archive Watch feed and favourites remain discovery sources only; no bulk import. Four Eyed Monsters source/licence provenance and Nasty Old People subtitles under review."
+  "rightsReview": "Original creator licence versions and attribution retained. Two conflicting/third-party sources held. End-credit frames sampled, not whole-runtime legal clearance.",
+  "remainingCuratorCoverage": "Archive Watch feed, 238 favourites and Reddit remain leads, not cleared catalogues. Licence claims such as commercial cartoons marked CC0 were rejected. Computer Chronicles, more Net Cafe and Pioneer One remain unimported candidates; exact-title search needs refinement.",
+  "enabledSources": 134,
+  "heldSources": {
+    "archive-VODO142FourEyedMonsters": "On-screen CC BY-NC-SA notice contradicts Archive BY-SA metadata; exact licence version and VODO edition runtime require reconciliation.",
+    "archive-NasaDestinationTomorrow-Episode12": "Credits identify separately owned Kitty Hawk documentary footage; reuse permission for this contribution is not established."
+  },
+  "browserRun": "https://github.com/leolunelove/RewindTV/actions/runs/45448311958",
+  "sourceChecksPassed": 136,
+  "desktopAndMobileChromeFlowsPassed": true,
+  "enabledHours": 32.42,
+  "evidenceErratum": "The first browser report notes contain a legacy eight BBS episodes phrase; this run tested 94 Joneses files and 92 stories, as asserted by the test and recorded above. Corrected in subsequent harness."
 }
