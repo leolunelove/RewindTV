@@ -6,6 +6,7 @@
 - Curated backgrounds for the recent Joneses, NASA, Sintel and Nasty Old People additions, plus Net Cafe, Computer Chronicles, BBS, Valkaama and Big Buck Bunny. Dialogue-free material is labelled accurately; unverified subtitles are not promised.
 - Facts use existing catalogue durations and years. Missing information stays absent; source uploaders are never substituted for creators. Browsing About has no player callbacks, network requests or new popup layer.
 - Mobile browsing reserves scroll clearance above the floating player/navigation so About facts and focused controls can be read unobscured.
+- Spoken card labels and Library audio filters use the same verified language as About, including No dialogue.
 - Removed the film header's assumed English language and made dialogue-free labels agree across Library cards, details and About. UI-only release checks exercise desktop/mobile playback flows; source-data changes and manual checks still probe the full enabled release pack.
 
 ## 2026-11-24 — Joneses and nostalgic science in Library

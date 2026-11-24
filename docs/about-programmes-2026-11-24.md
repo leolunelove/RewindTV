@@ -30,3 +30,5 @@ Additional primary checks: [Neil Edmond’s agency biography](https://www.united
 Released in PR #7, merge `47f64f4124ef36ae7b3ff2a0da51eec58004ff67`. All 439 automated tests passed. [Final desktop/mobile UI run](https://github.com/leolunelove/RewindTV/actions/runs/45463139406) passed About content, mobile dock clearance, continuous playback, multipart stepping and saved progress across live TV/reload. This UI-only run did not repeat catalogue-wide source probes.
 
 Live Chrome on tv.leolune.fun displayed Joneses and Nasty Old People About sections. Joneses continued playing while both were browsed (same episode 3 clock advanced 96.77 to 123.01 seconds during film selection). Browser network country was not independently verified; physical iPhone/Safari remains untested. No source catalogue or schedule changes.
+
+Final accessibility follow-up: Library card accessible names and audio filters share the corrected display-language model (including No dialogue). Existing tests explicitly cover the spoken card label and language filter. This follow-up changes no player code or media source.

@@ -431,6 +431,7 @@ test('mixed existing and Archive episodes keep per-episode licence attribution v
 
  test('dialogue-free titles have consistent language labels in cards, details and About',async()=>{
  const f=await libraryFixture({channels:[{key:'shorts',name:'Shorts',number:1,videos:[{id:'bunny',title:'Big Buck Bunny',series:'Big Buck Bunny',kind:'short',year:2008,duration:597,audioLanguageLabel:'English'}]}]});
- const card=byClass(f.root,'library-title')[0];assert(card.querySelector('small').textContent.includes('No dialogue'));
+ const card=byClass(f.root,'library-title')[0];assert(card.querySelector('small').textContent.includes('No dialogue'));assert(card.attributes['aria-label'].includes('No dialogue'));assert(!card.attributes['aria-label'].includes('English'));
+ change(byLabel(f.root,'Audio language'),'No dialogue');assert.equal(byClass(f.root,'library-title').length,1);
  f.view.openDetail('show:big buck bunny');assert(byClass(f.root,'library-detail-meta')[0].textContent.includes('No dialogue'));assert(!byClass(f.root,'library-detail-meta')[0].textContent.includes('English'));assert.equal(f.played.length,0);
  });

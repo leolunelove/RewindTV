@@ -13,7 +13,8 @@ export function filterTitles(shows,query='',kind='all') {
 }
 
 export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWatching=()=>[],onResume,onRemoveContinue}) {
-  let shows=buildShowIndex(catalogue,showListings);
+  const titleIndex=source=>buildShowIndex(source,showListings).map(show=>({...show,language:programmeLanguage(show.title,show.episodes)||show.language}));
+  let shows=titleIndex(catalogue);
   const doc=root.ownerDocument;
   const win=doc.defaultView;
   const titleStates=new Map();
@@ -448,7 +449,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
     updateCatalogue(next){
       saveScroll();
       const key=selected?.key;
-      catalogue=next;shows=buildShowIndex(catalogue,showListings);
+      catalogue=next;shows=titleIndex(catalogue);
       if(filters.channel!=='all'&&!catalogue.channels.some(channel=>channel.key===filters.channel))filters.channel='all';
       selected=key?shows.find(show=>show.key===key)||null:null;
       if(selected)drawDetail();
