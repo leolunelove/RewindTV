@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "status": "browser-verified-ready-to-publish",
+  "status": "published-and-live-verified",
   "scope": "Library additions only; existing live channel identities, programmes, schedules, advert placement and live shuffle preserved. Private local manager/package untouched.",
   "totals": {
     "newEpisodes": 20,
@@ -1299,11 +1299,64 @@
       "result": "success",
       "region": "Runner egress country not independently verified",
       "artifactId": 14924754887
+    },
+    "liveSmoke": {
+      "date": "2026-11-24",
+      "url": "https://tv.leolune.fun/",
+      "browser": "Chrome on the user Mac",
+      "region": "Browser egress country not independently verified",
+      "samples": [
+        {
+          "id": "archive-nc117_weird_web",
+          "clockSeconds": 209.672026,
+          "readyState": 4,
+          "videoWidth": 320,
+          "resume": "Saved at 3:05 after Live TV; resumed from the shelf; reload restored and advanced to 3:29."
+        },
+        {
+          "id": "archive-BBS.The.Documentary-ep1",
+          "clockSeconds": 20.525914,
+          "readyState": 4,
+          "videoWidth": 320,
+          "browse": "All eight episodes and creator licence links visible."
+        },
+        {
+          "id": "archive-valkaama",
+          "clockSeconds": 752.719327,
+          "readyState": 4,
+          "videoWidth": 854,
+          "resume": "Film shelf retained 11:14 after Live TV; resumed; reload restored and advanced past 12 minutes."
+        },
+        {
+          "id": "archive-BigBuckBunny_328",
+          "clockSeconds": 23.069661,
+          "readyState": 4,
+          "videoWidth": 426,
+          "browse": "Complete short film in Shows/Videos; not counted as a feature film."
+        }
+      ],
+      "homeCounts": {
+        "channels": 33,
+        "films": 115,
+        "showsAndCollections": 424
+      },
+      "scope": "Public-origin UI navigation and playback samples. Not an uninterrupted watch or worldwide test."
     }
   },
   "deployment": {
-    "published": false,
+    "published": true,
     "githubChanged": true,
-    "requiresBrowserPreviewBeforeRelease": false
+    "requiresBrowserPreviewBeforeRelease": false,
+    "url": "https://tv.leolune.fun/",
+    "commit": "c2990c1c7a938a0419a7b3f81ca6fc36456cc614",
+    "workflowRun": "https://github.com/leolunelove/RewindTV/actions/runs/45419352726",
+    "result": "success",
+    "generatedRuntimeBytes": 3177589,
+    "runtimeBuild": "Built from source packs during Pages deployment; generated runtime blob not uploaded in the source commit.",
+    "repairs": [
+      "Refresh cached Home, Guide overview and playback alternative module versions; Home now counts Library-only titles.",
+      "Give deployment artifacts unique names per run/attempt and allow three bounded attempts through the official Pages action."
+    ],
+    "privateLocalAppAndPackageModified": false
   }
 }
