@@ -73,7 +73,7 @@ async function checkFlow(viewport){
       for(const term of ['2007','Programme length','English','Baby Cow','Dawn Jones'])if(!text.includes(term))throw Error('Missing show About fact: '+term);
       record.aboutShow={text,playback:await playing(page,v,119)};
       await about.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
-      if(viewport.isMobile){const bounds=await about.boundingBox(),dock=await page.locator('#mini-player').boundingBox();if(bounds&&dock&&bounds.y+bounds.height>dock.y-8)throw Error('About facts remain behind the floating mini-player');}
+      if(viewport.isMobile){const bottom=await about.locator('dd').evaluateAll(nodes=>Math.max(...nodes.map(n=>n.getBoundingClientRect().bottom))),dock=await page.locator('#mini-player').boundingBox();if(dock&&bottom>dock.y-8)throw Error('About facts remain behind the floating mini-player');}
       if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error('About caused horizontal page overflow');
       await page.screenshot({path:path.join(out,`about-show-${viewport.isMobile?'mobile':'desktop'}.png`)});
       await page.getByRole('searchbox',{name:'Find an episode',exact:true}).fill('Post Mortem');
@@ -101,7 +101,7 @@ async function checkFlow(viewport){
       const text=await about.innerText();for(const term of ['2009','1h 24m','Swedish','Hanna Sköld','Mette'])if(!text.includes(term))throw Error('Missing film About fact: '+term);
       record.aboutFilm={text,playback:await playing(page,guideVideo)};
       await about.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
-      if(viewport.isMobile){const bounds=await about.boundingBox(),dock=await page.locator('#mini-player').boundingBox();if(bounds&&dock&&bounds.y+bounds.height>dock.y-8)throw Error('About facts remain behind the floating mini-player');}
+      if(viewport.isMobile){const bottom=await about.locator('dd').evaluateAll(nodes=>Math.max(...nodes.map(n=>n.getBoundingClientRect().bottom))),dock=await page.locator('#mini-player').boundingBox();if(dock&&bottom>dock.y-8)throw Error('About facts remain behind the floating mini-player');}
       if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error('Film About caused horizontal page overflow');
       await page.screenshot({path:path.join(out,`about-film-${viewport.isMobile?'mobile':'desktop'}.png`)});
       await page.locator('.movie-hero .movie-play').click();await playing(page,film);
