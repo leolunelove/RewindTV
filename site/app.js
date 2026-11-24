@@ -888,7 +888,7 @@
   }
   root.querySelectorAll('button').forEach(b=>b.disabled=true);
   try{
-    const {loadLibrary}=await import('./library.mjs?v=20261124archive');
+    const {loadLibrary}=await import('./library.mjs?v=20261124joneses');
     const [source,country]=await Promise.all([loadLibrary(),resolveViewingCountry({storage:historyStorage})]);sourceCatalogue=source;viewingCountry=country.country;viewingCountrySource=country.source;
     ({catalogue,plan}=Schedule.buildLineup(catalogueForCountry(source,viewingCountry)));channels=catalogue.channels;channel=Math.min(channel,channels.length-1);window.RewindLibrary=()=>catalogue;
     loadCountryFailures();setupCountrySettings();

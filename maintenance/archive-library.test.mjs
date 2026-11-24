@@ -27,9 +27,9 @@ test('new sources have explicit creator licence evidence, unique files and actua
  assert.equal(pack.videos.filter(v=>v.kind==='full episode').length,20);assert.equal(pack.videos.filter(v=>v.kind==='film').length,1);assert.equal(pack.videos.find(v=>v.title==='Big Buck Bunny').kind,'short');
 });
 test('Library-only programmes survive compact hydration and resolve to ordered playable queues',()=>{
- assert.equal(round.libraryVideos.length,22);
+ assert.equal(round.libraryVideos.length,(base.libraryVideos?.length||0)+22);
  const episodes=buildShowIndex(round).find(s=>s.title==='Net Cafe').episodes;
- for(const v of round.libraryVideos){assert.deepEqual(v.rights,pack.videos.find(x=>x.id===v.id).rights);const result=findProgramme(round,v.channelKey,v.id);assert(result&&result.video.libraryOnly);if(v.series==='Net Cafe')assert.equal(result.queue.length,episodes.length);}
+ for(const v of round.libraryVideos.filter(v=>ids.has(v.id))){assert.deepEqual(v.rights,pack.videos.find(x=>x.id===v.id).rights);const result=findProgramme(round,v.channelKey,v.id);assert(result&&result.video.libraryOnly);if(v.series==='Net Cafe')assert.equal(result.queue.length,episodes.length);}
  assert(buildMovieLibrary(round).some(v=>v.title==='Valkaama'));assert(!buildMovieLibrary(round).some(v=>v.title==='Big Buck Bunny'));
 });
 test('Library additions cannot resurrect disabled or country-blocked records',()=>{

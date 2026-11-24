@@ -6,7 +6,10 @@ import {chromium} from 'playwright';
 
 const root=path.resolve('site'),out=path.resolve('playwright-report/library-release');
 await fs.mkdir(out,{recursive:true});
-const pack=JSON.parse(await fs.readFile(path.join(root,'archive-library.json'),'utf8'));
+const packName=process.env.REWIND_RELEASE_PACK||'archive-library.json';
+const pack=JSON.parse(await fs.readFile(path.join(root,packName),'utf8'));
+const discovery=packName==='archive-discovery.json';
+const sources=pack.videos.filter(v=>v.enabled!==false);
 const report={checkedAt:new Date().toISOString(),region:'GitHub runner egress country not independently verified',scope:'Actual app startup and near-end clock checks, not full-runtime or worldwide certification',sources:[],flows:[]};
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=http.createServer(async(req,res)=>{
@@ -34,7 +37,7 @@ async function activate(page,v){
 async function checkFlow(viewport){
   const context=await browser.newContext({...viewport,reducedMotion:'reduce'}),page=await context.newPage();
   page.setDefaultTimeout(15000);
-  const v=pack.videos[0],record={viewport:viewport.viewport,status:'failed'};
+  const v=discovery?pack.videos.find(v=>v.id==='archive-joneses-001'):pack.videos[0],record={viewport:viewport.viewport,status:'failed'};
   try{
     await activate(page,v);
     await seek(page,120);await playing(page,v,119);
@@ -47,37 +50,76 @@ async function checkFlow(viewport){
     await page.locator('#watch-tab').click();
     await page.waitForFunction(()=>document.querySelector('#rewind-tv')?.dataset.destination==='watch');
     await page.locator('#browse-button').click();
-    const resume=page.locator('.continue-resume').filter({hasText:'Net Cafe'}).first();
+    const resume=page.locator('.continue-resume').filter({hasText:discovery?'Where Are the Joneses?':'Net Cafe'}).first();
     await resume.waitFor({state:'visible'});await resume.click();
     const resumed=await playing(page,v,119);
     await page.reload({waitUntil:'domcontentloaded'});
     const reloaded=await playing(page,v,119);
     await page.locator('#library-player-back').click();
-    const search=page.getByRole('searchbox',{name:'Find a show or film'});await search.fill('BBS: The Documentary');
-    await page.getByRole('button',{name:'Browse BBS: The Documentary',exact:false}).click();
-    const episodes=await page.locator('.episode-row').count();if(episodes!==8)throw Error(`Expected eight BBS episodes; got ${episodes}`);
-    const credits=await page.locator('.episode-rights').count();if(credits!==8)throw Error(`Missing episode licence credits: ${credits}`);
-    await page.locator('.episode-row').first().click();
-    await playing(page,pack.videos.find(x=>x.id==='archive-BBS.The.Documentary-ep1'));
+    const search=page.getByRole('searchbox',{name:'Find a show or film'});
+    const title=discovery?'Where Are the Joneses?':'BBS: The Documentary';
+    await search.fill(title);
+    await page.getByRole('button',{name:'Browse '+title,exact:false}).click();
+    const expected=discovery?94:8;
+    const episodes=await page.locator('.episode-row').count();if(episodes!==expected)throw Error(`Expected ${expected} original files; got ${episodes}`);
+    const credits=await page.locator('.episode-rights').count();if(credits!==expected)throw Error(`Missing episode licence credits: ${credits}`);
+    if(discovery){
+      if(!(await page.locator('.library-detail-meta').innerText()).includes('92 episodes'))throw Error('Multipart stories were counted twice');
+      await page.getByRole('searchbox',{name:'Find an episode',exact:true}).fill('Post Mortem');
+      await page.locator('.episode-row').click();
+      await playing(page,pack.videos.find(x=>x.id==='archive-joneses-056a'));
+      await page.locator('#library-next').click();await playing(page,pack.videos.find(x=>x.id==='archive-joneses-056b'));
+      await page.locator('#library-next').click();await playing(page,pack.videos.find(x=>x.id==='archive-joneses-057'));
+    }else{
+      await page.locator('.episode-row').first().click();
+      await playing(page,pack.videos.find(x=>x.id==='archive-BBS.The.Documentary-ep1'));
+    }
+    const guideVideo=discovery?pack.videos.find(x=>x.id==='archive-joneses-057'):pack.videos.find(x=>x.id==='archive-BBS.The.Documentary-ep1');
     await page.locator('#remote-guide').click();
     await page.locator('#guide-page').waitFor({state:'visible'});
-    await playing(page,pack.videos.find(x=>x.id==='archive-BBS.The.Documentary-ep1'));
+    await playing(page,guideVideo);
     await page.locator('#mini-return').click();
     await page.locator('#library-player-page').waitFor({state:'visible'});
+    if(discovery){
+      const film=pack.videos.find(x=>x.title==='Nasty Old People');
+      await page.locator('#home-tab').click();await page.locator('#home-films').click();
+      await page.getByRole('searchbox',{name:'Find a film',exact:true}).fill('Nasty Old People');
+      await page.getByRole('button',{name:'Choose Nasty Old People',exact:true}).click();
+      if(!(await page.locator('.movie-hero').innerText()).includes('Swedish'))throw Error('Swedish audio not labelled');
+      await page.locator('.movie-hero .movie-play').click();await playing(page,film);
+      await seek(page,120);await playing(page,film,119);await page.locator('#library-play').click();
+      await page.locator('#watch-tab').click();await page.locator('#home-tab').click();await page.locator('#home-films').click();
+      await page.locator('.continue-resume').filter({hasText:'Nasty Old People'}).click();await playing(page,film,119);
+      await page.reload({waitUntil:'domcontentloaded'});await playing(page,film,119);
+    }
     await page.screenshot({path:path.join(out,`library-${viewport.isMobile?'mobile':'desktop'}.png`)});
-    record.status='passed';record.resume={saved:saved.time,resumed:resumed.time,reloaded:reloaded.time};record.notes='Library source preserved while browsing; saved progress survived Live TV and reload; eight credited BBS episodes; Guide kept clock advancing and mini-player returned to Library.';
+    record.status='passed';record.resume={saved:saved.time,resumed:resumed.time,reloaded:reloaded.time};record.notes=(discovery?'Joneses multipart order and 92-story count, Swedish film label and film resume passed. ':'')+'Library source preserved while browsing; saved progress survived Live TV and reload; per-episode credits visible; Guide kept clock advancing and mini-player returned to Library.';
   }catch(e){record.error=String(e);await page.screenshot({path:path.join(out,`flow-failure-${viewport.isMobile?'mobile':'desktop'}.png`)}).catch(()=>{});}
   finally{report.flows.push(record);await context.close();await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));}
 }
 try{
-  const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),page=await context.newPage();page.setDefaultTimeout(15000);
-  for(const v of pack.videos){
-    const record={id:v.id,title:v.title,url:v.mediaUrl,status:'failed'};
-    try{record.start=await activate(page,v);await seek(page,Math.max(10,record.start.duration-18));record.tail=await playing(page,v,record.start.duration-20);record.status='passed';}
-    catch(e){record.error=String(e);record.observed=await state(page).catch(()=>null);await page.screenshot({path:path.join(out,`${v.id.replace(/[^a-z0-9-]/gi,'_')}-failure.png`)}).catch(()=>{});}
-    report.sources.push(record);console.log(JSON.stringify(record));await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));
+  let cursor=0;
+  async function worker(){
+    const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),page=await context.newPage();page.setDefaultTimeout(15000);
+    while(cursor<sources.length){
+      const v=sources[cursor++],record={id:v.id,title:v.title,url:v.mediaUrl,status:'failed'};
+      for(let attempt=1;attempt<=2;attempt++){
+        try{
+          record.start=await activate(page,v);record.attempt=attempt;
+          if(Math.abs(record.start.duration-v.duration)>2)throw Error('Actual runtime differs from selected full file');
+          if(discovery&&(v.series.startsWith('NASA')||v.kind==='film'||v.kind==='short')){
+            record.reviewFrames=[];
+            const times=v.series.startsWith('NASA')?[Math.max(0,record.start.duration-90),Math.max(0,record.start.duration-35)]:[16,Math.min(160,record.start.duration/2),Math.max(0,record.start.duration-60)];
+            for(const time of times){await seek(page,time);await playing(page,v,Math.max(0,time-2));const frame=`${v.id.replace(/[^a-z0-9-]/gi,'_')}-${Math.floor(time)}.png`;await page.locator('#archive-player').screenshot({path:path.join(out,frame)});record.reviewFrames.push(frame);}
+          }
+          await seek(page,Math.max(10,record.start.duration-18));record.tail=await playing(page,v,record.start.duration-20);record.status='passed';break;
+        }catch(e){record.error=String(e);record.observed=await state(page).catch(()=>null);if(attempt===2)await page.screenshot({path:path.join(out,`${v.id.replace(/[^a-z0-9-]/gi,'_')}-failure.png`)}).catch(()=>{});}
+      }
+      report.sources.push(record);console.log(JSON.stringify(record));await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));
+    }
+    await context.close();
   }
-  await context.close();
+  await Promise.all(Array.from({length:discovery?2:1},worker));
   await checkFlow({viewport:{width:1440,height:900}});
   await checkFlow({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2});
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));}
