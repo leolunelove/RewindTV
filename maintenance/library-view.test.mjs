@@ -408,3 +408,13 @@ test('collection details and filtered empty states use collection language, with
  descendants(root).find(node=>node.tagName==='button'&&node.textContent==='Show all collections').onclick();
  assert.equal(byClass(root,'episode-row').length,13);assert.equal(played.length,0);
 });
+
+
+test('mixed existing and Archive episodes keep per-episode licence attribution visible and outside Play buttons',async()=>{
+ const existing=episode('existing','Net Cafe',1,1),licensed={...episode('archive-new','Net Cafe',1,2),libraryOnly:true,channelKey:'archive',provider:'archive',rights:{attribution:'© 1997 Stewart Cheifet Productions',licenseLabel:'CC BY-NC-ND 2.0',licenseUrl:'https://creativecommons.org/licenses/by-nc-nd/2.0/'}};
+ const catalogue={channels:[{key:'archive',name:'Archive',number:25,videos:[existing]}],libraryVideos:[licensed]};
+ const {root,view,played}=await libraryFixture(catalogue);view.openDetail('show:net cafe');
+ const credit=byClass(root,'episode-rights')[0];assert(credit);assert(credit.textContent.includes(licensed.rights.attribution));
+ const link=credit.querySelector('a');assert.equal(link.href,licensed.rights.licenseUrl);assert.equal(link.target,'_blank');assert.equal(credit.parentElement.tagName,'div');assert.equal(played.length,0);
+ byLabel(root,'Play '+licensed.title).onclick();assert.equal(played[0].id,licensed.id);
+});

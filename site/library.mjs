@@ -1,7 +1,7 @@
 export const KIDS_PACKS=["kids-cbbc.json", "kids-disney.json", "kids-nick.json", "kids-toons.json"];
 export const CREATOR_PACKS=["classic-gmm.json", "classic-rhett.json", "afterdark-frank.json", "afterdark-idubbbz.json", "more-tv-films.json"];
 export const MUSIC_PACKS=["music-surf.json", "music-proximity.json", "music-sheep.json", "music-ncs.json"];
-export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','quality-pass.json','maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','main-ten-checks-3.json','library-health.json'];
+export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','quality-pass.json','archive-library.json','maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','main-ten-checks-3.json','library-health.json'];
 export const SOURCE_FILES=['catalogue.json','gameshow-additions.json',...EXPANSION_PACKS];
 export {catalogueForCountry};
 const QUIZ_SERIES=new Set(['Catchphrase','Family Fortunes','The Weakest Link','Who Wants to Be a Millionaire']);
@@ -36,7 +36,7 @@ function validatedMetadataUpdates(base,updates){
  const patches=new Map();
  if(updates===undefined)return patches;
  if(!Array.isArray(updates))throw Error('Invalid metadata updates');
- const knownIds=new Set([...base.channels.flatMap(channel=>channel.videos),...(base.adverts||[])].map(video=>video.id));
+ const knownIds=new Set([...base.channels.flatMap(channel=>channel.videos),...(base.libraryVideos||[]),...(base.adverts||[])].map(video=>video.id));
  for(const update of updates){
   if(!recordValue(update)
    ||Object.keys(update).some(key=>key!=='id'&&key!=='changes')
@@ -84,7 +84,7 @@ async function fetchJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!
 export async function loadLibrary(){
  if(typeof window!=='undefined'&&window.parent!==window){try{const shared=await window.parent.RewindLibrary?.();if(shared)return {...shared,channels:shared.channels.map(c=>({...c}))};}catch{}}
  return libraryPromise??=(async()=>{
-  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=20261122quality3');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
+  try{const {hydrateLibrary}=await import('./runtime-library.mjs?v=20261124archive');return hydrateLibrary(await fetchJSON('runtime-library.json'));}
   catch(error){console.warn('Using source catalogue fallback.',error);}
   const paths=SOURCE_FILES;
   const results=await Promise.allSettled(paths.map(fetchJSON));if(results[0].status!=='fulfilled')throw results[0].reason;let base=results[0].value;
@@ -111,7 +111,7 @@ export function withExpansion(base,pack){
   if(retired)video={...video,enabled:false,disabledReason:retired.reason,scheduleUntilWeek:retired.scheduleUntilWeek,retainedStorySources:[...retired.retainedStorySources]};
   return exclusions.has(video.id)?{...video,enabled:false,disabledReason:exclusions.get(video.id).reason,scheduleUntilWeek:undefined}:video;
  };
- const known=new Map();for(const c of base.channels)for(const source of c.videos){const v=permitted(source);if(!known.has(v.id)||known.get(v.id).enabled===false)known.set(v.id,v);}
+ const known=new Map((base.libraryVideos||[]).map(v=>[v.id,permitted(v)]));for(const c of base.channels)for(const source of c.videos){const v=permitted(source);if(!known.has(v.id)||known.get(v.id).enabled===false)known.set(v.id,v);}
  for(const v of pack.videos){if(typeof v.id!=='string'||!v.id||typeof v.series!=='string'||!Number.isFinite(v.duration)||v.duration<60||!['full episode','full pilot','film','short','music','classic video'].includes(v.kind))throw Error('Invalid expansion programme');if(!known.has(v.id))known.set(v.id,v);}
  const keys=new Set(base.channels.map(c=>c.key));let channels=base.channels.map(c=>({...c,videos:c.videos.map(permitted)}));
  for(const c of pack.channels){if(typeof c.key!=='string'||!c.key||c.mode!=='shuffle'||!c.name||!c.logo)throw Error('Invalid expansion channel');if(keys.has(c.key))continue;keys.add(c.key);channels.push({...c,number:channels.length+1,flagship:false,videos:[]});}
@@ -120,8 +120,16 @@ export function withExpansion(base,pack){
  for(const id of ids){const v=known.get(id);if(!v)throw Error('Unknown programme in expansion');if(!present.has(id)&&v.enabled!==false){present.add(id);c.videos.push(v);}}
  c.shows=[...new Set(c.videos.filter(v=>v.enabled!==false).map(v=>v.series))];
  }
+ const libraryVideos=(base.libraryVideos||[]).map(permitted),liveIds=new Set(channels.flatMap(c=>c.videos.map(v=>v.id))),libraryIds=new Set(libraryVideos.map(v=>v.id));
+ if(pack.libraryAssignments!==undefined){
+  if(!recordValue(pack.libraryAssignments))throw Error('Invalid Library assignment');
+  for(const [key,ids]of Object.entries(pack.libraryAssignments)){
+   if(!keys.has(key)||!Array.isArray(ids)||new Set(ids).size!==ids.length)throw Error('Invalid Library assignment');
+   for(const id of ids){const v=known.get(id);if(!v||liveIds.has(id)||libraryIds.has(id))throw Error('Duplicate or unknown Library programme');libraryIds.add(id);libraryVideos.push({...v,channelKey:key,libraryOnly:true});}
+  }
+ }
  if(channels.some(c=>!c.videos.length))throw Error('Empty expansion channel');
- const unique=[...new Map(channels.flatMap(c=>c.videos).filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
- return {...base,...(base.adverts?{adverts:base.adverts.map(permitted)}:{}),channels,libraryRevision:base.libraryRevision+'+'+pack.revision,libraryStats:{...base.libraryStats,channels:channels.length,playbackChecksPassedThisUpdate:pack.videos.filter(v=>v.playbackCheck?.start&&v.playbackCheck?.nearEnd).length,uploads:unique.length,hours:Math.round(unique.reduce((n,v)=>n+v.duration,0)/360)/10,fullLengthUploads:unique.filter(v=>v.duration>=600).length}};
+ const unique=[...new Map([...channels.flatMap(c=>c.videos),...libraryVideos].filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
+ return {...base,...(libraryVideos.length?{libraryVideos}:{}),...(base.adverts?{adverts:base.adverts.map(permitted)}:{}),channels,libraryRevision:base.libraryRevision+'+'+pack.revision,libraryStats:{...base.libraryStats,channels:channels.length,playbackChecksPassedThisUpdate:pack.videos.filter(v=>v.playbackCheck?.start&&v.playbackCheck?.nearEnd).length,uploads:unique.length,hours:Math.round(unique.reduce((n,v)=>n+v.duration,0)/360)/10,fullLengthUploads:unique.filter(v=>v.duration>=600).length}};
 }
-import {COUNTRY_CODES,normalizeCountry,catalogueForCountry,resolveViewingCountry} from './region-eligibility.mjs';
+import {COUNTRY_CODES,normalizeCountry,catalogueForCountry,resolveViewingCountry} from './region-eligibility.mjs?v=20261124archive';

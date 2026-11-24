@@ -1,8 +1,8 @@
 import {showListings} from './show-listings.mjs?v=vault1';
-import {buildShowIndex,normalise} from './show-library.mjs?v=20261122quality3';
-import {programmeTitle} from './programme-info.mjs?v=liquid1';
+import {buildShowIndex,normalise} from './show-library.mjs?v=20261124archive';
+import {programmeTitle} from './programme-info.mjs?v=20261124archive';
 import {browseTitles} from './browse-tools.mjs?v=20261123polish';
-import {movieArtwork} from './movie-night.mjs?v=20261122quality3';
+import {movieArtwork} from './movie-night.mjs?v=20261124archive';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
 import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261122quality3';
 import {libraryCountLabel,librarySectionLabel} from './library-meta.mjs?v=20261123polish';
@@ -399,6 +399,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
         item.append(row);
         const source=sourceLink(video,'episode-source');
         if(source)item.append(source);
+        if(video.rights){const credit=el('p',video.rights.attribution+' · ','episode-rights');const license=el('a',video.rights.licenseLabel+' ↗');license.href=video.rights.licenseUrl;license.target='_blank';license.rel='noopener noreferrer';credit.append(license);item.append(credit);}
         list.append(item);
       }
     }

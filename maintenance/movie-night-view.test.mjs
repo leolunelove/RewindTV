@@ -109,3 +109,9 @@ test('Films Continue watching updates only its own row and resumes without chang
  assert.equal(f.root.scrollTop,777);assert.equal(f.doc.activeElement,button);assert.equal(f.search.value,'The');assert.equal(f.genreControl.value,'War');assert.equal(f.title(),selected);assert.equal(f.played.length,0);
  button.onclick();assert.equal(resumed[0].position,240);assert.equal(resumed[0].video.title,'Charade');
 });
+
+test('a Library-only licensed film shows its attribution and licence before playback',()=>{
+ const video={id:'licensed-film',title:'A licensed feature',series:'A licensed feature',kind:'film',duration:5500,year:2010,provider:'archive',mediaUrl:'https://archive.org/download/example/film.mp4',watchUrl:'https://archive.org/details/example',libraryOnly:true,channelKey:'movies',sourceProvenance:'Openly licensed film · Internet Archive',rights:{attribution:'Example filmmaker',licenseLabel:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'}};
+ const f=fixture({catalogue:{channels:[{key:'movies',videos:[]}],libraryVideos:[video]}}),sources=f.byClass('movie-source');
+ assert(sources.some(node=>node.textContent==='Internet Archive · Licensed source'));const credit=sources.find(node=>node.textContent.includes('Example filmmaker'));assert(credit);assert.equal(credit.querySelector('a').href,video.rights.licenseUrl);assert.equal(f.played.length,0);f.byClass('movie-play')[0].onclick();assert.equal(f.played[0].id,video.id);assert.equal(f.played[0].libraryOnly,true);
+});

@@ -1,4 +1,4 @@
-import {isBrowsable,normalise} from './show-library.mjs?v=20261122quality3';
+import {isBrowsable,normalise,browseChannels} from './show-library.mjs?v=20261124archive';
 const themes={
  Comedy:['His Girl Friday','Three Husbands','The Admiral Was a Lady','Champagne for Caesar','Super Fuzz','Ghosts on the Loose','The Little Shop of Horrors','A Bucket of Blood','My Man Godfrey','Topper Returns','Royal Wedding'],
  Horror:['Night of the Living Dead','The Phantom of the Opera','Carnival of Souls','Nomads','The Monster of Piedras Blancas','Primal Rage','Planet of the Vampires','Trilogy of Terror','The Innocents','House on Haunted Hill','Dementia 13','The Last Man on Earth','Chopping Mall','The Stuff','House','Dog Soldiers','Warlock','The Terror','The Killer Shrews','The Giant Gila Monster','The Amazing Mr. X',"The Brain That Wouldn't Die",'Nosferatu'],
@@ -10,7 +10,7 @@ const themes={
 const genreByTitle=new Map(Object.entries(themes).flatMap(([genre,titles])=>titles.map(t=>[normalise(t),genre])));
 export function filmIdentity(v){return `${normalise(v.title)}:${v.year||''}:${v.audioLanguage||'en'}`;}
 export function buildMovieLibrary(catalogue){
- const unique=new Map();for(const c of catalogue.channels)for(const v of c.videos){if(v.kind!=='film'||!isBrowsable(v))continue;const key=filmIdentity(v);if(!unique.has(key))unique.set(key,{...v,channelKey:c.key,genre:v.genre||genreByTitle.get(normalise(v.title))||'World cinema'});}
+ const unique=new Map();for(const c of browseChannels(catalogue))for(const v of c.videos){if(v.kind!=='film'||!isBrowsable(v))continue;const key=filmIdentity(v);if(!unique.has(key))unique.set(key,{...v,channelKey:c.key,genre:v.genre||genreByTitle.get(normalise(v.title))||'World cinema'});}
  return [...unique.values()].sort((a,b)=>a.title.localeCompare(b.title,'en',{numeric:true,sensitivity:'base'}));
 }
 export function filterMovies(films,{query='',genre='all'}={}){const q=normalise(query);return films.filter(v=>(genre==='all'||v.genre===genre)&&(!q||normalise([v.title,v.year,v.genre,v.audioLanguageLabel].join(' ')).includes(q)));}

@@ -1,5 +1,5 @@
-import {loadViewingLibrary} from './library.mjs?v=20261122quality3';
-import {buildShowIndex,normalise} from './show-library.mjs?v=20261122quality3';
+import {loadViewingLibrary} from './library.mjs?v=20261124archive';
+import {buildShowIndex,normalise} from './show-library.mjs?v=20261124archive';
 const $=s=>document.querySelector(s),embedded=new URLSearchParams(location.search).has('overlay');document.documentElement.classList.toggle('embedded',embedded);
 if(embedded){$('#library-title').firstChild.textContent='SHOW INDEX';$('#load-more').textContent='NEXT 48 TITLES ↓';}
 let listScroll=0,lastCard=null;
