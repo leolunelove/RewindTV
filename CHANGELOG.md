@@ -1,5 +1,20 @@
 # Rewind TV changelog
 
+## 2026-11-25 — Language TV depth and a real Christmas day
+
+- Added 62 Mandarin episodes, 77 Spanish episodes, 16 Mandarin films, 17 Spanish films and 10 festive programmes from established publisher sources. Added Mandarin Cartoons, Spanish Cartoons, Mandarin Cinema and Cine Español as channels 34–37, preserving all original channel numbers and main-ten fixed times.
+- Held 38 shortened/unresolved Mandarin candidates even though their embeds play; also held recap/multipart and film-edition uncertainties. Exact country restrictions remain active, including Spanish-dub films that exclude Spain.
+- Christmas TV now uses a reviewed 53-source, 27.9-hour pool and an actual runtime-driven timetable. Ambiguous/overlapping collections remain recoverable but stay out of its schedule and shuffle. Guide includes midnight carry-over and the full seasonal day without pagination.
+- Unified Mandarin language aliases without losing saved progress or browse position, while keeping Cantonese separate. Numbered language series retain episode order within their mixes. Refreshed only the affected module dependency URLs.
+- Expanded About for 22 more British kids, Disney/Nickelodeon-era shows and films. The same inline layout and evidence rules remain in place.
+- Evidence: `docs/language-and-christmas-2026-11-25.md` and the dated per-source report. Embedded checks are bounded start/near-end samples on one Chrome network, not whole-runtime or worldwide certification. Private app/manager/package unchanged.
+
+## Prepared 2026-11-24 — Library backgrounds and channel programming proposal
+
+- Researched 22 more About descriptions and credits for British children's series, Disney/Nickelodeon-era shows and classic films. Preserved the existing inline layout, measured runtime facts, unknown-language omissions and playback state.
+- Drafted a 100-channel roadmap with 90 permanent concepts, ten Christmas concepts and 24-hour programming strands for each. Existing 33 channel numbers are retained. This is a planning document, not 67 new live channels or an episode-level schedule; no live timetable or source catalogue is changed.
+- Evidence and publication limits: `docs/about-expansion-2026-11-24.md`; complete lineup and CSV/JSON grids: `docs/channel-plan-2026-11-24/README.md`.
+
 ## 2026-11-24 — About shows and films
 
 - Added one inline About section to Library title details and selected films, with descriptions, available years, programme length, audio language and verified maker credits.

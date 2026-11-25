@@ -1,12 +1,12 @@
 import {showListings} from './show-listings.mjs?v=vault1';
-import {buildShowIndex,normalise} from './show-library.mjs?v=20261124archive';
+import {buildShowIndex,normalise,canonicalShowKey} from './show-library.mjs?v=20261125world';
 import {programmeTitle} from './programme-info.mjs?v=20261124archive';
-import {browseTitles} from './browse-tools.mjs?v=20261123polish';
-import {movieArtwork} from './movie-night.mjs?v=20261124archive';
+import {browseTitles} from './browse-tools.mjs?v=20261125world';
+import {movieArtwork} from './movie-night.mjs?v=20261125world';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
-import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261122quality3';
+import {createContinueWatching,resumeTime} from './continue-watching.mjs?v=20261125world';
 import {libraryCountLabel,librarySectionLabel} from './library-meta.mjs?v=20261123polish';
-import {createProgrammeAbout,programmeLanguage} from './programme-about.mjs?v=20261124about';
+import {createProgrammeAbout,programmeLanguage} from './programme-about.mjs?v=20261124about3';
 
 export function filterTitles(shows,query='',kind='all') {
   return browseTitles(shows,{query,kind});
@@ -43,12 +43,12 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
   let selected=null;
   let lastKey=null;
   let filtersOpen=saved.filtersOpen===true;
-  const position=value=>({scroll:Number.isFinite(value?.scroll)?Math.max(0,value.scroll):0,anchor:value?.anchor&&typeof value.anchor.key==='string'&&Number.isFinite(value.anchor.offset)?value.anchor:null});
+  const position=value=>({scroll:Number.isFinite(value?.scroll)?Math.max(0,value.scroll):0,anchor:value?.anchor&&typeof value.anchor.key==='string'&&Number.isFinite(value.anchor.offset)?{...value.anchor,key:canonicalShowKey(value.anchor.key)}:null});
   let indexPosition=position(saved.indexPosition);
   let persistTimer=0;
   if(saved.titles&&typeof saved.titles==='object') {
     for(const show of shows) {
-      const state=saved.titles[show.key];
+      const state=saved.titles[show.key]||saved.titles[show.key.replace(/@zh$/,'@cmn')];
       if(state&&typeof state==='object')titleStates.set(show.key,{query:typeof state.query==='string'?state.query.slice(0,300):'',season:typeof state.season==='string'?state.season:'all',...position(state)});
     }
   }
@@ -284,6 +284,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
   }
 
   function openDetail(key,history=true) {
+    key=canonicalShowKey(key);
     const show=shows.find(show=>show.key===key);
     if(!show)return;
     saveScroll();
@@ -298,7 +299,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
 
   function back() {
     saveScroll();
-    if(selected&&win?.location.hash==='#library'&&win.history.state?.detail===selected.key) {
+    if(selected&&win?.location.hash==='#library'&&canonicalShowKey(win.history.state?.detail)===selected.key) {
       win.history.back();
       return;
     }
@@ -397,7 +398,7 @@ export function createLibraryView(root,{catalogue,onPlay,onMovies,getContinueWat
         const row=button('',()=>play(video),'episode-row rwd-episode-row');
         row.setAttribute('aria-label',`Play ${video.title}`);
         const copy=el('span');
-        copy.append(el('strong',programmeTitle(video)),el('small',[video.seasonNumber&&`Season ${video.seasonNumber}`,video.yearLabel||video.year,video.formatLabel,video.provider==='archive'?'Internet Archive':video.sourceProvenance?'Fan / archive upload':''].filter(Boolean).join(' · ')));
+        copy.append(el('strong',programmeTitle(video)),el('small',[video.seasonNumber&&`Season ${video.seasonNumber}`,video.yearLabel||video.year,video.formatLabel,video.provider==='archive'?'Internet Archive':video.sourceType==='official'?'Publisher upload':video.sourceType==='archive'?'Fan / archive upload':''].filter(Boolean).join(' · ')));
         row.append(el('span',String(video.episodeNumber||show.episodes.indexOf(video)+1).padStart(2,'0'),'episode-number'),copy,el('span',length(video),'episode-duration'));
         item.append(row);
         const source=sourceLink(video,'episode-source');

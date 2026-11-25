@@ -3,12 +3,19 @@ export function isBrowsable(v){
  return v.enabled!==false&&v.kind!=='advert'&&v.embedStatus!=='restricted'&&v.embeddable!==false&&v.status?.embeddable!==false&&isRegionEligible(v);
 }
 export const normalise=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
-export function showIdentity(v){return v.kind==='film'?'film:'+v.id:'show:'+normalise(v.series||v.title)+(v.audioLanguage&&v.audioLanguage!=='en'?'@'+v.audioLanguage:'');}
+export const canonicalShowKey=key=>typeof key==='string'&&key.startsWith('show:')?key.replace(/@cmn$/,'@zh'):key;
+export function showIdentity(v){
+ // Retain the existing @zh Library/history keys for Mandarin while accepting
+ // the more precise cmn source code. Cantonese (yue) remains a separate edition.
+ const language=v.audioLanguage==='cmn'?'zh':v.audioLanguage;
+ return v.kind==='film'?'film:'+v.id:'show:'+normalise(v.series||v.title)+(language&&language!=='en'?'@'+language:'');
+}
 export function episodeOrder(v){
  if(Number.isFinite(v.episodeNumber))return (Number(v.seasonNumber)||1)*10000+v.episodeNumber;
  const title=v.title||'';let m=title.match(/\bS(\d+)\s*E(\d+)\b/i)||title.match(/\b(?:season|series)\s*(\d+).*?\b(?:episode|ep)\.?\s*(\d+)/i);
  if(m)return Number(m[1])*10000+Number(m[2]);
  m=title.match(/\b(?:episode|ep)\.?\s*(\d+)/i);if(m)return 10000+Number(m[1]);
+ m=title.match(/第\s*(\d+)\s*集/);if(m)return 10000+Number(m[1]);
  if(v.series==='Undergrads'){m=title.match(/\b(\d+):(\d+)\b/);if(m)return Number(m[1])*10000+Number(m[2]);}
  return Number.isInteger(v.seasonNumber)&&v.seasonNumber>0?v.seasonNumber*10000+9999:Infinity;
 }
@@ -58,7 +65,8 @@ export function pickProgramme(channels,{channelKey=null,current=null,previousId=
  let best=Infinity,pools=[];
  for(const channel of channels){
   if(channelKey&&channel.key!==channelKey)continue;
-  const eligible=[...new Map(channel.videos.filter(v=>isBrowsable(v)&&!failed.has(v.id)).map(v=>[v.id,v])).values()];
+  const reviewed=channel.programming?.type==='seasonal'?new Set(channel.programming.entries.map(entry=>entry.id)):null;
+  const eligible=[...new Map(channel.videos.filter(v=>(!reviewed||reviewed.has(v.id))&&isBrowsable(v)&&!failed.has(v.id)).map(v=>[v.id,v])).values()];
   const episodes=eligible.filter(v=>v.kind==='full episode'||v.kind==='full pilot');
   const singles=episodes.filter(v=>!/(?:\bcompilation\b|\bmarathon\b|\ball episodes\b|\bcomplete season\b)/i.test(v.title));
   const preferred=singles.length?singles:episodes.length?episodes:eligible;

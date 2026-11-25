@@ -24,10 +24,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify catalogue and playback data
-        run: node --test maintenance/*.test.mjs
       - name: Build compact playback library
         run: node maintenance/build-library.mjs
+      - name: Verify catalogue and playback data
+        run: node --test maintenance/*.test.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

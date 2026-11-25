@@ -1,5 +1,5 @@
 import {isLibraryCollection} from './library-meta.mjs?v=20261123polish';
-import {normalise} from './show-library.mjs?v=20261124archive';
+import {normalise} from './show-library.mjs?v=20261125world';
 
 export function browseTitles(shows,{query='',kind='all',letter='all',channel='all',language='all'}={}) {
   const q=normalise(query);

@@ -1,0 +1,101 @@
+Channel,Name,Status,Family,Christmas,06:00–09:00,09:00–12:00,12:00–15:00,15:00–18:00,18:00–20:00,20:00–23:00,23:00–02:00,02:00–06:00
+1,Channel One,existing,Main ten,False,British kids comedy,Family adventures,School-day favourites,British kids comedy,Family adventures,Big nostalgic favourites,School-day favourites,Big nostalgic favourites
+2,Cartoons,existing,Main ten,False,Comic cartoons,Animal adventures,Schoolyard stories,Comic cartoons,Animal adventures,Animated adventures,Schoolyard stories,Animated adventures
+3,Junior,existing,Main ten,False,Early learning,Story programmes,Make and play,Early learning,Story programmes,Gentle adventures,Make and play,Gentle adventures
+4,Sitcoms,existing,Main ten,False,Family sitcoms,Workplace comedy,British sitcoms,Family sitcoms,Workplace comedy,American sitcoms,British sitcoms,American sitcoms
+5,Toon Action,existing,Main ten,False,Hero teams,Robot adventures,Fantasy quests,Hero teams,Robot adventures,Action serials,Fantasy quests,Action serials
+6,Sci-Fi,existing,Main ten,False,Space adventures,Time and other worlds,Strange encounters,Space adventures,Time and other worlds,Cult science fiction,Strange encounters,Cult science fiction
+7,True Crime,existing,Main ten,False,Case histories,Forensic investigations,Long-form investigations,Case histories,Forensic investigations,Historical cases,Long-form investigations,Historical cases
+8,Crime Drama,existing,Main ten,False,Classic detectives,Police cases,Mystery serials,Classic detectives,Police cases,Crime thrillers,Mystery serials,Crime thrillers
+9,Real Life,existing,Main ten,False,Everyday lives,Work and communities,Human stories,Everyday lives,Work and communities,Observational documentaries,Human stories,Observational documentaries
+10,Classic YouTube,existing,Main ten,False,Web comedy,Creator adventures,Visual experiments,Web comedy,Creator adventures,Classic web series,Visual experiments,Classic web series
+11,Movies,existing,Film,False,Classic features,Comedy and adventure,Drama and mystery,Classic features,Comedy and adventure,Evening feature,Drama and mystery,Evening feature
+12,Specials,existing,Specials,False,Celebration episodes,Birthday and anniversary stories,One-off specials,Celebration episodes,Birthday and anniversary stories,Event programmes,One-off specials,Event programmes
+13,Halloween 24/7,existing,Specials,False,Friendly monsters,Spooky cartoons,Haunted adventures,Friendly monsters,Spooky cartoons,Family Halloween specials,Haunted adventures,Family Halloween specials
+14,Christmas TV,existing,Christmas,True,Christmas cartoons,Family festive episodes,Christmas comedy,Christmas cartoons,Family festive episodes,Christmas event programmes,Christmas comedy,Christmas event programmes
+15,Gameshows,existing,Entertainment,False,Classic quizzes,Word and picture games,Big-money quizzes,Classic quizzes,Word and picture games,Competitive finals,Big-money quizzes,Competitive finals
+16,Lost & Found,existing,Archive,False,Forgotten family TV,Short-lived cartoons,Lost British kids series,Forgotten family TV,Short-lived cartoons,Unusual cult television,Lost British kids series,Unusual cult television
+17,Horror Movies,existing,Film,False,Classic chills,Creature features,Supernatural horror,Classic chills,Creature features,Late-night horror,Supernatural horror,Late-night horror
+18,After Dark,existing,Comedy,False,Offbeat animation,Alternative comedy,Cult adult cartoons,Offbeat animation,Alternative comedy,Late-night oddities,Cult adult cartoons,Late-night oddities
+19,Music,existing,Music,False,Melodic electronic,Classic visualisers,Dance anthems,Melodic electronic,Classic visualisers,After-hours electronic,Dance anthems,After-hours electronic
+20,80s TV,existing,Eras,False,Eighties cartoons,Eighties family TV,Eighties comedy,Eighties cartoons,Eighties family TV,Eighties drama,Eighties comedy,Eighties drama
+21,90s TV,existing,Eras,False,Nineties cartoons,Nineties kids TV,Nineties comedy,Nineties cartoons,Nineties kids TV,Nineties drama,Nineties comedy,Nineties drama
+22,Español,existing,Languages,False,Animation in Spanish,Spanish-language family TV,Comedy in Spanish,Animation in Spanish,Spanish-language family TV,Spanish-language cinema,Comedy in Spanish,Spanish-language cinema
+23,中文 · Mandarin,existing,Languages,False,Animation in Mandarin,Mandarin family programmes,Mandarin drama,Animation in Mandarin,Mandarin family programmes,Mandarin cinema,Mandarin drama,Mandarin cinema
+24,Unfiltered,existing,Web,False,Early creator comedy,Group challenges,Visual web adventures,Early creator comedy,Group challenges,Unfiltered archive,Visual web adventures,Unfiltered archive
+25,Discovery Club,existing,Factual,False,Hands-on science,Nature discoveries,History and inventions,Hands-on science,Nature discoveries,Science adventures,History and inventions,Science adventures
+26,Kitchen TV,existing,Lifestyle,False,Everyday cooking,Baking,Classic cooks,Everyday cooking,Baking,Dinner programmes,Classic cooks,Dinner programmes
+27,Boomerang Classics,existing,Animation,False,Classic comic shorts,Animal cartoons,Adventure cartoons,Classic comic shorts,Animal cartoons,Vintage animation,Adventure cartoons,Vintage animation
+28,Cartoon Network Classics,existing,Animation,False,Comic cartoons,Strange worlds,Action animation,Comic cartoons,Strange worlds,Cartoon favourites,Action animation,Cartoon favourites
+29,Nickelodeon Classics,existing,Kids,False,Animated comedy,School and friendship,Live-action comedy,Animated comedy,School and friendship,Kids adventures,Live-action comedy,Kids adventures
+30,Disney Channel Classics,existing,Kids,False,Animated adventures,Teen comedy,Family sitcoms,Animated adventures,Teen comedy,After-school favourites,Family sitcoms,After-school favourites
+31,00s TV,existing,Eras,False,Noughties cartoons,Noughties kids TV,Noughties comedy,Noughties cartoons,Noughties kids TV,Noughties drama,Noughties comedy,Noughties drama
+32,After School UK,existing,Kids,False,British cartoons,School-life comedy,British kids adventures,British cartoons,School-life comedy,Family drama,British kids adventures,Family drama
+33,Power Rangers,existing,Kids,False,Original-era Rangers,Later teams,New generations,Original-era Rangers,Later teams,Rangers story runs,New generations,Rangers story runs
+34,Mandarin Cartoons,existing,Languages,False,Mandarin cartoon comedy,Animated adventures,Family animation,Mandarin cartoon comedy,Animated adventures,Longer animated stories,Family animation,Longer animated stories
+35,Spanish Cartoons,existing,Languages,False,Spanish cartoon comedy,Animated adventures,Family cartoons,Spanish cartoon comedy,Animated adventures,Longer animated stories,Family cartoons,Longer animated stories
+36,Mandarin Cinema,existing,Film,False,Family and community drama,Comedy features,Period cinema,Family and community drama,Comedy features,Evening feature films,Period cinema,Evening feature films
+37,Cine Español,existing,Film,False,Classic mysteries,Family adventures,Buddy comedy,Classic mysteries,Family adventures,Evening feature films,Buddy comedy,Evening feature films
+38,Sketchbook,proposed,Comedy,False,Character comedy,Sketch ensembles,Satire programmes,Character comedy,Sketch ensembles,Alternative sketches,Satire programmes,Alternative sketches
+39,Teen TV,proposed,Drama,False,School stories,Teen friendships,Coming-of-age comedy,School stories,Teen friendships,Teen drama,Coming-of-age comedy,Teen drama
+40,Family TV,proposed,Drama,False,Family comedy,Animal stories,Family adventures,Family comedy,Animal stories,Family drama,Family adventures,Family drama
+41,British Drama,proposed,Drama,False,Domestic drama,Period stories,Community drama,Domestic drama,Period stories,British serials,Community drama,British serials
+42,American Drama,proposed,Drama,False,Family drama,Workplace drama,Small-town stories,Family drama,Workplace drama,American serials,Small-town stories,American serials
+43,Mystery,proposed,Drama,False,Detective mysteries,Village mysteries,Unexplained fiction,Detective mysteries,Village mysteries,Mystery serials,Unexplained fiction,Mystery serials
+44,Action TV,proposed,Drama,False,Adventure teams,Rescue missions,Pursuit stories,Adventure teams,Rescue missions,Action serials,Pursuit stories,Action serials
+45,Fantasy TV,proposed,Drama,False,Magical adventures,Folklore stories,Family fantasy,Magical adventures,Folklore stories,Fantasy serials,Family fantasy,Fantasy serials
+46,Cult TV,proposed,Archive,False,Offbeat comedy,Strange dramas,Experimental television,Offbeat comedy,Strange dramas,Cult serials,Experimental television,Cult serials
+47,Space TV,proposed,Drama,False,Space crews,Interplanetary adventures,Alien encounters,Space crews,Interplanetary adventures,Space serials,Alien encounters,Space serials
+48,Dinosaur TV,proposed,Kids,False,Dinosaur cartoons,Prehistoric learning,Creature adventures,Dinosaur cartoons,Prehistoric learning,Dinosaur documentaries,Creature adventures,Dinosaur documentaries
+49,Saturday Morning,proposed,Kids,False,Breakfast cartoons,Magazine programmes,Comedy and games,Breakfast cartoons,Magazine programmes,Adventure cartoons,Comedy and games,Adventure cartoons
+50,Cartoon Oddities,proposed,Animation,False,Lost cartoons,Oddball comedy,Experimental shorts,Lost cartoons,Oddball comedy,Forgotten animated series,Experimental shorts,Forgotten animated series
+51,Anime Club,proposed,Animation,False,Comic adventures,Family anime,Science-fiction anime,Comic adventures,Family anime,Fantasy anime,Science-fiction anime,Fantasy anime
+52,Stop Motion,proposed,Animation,False,Puppet stories,Clay animation,Model worlds,Puppet stories,Clay animation,Stop-motion specials,Model worlds,Stop-motion specials
+53,Little Ones,proposed,Kids,False,Gentle learning,Songs and movement,Simple stories,Gentle learning,Songs and movement,Quiet adventures,Simple stories,Quiet adventures
+54,Storytime,proposed,Kids,False,Read-aloud programmes,Picture-book stories,Folktales,Read-aloud programmes,Picture-book stories,Book adaptations,Folktales,Book adaptations
+55,School Holidays,proposed,Kids,False,Holiday cartoons,Outdoor adventures,Family specials,Holiday cartoons,Outdoor adventures,Holiday adventures,Family specials,Holiday adventures
+56,Robot Club,proposed,Animation,False,Robot comedy,Mechanical heroes,Robot adventures,Robot comedy,Mechanical heroes,Robot team stories,Robot adventures,Robot team stories
+57,Kids Adventure,proposed,Kids,False,Explorer stories,Kids mysteries,Outdoor adventures,Explorer stories,Kids mysteries,Adventure serials,Outdoor adventures,Adventure serials
+58,Animal Club,proposed,Factual,False,Animal learning,Pet programmes,Wildlife families,Animal learning,Pet programmes,Animal documentaries,Wildlife families,Animal documentaries
+59,Science Lab,proposed,Factual,False,Kitchen science,Hands-on experiments,Science challenges,Kitchen science,Hands-on experiments,Science explained,Science challenges,Science explained
+60,How It Works,proposed,Factual,False,Everyday machines,How things are made,Engineering projects,Everyday machines,How things are made,Technology documentaries,Engineering projects,Technology documentaries
+61,Natural World,proposed,Factual,False,Habitats,Animal behaviour,Earth and oceans,Habitats,Animal behaviour,Wildlife features,Earth and oceans,Wildlife features
+62,History TV,proposed,Factual,False,Ancient worlds,Archaeology,Social history,Ancient worlds,Archaeology,Historical features,Social history,Historical features
+63,Space Lab,proposed,Factual,False,Solar-system learning,Mission science,Astronomy,Solar-system learning,Mission science,Spaceflight documentaries,Astronomy,Spaceflight documentaries
+64,Computer Club,proposed,Factual,False,Vintage computing,Software demonstrations,Early internet,Vintage computing,Software demonstrations,Computer history,Early internet,Computer history
+65,Art Room,proposed,Factual,False,Drawing,Painting,Artist workshops,Drawing,Painting,Art documentaries,Artist workshops,Art documentaries
+66,Make It,proposed,Lifestyle,False,Simple projects,Modelmaking,Craft workshops,Simple projects,Modelmaking,Maker programmes,Craft workshops,Maker programmes
+67,Travel TV,proposed,Lifestyle,False,City journeys,Coastal journeys,Road trips,City journeys,Coastal journeys,Travel documentaries,Road trips,Travel documentaries
+68,Great Britain,proposed,Lifestyle,False,British towns,Local traditions,British communities,British towns,Local traditions,British cultural documentaries,British communities,British cultural documentaries
+69,American Life,proposed,Lifestyle,False,American towns,Everyday America,Regional culture,American towns,Everyday America,American life documentaries,Regional culture,American life documentaries
+70,Reality TV,proposed,Lifestyle,False,Workplace reality,Social experiments,Reality competitions,Workplace reality,Social experiments,Observational series,Reality competitions,Observational series
+71,Home & Garden,proposed,Lifestyle,False,Garden projects,Home design,Restoration,Garden projects,Home design,Home transformations,Restoration,Home transformations
+72,Food Road Trip,proposed,Lifestyle,False,Market visits,Regional food,Food journeys,Market visits,Regional food,Food culture documentaries,Food journeys,Food culture documentaries
+73,Quiz Night,proposed,Entertainment,False,Knowledge quizzes,Team quizzes,Specialist quizzes,Knowledge quizzes,Team quizzes,Quiz finals,Specialist quizzes,Quiz finals
+74,Challenge TV,proposed,Entertainment,False,Studio challenges,Physical contests,Team competitions,Studio challenges,Physical contests,Challenge finals,Team competitions,Challenge finals
+75,Variety Club,proposed,Entertainment,False,Magic and variety,Performance showcases,Light entertainment,Magic and variety,Performance showcases,Variety specials,Light entertainment,Variety specials
+76,Stage & Screen,proposed,Entertainment,False,Performance documentaries,Stagecraft,Filmed theatre,Performance documentaries,Stagecraft,Performance specials,Filmed theatre,Performance specials
+77,Saturday Pictures,proposed,Film,False,Family features,Comic adventures,Family fantasy,Family features,Comic adventures,Family event films,Family fantasy,Family event films
+78,Action Movies,proposed,Film,False,Adventure features,Action features,Pursuit thrillers,Adventure features,Action features,Action double bills,Pursuit thrillers,Action double bills
+79,Sci-Fi Movies,proposed,Film,False,Classic science fiction,Space films,Speculative drama,Classic science fiction,Space films,Cult sci-fi features,Speculative drama,Cult sci-fi features
+80,Comedy Movies,proposed,Film,False,Classic comedy,Family comedy,Romantic comedy,Classic comedy,Family comedy,Evening comedy features,Romantic comedy,Evening comedy features
+81,Film Noir,proposed,Film,False,Classic crime features,Hard-boiled mysteries,Noir features,Classic crime features,Hard-boiled mysteries,Late-night noir,Noir features,Late-night noir
+82,Monster Movies,proposed,Film,False,Classic monsters,Giant creatures,Creature adventures,Classic monsters,Giant creatures,Monster double bills,Creature adventures,Monster double bills
+83,Cult Cinema,proposed,Film,False,Offbeat features,Independent cinema,Cult discoveries,Offbeat features,Independent cinema,Midnight features,Cult discoveries,Midnight features
+84,Silent Screen,proposed,Film,False,Silent comedy,Silent adventure,Silent drama,Silent comedy,Silent adventure,Silent feature presentations,Silent drama,Silent feature presentations
+85,Short Films,proposed,Film,False,Animated shorts,Comic shorts,Documentary shorts,Animated shorts,Comic shorts,Short drama programmes,Documentary shorts,Short drama programmes
+86,Français,proposed,Languages,False,Animation in French,French family TV,French comedy and drama,Animation in French,French family TV,French-language cinema,French comedy and drama,French-language cinema
+87,Music Video Vault,proposed,Music,False,Eighties videos,Nineties videos,Noughties videos,Eighties videos,Nineties videos,Music video themes,Noughties videos,Music video themes
+88,Dance TV,proposed,Music,False,Classic dance videos,Electronic performance,Club-era videos,Classic dance videos,Electronic performance,Dance sessions,Club-era videos,Dance sessions
+89,Live Sessions,proposed,Music,False,Acoustic sessions,Studio performances,Live sets,Acoustic sessions,Studio performances,Concert features,Live sets,Concert features
+90,Early Web,proposed,Web,False,Web sitcoms,Internet fiction,Web adventure series,Web sitcoms,Internet fiction,Complete web-story runs,Web adventure series,Complete web-story runs
+91,Stand-Up,proposed,Comedy,False,Observational comedy,Classic performers,Comedy showcases,Observational comedy,Classic performers,Full-length specials,Comedy showcases,Full-length specials
+92,Christmas Cartoons,proposed,Christmas,True,Christmas cartoon shorts,Festive animated adventures,Cartoon Christmas episodes,Christmas cartoon shorts,Festive animated adventures,Animated Christmas specials,Cartoon Christmas episodes,Animated Christmas specials
+93,Christmas After School,proposed,Christmas,True,Kids Christmas comedy,School Christmas stories,Festive family adventures,Kids Christmas comedy,School Christmas stories,Teen Christmas episodes,Festive family adventures,Teen Christmas episodes
+94,Christmas Comedy,proposed,Christmas,True,Family festive sitcoms,Workplace Christmas comedy,British Christmas sitcoms,Family festive sitcoms,Workplace Christmas comedy,Christmas comedy specials,British Christmas sitcoms,Christmas comedy specials
+95,Christmas Cinema,proposed,Christmas,True,Classic festive features,Family Christmas films,Christmas comedy films,Classic festive features,Family Christmas films,Evening festive features,Christmas comedy films,Evening festive features
+96,Christmas Kitchen,proposed,Christmas,True,Christmas baking,Festive preparation,Christmas cooking programmes,Christmas baking,Festive preparation,Celebration meals,Christmas cooking programmes,Celebration meals
+97,Christmas Music,proposed,Christmas,True,Christmas music videos,Festive studio sessions,Seasonal performances,Christmas music videos,Festive studio sessions,Christmas concerts,Seasonal performances,Christmas concerts
+98,Christmas Around the World,proposed,Christmas,True,World Christmas traditions,Festive family programmes,Seasonal travel,World Christmas traditions,Festive family programmes,International Christmas features,Seasonal travel,International Christmas features
+99,Christmas Archive,proposed,Christmas,True,Vintage festive television,Christmas history,Archive variety,Vintage festive television,Christmas history,Classic Christmas specials,Archive variety,Classic Christmas specials
+100,Midwinter Mysteries,proposed,Christmas,True,Winter folklore,Family winter mysteries,Seasonal supernatural drama,Winter folklore,Family winter mysteries,Christmas ghost stories,Seasonal supernatural drama,Christmas ghost stories

@@ -21,6 +21,19 @@ test('saved episode and clock survive a new history instance without persisting 
  assert.deepEqual(Object.keys(persisted.records[0]).sort(),['channelKey','duration','id','key','kind','origin','position','updatedAt']);
  assert.ok(!JSON.stringify(persisted).includes('https://'));assert.ok(!JSON.stringify(persisted).includes(video.title));
 });
+test('old Mandarin cmn and zh progress merges to the latest stop without losing a position or merging Cantonese',()=>{
+ const f=fixture(),one=f.episode('one','哪吒传奇',{audioLanguage:'cmn'}),two=f.episode('two','哪吒传奇',{audioLanguage:'zh'}),cantonese=f.episode('yue','哪吒传奇',{audioLanguage:'yue'});
+ const base={channelKey:'mandarin',duration:600,origin:'shows',kind:'programme'};
+ f.storage.setItem('rewind-watch-history-v1',JSON.stringify({version:1,records:[
+  {...base,key:'show:哪吒传奇@zh',id:'two',position:75,updatedAt:90000},
+  {...base,key:'show:哪吒传奇@cmn',id:'one',position:123.5,updatedAt:95000},
+  {...base,key:'show:哪吒传奇@yue',id:'yue',position:200,updatedAt:96000}
+ ]}));
+ const restored=createWatchHistory({storage:f.storage,now:()=>100000}),catalogue={channels:[f.channel('mandarin',[one,two,cantonese])]};
+ assert.deepEqual(restored.list(catalogue).map(item=>[item.video.id,item.position]),[['yue',200],['one',123.5]]);
+ assert.equal(restored.get(one).position,123.5);assert.equal(restored.get('show:哪吒传奇@cmn').key,'show:哪吒传奇@zh');
+ restored.remove('show:哪吒传奇@cmn');assert.deepEqual(restored.list(catalogue).map(item=>item.video.id),['yue']);
+});
 test('one latest episode per show is retained while language variants and individual films remain distinct',()=>{
  const f=fixture(),one=f.episode(),two=f.episode('ep2'),spanish=f.episode('es','Chad Vader',{audioLanguage:'es'}),film=f.episode('film1','',{kind:'film',title:'Charade'}),film2={...film,id:'film2',title:'Night of the Living Dead'};
  for(const video of [one,two,spanish,film,film2]){f.advance();f.history.save(video,{channelKey:'source',position:80});}

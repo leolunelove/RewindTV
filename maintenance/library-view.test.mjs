@@ -58,6 +58,14 @@ function episode(id,series,season,number) {
   return {id,title:`${series} — Science episode ${String(number).padStart(2,'0')}`,series,kind:'full episode',duration:1200,year:2001,seasonNumber:season,episodeNumber:number,watchUrl:`https://www.youtube.com/watch?v=${id}`,sourceType:'official',credit:'Original publisher'};
 }
 
+test('legacy Mandarin title links retain saved episode search and scroll after the language codes merge',async()=>{
+ const storage=new Map(),key='show:哪吒传奇@cmn';
+ storage.set('rewind-library-browse-v1',JSON.stringify({version:1,seed:'stable',titles:{[key]:{query:'02',season:'all',scroll:140}},indexPosition:{scroll:30}}));
+ const cat={channels:[{key:'world',name:'Mandarin',number:23,videos:[{...episode('one','哪吒传奇',1,1),audioLanguage:'cmn'},{...episode('two','哪吒传奇',1,2),audioLanguage:'zh'}]}]};
+ const f=await libraryFixture(cat,()=>{},storage);f.view.openDetail(key);
+ assert.equal(f.view.selected.key,'show:哪吒传奇@zh');assert.equal(byLabel(f.root,'Find an episode').value,'02');assert.equal(byClass(f.root,'episode-row').length,1);assert.equal(f.root.scrollTop,140);assert.equal(f.played.length,0);
+});
+
 test('browsing About shows real title information without starting playback or adding a popup',async()=>{
  const f=await libraryFixture({channels:[{key:'science',name:'Science',number:1,videos:[{...episode('nasa','NASA SCI Files',1,1),audioLanguageLabel:'English'}]}]});
  f.view.openDetail('show:nasa sci files');
@@ -369,7 +377,7 @@ test('main Shows and Films together expose playable source records from every re
   const programmes=browseTitles(index,{kind:'programmes'});
   const films=browseTitles(index,{kind:'film'});
   const reachable=new Set([...programmes,...films].flatMap(show=>show.episodes.map(video=>video.id)));
-  assert.equal(catalogue.channels.length,33);
+  assert(catalogue.channels.length>=33);assert.equal(new Set(catalogue.channels.map(c=>c.key)).size,catalogue.channels.length);
   for(const channel of catalogue.channels) {
     const playable=channel.videos.filter(isBrowsable);
     assert(playable.length>0,channel.name);
@@ -435,3 +443,14 @@ test('mixed existing and Archive episodes keep per-episode licence attribution v
  change(byLabel(f.root,'Audio language'),'No dialogue');assert.equal(byClass(f.root,'library-title').length,1);
  f.view.openDetail('show:big buck bunny');assert(byClass(f.root,'library-detail-meta')[0].textContent.includes('No dialogue'));assert(!byClass(f.root,'library-detail-meta')[0].textContent.includes('English'));assert.equal(f.played.length,0);
  });
+
+
+test('publisher provenance does not mislabel official programmes as fan archives',async()=>{
+  const videos=[{...episode('publisher','Source labels',1,1),sourceType:'official',sourceProvenance:'Official publisher upload'}, {...episode('fan','Source labels',1,2),sourceType:'archive',sourceProvenance:'Established fan archive'}, {...episode('unknown','Source labels',1,3),sourceType:undefined,sourceProvenance:'Unverified source description'}];
+  const f=await libraryFixture({channels:[{key:'sources',name:'Sources',number:1,videos}]});
+  f.view.openDetail('show:source labels');
+  const labels=byClass(f.root,'episode-row').map(row=>row.querySelector('small').textContent);
+  assert(labels[0].includes('Publisher upload'));assert(!labels[0].includes('Fan / archive'));
+  assert(labels[1].includes('Fan / archive upload'));
+  assert(!labels[2].includes('Publisher upload'));assert(!labels[2].includes('Fan / archive upload'));
+});

@@ -1,4 +1,4 @@
-import {programmeBackgrounds} from './programme-backgrounds.mjs?v=20261124about';
+import {programmeBackgrounds} from './programme-backgrounds.mjs?v=20261124about3';
 
 const text=value=>typeof value==='string'?value.trim():'';
 const unique=values=>[...new Set(values.filter(Boolean))];

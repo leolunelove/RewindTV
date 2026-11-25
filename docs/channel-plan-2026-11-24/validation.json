@@ -1,0 +1,24 @@
+{
+  "status": "staged-37-live-channels-and-100-channel-editorial-plan",
+  "sourceBase": "41189003d95c4d9ea941b575facf081bd61c183b",
+  "channelPlan": {
+    "channels": 100,
+    "existing": 37,
+    "proposed": 63,
+    "permanent": 90,
+    "christmas": 10,
+    "dayparts": 800,
+    "coverageMinutesPerChannel": 1440,
+    "timesAreEditorialWindowsNotEpisodeStartTimes": true,
+    "existingNumbersPreserved": true,
+    "liveScheduleChanges": "Christmas TV channel 14 now has a runtime-derived seasonal timetable; the other nine seasonal entries remain plans"
+  },
+  "aboutExpansion": {
+    "newTitleDescriptions": 22,
+    "unitTestsPassed": 455,
+    "sourceMediaChanges": false,
+    "newPlaybackTests": false,
+    "livePublished": false
+  },
+  "privateAppModified": false
+}

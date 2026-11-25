@@ -11,7 +11,7 @@ export const CHANNEL_SECTIONS = [
   {name:'Food & home',note:'Something good on the stove',keys:['kitchen-tv']},
   {name:'Discovery & learning',note:'Stay curious',keys:['discovery-club']},
   {name:'Through the decades',note:'Turn back the clock',keys:['eighties','nineties','noughties']},
-  {name:'World TV',note:'Another way to rewind',keys:['rewind-espanol','rewind-mandarin','rewind-francais']}
+  {name:'World TV',note:'Another way to rewind',keys:['rewind-espanol','rewind-mandarin','mandarin-cartoons','spanish-cartoons','mandarin-cinema','cine-espanol','rewind-francais']}
 ];
 export function sectionChannels(channels){
  const assigned=new Set();

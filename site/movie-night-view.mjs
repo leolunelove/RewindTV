@@ -1,9 +1,9 @@
-import {buildMovieLibrary,filterMovies,pickMovie,createMovieReel,filmIdentity,movieArtwork} from './movie-night.mjs?v=20261124archive';
+import {buildMovieLibrary,filterMovies,pickMovie,createMovieReel,filmIdentity,movieArtwork} from './movie-night.mjs?v=20261125world';
 import {createReelMotion} from './movie-reel-motion.mjs?v=reel1';
 import {createReelSound} from './movie-reel-sound.mjs?v=reel1';
 import {orderLibrary,createLibrarySeed} from './library-order.mjs?v=room1';
-import {createContinueWatching} from './continue-watching.mjs?v=20261122quality3';
-import {createProgrammeAbout,programmeLanguage} from './programme-about.mjs?v=20261124about';
+import {createContinueWatching} from './continue-watching.mjs?v=20261125world';
+import {createProgrammeAbout,programmeLanguage} from './programme-about.mjs?v=20261124about3';
 export function createMovieNight(root,{catalogue,onPlay,getAudioState=()=>({enabled:false}),onToggleSound=()=>{},onSoundSettings=()=>{},getContinueWatching=()=>[],onResume,onRemoveContinue}){
  const doc=root.ownerDocument,win=doc.defaultView,page=root.closest('[data-tv-page]'),shell=root.closest('#rewind-tv'),stateKey='rewind-film-browse-v1';let films=buildMovieLibrary(catalogue),saved={};
  try{const value=JSON.parse(win.localStorage.getItem(stateKey)||'{}');if(value&&typeof value==='object'&&!Array.isArray(value))saved=value;}catch{}

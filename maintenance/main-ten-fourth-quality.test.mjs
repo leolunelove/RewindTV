@@ -1,5 +1,8 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';import{createHash}from'node:crypto';
-import{SOURCE_FILES,withExpansion,withGameshowAdditions}from'../site/library.mjs';import{buildShowIndex,pickProgramme}from'../site/show-library.mjs';import{compactLibrary,hydrateLibrary}from'../site/runtime-library.mjs';
+import{SOURCE_FILES as CURRENT_SOURCE_FILES,withExpansion,withGameshowAdditions}from'../site/library.mjs';
+// Historical fixture; current additions have a separate combined-release test.
+const SOURCE_FILES=CURRENT_SOURCE_FILES.filter(file=>!['language-daytime-depth.json','christmas-programming.json'].includes(file));
+import{buildShowIndex,pickProgramme}from'../site/show-library.mjs';import{compactLibrary,hydrateLibrary}from'../site/runtime-library.mjs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../site/'+n,import.meta.url)));let catalogue=withGameshowAdditions(read('catalogue.json'),read('gameshow-additions.json'));for(const n of SOURCE_FILES.slice(2))catalogue=withExpansion(catalogue,read(n));
 const fixture=JSON.parse(fs.readFileSync(new URL('fixtures/main-ten-fourth-before-2026-11-22.json',import.meta.url))),evidence=JSON.parse(fs.readFileSync(new URL('../docs/main-ten-fourth-100-story-evidence-2026-11-22.json',import.meta.url)));
 const earlierIds=new Set([...JSON.parse(fs.readFileSync(new URL('../docs/main-ten-third-100-playback-2026-11-22.json',import.meta.url))).results.map(r=>r.id),...evidence.metadataUpdateIds]);
