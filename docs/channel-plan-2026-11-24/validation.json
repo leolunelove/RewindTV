@@ -1,5 +1,5 @@
 {
-  "status": "staged-37-live-channels-and-100-channel-editorial-plan",
+  "status": "published-editorial-plan; 37 real channels and 63 proposed",
   "sourceBase": "41189003d95c4d9ea941b575facf081bd61c183b",
   "channelPlan": {
     "channels": 100,
@@ -18,7 +18,8 @@
     "unitTestsPassed": 455,
     "sourceMediaChanges": false,
     "newPlaybackTests": false,
-    "livePublished": false
+    "livePublished": true
   },
-  "privateAppModified": false
+  "privateAppModified": false,
+  "publication": "https://github.com/leolunelove/RewindTV/pull/8"
 }

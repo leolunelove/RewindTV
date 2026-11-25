@@ -34,3 +34,5 @@ All descriptions are short original paraphrases. Sources establish programme bac
 ## Verification scope
 
 All 441 unit tests passed, including current catalogue title resolution, the continued absence of guessed language, distinct book/writing/production roles, and existing presentation-only playback boundaries. Physical iPhone/Safari and every newly described media source were not re-tested by these metadata-only changes. Publication requires the normal release review; no live publication is claimed by this document.
+
+Published with the 25 November language/Christmas release in [PR 8](https://github.com/leolunelove/RewindTV/pull/8). The combined suite passed 455 tests and desktop/mobile Chrome Library flows; see the [release report](language-and-christmas-2026-11-25.md). Earlier validation counts above describe the original preparation scope.

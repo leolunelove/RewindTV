@@ -1,6 +1,6 @@
 {
   "date": "2026-11-25",
-  "status": "455 unit tests passed; desktop and responsive Chrome app QA passed for recorded flows; post-deployment verification pending",
+  "status": "published; bounded source checks, desktop/mobile Chrome app flows and live playback verified",
   "sourceBase": "41189003d95c4d9ea941b575facf081bd61c183b",
   "newMandarinEpisodes": 62,
   "newSpanishEpisodes": 77,
@@ -5982,9 +5982,34 @@
       "Christmas Guide includes previous-day carry-over",
       "31 minutos episode 2*02 plays and saves progress on phone-size Chrome"
     ],
-    "pending": [
-      "AQF519M7xB0 repeatedly skipped on local HTTP app while passing fresh public HTTPS embedded probe; verify the production app origin before classifying the source failure"
-    ]
+    "pending": [],
+    "production": {
+      "origin": "https://tv.leolune.fun",
+      "observed": [
+        "31 minutos Vacaciones remains selected and playing at 20.749s / 2081.841s; local HTTP error does not reproduce",
+        "Back to browsing keeps Vacaciones playing at 36.574s",
+        "Journey sequel 2000 episode 1 plays at 82.786s / 2697.381s",
+        "Mandarin Cinema 1993 film plays at 137.827s / 5182.121s",
+        "Both phone-size shuffle previews leave the movie advancing 137.827 to 139.002s",
+        "This channel shuffle starts selected film 傻冒经理 at 14.799s / 5378.141s",
+        "Continue watching preserves Vacaciones at 0:55 after live TV and shuffle; resume advances to 78.102s",
+        "World TV filtered channel rows remain usable while Library clock advances to 164.535s"
+      ],
+      "physicalIPhoneSafari": false,
+      "networkCountry": "App settings report Gibraltar automatic; network egress not independently verified",
+      "screenshots": [
+        "live-spanish-library-mobile.jpg",
+        "live-world-tv-desktop.jpg"
+      ]
+    },
+    "originComparison": {
+      "id": "AQF519M7xB0",
+      "localHTTP": {
+        "error": 150,
+        "observedAt": "2026-11-25T00:22:58.037Z"
+      },
+      "publicHTTPS": "Diagnostic start/tail pass and actual production Library playback/resume pass; no worldwide failure inferred"
+    }
   },
   "focusedRepeatChecks": [
     {
@@ -6017,5 +6042,704 @@
       "origin": "https://tv.leolune.fun/health-probe.html",
       "country": "Network country not independently verified"
     }
-  ]
+  ],
+  "publication": {
+    "url": "https://tv.leolune.fun/",
+    "commit": "536c3fe3832ad7ce2c4c407c32f8aba554887211",
+    "pullRequest": "https://github.com/leolunelove/RewindTV/pull/8",
+    "pages": {
+      "url": "https://github.com/leolunelove/RewindTV/actions/runs/45518672959",
+      "result": "success after built-in artifact discovery retry",
+      "units": 455,
+      "assetsMatchPrepared": [
+        "app.js",
+        "language-daytime-depth.json",
+        "christmas-programming.json",
+        "runtime-library.json"
+      ]
+    }
+  },
+  "archiveReleaseRegression": {
+    "url": "https://github.com/leolunelove/RewindTV/actions/runs/45517441823",
+    "result": "success",
+    "units": 455,
+    "archiveSources": [
+      {
+        "id": "archive-joneses-002",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-001",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-003",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-004",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-005",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-006",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-007",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-008",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-009",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-010",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-011",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-012",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-013",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-014",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-015",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-016",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-017",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-018",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-019",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-020",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-021",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-022",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-023",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-024",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-025",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-026",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-027",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-028",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-029",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-030",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-031",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-032",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-033",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-034",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-035",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-036",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-037",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-038",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-039",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-041",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-040",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-042",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-043",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-044",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-045",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-046",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-047",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-048",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-049",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-050",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-051",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-052",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-053",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-054",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-055",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-056a",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-056b",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-058",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-057",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-059",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-060",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-061",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-062",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-063",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-064",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-065",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-066",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-067",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-068",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-069",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-070",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-071",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-072",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-073",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-074",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-075",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-076",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-077",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-078",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-079",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-080",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-081",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-082",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-083",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-084a",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-084b",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-085",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-086",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-087",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-088",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-089",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-090",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-091",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-joneses-092",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-BetterHealthFromSpaceToEarth",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode20",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheTechnicalKnockout",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-VirtualEarth",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-WhereverYouGoThereYouAre",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-WiredForSpace",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-MeasurementRatiosAndGraphingSafetyFirst",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-TeamExtremeTheStatisticsOfSuccess",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode6",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheGreatSpaceExploration",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-HiddenTreasuresLandscapeArcheology",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-PlaneWeather",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode18",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode4",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-FestivalOfFlight",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode17",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode9",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheBarkingDogs",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheRadicalRide",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode2",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheUnknownStink",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfThePowerfulPulleys",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-RecipesForTheFuture",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode11",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-WorldSpaceCongress",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheChallengingFlight",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-MirrorMirrorOnTheUniverse",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-AncientObservatoriesTimelessKnowledge",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaDestinationTomorrow-Episode10",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheMysteriousRedLight",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheWrightInvention",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-TheFutureOfFlightEquation",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-TheVenusTransit",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaConnect-ToolsOfTheAeronauticTrade",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheOceanOdyssey",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheBiologicalBiosphere",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheGalacticVacation",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-NasaSciFiles-TheCaseOfTheShakyQuake",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-Sintel",
+        "status": "passed",
+        "attempt": 1
+      },
+      {
+        "id": "archive-VisionOntv-NastyOldPeopleFeatureFilm625-3",
+        "status": "passed",
+        "attempt": 1
+      }
+    ],
+    "flows": [
+      "Desktop Chrome 1440x900",
+      "Responsive mobile Chrome 390x844 with touch emulation"
+    ],
+    "region": "GitHub-hosted runner network; country not independently verified",
+    "scope": "134 existing Archive Discovery sources, not the entire catalogue; frame sampling and start/tail playback, not full-runtime viewing"
+  }
 }
