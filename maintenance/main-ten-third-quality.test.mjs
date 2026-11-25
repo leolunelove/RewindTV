@@ -3,7 +3,10 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {createHash} from 'node:crypto';
-import {SOURCE_FILES,withExpansion,withGameshowAdditions} from '../site/library.mjs';
+import {SOURCE_FILES as CURRENT_SOURCE_FILES,withExpansion,withGameshowAdditions} from '../site/library.mjs';
+// Historical fixture; current additions have a separate combined-release test.
+const SOURCE_FILES=CURRENT_SOURCE_FILES.filter(file=>!['language-daytime-depth.json','christmas-programming.json'].includes(file));
+
 import {buildShowIndex,findProgramme,pickProgramme} from '../site/show-library.mjs';
 import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../site/'+n,import.meta.url)));

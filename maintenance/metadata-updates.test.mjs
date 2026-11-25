@@ -2,7 +2,10 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import {SOURCE_FILES,withExpansion,withGameshowAdditions} from '../site/library.mjs';
+import {SOURCE_FILES as CURRENT_SOURCE_FILES,withExpansion,withGameshowAdditions} from '../site/library.mjs';
+// Historical fixture; current additions have a separate combined-release test.
+const SOURCE_FILES=CURRENT_SOURCE_FILES.filter(file=>!['language-daytime-depth.json','christmas-programming.json'].includes(file));
+
 import {COUNTRY_CODES,catalogueForCountry,isRegionEligible} from '../site/region-eligibility.mjs';
 import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';
 
@@ -53,10 +56,21 @@ test('unknown IDs, duplicate updates and malformed containers reject before any 
 });
 
 test('identity, playback source, duration, enablement and schedule changes are prohibited',()=>{
- const protectedFields=['id','title','series','year','yearLabel','kind','duration','source','watchUrl','mediaUrl','provider','enabled','family','credit','uploader','sourceType','sourceAspectRatio','formatLabel','scheduleFromWeek','scheduleUntilWeek','coveredEpisodeNumbers'];
+ const protectedFields=['id','title','series','year','yearLabel','kind','duration','source','watchUrl','mediaUrl','provider','enabled','family','credit','uploader','sourceType','sourceAspectRatio','scheduleFromWeek','scheduleUntilWeek','coveredEpisodeNumbers'];
  for(const field of protectedFields)assert.throws(()=>withExpansion(fixture(),pack([{id:'shared',changes:{[field]:'changed'}}])),/Invalid metadata update/,field);
  const dangerous=JSON.parse('{"__proto__":{"enabled":true}}');
  assert.throws(()=>withExpansion(fixture(),pack([{id:'shared',changes:dangerous}])),/Invalid metadata update/);
+});
+
+test('reviewed collection labels can change without changing playback identity, duration or eligibility',()=>{
+ const source=fixture(),before=JSON.stringify(source);
+ const result=withExpansion(source,pack([{id:'shared',changes:{formatLabel:'Collection · four stories'}}]));
+ assert.equal(JSON.stringify(source),before);
+ const originals=references(source,'shared');
+ for(const [index,video] of references(result,'shared').entries()){
+  assert.equal(video.formatLabel,'Collection · four stories');assert.equal(video.duration,originals[index].duration);assert.equal(video.enabled,originals[index].enabled);assert.equal(video.id,'shared');
+ }
+ for(const formatLabel of ['',[],{},false])assert.throws(()=>withExpansion(source,pack([{id:'shared',changes:{formatLabel}}])));
 });
 
 test('metadata field values and country arrays reject malformed or unsupported declarations',()=>{

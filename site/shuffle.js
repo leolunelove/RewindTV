@@ -1,11 +1,13 @@
 (function(scope){'use strict';
-  function order(videos,recent={},random=Math.random){
+  function order(videos,recent={},random=Math.random,options={}){
     const unique=[...new Map(videos.filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
     const fresh=unique.filter(v=>!recent[v.id]),seen=unique.filter(v=>recent[v.id]);
     for(let i=fresh.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[fresh[i],fresh[j]]=[fresh[j],fresh[i]];}
     seen.sort((a,b)=>recent[a.id]-recent[b.id]);
     // Rotate show collections, so large series cannot swamp shorter ones.
     const pools=new Map();for(const v of fresh){const key=v.series||v.id;if(!pools.has(key))pools.set(key,[]);pools.get(key).push(v);}
+    const sequential=new Set(options.sequenceSeries||[]);
+    for(const [series,pool]of pools)if(sequential.has(series))pool.sort((a,b)=>(a.seasonNumber||1)-(b.seasonNumber||1)||(a.episodeNumber||0)-(b.episodeNumber||0));
     const mixed=[];let last='';
     while(pools.size){let keys=[...pools.keys()];for(let i=keys.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[keys[i],keys[j]]=[keys[j],keys[i]];}
       if(keys.length>1&&keys[0]===last)[keys[0],keys[1]]=[keys[1],keys[0]];
@@ -14,7 +16,7 @@
     return mixed.concat(seen);
   }
   function rows(videos,recent,now=Date.now(),random=Math.random,options={}){
-    let at=now,deck=[],lastAd=options.lastAd||'';const result=[],programmes=order(videos,recent,random),ads=(options.ads||[]).filter(v=>v.enabled!==false&&v.family&&v.kind==='advert');
+    let at=now,deck=[],lastAd=options.lastAd||'';const result=[],programmes=order(videos,recent,random,options),ads=(options.ads||[]).filter(v=>v.enabled!==false&&v.family&&v.kind==='advert');
     function append(video,advert=false){const start=at;at+=video.duration*1000;result.push({video,start,end:at,advert});}
     programmes.forEach((video,index)=>{append(video);if(video.kind==='full episode'&&index<programmes.length-1&&ads.length){if(!deck.length){deck=order(ads,{},random);if(deck.length>1&&deck[0].id===lastAd)[deck[0],deck[1]]=[deck[1],deck[0]];}const ad=deck.shift();append(ad,true);lastAd=ad.id;}});return result;
   }

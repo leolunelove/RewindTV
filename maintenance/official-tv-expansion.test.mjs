@@ -1,5 +1,8 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
-import {withExpansion,withGameshowAdditions,EXPANSION_PACKS} from '../site/library.mjs';
+import {withExpansion,withGameshowAdditions,EXPANSION_PACKS as CURRENT_EXPANSION_PACKS} from '../site/library.mjs';
+// Historical fixture; current additions have a separate combined-release test.
+const EXPANSION_PACKS=CURRENT_EXPANSION_PACKS.filter(file=>!['language-daytime-depth.json','christmas-programming.json'].includes(file));
+
 import {compactLibrary,hydrateLibrary} from '../site/runtime-library.mjs';
 import {buildShowIndex} from '../site/show-library.mjs';import {sectionChannels} from '../site/channel-sections.mjs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../site/'+n,import.meta.url))),name='official-tv-expansion.json',pack=read(name);

@@ -1,0 +1,2405 @@
+{
+  "version": 1,
+  "revision": "christmas-curated-day-2026-11-25",
+  "videos": [
+    {
+      "id": "NRvtOGLzpvE",
+      "title": "Pee-wee’s Playhouse Christmas Special",
+      "series": "Pee-wee’s Playhouse",
+      "kind": "full episode",
+      "duration": 2903,
+      "year": 1988,
+      "yearLabel": "1988",
+      "formatLabel": "Full Christmas special",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=NRvtOGLzpvE",
+      "credit": "Pee-wee Herman · publisher upload",
+      "uploader": "Pee-wee Herman",
+      "uploaderUrl": "https://www.youtube.com/channel/UCObTwGZQyMJKxaFy02Wp5CQ",
+      "uploadDate": "2023-11-23",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": []
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.youtube.com/channel/UCObTwGZQyMJKxaFy02Wp5CQ",
+        "https://www.peewee.com/2013/12/24/watch-it-free-pee-wees-playhouse-christmas-special/",
+        "https://peewee.com/2022/12/20/pee-wees-playhouse-christmas-special-debuted-on-tv-on-december-21-1988/"
+      ]
+    },
+    {
+      "id": "wmDH9x_YT-s",
+      "title": "Emmet Otter’s Jug-Band Christmas",
+      "series": "Emmet Otter’s Jug-Band Christmas",
+      "kind": "full episode",
+      "duration": 3175,
+      "year": 1977,
+      "yearLabel": "1977",
+      "formatLabel": "Full Christmas special",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=wmDH9x_YT-s",
+      "credit": "Shout! Studios · publisher upload",
+      "uploader": "Shout! Studios",
+      "uploaderUrl": "https://www.youtube.com/channel/UCpHaAKu74UHvcYCi2g_PvBQ",
+      "uploadDate": "2025-07-03",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": []
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.youtube.com/channel/UCpHaAKu74UHvcYCi2g_PvBQ",
+        "https://www.henson.com/1977/",
+        "https://www.henson.com/the-jim-henson-company-and-itheatrics-to-develop-musical-stage-version-of-emmet-otters-jug-band-christmas-collaboration-to-adapt-classic-holiday-favorite-to-musical-theater/"
+      ]
+    },
+    {
+      "id": "MWGpSecD99A",
+      "title": "Mary Christmas",
+      "series": "Mary Christmas",
+      "kind": "film",
+      "duration": 5351,
+      "year": 2002,
+      "yearLabel": "2002",
+      "formatLabel": "Full film",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=MWGpSecD99A",
+      "credit": "Shout! Studios · publisher upload",
+      "uploader": "Shout! Studios",
+      "uploaderUrl": "https://www.youtube.com/channel/UCpHaAKu74UHvcYCi2g_PvBQ",
+      "uploadDate": "2025-12-25",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": []
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.youtube.com/channel/UCpHaAKu74UHvcYCi2g_PvBQ",
+        "https://www.primevideo.com/detail/0T64N0QKHWK5WUIGU7V1WEL4E4"
+      ]
+    },
+    {
+      "id": "a0ZJIFEb3A0",
+      "title": "A Christmas Carol (1997)",
+      "series": "A Christmas Carol (1997)",
+      "kind": "film",
+      "duration": 4191,
+      "year": 1997,
+      "yearLabel": "1997",
+      "formatLabel": "Full film",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=a0ZJIFEb3A0",
+      "credit": "FREE MOVIES · publisher upload",
+      "uploader": "FREE MOVIES",
+      "uploaderUrl": "https://www.youtube.com/channel/UCX1nchEcBshItKBeJvH-YMw",
+      "uploadDate": "2018-02-05",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": []
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.youtube.com/channel/UCX1nchEcBshItKBeJvH-YMw",
+        "https://www.youtube.com/watch?v=a0ZJIFEb3A0",
+        "https://www.primevideo.com/-/it/detail/0NAZUYTGO6DFMIDSBHCGU6LAHC"
+      ]
+    },
+    {
+      "id": "s51ne_Pis-I",
+      "title": "Christopher the Christmas Tree",
+      "series": "Christopher the Christmas Tree",
+      "kind": "full episode",
+      "duration": 1389,
+      "year": 1993,
+      "yearLabel": "1993",
+      "formatLabel": "Full Christmas special",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=s51ne_Pis-I",
+      "credit": "Exploration Films · publisher upload",
+      "uploader": "Exploration Films",
+      "uploaderUrl": "https://www.youtube.com/channel/UC8QHP53g0hSaxJkjI-BV5fg",
+      "uploadDate": "2021-11-18",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": []
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.explorationfilms.com/christopher-the-christmas-tree-details.html",
+        "https://exploreflix.com/pages/christopher-the-christmas-tree",
+        "https://tubitv.com/movies/642212/christopher-the-christmas-tree"
+      ]
+    },
+    {
+      "id": "NPvyB-Gd4Lg",
+      "title": "The Christmas Wife",
+      "series": "The Christmas Wife",
+      "kind": "film",
+      "duration": 4379,
+      "year": 1988,
+      "yearLabel": "1988",
+      "formatLabel": "Full film",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=NPvyB-Gd4Lg",
+      "credit": "Chicken Soup for the Soul TV · publisher upload",
+      "uploader": "Chicken Soup for the Soul TV",
+      "uploaderUrl": "https://www.youtube.com/channel/UCofXdbFoiyYOHu-rVFmtjvQ",
+      "uploadDate": "2022-11-15",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": []
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.youtube.com/channel/UCofXdbFoiyYOHu-rVFmtjvQ",
+        "https://www.youtube.com/watch?v=NPvyB-Gd4Lg"
+      ]
+    },
+    {
+      "id": "mgRZERZ_mIk",
+      "title": "A Christmas Carol: The Musical",
+      "series": "A Christmas Carol: The Musical",
+      "kind": "film",
+      "duration": 5254,
+      "year": 2004,
+      "yearLabel": "2004",
+      "formatLabel": "Full film",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=mgRZERZ_mIk",
+      "credit": "Chicken Soup for the Soul TV · publisher upload",
+      "uploader": "Chicken Soup for the Soul TV",
+      "uploaderUrl": "https://www.youtube.com/channel/UCofXdbFoiyYOHu-rVFmtjvQ",
+      "uploadDate": "2022-12-12",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": [
+          "AR",
+          "BG",
+          "BO",
+          "BR",
+          "CA",
+          "CL",
+          "CO",
+          "CZ",
+          "EC",
+          "GB",
+          "GG",
+          "HU",
+          "IE",
+          "IM",
+          "JE",
+          "MX",
+          "PE",
+          "PL",
+          "PR",
+          "PY",
+          "RO",
+          "RU",
+          "SK",
+          "UA",
+          "US",
+          "UY",
+          "VE"
+        ]
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.youtube.com/channel/UCofXdbFoiyYOHu-rVFmtjvQ",
+        "https://www.youtube.com/watch?v=mgRZERZ_mIk",
+        "https://www.primevideo.com/detail/0MZG7XD2L6SXC3F9CXVMMVANKB?tr=us"
+      ]
+    },
+    {
+      "id": "3RAlqkthrZc",
+      "title": "The Angel of Pennsylvania Avenue",
+      "series": "The Angel of Pennsylvania Avenue",
+      "kind": "film",
+      "duration": 5571,
+      "year": 1996,
+      "yearLabel": "1996",
+      "formatLabel": "Full film",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=3RAlqkthrZc",
+      "credit": "Chicken Soup for the Soul TV · publisher upload",
+      "uploader": "Chicken Soup for the Soul TV",
+      "uploaderUrl": "https://www.youtube.com/channel/UCofXdbFoiyYOHu-rVFmtjvQ",
+      "uploadDate": "2022-12-03",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": [
+          "PR",
+          "US"
+        ]
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.youtube.com/channel/UCofXdbFoiyYOHu-rVFmtjvQ",
+        "https://www.youtube.com/watch?v=3RAlqkthrZc"
+      ]
+    },
+    {
+      "id": "V0LZGOdgvoU",
+      "title": "Mrs. Santa Claus",
+      "series": "Mrs. Santa Claus",
+      "kind": "film",
+      "duration": 5437,
+      "year": 1996,
+      "yearLabel": "1996",
+      "formatLabel": "Full film",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=V0LZGOdgvoU",
+      "credit": "Chicken Soup for the Soul TV · publisher upload",
+      "uploader": "Chicken Soup for the Soul TV",
+      "uploaderUrl": "https://www.youtube.com/channel/UCofXdbFoiyYOHu-rVFmtjvQ",
+      "uploadDate": "2022-11-08",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": [
+          "PR",
+          "US"
+        ]
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.youtube.com/channel/UCofXdbFoiyYOHu-rVFmtjvQ",
+        "https://www.youtube.com/watch?v=V0LZGOdgvoU",
+        "https://www.sky.com/watch/programme/e769044e-f322-4eda-8ffa-e1a8a6ff390d"
+      ]
+    },
+    {
+      "id": "NDYCTKIGy1E",
+      "title": "Noël Noël",
+      "series": "Noël Noël",
+      "kind": "full episode",
+      "duration": 1353,
+      "year": 2003,
+      "yearLabel": "2003",
+      "formatLabel": "Full Christmas special",
+      "enabled": true,
+      "family": true,
+      "provider": "youtube",
+      "watchUrl": "https://www.youtube.com/watch?v=NDYCTKIGy1E",
+      "credit": "NFB · publisher upload",
+      "uploader": "NFB",
+      "uploaderUrl": "https://www.youtube.com/channel/UCeihXBww7ckKsKDF3JX13gA",
+      "uploadDate": "2014-12-18",
+      "sourceType": "official",
+      "sourceProvenance": "Official publisher upload · English audio",
+      "embedStatus": "playing",
+      "embeddable": true,
+      "audioLanguage": "en",
+      "audioLanguageLabel": "English",
+      "regionRestriction": {
+        "blocked": []
+      },
+      "playbackCheck": {
+        "start": true,
+        "nearEnd": true,
+        "checkedAt": "2026-11-24T22:20:10.954Z",
+        "region": "Local Chrome network; egress country not independently verified",
+        "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+        "origin": "https://tv.leolune.fun/health-probe.html"
+      },
+      "sourceEvidence": [
+        "https://www.nfb.ca/film/noel_noel1/",
+        "https://www.youtube.com/channel/UCeihXBww7ckKsKDF3JX13gA",
+        "https://www.youtube.com/watch?v=NDYCTKIGy1E",
+        "https://blog.nfb.ca/blog/2013/02/26/celebrities-nfb-films-part-2/"
+      ]
+    }
+  ],
+  "channels": [],
+  "assignments": {
+    "christmas-tv": [
+      "2BJFUZO0Lzo",
+      "ofUw-A0zcAM",
+      "-94MTG7kh9M",
+      "RqllcCkkwdo",
+      "e77bOx8m9SU",
+      "_acuN43PMs4",
+      "1V2Aei4282g",
+      "xJVDbPa6NoQ",
+      "U5sVPj1H6eo",
+      "Dt9UPRzRCAY",
+      "NRvtOGLzpvE",
+      "wmDH9x_YT-s",
+      "MWGpSecD99A",
+      "a0ZJIFEb3A0",
+      "s51ne_Pis-I",
+      "NPvyB-Gd4Lg",
+      "mgRZERZ_mIk",
+      "3RAlqkthrZc",
+      "V0LZGOdgvoU",
+      "NDYCTKIGy1E"
+    ]
+  },
+  "channelProgramming": [
+    {
+      "channelKey": "christmas-tv",
+      "type": "seasonal",
+      "entries": [
+        {
+          "id": "L2UCRNldC3s",
+          "stories": [
+            "christmas:L2UCRNldC3s"
+          ],
+          "slots": [
+            "evening",
+            "late"
+          ]
+        },
+        {
+          "id": "a3Bhkw9zTDc",
+          "stories": [
+            "christmas:a3Bhkw9zTDc"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "2gPe-6En5Gg",
+          "stories": [
+            "christmas:2gPe-6En5Gg"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "_2kQh3dZmk8",
+          "stories": [
+            "christmas:_2kQh3dZmk8"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "lLuZXsLSpIU",
+          "stories": [
+            "christmas:lLuZXsLSpIU"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "epvh74Dc3hE",
+          "stories": [
+            "christmas:epvh74Dc3hE"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "eZnXSuSxCpI",
+          "stories": [
+            "christmas:eZnXSuSxCpI"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "yKGSTYSrgYA",
+          "stories": [
+            "christmas:yKGSTYSrgYA"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "dty0d37IwFA",
+          "stories": [
+            "christmas:dty0d37IwFA"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "jcyAd9dphE4",
+          "stories": [
+            "christmas:jcyAd9dphE4"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "ErqTowlNDtI",
+          "stories": [
+            "christmas:ErqTowlNDtI"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "K11Ie81myMQ",
+          "stories": [
+            "christmas:K11Ie81myMQ"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "tuNXat5V-_w",
+          "stories": [
+            "christmas:tuNXat5V-_w"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "8rGpKNRrQ14",
+          "stories": [
+            "christmas:8rGpKNRrQ14"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "HIFvsM7anmE",
+          "stories": [
+            "olie:starry-starry-night",
+            "olie:snowie",
+            "olie:jingle-jangle-eve"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "XzRGLDiVrqM",
+          "stories": [
+            "christmas:XzRGLDiVrqM"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "iDYXVPVvcFY",
+          "stories": [
+            "christmas:iDYXVPVvcFY"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "XLrfTxJpM1Q",
+          "stories": [
+            "christmas:XLrfTxJpM1Q"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "TbL-uxd4ZVw",
+          "stories": [
+            "christmas:TbL-uxd4ZVw"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "UuTd7mXRAs8",
+          "stories": [
+            "christmas:UuTd7mXRAs8"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "MnhmndSuNzI",
+          "stories": [
+            "christmas:MnhmndSuNzI"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "DJxvvfjXRu8",
+          "stories": [
+            "christmas:DJxvvfjXRu8"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "eW2Dfq1t3jg",
+          "stories": [
+            "christmas:eW2Dfq1t3jg"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "JLhyl0IBiuo",
+          "stories": [
+            "christmas:JLhyl0IBiuo"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "UXMYA2AAaA8",
+          "stories": [
+            "caillou:caroling",
+            "caillou:playschool-party",
+            "caillou:christmas-eve"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "yw_ELZJgZUE",
+          "stories": [
+            "maisy:christmas-cards",
+            "maisy:tallulah-visit",
+            "maisy:christmas-eve",
+            "maisy:christmas-tree"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "H5TDJbvBXaA",
+          "stories": [
+            "christmas:H5TDJbvBXaA"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "6QAyrbcI4k8",
+          "stories": [
+            "christmas:6QAyrbcI4k8"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "rQK7HFxon8M",
+          "stories": [
+            "christmas:rQK7HFxon8M"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "h2stQfTepbE",
+          "stories": [
+            "christmas:h2stQfTepbE"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "pn4UHlZ-mR0",
+          "stories": [
+            "christmas:pn4UHlZ-mR0"
+          ],
+          "slots": [
+            "evening",
+            "late"
+          ]
+        },
+        {
+          "id": "cghPiXQr434",
+          "stories": [
+            "christmas:cghPiXQr434"
+          ],
+          "slots": [
+            "evening",
+            "late"
+          ]
+        },
+        {
+          "id": "PsUkWqyiJRA",
+          "stories": [
+            "christmas:PsUkWqyiJRA"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "2BJFUZO0Lzo",
+          "stories": [
+            "christmas:2BJFUZO0Lzo"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "ofUw-A0zcAM",
+          "stories": [
+            "christmas:ofUw-A0zcAM"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "-94MTG7kh9M",
+          "stories": [
+            "christmas:-94MTG7kh9M"
+          ],
+          "slots": [
+            "morning",
+            "daytime"
+          ]
+        },
+        {
+          "id": "RqllcCkkwdo",
+          "stories": [
+            "christmas:RqllcCkkwdo"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "e77bOx8m9SU",
+          "stories": [
+            "christmas:e77bOx8m9SU"
+          ],
+          "slots": [
+            "evening",
+            "late"
+          ]
+        },
+        {
+          "id": "_acuN43PMs4",
+          "stories": [
+            "christmas:_acuN43PMs4"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "1V2Aei4282g",
+          "stories": [
+            "christmas:1V2Aei4282g"
+          ],
+          "slots": [
+            "evening",
+            "late"
+          ]
+        },
+        {
+          "id": "xJVDbPa6NoQ",
+          "stories": [
+            "christmas:xJVDbPa6NoQ"
+          ],
+          "slots": [
+            "evening",
+            "late"
+          ]
+        },
+        {
+          "id": "U5sVPj1H6eo",
+          "stories": [
+            "christmas:U5sVPj1H6eo"
+          ],
+          "slots": [
+            "late"
+          ]
+        },
+        {
+          "id": "Dt9UPRzRCAY",
+          "stories": [
+            "christmas:Dt9UPRzRCAY"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "NRvtOGLzpvE",
+          "stories": [
+            "christmas:NRvtOGLzpvE"
+          ],
+          "slots": [
+            "evening",
+            "late"
+          ]
+        },
+        {
+          "id": "wmDH9x_YT-s",
+          "stories": [
+            "christmas:wmDH9x_YT-s"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "MWGpSecD99A",
+          "stories": [
+            "christmas:MWGpSecD99A"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "a0ZJIFEb3A0",
+          "stories": [
+            "christmas:a0ZJIFEb3A0"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "s51ne_Pis-I",
+          "stories": [
+            "christmas:s51ne_Pis-I"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        },
+        {
+          "id": "NPvyB-Gd4Lg",
+          "stories": [
+            "christmas:NPvyB-Gd4Lg"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "mgRZERZ_mIk",
+          "stories": [
+            "christmas:mgRZERZ_mIk"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "3RAlqkthrZc",
+          "stories": [
+            "christmas:3RAlqkthrZc"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "V0LZGOdgvoU",
+          "stories": [
+            "christmas:V0LZGOdgvoU"
+          ],
+          "slots": [
+            "feature",
+            "late"
+          ]
+        },
+        {
+          "id": "NDYCTKIGy1E",
+          "stories": [
+            "christmas:NDYCTKIGy1E"
+          ],
+          "slots": [
+            "daytime",
+            "afternoon"
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "id": "L2UCRNldC3s",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:07.108419+00:00",
+        "uploadDate": "2010-09-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AT",
+            "CH",
+            "DE",
+            "GB",
+            "IE",
+            "LI",
+            "RU",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 241,
+          "checkedAt": "2026-11-24T20:18:07.108419+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "a3Bhkw9zTDc",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:08.526816+00:00",
+        "uploadDate": "2023-03-06",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "CA"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-24T20:18:08.526816+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "2gPe-6En5Gg",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:09.703426+00:00",
+        "uploadDate": "2022-02-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:09.703426+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "_2kQh3dZmk8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:10.948603+00:00",
+        "uploadDate": "2018-08-21",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:10.948603+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "lLuZXsLSpIU",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:12.107756+00:00",
+        "uploadDate": "2021-12-25",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:12.107756+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "epvh74Dc3hE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:13.255120+00:00",
+        "uploadDate": "2013-04-18",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AS",
+            "CN",
+            "GB",
+            "IE",
+            "IM",
+            "JE",
+            "MO",
+            "PR",
+            "VI"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 240,
+          "checkedAt": "2026-11-24T20:18:13.255120+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "eZnXSuSxCpI",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:14.478486+00:00",
+        "uploadDate": "2018-12-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:14.478486+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "yKGSTYSrgYA",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:15.528435+00:00",
+        "uploadDate": "2017-03-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:15.528435+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "dty0d37IwFA",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:16.675967+00:00",
+        "uploadDate": "2018-12-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:16.675967+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "jcyAd9dphE4",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:17.815651+00:00",
+        "uploadDate": "2022-12-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:17.815651+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "ErqTowlNDtI",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:19.049197+00:00",
+        "uploadDate": "2024-11-09",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:19.049197+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "K11Ie81myMQ",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:20.137646+00:00",
+        "uploadDate": "2020-12-24",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:20.137646+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "tuNXat5V-_w",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:21.344384+00:00",
+        "uploadDate": "2019-06-28",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:21.344384+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "8rGpKNRrQ14",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:22.519970+00:00",
+        "uploadDate": "2017-02-21",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:22.519970+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "HIFvsM7anmE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:23.709834+00:00",
+        "uploadDate": "2017-12-17",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:23.709834+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "XzRGLDiVrqM",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:25.016454+00:00",
+        "uploadDate": "2014-02-20",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AD",
+            "AO",
+            "BE",
+            "BF",
+            "BI",
+            "BJ",
+            "BW",
+            "CF",
+            "CH",
+            "CI",
+            "CM",
+            "CV",
+            "DJ",
+            "DZ",
+            "ER",
+            "ET",
+            "FR",
+            "GA",
+            "GH",
+            "GQ",
+            "GW",
+            "KE",
+            "KM",
+            "LR",
+            "LU",
+            "MA",
+            "MC",
+            "MG",
+            "ML",
+            "MR",
+            "MU",
+            "MW",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "RW",
+            "SC",
+            "SD",
+            "SL",
+            "SN",
+            "SO",
+            "SZ",
+            "TD",
+            "TG",
+            "TN",
+            "TZ",
+            "UG",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 199,
+          "checkedAt": "2026-11-24T20:18:25.016454+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "iDYXVPVvcFY",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:27.341262+00:00",
+        "uploadDate": "2015-12-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:27.341262+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "XLrfTxJpM1Q",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:28.737101+00:00",
+        "uploadDate": "2021-12-16",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:28.737101+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "TbL-uxd4ZVw",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:29.959183+00:00",
+        "uploadDate": "2019-11-28",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AD",
+            "AF",
+            "BD",
+            "BT",
+            "CN",
+            "ES",
+            "IN",
+            "LK",
+            "MV",
+            "NP",
+            "PK",
+            "PT"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 237,
+          "checkedAt": "2026-11-24T20:18:29.959183+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "UuTd7mXRAs8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:31.174048+00:00",
+        "uploadDate": "2019-04-06",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:31.174048+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "MnhmndSuNzI",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:32.307153+00:00",
+        "uploadDate": "2025-09-09",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:32.307153+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "DJxvvfjXRu8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:33.450312+00:00",
+        "uploadDate": "2018-12-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:33.450312+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "eW2Dfq1t3jg",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:34.649709+00:00",
+        "uploadDate": "2020-01-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "CN",
+            "CU",
+            "FI",
+            "FO",
+            "IR",
+            "KP",
+            "KR",
+            "SD",
+            "SY"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 240,
+          "checkedAt": "2026-11-24T20:18:34.649709+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "JLhyl0IBiuo",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:37.357903+00:00",
+        "uploadDate": "2018-12-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:37.357903+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "UXMYA2AAaA8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:46.062888+00:00",
+        "uploadDate": "2018-04-20",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:46.062888+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "yw_ELZJgZUE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:51.536200+00:00",
+        "uploadDate": "2018-12-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:51.536200+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        },
+        "formatLabel": "Collection · four stories"
+      }
+    },
+    {
+      "id": "H5TDJbvBXaA",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:54.186512+00:00",
+        "uploadDate": "2019-12-25",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:54.186512+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "6QAyrbcI4k8",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:55.459967+00:00",
+        "uploadDate": "2019-12-26",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:55.459967+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "rQK7HFxon8M",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:56.592475+00:00",
+        "uploadDate": "2019-12-17",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:56.592475+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "h2stQfTepbE",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:57.648047+00:00",
+        "uploadDate": "2016-05-29",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:57.648047+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "pn4UHlZ-mR0",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:18:58.792795+00:00",
+        "uploadDate": "2021-12-07",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:18:58.792795+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "cghPiXQr434",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:00.019674+00:00",
+        "uploadDate": "2021-12-01",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:00.019674+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "PsUkWqyiJRA",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:01.227382+00:00",
+        "uploadDate": "2018-02-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:01.227382+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "2BJFUZO0Lzo",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:02.465721+00:00",
+        "uploadDate": "2024-12-14",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "SE"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 248,
+          "checkedAt": "2026-11-24T20:19:02.465721+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "ofUw-A0zcAM",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:03.591026+00:00",
+        "uploadDate": "2019-08-12",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:03.591026+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "-94MTG7kh9M",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:04.737994+00:00",
+        "uploadDate": "2018-02-08",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:04.737994+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "RqllcCkkwdo",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:05.815454+00:00",
+        "uploadDate": "2017-10-23",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AF",
+            "AU",
+            "AZ",
+            "BD",
+            "BN",
+            "BT",
+            "CN",
+            "HK",
+            "ID",
+            "IN",
+            "JP",
+            "KG",
+            "KH",
+            "KP",
+            "KR",
+            "KZ",
+            "LA",
+            "LK",
+            "MM",
+            "MN",
+            "MY",
+            "NP",
+            "NZ",
+            "PH",
+            "PK",
+            "SG",
+            "TH",
+            "TJ",
+            "TM",
+            "TW",
+            "UZ",
+            "VN"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 217,
+          "checkedAt": "2026-11-24T20:19:05.815454+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "e77bOx8m9SU",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:06.974148+00:00",
+        "uploadDate": "2018-06-13",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:06.974148+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "_acuN43PMs4",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:08.179493+00:00",
+        "uploadDate": "2019-05-04",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:08.179493+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "1V2Aei4282g",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:17.116888+00:00",
+        "uploadDate": "2021-12-26",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:17.116888+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "xJVDbPa6NoQ",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:18.296847+00:00",
+        "uploadDate": "2017-01-19",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:18.296847+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "U5sVPj1H6eo",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:19.313220+00:00",
+        "uploadDate": "2021-02-28",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": [
+            "AL",
+            "AM",
+            "AZ",
+            "BA",
+            "BE",
+            "BG",
+            "BY",
+            "CZ",
+            "DK",
+            "EE",
+            "FI",
+            "GE",
+            "GL",
+            "HR",
+            "HU",
+            "IS",
+            "KG",
+            "KZ",
+            "LT",
+            "LV",
+            "MD",
+            "ME",
+            "MK",
+            "NL",
+            "NO",
+            "PL",
+            "RO",
+            "RS",
+            "RU",
+            "SE",
+            "SI",
+            "SK",
+            "TJ",
+            "TM",
+            "UA",
+            "UZ"
+          ]
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 213,
+          "checkedAt": "2026-11-24T20:19:19.313220+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "Dt9UPRzRCAY",
+      "changes": {
+        "metadataStatus": "OK",
+        "metadataCheckedAt": "2026-11-24T20:19:21.747625+00:00",
+        "uploadDate": "2016-12-05",
+        "embeddable": true,
+        "embedStatus": "playing",
+        "regionRestriction": {
+          "blocked": []
+        },
+        "availabilityEvidence": {
+          "availableCountryCount": 249,
+          "checkedAt": "2026-11-24T20:19:21.747625+00:00",
+          "method": "Primary watch metadata availableCountries; one-network actual embed samples recorded separately",
+          "worldwidePlaybackVerified": false
+        },
+        "playbackCheck": {
+          "start": true,
+          "nearEnd": true,
+          "checkedAt": "2026-11-24T20:22:10.074Z",
+          "region": "Local Chrome network; egress country not independently verified",
+          "method": "Actual muted IFrame API start and near-end samples; checkedAt is batch observation endpoint, exact batch window in source report; not whole-runtime certification",
+          "origin": "https://tv.leolune.fun/health-probe.html"
+        }
+      }
+    },
+    {
+      "id": "u1etP-7ebhM",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "cGSGyB3rFqs",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "pvAvIbZZ7Lw",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "8soP6mWc8NE",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "vd1Y8iL0Gy4",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "fvyYKRsaZzE",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "JYsFbPe4K0A",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "ss4s-Ig_f3U",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "oGV_aISL7Ss",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "3sfMl3xpRLY",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    },
+    {
+      "id": "ZUOLu4Gf8zs",
+      "changes": {
+        "formatLabel": "Collection · held from curated Christmas schedule"
+      }
+    }
+  ],
+  "notes": "Curated complete programmes only. Existing ambiguous/overlapping collections retained in catalogue and Library, omitted from new seasonal timetable. First ten fixed timelines unchanged."
+}

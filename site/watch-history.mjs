@@ -1,10 +1,10 @@
-import {isBrowsable,showIdentity,browseChannels} from './show-library.mjs?v=20261124archive';
+import {isBrowsable,showIdentity,browseChannels,canonicalShowKey} from './show-library.mjs?v=20261125world';
 
 const STORAGE_KEY='rewind-watch-history-v1',LIMIT=12,MIN_POSITION=10,MAX_DURATION=7*86400;
 const cleanString=(value,max)=>typeof value==='string'&&value.length>0&&value.length<=max&&!/[\u0000-\u001f\u007f]/.test(value)?value:null;
 const validDuration=value=>Number.isFinite(value)&&value>MIN_POSITION&&value<=MAX_DURATION;
 const finished=(position,duration)=>position>=duration-Math.min(30,duration*.05);
-const keyFor=value=>typeof value==='string'?value:value&&typeof value==='object'?showIdentity(value):null;
+const keyFor=value=>typeof value==='string'?canonicalShowKey(value):value&&typeof value==='object'?showIdentity(value):null;
 
 // Local-only progress. Persist identities and clocks; resolve display data from the catalogue.
 export function createWatchHistory({storage,now=Date.now}={}){
@@ -12,7 +12,7 @@ export function createWatchHistory({storage,now=Date.now}={}){
  const clock=()=>{const value=now();return Number.isFinite(value)&&value>=0?value:Date.now();};
  function sanitize(value){
   if(!value||typeof value!=='object'||Array.isArray(value))return null;
-  const key=cleanString(value.key,400),id=cleanString(value.id,200),channelKey=cleanString(value.channelKey,160);
+  const key=canonicalShowKey(cleanString(value.key,400)),id=cleanString(value.id,200),channelKey=cleanString(value.channelKey,160);
   if(!key||!(/^(show|film):.+/.test(key))||!id||!channelKey||!['film','programme'].includes(value.kind)||
    !validDuration(value.duration)||!Number.isFinite(value.position)||value.position<MIN_POSITION||
    finished(value.position,value.duration)||!Number.isFinite(value.updatedAt)||value.updatedAt<0||value.updatedAt>clock()+300000)return null;

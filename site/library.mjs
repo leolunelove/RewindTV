@@ -1,7 +1,8 @@
+import {applyChannelProgramming} from './channel-programming.mjs?v=20261125world';
 export const KIDS_PACKS=["kids-cbbc.json", "kids-disney.json", "kids-nick.json", "kids-toons.json"];
 export const CREATOR_PACKS=["classic-gmm.json", "classic-rhett.json", "afterdark-frank.json", "afterdark-idubbbz.json", "more-tv-films.json"];
 export const MUSIC_PACKS=["music-surf.json", "music-proximity.json", "music-sheep.json", "music-ncs.json"];
-export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','quality-pass.json','archive-library.json','archive-discovery.json','maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','main-ten-checks-3.json','library-health.json'];
+export const EXPANSION_PACKS=['expansion.json','music-creators.json',...MUSIC_PACKS,...CREATOR_PACKS,...KIDS_PACKS,'lineup-expansion.json','unfiltered.json','discovery-club.json','kitchen-tv.json','november-library.json','late-night-library.json','archive-tv.json','archive-networks.json','vault-curation.json','station-depth.json','decade-and-after-school.json','official-tv-expansion.json','power-rangers-followup.json','power-rangers-depth.json','power-rangers-regional.json','quality-pass.json','archive-library.json','archive-discovery.json','maintenance-growth.json','maintenance-checks.json','main-ten-checks-2.json','main-ten-checks-3.json','language-daytime-depth.json','christmas-programming.json','library-health.json'];
 export const SOURCE_FILES=['catalogue.json','gameshow-additions.json',...EXPANSION_PACKS];
 export {catalogueForCountry};
 const QUIZ_SERIES=new Set(['Catchphrase','Family Fortunes','The Weakest Link','Who Wants to Be a Millionaire']);
@@ -15,6 +16,7 @@ function metadataRecord(value,fields){
  return recordValue(value)&&Object.keys(value).length>0&&Object.entries(value).every(([key,item])=>Object.hasOwn(fields,key)&&fields[key](item));
 }
 const METADATA_FIELDS={
+ formatLabel:textValue,
  checkedAt:timestampValue,
  metadataStatus:value=>value==='OK',
  metadataCheckedAt:timestampValue,
@@ -128,6 +130,7 @@ export function withExpansion(base,pack){
    for(const id of ids){const v=known.get(id);if(!v||liveIds.has(id)||libraryIds.has(id))throw Error('Duplicate or unknown Library programme');libraryIds.add(id);libraryVideos.push({...v,channelKey:key,libraryOnly:true});}
   }
  }
+ channels=applyChannelProgramming(channels,pack.channelProgramming);
  if(channels.some(c=>!c.videos.length))throw Error('Empty expansion channel');
  const unique=[...new Map([...channels.flatMap(c=>c.videos),...libraryVideos].filter(v=>v.enabled!==false).map(v=>[v.id,v])).values()];
  return {...base,...(libraryVideos.length?{libraryVideos}:{}),...(base.adverts?{adverts:base.adverts.map(permitted)}:{}),channels,libraryRevision:base.libraryRevision+'+'+pack.revision,libraryStats:{...base.libraryStats,channels:channels.length,playbackChecksPassedThisUpdate:pack.videos.filter(v=>v.playbackCheck?.start&&v.playbackCheck?.nearEnd).length,uploads:unique.length,hours:Math.round(unique.reduce((n,v)=>n+v.duration,0)/360)/10,fullLengthUploads:unique.filter(v=>v.duration>=600).length}};

@@ -1,5 +1,5 @@
-import {buildShowIndex} from './show-library.mjs?v=20261124archive';
-import {buildMovieLibrary} from './movie-night.mjs?v=20261124archive';
+import {buildShowIndex} from './show-library.mjs?v=20261125world';
+import {buildMovieLibrary} from './movie-night.mjs?v=20261125world';
 import {programmeTitle} from './programme-info.mjs?v=20261124archive';
 
 export function createHomeView(host,{catalogue,getNow,onLive,onShows,onFilms,onGuide,onReturn,onSettings,onMute}){
